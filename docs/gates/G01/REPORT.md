@@ -116,3 +116,11 @@ The G1 values already matched the approved plan (200-product Free cap, lifetime 
 the approved Free and Pro feature lists (`FREE_FEATURES`, `PRO_FEATURES`, `canUseFeature`, unknown features fail
 closed) so G3–G5 gate each feature from one list; tests in `limitGate.test.ts`. No screen behaviour changed.
 Reference device for all later device evidence: Samsung Galaxy S22.
+
+## Carry-forward — international scope (owner correction, 24 Sep 2026)
+
+Schema only, no behaviour change: `src/domain/types.ts` gains `PaperSize` (A4, Letter, A5, A6, custom), optional
+right / bottom margins and `isPreset` on stationery, `LabelKind`, `LanguageCode`, `CountryProfileId`,
+`IndependentSettings`, and `labelKind` + typed `labelLanguage` on PrintIntent. Two inherited UK defaults are recorded
+for G2/G3 (`REUSE_MANIFEST.md`, International carry-forward): the GBP first-run default and `currencyAfter()`
+following the app language.

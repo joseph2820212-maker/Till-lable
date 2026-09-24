@@ -125,3 +125,10 @@ Recorded after G0; the baseline, findings and commands above are unchanged.
 | Stationery geometry for every preset | Still not sourced (avery.co.uk blocked) | **Pending** |
 | GB price-marking guidance source | Still not sourced (gov.uk blocked) | **Pending** |
 | Physical paper evidence | Only after printing on real stationery | **Pending** |
+
+## Carry-forward — international scope (owner correction, 24 Sep 2026)
+
+V8 ("GB price-marking source") is replaced by the policy in `docs/REGULATORY_PROFILES.md`: country guidance is
+independent of the engine, GB is one research-pending profile, and no jurisdiction claim appears without a cited
+source. The five independent settings (app language, printed-label language, currency, country profile, paper
+format) are recorded in `SCOPE_LOCK.md` §0. The G0 baseline above is unchanged.

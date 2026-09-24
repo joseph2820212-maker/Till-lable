@@ -1,10 +1,19 @@
 # Printer and stationery matrix
 
+**The engine is generic and international.** It lays out any sheet from its physical numbers: page size (A4, US
+Letter, A5, A6 or custom), orientation, rows, columns, label width and height, top / bottom / left / right margins,
+horizontal and vertical gaps, a starting position with unused positions, and calibration offsets. A shop in any
+country, using any manufacturer's stock, can enter its sheet as a custom profile. The presets below are a first,
+convenient list, not the only supported labels, and the list can grow without changing the app.
+
+Categories: shelf-edge inserts / tickets · adhesive sticker sheets · plain paper / card with cutting guides ·
+promotional cards (A6 / A5 / A4).
+
 Status words: **User-defined** (typed by the user), **Geometry verified** (checked against the manufacturer's published
 spec sheet, source cited), **Paper verified** (printed and measured on listed equipment, photo evidence). Nothing is
 "supported" until it reaches at least Geometry verified.
 
-## Release-1 set (owner decision, 24 Sep 2026)
+## Initial presets (owner decision, 24 Sep 2026)
 
 "Launch" means the app will offer the profile. It does not mean verified: geometry stays **Unverified** until
 sourced from the manufacturer, and physical status stays **Pending** until printed and measured. Manufacturer
@@ -16,10 +25,11 @@ dimensions alone never become a physical pass.
 | Avery L7160 | A4 | 21 (3 × 7) | 63.5 × 38.1 mm (published, unverified) | not yet sourced | Yes | Unverified | Pending | |
 | Avery L7159 | A4 | 24 (3 × 8) | 63.5 × 33.9 mm (published, unverified) | not yet sourced | Yes | Unverified | Pending | |
 | Avery L7163 | A4 | 14 (2 × 7) | 99.1 × 38.1 mm (published, unverified) | not yet sourced | Yes | Unverified | Pending | |
-| Plain A4 / card with cutting guides | A4 | computed | chosen ticket size | computed | Yes | Design dimension | Pending | Cut marks printed outside the ticket safe area |
+| Plain paper / card with cutting guides | A4 or US Letter | computed | chosen ticket size | computed | Yes | Design dimension | Pending | Cut marks printed outside the ticket safe area |
+| Offer cards A6 / A5 / A4 | A4 or US Letter (imposed) or the card size itself | 4 / 2 / 1 per A4 | A6 / A5 / A4 | computed | Yes (Pro) | Design dimension | Pending | Cutting guides when imposed on A4 / Letter |
 | Custom sheet (user-measured) | A4 | user | user | user | Yes — Pro, advanced | User-defined | Pending | Validated before PDF; test page required |
-| Avery L7651 | A4 | 65 (5 × 13) | 38.1 × 21.2 mm (published, unverified) | not yet sourced | **Deferred** until after first review | Unverified | — | Only if it comes essentially free |
-| Avery 5160 | US Letter | 30 (3 × 10) | 1 × 2⅝ in (published, unverified) | not yet sourced | **Deferred** until after UK review | Unverified | — | Only if it comes essentially free |
+| Avery L7651 | A4 | 65 (5 × 13) | 38.1 × 21.2 mm (published, unverified) | not yet sourced | Preset deferred until after the first review | Unverified | — | Can still be entered as a custom profile |
+| Avery 5160 | US Letter | 30 (3 × 10) | 1 × 2⅝ in (published, unverified) | not yet sourced | Preset deferred; **US Letter geometry supported from G2** | Unverified | — | Physical test of a US Letter product deferred until after the first review |
 
 ## What is needed to verify (owner or native operator)
 

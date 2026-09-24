@@ -56,3 +56,5 @@ per-language layout fixes. They are checked in the self-review at the end of eve
   They carry no button until the action exists (no dummy buttons, plan §U).
 - **Counts** always show products and labels separately ("Products: 40 · Labels: 70", plan §N).
 - **Money** is shown from exact minor units (`src/domain/money.ts`), never from a float.
+- **Five independent settings** (SCOPE_LOCK §0): app language, printed-label language, currency, country profile and
+  paper format never change each other. Label output follows the label language and currency, not the app language.

@@ -2,7 +2,7 @@ export type Tier = 'free' | 'pro';
 
 /**
  * Free plan limits — owner-approved 24 Sep 2026 (docs/SCOPE_LOCK.md §4). Pro is a lifetime purchase
- * (UK £14.99, set in the stores, not in code); no subscription. The review APK unlocks everything.
+ * (launch price set per store and country in the stores, not in code; UK £14.99); no subscription. The review APK unlocks everything.
  */
 export const FREE_LIMITS = {
   products: 200,

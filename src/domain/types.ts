@@ -115,7 +115,9 @@ export interface PrintIntent {
   /** Hash of everything that appears on the printed label. Hidden notes never change it. */
   contentFingerprint: string;
   layoutId: string;
-  labelLanguage: string;
+  labelKind: LabelKind;
+  /** Printed-label language, independent of the app language. */
+  labelLanguage: LanguageCode;
   copies: number;
   reason: 'new' | 'priceChanged' | 'contentChanged' | 'manual' | 'import' | 'handoff';
   status: 'waiting' | 'printed' | 'removed';
@@ -148,7 +150,57 @@ export interface PrintJob {
   confirmedAt?: IsoDateTime;
 }
 
-export type Material = 'shelfEdgeInsert' | 'adhesiveSheet' | 'plainPaper' | 'card';
+export type Material = 'shelfEdgeInsert' | 'adhesiveSheet' | 'plainPaper' | 'card' | 'promoCard';
+
+/**
+ * Page size. Named sizes carry their standard dimensions; `custom` uses pageWidthMm / pageHeightMm as entered.
+ * The engine is generic: A4 and US Letter are both first-class, and no size is tied to a country or manufacturer.
+ */
+export type PaperSize = 'A4' | 'Letter' | 'A5' | 'A6' | 'custom';
+
+/**
+ * What a label shows. Independent of stationery, language, currency and country (docs/SCOPE_LOCK.md §0).
+ * Every kind must render in all six languages; Pro gating is decided in billing/limits.ts, not here.
+ */
+export type LabelKind =
+  | 'standardPrice'
+  | 'priceUnitPrice'
+  | 'priceBarcode'
+  | 'wasNow'
+  | 'percentOff'
+  | 'moneyOff'
+  | 'multibuy'
+  | 'reducedToClear'
+  | 'memberPrice'
+  | 'offerCardA6'
+  | 'offerCardA5'
+  | 'offerCardA4';
+
+/** The six app / printed-label languages. */
+export type LanguageCode = 'en' | 'ar' | 'tr' | 'fr' | 'es' | 'de';
+
+/**
+ * Optional country guidance profile (e.g. 'GB'). Guidance only: it never changes the engine, the data model,
+ * the currency or the label language, and no jurisdiction-specific claim is shown without a cited source.
+ */
+export type CountryProfileId = string;
+
+/**
+ * The five independent settings (docs/SCOPE_LOCK.md §0). Changing one never silently changes another:
+ * e.g. Arabic app + English printed label + AED + a custom 70 × 38 mm ticket is valid.
+ */
+export interface IndependentSettings {
+  /** App interface language (i18n). */
+  appLanguage: LanguageCode;
+  /** Default printed-label language for new labels; each PrintIntent records its own. */
+  labelLanguage: LanguageCode;
+  /** ISO 4217 currency for new products; each Product keeps its own price currency. */
+  currency: string;
+  /** Optional guidance profile; null = none. */
+  countryProfile: CountryProfileId | null;
+  /** Default stationery profile; each PrintJob records the one it used. */
+  stationeryProfileId: string | null;
+}
 export type VerificationStatus = 'userDefined' | 'geometryVerified' | 'paperVerified' | 'unverified';
 
 /** Millimetres throughout; converted to PDF points once (plan §G). */
@@ -157,7 +209,7 @@ export interface StationeryProfile {
   id: string;
   name: string;
   manufacturerCode?: string;
-  paper: 'A4' | 'Letter';
+  paper: PaperSize;
   orientation: 'portrait' | 'landscape';
   pageWidthMm: number;
   pageHeightMm: number;
@@ -167,6 +219,13 @@ export interface StationeryProfile {
   labelHeightMm: number;
   marginTopMm: number;
   marginLeftMm: number;
+  /**
+   * Right / bottom margins as printed on the manufacturer's sheet, when known. The grid is positioned from
+   * top/left; when these are given the validator checks that top + rows×height + gaps + bottom = page height
+   * (and likewise across) so a mistyped profile is rejected before it reaches the printer.
+   */
+  marginRightMm?: number;
+  marginBottomMm?: number;
   gapXMm: number;
   gapYMm: number;
   safeInsetMm: number;
@@ -176,6 +235,8 @@ export interface StationeryProfile {
   refeedSafe: boolean;
   verification: VerificationStatus;
   verificationSource?: string;
+  /** True for bundled manufacturer presets (convenience only); false for user-created profiles. */
+  isPreset: boolean;
 }
 
 export interface PrinterCalibration {

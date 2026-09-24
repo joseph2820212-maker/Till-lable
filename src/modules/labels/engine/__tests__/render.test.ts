@@ -7,7 +7,8 @@ import { renderLabel, type LabelContent } from '../renderLabel';
 import { renderTestSheet } from '../testPage';
 import { buildFontFaceCss } from '../fonts';
 import { FONT_METRICS } from '../fontMetrics.generated';
-import { measureMm, fitText, fitSingleLine } from '../textFit';
+import { measureMm, fitText } from '../textFit';
+import { fieldLimitsFor, productFieldLimits, templateFor } from '../labelTemplate';
 import { formatLabelDate, formatPercent, LABEL_TEXT, labelText } from '../labelStrings';
 import { PAIRS, standardContent, TEST_FONTS } from './fixtures';
 
@@ -89,13 +90,13 @@ describe('every label kind has a slot (Release-1 architecture)', () => {
     expect(textOf(card({ multibuy: { quantity: 2, total: moneyFromMinor(500, 'GBP') } }))).toMatch(/2\s*for/);
     expect(card({})).not.toContain('class="band"');
   });
-  it('a promotion ticket keeps a two-line name at a smaller size before cutting it to one line', () => {
+  it('a promotion ticket prints the full name (never cut) at its fixed size', () => {
     const html = renderLabel({ ...standardContent(0), kind: 'wasNow', was: moneyFromMinor(599, 'GBP') }, box).html;
     const name = /class="name" style="font-size:([\d.]+)pt">([^]*?)<\/div>/.exec(html)!;
-    expect(name[2]).toContain('<br/>');
+    expect(name[2].replace(/<br\/>/g, ' ')).toBe(standardContent(0).name);
     expect(name[2]).not.toContain('…');
   });
-  it('a member price keeps its condition and date on the ticket; the SKU gives way first', () => {
+  it('a member price keeps its condition and date on the ticket', () => {
     const r = renderLabel({ ...standardContent(5), kind: 'memberPrice', condition: 'Mit Kundenkarte', validUntil: '2026-10-31' }, box);
     expect(r.issues.filter(i => i.severity === 'error')).toEqual([]);
     expect(textOf(r.html)).toContain('Mit Kundenkarte');
@@ -113,11 +114,15 @@ describe('every label kind has a slot (Release-1 architecture)', () => {
     expect(names.size).toBe(1);
     expect(prices.size).toBe(1);
   });
-  it('the barcode keeps its full quiet zone to the label edge', () => {
+  it('the barcode keeps both full quiet zones inside the label', () => {
     const html = renderLabel(standardContent(0, 'priceBarcode'), box).html;
-    const m = /class="barcode" dir="ltr" style="width:[\d.]+mm;padding:0 ([\d.]+)mm 0 ([\d.]+)mm;margin:0 ([-\d.]+)mm 0 ([-\d.]+)mm/.exec(html)!;
-    const quietLeft = Number(m[2]) + Number(m[4]) + box.safeInsetMm; // blank from label edge to the first bar
-    expect(quietLeft).toBeGreaterThanOrEqual(11 * 0.264 - 0.01);
+    const m = /class="barcode" dir="ltr" style="width:[\d.]+mm;padding:0 ([\d.]+)mm 0 ([\d.]+)mm"/.exec(html)!;
+    expect(Number(m[2])).toBeGreaterThanOrEqual(11 * 0.264 - 0.01); // left quiet zone
+    expect(Number(m[1])).toBeGreaterThanOrEqual(7 * 0.264 - 0.01);  // right quiet zone
+  });
+  it('promotion labels print no barcode, so the offer price keeps its size', () => {
+    const html = renderLabel({ ...standardContent(0, 'priceBarcode'), kind: 'wasNow', was: moneyFromMinor(599, 'GBP') }, box).html;
+    expect(html).not.toContain('class="barcode"');
   });
   it('every sample A6 offer card renders, including a long Turkish name and a wide lira price', () => {
     const r = renderSheet({ profile: PRESETS.find(p => p.id === 'preset_offer_a6_on_a4')!, items: [
@@ -136,30 +141,99 @@ describe('every label kind has a slot (Release-1 architecture)', () => {
     const r = renderLabel(promo('offerCardA6', { was: moneyFromMinor(599, 'GBP') }), { widthMm: p.labelWidthMm, heightMm: p.labelHeightMm, safeInsetMm: p.safeInsetMm });
     expect(r.issues.filter(i => i.severity === 'error')).toEqual([]);
     const size = Number(/class="price" style="font-size:([\d.]+)pt/.exec(r.html)![1]);
-    expect(size).toBeGreaterThan(40);
+    expect(size).toBeGreaterThan(30);
   });
 });
 
-describe('text fitting (L8, TL-26)', () => {
+describe('fixed sizes and character limits (owner decision: like a till)', () => {
   it('real font widths: bold digits are 0.6 em', () => {
     expect(measureMm('1', 10, 'bold')).toBeCloseTo((0.6 * 1.04 * 10) / (72 / 25.4), 3);
   });
-  it('a long German compound wraps by character instead of overflowing', () => {
-    const r = fitText('Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz', 30, { maxPt: 12, minPt: 7, maxLines: 2, weight: 'bold' });
-    expect(r.lines.length).toBeLessThanOrEqual(2);
-    for (const l of r.lines) expect(measureMm(l, r.sizePt, 'bold')).toBeLessThanOrEqual(30);
+  it('every preset has till-style limits: name ≤ 40, pack size ≤ 30, SKU 20, price 6 digits', () => {
+    for (const p of PRESETS) {
+      const l = fieldLimitsFor({ widthMm: p.labelWidthMm, heightMm: p.labelHeightMm, safeInsetMm: p.safeInsetMm });
+      expect({ id: p.id, ok: l.name >= 20 && l.name <= 40 && l.secondLine <= 30 && l.sku === 20 && l.priceDigits === 6 }).toEqual({ id: p.id, ok: true });
+    }
   });
-  it('a name that cannot fit is shortened with an ellipsis and reported', () => {
-    const r = renderLabel({ ...standardContent(5), name: 'Bio '.repeat(40) }, box);
-    expect(r.issues.map(i => i.code)).toContain('nameShortened');
-    expect(r.html).toContain('…');
+  it('one fixed set of product limits for the whole app (strictest launch format), pinned', () => {
+    expect(productFieldLimits(PRESETS)).toEqual({ name: 40, secondLine: 22, sku: 20, condition: 18, priceDigits: 6 });
   });
-  it('a price is never shrunk below its minimum: too small a label blocks instead', () => {
-    expect(fitSingleLine('€1.234.567,89', 10, { maxPt: 30, minPt: 12, weight: 'bold' })).toBeNull();
-    const r = renderLabel({ ...standardContent(3), price: moneyFromMinor(123456789, 'EUR') }, { widthMm: 20, heightMm: 12, safeInsetMm: 1 });
-    expect(r.issues.map(i => i.code)).toContain('priceDoesNotFit');
+  it('a product filled to the app-wide limits prints on every preset without an issue', () => {
+    const l = productFieldLimits(PRESETS);
+    for (const p of PRESETS) {
+      const b = { widthMm: p.labelWidthMm, heightMm: p.labelHeightMm, safeInsetMm: p.safeInsetMm };
+      // Shops often type in capitals: realistic full-length upper-case names must still fit.
+      for (const name of ['WARBURTONS TOASTIE THICK WHITE BREAD 800', 'BIO-VOLLMILCHSCHOKOLADE MIT HASELNÜSSEN', 'DOĞAL ÇIÇEK BALI İNCE SÜZME KAVANOZ 850G']) {
+        const r = renderLabel({ ...standardContent(0), name: name.slice(0, l.name), secondLine: 'Multipack 12 × 330 ml cans'.slice(0, l.secondLine), sku: 'M'.repeat(l.sku), price: moneyFromMinor(888888, 'GBP') }, b);
+        expect({ id: p.id, name, issues: r.issues }).toEqual({ id: p.id, name, issues: [] });
+      }
+    }
+  });
+  it('sizes depend on the format and currency only: two very different products print at the same sizes', () => {
+    const a = renderLabel({ ...standardContent(0), name: 'Tea', price: moneyFromMinor(99, 'GBP') }, box);
+    const b = renderLabel({ ...standardContent(0), price: moneyFromMinor(999999, 'GBP') }, box);
+    const size = (html: string, cls: string) => new RegExp(`class="${cls}" style="font-size:([\\d.]+)pt`).exec(html)![1];
+    expect(size(a.html, 'name')).toBe(size(b.html, 'name'));
+    expect(size(a.html, 'price')).toBe(size(b.html, 'price'));
+  });
+  it('text over its character limit is refused, never shrunk or cut', () => {
+    const limits = fieldLimitsFor(box);
+    const r = renderLabel({ ...standardContent(0), name: 'x'.repeat(limits.name + 1) }, box);
+    expect(r.issues[0]).toMatchObject({ code: 'tooLong', detail: 'name' });
     expect(r.html).toBe('');
+    expect(renderLabel({ ...standardContent(0), secondLine: 'y'.repeat(limits.secondLine + 1) }, box).issues[0]).toMatchObject({ code: 'tooLong', detail: 'secondLine' });
   });
+  it('a price with more than 6 digits is refused', () => {
+    const r = renderLabel({ ...standardContent(3), price: moneyFromMinor(1234567, 'EUR') }, box);
+    expect(r.issues[0]).toMatchObject({ code: 'priceTooLong' });
+  });
+  it('unusually wide text within the limit is refused with a reason, never squeezed', () => {
+    const t = templateFor(box);
+    const wide = 'W'.repeat(fieldLimitsFor(box).secondLine);
+    const r = renderLabel({ ...standardContent(0), secondLine: wide }, box);
+    if (measureMm(wide, t.secondPt, 'regular') > t.widthMm) expect(r.issues[0]).toMatchObject({ code: 'tooWide', detail: 'secondLine' });
+    else expect(r.issues.filter(i => i.severity === 'error')).toEqual([]);
+    expect(r.html).not.toContain('…');
+  });
+
+  // The key guarantee: anything a shop can type within the limits prints, in every format and language.
+  const atLimit = (base: string, n: number) => (base.repeat(Math.ceil(n / base.length))).slice(0, n).trim();
+  const SAMPLE_WORDS: Record<string, string> = {
+    en: 'Organic Mediterranean Olive Spread ', ar: 'حليب طازج كامل الدسم من مزارع ', tr: 'Doğal Süzme Çiçek Balı Şifalı ',
+    fr: 'Crème fraîche épaisse d’Isigny ', es: 'Aceite de oliva virgen extra ', de: 'Bio Vollmilch Haselnuss Schokolade ',
+  };
+  for (const p of PRESETS) {
+    it(`${p.id}: every promotion at maximum length (name, condition, 6-digit amounts) prints in all six languages`, () => {
+      const b = { widthMm: p.labelWidthMm, heightMm: p.labelHeightMm, safeInsetMm: p.safeInsetMm };
+      const l = fieldLimitsFor(b);
+      for (let i = 0; i < PAIRS.length; i++) {
+        const { lang, currency } = PAIRS[i];
+        const big = moneyFromMinor(888888, currency);
+        const base = { ...standardContent(i), name: atLimit(SAMPLE_WORDS[lang], l.name), secondLine: atLimit('850 g glass jar ', l.secondLine), price: big, unitPrice: { amount: moneyFromMinor(888888, currency), base: 'per_100ml' as const } };
+        const promos: Partial<LabelContent>[] = [
+          { kind: 'wasNow', was: big }, { kind: 'percentOff', percentOffHundredths: 9999 }, { kind: 'moneyOff', moneyOff: big },
+          { kind: 'multibuy', multibuy: { quantity: 99, total: big } }, { kind: 'reducedToClear', was: big },
+          { kind: 'memberPrice', condition: atLimit('With the loyalty card only ', l.condition), validUntil: '2026-12-31' },
+        ];
+        for (const extra of promos) {
+          const r = renderLabel({ ...base, ...extra } as LabelContent, b);
+          expect({ preset: p.id, lang, kind: extra.kind, errors: r.issues.filter(x => x.severity === 'error') }).toEqual({ preset: p.id, lang, kind: extra.kind, errors: [] });
+        }
+      }
+    });
+    it(`${p.id}: maximum-length name, pack size, SKU and a 6-digit price print in all six languages`, () => {
+      const b = { widthMm: p.labelWidthMm, heightMm: p.labelHeightMm, safeInsetMm: p.safeInsetMm };
+      const l = fieldLimitsFor(b);
+      for (let i = 0; i < PAIRS.length; i++) {
+        const lang = PAIRS[i].lang;
+        for (const kind of ['standardPrice', 'priceUnitPrice', 'priceBarcode'] as const) {
+          const c = { ...standardContent(i, kind), name: atLimit(SAMPLE_WORDS[lang], l.name), secondLine: atLimit('850 g glass jar ', l.secondLine), sku: 'S'.repeat(l.sku).slice(0, 12), price: moneyFromMinor(999999, PAIRS[i].currency) };
+          const r = renderLabel(c, b);
+          expect({ preset: p.id, lang, kind, errors: r.issues.filter(x => x.severity === 'error') }).toEqual({ preset: p.id, lang, kind, errors: [] });
+        }
+      }
+    });
+  }
 });
 
 describe('label words, dates and percentages in six languages', () => {

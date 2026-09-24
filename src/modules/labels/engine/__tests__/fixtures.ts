@@ -15,14 +15,14 @@ export const TEST_FONTS: LabelFontData = {
   arabicBold: ttf('ibm-plex-sans-arabic/700Bold/IBMPlexSansArabic_700Bold.ttf'),
 };
 
-/** The six required language + currency pairs (G2 acceptance L5) with hard names. */
+/** The six required language + currency pairs (G2 acceptance L5), with realistic till-length names (≤ 40 characters). */
 export const PAIRS: { lang: LanguageCode; currency: string; name: string; second: string; priceMinor: number; unitMinor: number; barcode: string; sku: string }[] = [
-  { lang: 'en', currency: 'GBP', name: 'Heinz Cream of Tomato Soup Family Size Sharing Pack', second: '4 × 400 g', priceMinor: 449, unitMinor: 281, barcode: '5000157024671', sku: 'HNZ-TOM-4PK' },
-  { lang: 'ar', currency: 'AED', name: 'حليب طازج كامل الدسم من مزارع العين', second: 'عبوة 2 لتر', priceMinor: 1275, unitMinor: 638, barcode: '6291003000010', sku: 'ALN-MILK-2L' },
-  { lang: 'tr', currency: 'TRY', name: 'Doğal Çiçek Balı Şifalı Kahvaltılık İnce Süzme', second: '850 g cam kavanoz', priceMinor: 28990, unitMinor: 34106, barcode: '8690504000013', sku: 'BAL-850-CAM' },
-  { lang: 'fr', currency: 'EUR', name: 'Crème fraîche épaisse d’Isigny appellation d’origine protégée', second: 'Pot de 20 cl', priceMinor: 289, unitMinor: 1445, barcode: '3017620422003', sku: 'ISI-CF-20' },
-  { lang: 'es', currency: 'EUR', name: 'Aceite de oliva virgen extra de la Sierra de Cazorla cosecha temprana', second: 'Botella de 1 l', priceMinor: 1149, unitMinor: 1149, barcode: '8410660001019', sku: 'AOVE-CAZ-1L' },
-  { lang: 'de', currency: 'EUR', name: 'Bio-Vollmilchschokolade mit ganzen Haselnüssen Großpackung', second: 'Qualitätsprodukt · 250 g', priceMinor: 349, unitMinor: 1396, barcode: '4000417025005', sku: 'SCHO-HN-250' },
+  { lang: 'en', currency: 'GBP', name: 'Heinz Cream of Tomato Soup Family Pack', second: '4 × 400 g', priceMinor: 449, unitMinor: 281, barcode: '5000157024671', sku: 'HNZ-TOM-4PK' },
+  { lang: 'ar', currency: 'AED', name: 'حليب طازج كامل الدسم من العين', second: 'عبوة 2 لتر', priceMinor: 1275, unitMinor: 638, barcode: '6291003000010', sku: 'ALN-MILK-2L' },
+  { lang: 'tr', currency: 'TRY', name: 'Doğal Çiçek Balı İnce Süzme Kavanoz', second: '850 g cam kavanoz', priceMinor: 28990, unitMinor: 34106, barcode: '8690504000013', sku: 'BAL-850-CAM' },
+  { lang: 'fr', currency: 'EUR', name: 'Crème fraîche épaisse d’Isigny AOP', second: 'Pot de 20 cl', priceMinor: 289, unitMinor: 1445, barcode: '3017620422003', sku: 'ISI-CF-20' },
+  { lang: 'es', currency: 'EUR', name: 'Aceite de oliva virgen extra Cazorla', second: 'Botella de 1 l', priceMinor: 1149, unitMinor: 1149, barcode: '8410660001019', sku: 'AOVE-CAZ-1L' },
+  { lang: 'de', currency: 'EUR', name: 'Bio-Vollmilchschokolade mit Haselnüssen', second: 'Qualitätsprodukt · 250 g', priceMinor: 349, unitMinor: 1396, barcode: '4000417025005', sku: 'SCHO-HN-250' },
 ];
 
 export function standardContent(i: number, kind: LabelContent['kind'] = 'standardPrice'): LabelContent {

@@ -177,7 +177,7 @@
       "languages": {
         "title": "Idiomas y moneda",
         "l1": "Seis idiomas: inglés, árabe, turco, francés, español y alemán. El árabe invierte el diseño de derecha a izquierda.",
-        "l2": "Los números siempre se muestran con cifras occidentales para que los precios se lean igual en una etiqueta en cualquier idioma.",
+        "l2": "El idioma de las etiquetas es independiente del de la app: una app en inglés puede imprimir en árabe y al revés. Ajústalo en Menú → Ajustes de etiquetas.",
         "l3": "Cambiar la moneda cambia cómo se muestran los precios; no convierte tus cifras."
       },
       "support": {
@@ -185,6 +185,54 @@
         "l1": "Más → Acerca de → Escribir a soporte. El correo se abre con la versión de la app y el dispositivo ya rellenados.",
         "l2": "Describe la pantalla y qué intentabas hacer; añade una captura si no muestra cifras sensibles.",
         "l3": "Nunca envíes contraseñas de copias, datos bancarios, contraseñas de la tienda ni listas de productos sin ocultar. El soporte solo pedirá información ocultada."
+      },
+      "firstLabels": {
+        "title": "Tus primeras etiquetas",
+        "l1": "Elige el idioma de la app, la moneda de tu tienda y el idioma de las etiquetas en Inicio → Configurar. Cada uno se ajusta por separado.",
+        "l2": "Imprime una prueba de etiquetas en el papel que usarás (Menú → Configuración de impresión). Revisa las de arriba, en medio y abajo.",
+        "l3": "Añade productos (Productos → Añadir, Escanear o Importar) o haz una Etiqueta rápida desde Inicio.",
+        "l4": "Abre Por imprimir, elige la papelería y dónde empezar en la hoja, revisa el PDF exacto e imprime."
+      },
+      "products": {
+        "title": "Nombre del producto y de etiqueta",
+        "l1": "El nombre del producto se guarda tal como lo escribiste o importaste, sea cual sea su longitud.",
+        "l2": "El nombre de etiqueta es lo que se imprime. Tiene contador (p. ej. 38 / 40); déjalo vacío si el nombre completo ya cabe.",
+        "l3": "Cada tipo de etiqueta tiene tamaños de texto fijos. Nada se encoge: si el texto es demasiado ancho, la app lo indica y sugiere un nombre más corto o un formato mayor.",
+        "l4": "Cambiar un precio pone la etiqueta en Por imprimir automáticamente. Guardar sin cambios no añade nada."
+      },
+      "scanning": {
+        "title": "Escanear códigos de barras",
+        "l1": "Productos → Escanear abre un producto por su código; un código desconocido ofrece añadirlo.",
+        "l2": "La cámara solo lee el código. Usa la linterna en pasillos oscuros o escribe el código.",
+        "l3": "Un código con dígito de control erróneo se rechaza, nunca se corrige, para que el código impreso siempre coincida."
+      },
+      "importing": {
+        "title": "Importar productos",
+        "l1": "Productos → Importar lee archivos CSV y Excel (.xlsx), o un archivo de cambio de precios de otra app de la familia Till.",
+        "l2": "Asigna las columnas y confirma cómo se escriben los precios (1,234.56 o 1.234,56). La app nunca adivina un valor como 1,234.",
+        "l3": "La vista previa muestra cada fila como Nueva, Cambiada, Igual, Conflicto o No válida. No se guarda nada hasta pulsar Importar, y entonces todo o nada.",
+        "l4": "Los nombres completos y códigos se guardan tal cual; nada se acorta."
+      },
+      "printing": {
+        "title": "Imprimir y confirmar",
+        "l1": "Por imprimir solo lista etiquetas cuyo contenido impreso cambió. Productos y etiquetas se cuentan por separado.",
+        "l2": "En una hoja usada, ajusta la etiqueta inicial para saltar las usadas. Nunca vuelvas a pasar una hoja adhesiva usada.",
+        "l3": "La vista previa muestra el PDF exacto que se imprime. Al volver tras imprimir, la app pregunta si se imprimieron bien.",
+        "l4": "Solo «Sí, impresas» quita las etiquetas de Por imprimir. «Seguir esperando» las deja; compartir el PDF nunca cuenta."
+      },
+      "calibration": {
+        "title": "Papelería y calibración",
+        "l1": "Menú → Configuración de impresión lista etiquetas, hojas adhesivas y carteles. Con Pro puedes añadir tu propia hoja con sus medidas exactas.",
+        "l2": "Imprime la página de calibración al 100 % / Tamaño real y mide primero la línea de 100 mm. Si no mide 100 mm, la impresora escala.",
+        "l3": "Si todas las etiquetas se desplazan lo mismo, introduce las medidas y aplica el desplazamiento (pasos de 0,5 mm).",
+        "l4": "Si el desplazamiento crece hacia abajo, es escala o arrastre; un desplazamiento no lo arregla. Revisa el tamaño real y las guías."
+      },
+      "offers": {
+        "title": "Ofertas y rebajas",
+        "l1": "Inicio → Ofertas crea ofertas antes/ahora, % de descuento, importe, multicompra y precio socio (Pro). El precio normal nunca cambia.",
+        "l2": "Las etiquetas de oferta van a Por imprimir. Elige una etiqueta de estante o un cartel A6 (vertical u horizontal), A5 o A4 para un precio más grande.",
+        "l3": "Si un precio es más ancho de lo que permite un formato con su tamaño fijo, la app indica que necesita un formato mayor.",
+        "l4": "La rebaja de liquidación imprime etiquetas antes/ahora para fechas cortas; se guarda aparte del producto."
       }
     },
     "tabFaq": "Preguntas",
@@ -218,6 +266,29 @@
         "a1": "Escribe a {{supportEmail}}; el botón en Más → Acerca de rellena los datos de la app y del dispositivo. Añade la pantalla en la que estabas, qué intentabas hacer y capturas si no contienen cifras sensibles.",
         "q2": "¿Qué puedo enviar a soporte de forma segura?",
         "a2": "Tu tipo de dispositivo, versión del sistema, versión de la app, nombre de la pantalla, una breve descripción y capturas con las cifras sensibles ocultas. Nunca envíes contraseñas de copias, datos bancarios, contraseñas de la cuenta de la tienda ni listas de productos sin ocultar."
+      },
+      "printing": {
+        "title": "Impresión",
+        "q1": "Mis etiquetas salen un poco desplazadas. ¿Qué hago?",
+        "a1": "Usa Menú → Calibración de la impresora. Imprime la página a tamaño real y mídela; la app te dice si basta un pequeño desplazamiento o si la impresora escala.",
+        "q2": "Todo se imprime un poco pequeño.",
+        "a2": "El cuadro de impresión está en «Ajustar a la página». Elige 100 % / Tamaño real e imprime de nuevo.",
+        "q3": "Compartí el PDF. ¿Por qué siguen esperando las etiquetas?",
+        "a3": "Compartir no es imprimir. Las etiquetas salen de Por imprimir solo al imprimir y responder «Sí, impresas», para que no se pierda ningún cambio de precio."
+      },
+      "labels": {
+        "title": "Etiquetas",
+        "q1": "¿Por qué la app no encoge un nombre largo?",
+        "a1": "Como un sistema de caja, cada etiqueta de un tipo usa los mismos tamaños fijos para que los estantes se vean uniformes. Escribe un nombre de etiqueta más corto; el nombre completo se conserva.",
+        "q2": "Dice «Este precio necesita un formato de etiqueta más grande».",
+        "a2": "El precio, tal como se imprime con su moneda, es más ancho que el área fija de esa etiqueta. Imprímelo en una etiqueta mayor o un cartel; no cambia nada.",
+        "q3": "Un código impreso no se escanea.",
+        "a3": "Comprueba que la impresión sea nítida y a tamaño real, y que el espacio en blanco a los lados no esté recortado. Prueba con tu escáner antes de imprimir muchas."
+      },
+      "plans": {
+        "title": "Gratis y Pro",
+        "q1": "¿Qué añade Pro?",
+        "a1": "Gratis incluye hasta 200 productos, etiquetas de precio, precio unitario y código de barras, importaciones, vista previa, calibración, impresión ilimitada, copias de seguridad y los seis idiomas. Pro es una compra única que añade productos ilimitados, ofertas, rebajas, carteles, tus propias hojas y varios perfiles. Tus datos nunca se bloquean."
       }
     },
     "title": "Ayuda"

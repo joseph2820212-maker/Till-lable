@@ -100,7 +100,7 @@ export function sampleLabels(language: LanguageCode, currency: string, kind: 'st
     fr: ['Lait demi-écrémé', 'Bouteille de 2 l'], es: ['Leche semidesnatada', 'Botella de 2 l'], de: ['Fettarme Milch', '2-Liter-Flasche'],
   };
   const [name, second] = NAMES[language];
-  const price = moneyFromMinor(currency === 'JPY' ? 289 : 289, currency);
+  const price = moneyFromMinor(289, currency);
   const c: LabelContent = { kind, language, name, secondLine: second, price, sku: 'TEST-001' };
   if (kind === 'priceUnitPrice') c.unitPrice = { amount: moneyFromMinor(145, currency), base: 'per_litre' };
   if (kind === 'priceBarcode') c.barcode = { value: '5000157024671', format: 'ean13' };

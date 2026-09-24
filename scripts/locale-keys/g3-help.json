@@ -1,0 +1,418 @@
+{
+ "help.guide.firstLabels.title": {
+  "en": "Your first labels",
+  "ar": "ملصقاتك الأولى",
+  "tr": "İlk etiketleriniz",
+  "fr": "Vos premières étiquettes",
+  "es": "Tus primeras etiquetas",
+  "de": "Ihre ersten Etiketten"
+ },
+ "help.guide.firstLabels.l1": {
+  "en": "Choose the app language, your shop currency and the label language on Home → Set up. Each is set on its own.",
+  "ar": "اختر لغة التطبيق وعملة متجرك ولغة الملصقات من الرئيسية ← الإعداد. كلٌّ منها يُضبط وحده.",
+  "tr": "Ana Sayfa → Kurulum'da uygulama dilini, mağaza para birimini ve etiket dilini seçin. Her biri ayrı ayarlanır.",
+  "fr": "Choisissez la langue de l'app, la devise du magasin et la langue des étiquettes dans Accueil → Configuration. Chaque réglage est indépendant.",
+  "es": "Elige el idioma de la app, la moneda de tu tienda y el idioma de las etiquetas en Inicio → Configurar. Cada uno se ajusta por separado.",
+  "de": "Wählen Sie unter Start → Einrichten App-Sprache, Währung und Etikettensprache. Jede Einstellung ist unabhängig."
+ },
+ "help.guide.firstLabels.l2": {
+  "en": "Print a Label test on the paper you will use (More → Print setup). Check the top, middle and bottom labels.",
+  "ar": "اطبع اختبار ملصقات على الورق الذي ستستخدمه (المزيد ← إعداد الطباعة). افحص الملصقات العلوية والوسطى والسفلية.",
+  "tr": "Kullanacağınız kâğıda Etiket testi yazdırın (Menü → Yazdırma ayarları). Üst, orta ve alt etiketleri kontrol edin.",
+  "fr": "Imprimez un test d'étiquettes sur le papier que vous utiliserez (Menu → Configuration d'impression). Vérifiez le haut, le milieu et le bas.",
+  "es": "Imprime una prueba de etiquetas en el papel que usarás (Menú → Configuración de impresión). Revisa las de arriba, en medio y abajo.",
+  "de": "Drucken Sie einen Etikettentest auf Ihrem Papier (Menü → Druckeinrichtung). Prüfen Sie oben, Mitte und unten."
+ },
+ "help.guide.firstLabels.l3": {
+  "en": "Add products (Products → Add, Scan or Import) or make a one-off Quick label from Home.",
+  "ar": "أضف منتجات (المنتجات ← إضافة أو مسح أو استيراد) أو أنشئ ملصقًا سريعًا من الرئيسية.",
+  "tr": "Ürün ekleyin (Ürünler → Ekle, Tara veya İçe aktar) ya da Ana Sayfa'dan Hızlı etiket yapın.",
+  "fr": "Ajoutez des produits (Produits → Ajouter, Scanner ou Importer) ou faites une Étiquette rapide depuis l'Accueil.",
+  "es": "Añade productos (Productos → Añadir, Escanear o Importar) o haz una Etiqueta rápida desde Inicio.",
+  "de": "Legen Sie Produkte an (Produkte → Neu, Scannen oder Import) oder machen Sie ein Schnelletikett auf Start."
+ },
+ "help.guide.firstLabels.l4": {
+  "en": "Open To print, choose the stationery and where to start on the sheet, preview the exact PDF and print.",
+  "ar": "افتح قائمة الطباعة، واختر القرطاسية ومن أين تبدأ على الورقة، وعاين ملف PDF نفسه واطبع.",
+  "tr": "Yazdırılacak'ı açın, kâğıdı ve sayfada başlangıç yerini seçin, tam PDF'i önizleyip yazdırın.",
+  "fr": "Ouvrez À imprimer, choisissez le support et la position de départ, prévisualisez le PDF exact et imprimez.",
+  "es": "Abre Por imprimir, elige la papelería y dónde empezar en la hoja, revisa el PDF exacto e imprime.",
+  "de": "Öffnen Sie „Zu drucken“, wählen Sie Bogen und Startposition, prüfen Sie das PDF und drucken Sie."
+ },
+ "help.guide.products.title": {
+  "en": "Product name and label name",
+  "ar": "اسم المنتج واسم الملصق",
+  "tr": "Ürün adı ve etiket adı",
+  "fr": "Nom du produit et nom d'étiquette",
+  "es": "Nombre del producto y de etiqueta",
+  "de": "Produktname und Etikettenname"
+ },
+ "help.guide.products.l1": {
+  "en": "The product name is kept exactly as you typed or imported it, however long.",
+  "ar": "يُحفظ اسم المنتج كما كتبته أو استوردته تمامًا، مهما طال.",
+  "tr": "Ürün adı ne kadar uzun olursa olsun, yazdığınız veya içe aktardığınız gibi saklanır.",
+  "fr": "Le nom du produit est conservé tel que saisi ou importé, quelle que soit sa longueur.",
+  "es": "El nombre del producto se guarda tal como lo escribiste o importaste, sea cual sea su longitud.",
+  "de": "Der Produktname bleibt genau wie eingegeben oder importiert, egal wie lang."
+ },
+ "help.guide.products.l2": {
+  "en": "The label name is what prints. It has a counter (for example 38 / 40); leave it empty if the full name already fits.",
+  "ar": "اسم الملصق هو ما يُطبع. له عدّاد (مثل 38 / 40)؛ اتركه فارغًا إن كان الاسم الكامل يتسع.",
+  "tr": "Basılan, etiket adıdır. Bir sayacı vardır (örn. 38 / 40); tam ad zaten sığıyorsa boş bırakın.",
+  "fr": "Le nom d'étiquette est ce qui s'imprime. Il a un compteur (ex. 38 / 40) ; laissez-le vide si le nom complet tient.",
+  "es": "El nombre de etiqueta es lo que se imprime. Tiene contador (p. ej. 38 / 40); déjalo vacío si el nombre completo ya cabe.",
+  "de": "Gedruckt wird der Etikettenname. Er hat einen Zähler (z. B. 38 / 40); leer lassen, wenn der volle Name passt."
+ },
+ "help.guide.products.l3": {
+  "en": "Every label type has fixed text sizes. Nothing shrinks to fit: if text is too wide, the app says so and suggests a shorter label name or a larger format.",
+  "ar": "لكل نوع ملصق أحجام نص ثابتة. لا يُصغَّر شيء ليتسع: إن كان النص عريضًا يخبرك التطبيق ويقترح اسمًا أقصر أو مقاسًا أكبر.",
+  "tr": "Her etiket türünün sabit yazı boyutları vardır. Sığsın diye hiçbir şey küçülmez: metin çok genişse uygulama söyler, daha kısa ad veya daha büyük format önerir.",
+  "fr": "Chaque type d'étiquette a des tailles de texte fixes. Rien ne rétrécit : si le texte est trop large, l'app le dit et propose un nom plus court ou un format plus grand.",
+  "es": "Cada tipo de etiqueta tiene tamaños de texto fijos. Nada se encoge: si el texto es demasiado ancho, la app lo indica y sugiere un nombre más corto o un formato mayor.",
+  "de": "Jede Etikettenart hat feste Schriftgrößen. Nichts wird verkleinert: Ist Text zu breit, sagt die App das und schlägt einen kürzeren Namen oder ein größeres Format vor."
+ },
+ "help.guide.products.l4": {
+  "en": "Changing a price puts the label in To print automatically. Saving without a change adds nothing.",
+  "ar": "تغيير السعر يضع الملصق في قائمة الطباعة تلقائيًا. الحفظ دون تغيير لا يضيف شيئًا.",
+  "tr": "Fiyatı değiştirmek etiketi otomatik olarak Yazdırılacak'a koyar. Değişiklik yapmadan kaydetmek bir şey eklemez.",
+  "fr": "Changer un prix place l'étiquette dans À imprimer automatiquement. Enregistrer sans changement n'ajoute rien.",
+  "es": "Cambiar un precio pone la etiqueta en Por imprimir automáticamente. Guardar sin cambios no añade nada.",
+  "de": "Eine Preisänderung legt das Etikett automatisch unter „Zu drucken“ ab. Speichern ohne Änderung fügt nichts hinzu."
+ },
+ "help.guide.scanning.title": {
+  "en": "Scanning barcodes",
+  "ar": "مسح الباركود",
+  "tr": "Barkod tarama",
+  "fr": "Scanner les codes-barres",
+  "es": "Escanear códigos de barras",
+  "de": "Barcodes scannen"
+ },
+ "help.guide.scanning.l1": {
+  "en": "Products → Scan opens a product from its barcode; an unknown code offers to add it.",
+  "ar": "المنتجات ← مسح يفتح منتجًا من باركوده؛ والرمز غير المعروف يُعرض لإضافته.",
+  "tr": "Ürünler → Tara, barkoddan ürünü açar; bilinmeyen kod eklemeyi önerir.",
+  "fr": "Produits → Scanner ouvre un produit par son code ; un code inconnu propose de l'ajouter.",
+  "es": "Productos → Escanear abre un producto por su código; un código desconocido ofrece añadirlo.",
+  "de": "Produkte → Scannen öffnet ein Produkt; ein unbekannter Code bietet das Anlegen an."
+ },
+ "help.guide.scanning.l2": {
+  "en": "The camera is used only to read the code. Use the torch in dim aisles, or type the code instead.",
+  "ar": "تُستخدم الكاميرا لقراءة الرمز فقط. استخدم الإضاءة في الممرات المعتمة أو اكتب الرمز.",
+  "tr": "Kamera yalnızca kodu okumak için kullanılır. Loş reyonlarda feneri kullanın veya kodu yazın.",
+  "fr": "L'appareil photo sert uniquement à lire le code. Utilisez la lampe dans les allées sombres ou tapez le code.",
+  "es": "La cámara solo lee el código. Usa la linterna en pasillos oscuros o escribe el código.",
+  "de": "Die Kamera liest nur den Code. Nutzen Sie das Licht in dunklen Gängen oder tippen Sie den Code ein."
+ },
+ "help.guide.scanning.l3": {
+  "en": "A barcode with a wrong check digit is refused, never corrected, so the printed barcode always matches the product.",
+  "ar": "يُرفض الباركود ذو رقم التحقق الخاطئ ولا يُصحَّح، ليطابق الباركود المطبوع المنتج دائمًا.",
+  "tr": "Kontrol basamağı hatalı barkod reddedilir, asla düzeltilmez; böylece basılan barkod her zaman ürünle eşleşir.",
+  "fr": "Un code-barres avec une clé fausse est refusé, jamais corrigé : le code imprimé correspond toujours au produit.",
+  "es": "Un código con dígito de control erróneo se rechaza, nunca se corrige, para que el código impreso siempre coincida.",
+  "de": "Ein Barcode mit falscher Prüfziffer wird abgelehnt, nie korrigiert — der Druck passt so immer zum Produkt."
+ },
+ "help.guide.importing.title": {
+  "en": "Importing products",
+  "ar": "استيراد المنتجات",
+  "tr": "Ürünleri içe aktarma",
+  "fr": "Importer des produits",
+  "es": "Importar productos",
+  "de": "Produkte importieren"
+ },
+ "help.guide.importing.l1": {
+  "en": "Products → Import reads CSV and Excel (.xlsx) files, or a price-change file from another Till family app.",
+  "ar": "المنتجات ← استيراد يقرأ ملفات CSV وExcel (.xlsx) أو ملف تغيير أسعار من تطبيق آخر من عائلة Till.",
+  "tr": "Ürünler → İçe aktar, CSV ve Excel (.xlsx) dosyalarını veya başka bir Till ailesi uygulamasından fiyat değişikliği dosyasını okur.",
+  "fr": "Produits → Importer lit les fichiers CSV et Excel (.xlsx), ou un fichier de changement de prix d'une autre app de la famille Till.",
+  "es": "Productos → Importar lee archivos CSV y Excel (.xlsx), o un archivo de cambio de precios de otra app de la familia Till.",
+  "de": "Produkte → Import liest CSV- und Excel-Dateien (.xlsx) oder eine Preisänderungsdatei aus einer anderen App der Till-Familie."
+ },
+ "help.guide.importing.l2": {
+  "en": "Match the columns, then confirm how prices are written (1,234.56 or 1.234,56). The app never guesses a value like 1,234.",
+  "ar": "طابِق الأعمدة ثم أكّد طريقة كتابة الأسعار (1,234.56 أو 1.234,56). لا يخمّن التطبيق قيمة مثل 1,234 أبدًا.",
+  "tr": "Sütunları eşleştirin, sonra fiyatların nasıl yazıldığını onaylayın (1,234.56 veya 1.234,56). Uygulama 1,234 gibi bir değeri asla tahmin etmez.",
+  "fr": "Associez les colonnes, puis confirmez l'écriture des prix (1,234.56 ou 1.234,56). L'app ne devine jamais une valeur comme 1,234.",
+  "es": "Asigna las columnas y confirma cómo se escriben los precios (1,234.56 o 1.234,56). La app nunca adivina un valor como 1,234.",
+  "de": "Spalten zuordnen, dann das Preisformat bestätigen (1,234.56 oder 1.234,56). Einen Wert wie 1,234 rät die App nie."
+ },
+ "help.guide.importing.l3": {
+  "en": "The preview shows every row as New, Changed, Same, Conflict or Invalid. Nothing is saved until you tap Import, and then all rows are saved or none.",
+  "ar": "تعرض المعاينة كل صف: جديد أو متغيّر أو مطابق أو متعارض أو غير صالح. لا يُحفظ شيء قبل الضغط على استيراد، ثم تُحفظ كل الصفوف أو لا شيء.",
+  "tr": "Önizleme her satırı Yeni, Değişen, Aynı, Çakışma veya Geçersiz olarak gösterir. İçe aktar'a dokunana kadar hiçbir şey kaydedilmez; sonra ya tüm satırlar kaydedilir ya hiçbiri.",
+  "fr": "L'aperçu montre chaque ligne : Nouveau, Modifié, Identique, Conflit ou Invalide. Rien n'est enregistré avant « Importer », puis tout ou rien.",
+  "es": "La vista previa muestra cada fila como Nueva, Cambiada, Igual, Conflicto o No válida. No se guarda nada hasta pulsar Importar, y entonces todo o nada.",
+  "de": "Die Vorschau zeigt jede Zeile als Neu, Geändert, Gleich, Konflikt oder Ungültig. Gespeichert wird erst bei „Importieren“ — alles oder nichts."
+ },
+ "help.guide.importing.l4": {
+  "en": "Full names and codes are kept as they are in your file; nothing is shortened.",
+  "ar": "تُحفظ الأسماء الكاملة والرموز كما هي في ملفك؛ لا يُختصر شيء.",
+  "tr": "Tam adlar ve kodlar dosyanızdaki gibi saklanır; hiçbir şey kısaltılmaz.",
+  "fr": "Les noms complets et codes sont conservés tels quels ; rien n'est raccourci.",
+  "es": "Los nombres completos y códigos se guardan tal cual; nada se acorta.",
+  "de": "Vollständige Namen und Codes bleiben wie in Ihrer Datei; nichts wird gekürzt."
+ },
+ "help.guide.printing.title": {
+  "en": "Printing and confirming",
+  "ar": "الطباعة والتأكيد",
+  "tr": "Yazdırma ve onaylama",
+  "fr": "Imprimer et confirmer",
+  "es": "Imprimir y confirmar",
+  "de": "Drucken und bestätigen"
+ },
+ "help.guide.printing.l1": {
+  "en": "To print lists only labels whose printed content changed. Products and labels are counted separately.",
+  "ar": "لا تعرض قائمة الطباعة إلا الملصقات التي تغيّر محتواها المطبوع. تُحسب المنتجات والملصقات كلٌّ على حدة.",
+  "tr": "Yazdırılacak listesi yalnızca basılı içeriği değişen etiketleri gösterir. Ürünler ve etiketler ayrı sayılır.",
+  "fr": "À imprimer ne liste que les étiquettes dont le contenu imprimé a changé. Produits et étiquettes sont comptés séparément.",
+  "es": "Por imprimir solo lista etiquetas cuyo contenido impreso cambió. Productos y etiquetas se cuentan por separado.",
+  "de": "„Zu drucken“ zeigt nur Etiketten, deren Druckinhalt sich geändert hat. Produkte und Etiketten werden getrennt gezählt."
+ },
+ "help.guide.printing.l2": {
+  "en": "For a part-used sheet, set the start label so the used ones are skipped. Never feed a used sticker sheet through the printer again.",
+  "ar": "لورقة مستعملة جزئيًا، حدّد ملصق البدء لتخطي المستعمَل. لا تُدخل ورقة ملصقات مستعملة في الطابعة مجددًا.",
+  "tr": "Kısmen kullanılmış sayfada başlangıç etiketini ayarlayın ki kullanılanlar atlansın. Kullanılmış etiket sayfasını yazıcıya asla tekrar sokmayın.",
+  "fr": "Pour une planche entamée, réglez l'étiquette de départ afin de sauter les utilisées. Ne repassez jamais une planche autocollante entamée.",
+  "es": "En una hoja usada, ajusta la etiqueta inicial para saltar las usadas. Nunca vuelvas a pasar una hoja adhesiva usada.",
+  "de": "Bei angebrochenen Bögen die Startposition setzen, damit benutzte übersprungen werden. Einen benutzten Klebebogen nie erneut einlegen."
+ },
+ "help.guide.printing.l3": {
+  "en": "Preview shows the exact PDF that prints. After you print and come back, the app asks whether the labels printed correctly.",
+  "ar": "تعرض المعاينة ملف PDF نفسه الذي يُطبع. بعد الطباعة والعودة يسألك التطبيق هل طُبعت الملصقات بشكل صحيح.",
+  "tr": "Önizleme, basılacak tam PDF'i gösterir. Yazdırıp geri döndüğünüzde uygulama etiketlerin doğru basılıp basılmadığını sorar.",
+  "fr": "L'aperçu montre le PDF exact qui s'imprime. Après l'impression, au retour, l'app demande si les étiquettes sont bien imprimées.",
+  "es": "La vista previa muestra el PDF exacto que se imprime. Al volver tras imprimir, la app pregunta si se imprimieron bien.",
+  "de": "Die Vorschau zeigt genau das PDF, das gedruckt wird. Nach dem Druck fragt die App, ob alles richtig gedruckt wurde."
+ },
+ "help.guide.printing.l4": {
+  "en": "Only “Yes, printed” clears labels from To print. Keep waiting leaves them; Share PDF never counts as printed.",
+  "ar": "لا يزيل الملصقات من قائمة الطباعة إلا «نعم، طُبعت». «إبقاؤها بالانتظار» يتركها؛ ومشاركة PDF لا تُحتسب طباعة أبدًا.",
+  "tr": "Etiketleri Yazdırılacak'tan yalnızca “Evet, yazdırıldı” kaldırır. “Beklesin” bırakır; PDF paylaşmak asla yazdırma sayılmaz.",
+  "fr": "Seul « Oui, imprimé » retire les étiquettes d'À imprimer. « Garder en attente » les laisse ; partager le PDF ne compte jamais.",
+  "es": "Solo «Sí, impresas» quita las etiquetas de Por imprimir. «Seguir esperando» las deja; compartir el PDF nunca cuenta.",
+  "de": "Nur „Ja, gedruckt“ entfernt Etiketten aus „Zu drucken“. „Weiter warten“ lässt sie; PDF teilen zählt nie als gedruckt."
+ },
+ "help.guide.calibration.title": {
+  "en": "Stationery and calibration",
+  "ar": "القرطاسية والمعايرة",
+  "tr": "Kâğıt ve kalibrasyon",
+  "fr": "Supports et étalonnage",
+  "es": "Papelería y calibración",
+  "de": "Bögen und Kalibrierung"
+ },
+ "help.guide.calibration.l1": {
+  "en": "More → Print setup lists the shelf tickets, sticker sheets and offer cards. Pro users can add their own sheet with its exact measurements.",
+  "ar": "المزيد ← إعداد الطباعة يعرض بطاقات الرف وأوراق الملصقات وبطاقات العروض. يمكن لمستخدمي Pro إضافة ورقتهم بقياساتها الدقيقة.",
+  "tr": "Menü → Yazdırma ayarları raf etiketlerini, etiket sayfalarını ve kampanya kartlarını listeler. Pro kullanıcılar kendi sayfalarını tam ölçüleriyle ekleyebilir.",
+  "fr": "Menu → Configuration d'impression liste les étiquettes de rayon, planches et cartes. En Pro, ajoutez votre propre planche avec ses mesures exactes.",
+  "es": "Menú → Configuración de impresión lista etiquetas, hojas adhesivas y carteles. Con Pro puedes añadir tu propia hoja con sus medidas exactas.",
+  "de": "Menü → Druckeinrichtung zeigt Regaletiketten, Klebebögen und Angebotskarten. Mit Pro legen Sie eigene Bögen mit genauen Maßen an."
+ },
+ "help.guide.calibration.l2": {
+  "en": "Print the calibration page at 100% / Actual size and measure the 100 mm line first. If it is not 100 mm, the printer is scaling.",
+  "ar": "اطبع صفحة المعايرة بنسبة 100% / الحجم الفعلي وقِس خط 100 مم أولًا. إن لم يكن 100 مم فالطابعة تغيّر المقاس.",
+  "tr": "Kalibrasyon sayfasını %100 / Gerçek boyutta yazdırın ve önce 100 mm çizgisini ölçün. 100 mm değilse yazıcı ölçekliyor demektir.",
+  "fr": "Imprimez la page d'étalonnage à 100 % / Taille réelle et mesurez d'abord la ligne de 100 mm. Si ce n'est pas 100 mm, l'imprimante met à l'échelle.",
+  "es": "Imprime la página de calibración al 100 % / Tamaño real y mide primero la línea de 100 mm. Si no mide 100 mm, la impresora escala.",
+  "de": "Kalibrierseite mit 100 % / tatsächlicher Größe drucken und zuerst die 100-mm-Linie messen. Ist sie nicht 100 mm, skaliert der Drucker."
+ },
+ "help.guide.calibration.l3": {
+  "en": "If every label is shifted by the same amount, enter the measurements and apply the offset (0.5 mm steps).",
+  "ar": "إن كانت كل الملصقات منزاحة بالمقدار نفسه، أدخل القياسات وطبّق الإزاحة (بخطوات 0.5 مم).",
+  "tr": "Tüm etiketler aynı miktarda kaymışsa ölçümleri girip ofseti uygulayın (0,5 mm adım).",
+  "fr": "Si toutes les étiquettes sont décalées de la même valeur, saisissez les mesures et appliquez le décalage (pas de 0,5 mm).",
+  "es": "Si todas las etiquetas se desplazan lo mismo, introduce las medidas y aplica el desplazamiento (pasos de 0,5 mm).",
+  "de": "Sind alle Etiketten gleich verschoben, Messwerte eingeben und Versatz übernehmen (0,5-mm-Schritte)."
+ },
+ "help.guide.calibration.l4": {
+  "en": "If the shift grows down the sheet, it is scaling or paper feed; an offset cannot fix that. Check Actual size and the paper guides.",
+  "ar": "إن زادت الإزاحة نزولًا في الورقة فهي مشكلة تحجيم أو تغذية ورق؛ والإزاحة لا تصلحها. تحقّق من الحجم الفعلي وموجّهات الورق.",
+  "tr": "Kayma sayfa aşağısında artıyorsa bu ölçekleme veya kâğıt beslemedir; ofset düzeltemez. Gerçek boyutu ve kâğıt kılavuzlarını kontrol edin.",
+  "fr": "Si le décalage augmente vers le bas, c'est l'échelle ou l'entraînement ; un décalage n'y peut rien. Vérifiez la taille réelle et les guides.",
+  "es": "Si el desplazamiento crece hacia abajo, es escala o arrastre; un desplazamiento no lo arregla. Revisa el tamaño real y las guías.",
+  "de": "Wächst die Verschiebung nach unten, ist es Skalierung oder Einzug; ein Versatz hilft nicht. Tatsächliche Größe und Papierführung prüfen."
+ },
+ "help.guide.offers.title": {
+  "en": "Offers and reductions",
+  "ar": "العروض والتخفيضات",
+  "tr": "Kampanyalar ve indirimler",
+  "fr": "Offres et démarques",
+  "es": "Ofertas y rebajas",
+  "de": "Angebote und Reduzierungen"
+ },
+ "help.guide.offers.l1": {
+  "en": "Home → Offers creates was/now, % off, money off, multibuy and member-price offers (Pro). The product's normal price never changes.",
+  "ar": "الرئيسية ← العروض تنشئ عروض كان/الآن والخصم % وخصم المبلغ والكمية وسعر الأعضاء (Pro). لا يتغيّر السعر العادي للمنتج أبدًا.",
+  "tr": "Ana Sayfa → Kampanyalar ile eski/yeni, % indirim, tutar indirimi, çoklu alım ve üye fiyatı oluşturulur (Pro). Ürünün normal fiyatı asla değişmez.",
+  "fr": "Accueil → Offres crée des offres avant/maintenant, % de remise, montant, lot et prix adhérent (Pro). Le prix normal ne change jamais.",
+  "es": "Inicio → Ofertas crea ofertas antes/ahora, % de descuento, importe, multicompra y precio socio (Pro). El precio normal nunca cambia.",
+  "de": "Start → Angebote erstellt Vorher/Jetzt, % Rabatt, Betrag, Mehrfachkauf und Mitgliederpreis (Pro). Der Normalpreis ändert sich nie."
+ },
+ "help.guide.offers.l2": {
+  "en": "Offer labels go to To print. Choose a shelf ticket, or an A6 (portrait or landscape), A5 or A4 card for a bigger price.",
+  "ar": "تذهب ملصقات العروض إلى قائمة الطباعة. اختر بطاقة رف أو بطاقة A6 (عمودية أو أفقية) أو A5 أو A4 لسعر أكبر.",
+  "tr": "Kampanya etiketleri Yazdırılacak'a gider. Raf etiketi ya da daha büyük fiyat için A6 (dikey veya yatay), A5 veya A4 kart seçin.",
+  "fr": "Les étiquettes d'offre vont dans À imprimer. Choisissez une étiquette de rayon, ou une carte A6 (portrait ou paysage), A5 ou A4 pour un prix plus grand.",
+  "es": "Las etiquetas de oferta van a Por imprimir. Elige una etiqueta de estante o un cartel A6 (vertical u horizontal), A5 o A4 para un precio más grande.",
+  "de": "Angebotsetiketten landen unter „Zu drucken“. Wählen Sie ein Regaletikett oder eine A6- (hoch/quer), A5- oder A4-Karte für einen größeren Preis."
+ },
+ "help.guide.offers.l3": {
+  "en": "If a price is wider than a format allows at its fixed size, the app says the price needs a larger label format.",
+  "ar": "إن كان السعر أعرض مما يسمح به المقاس بحجمه الثابت، يخبرك التطبيق أن السعر يحتاج مقاسًا أكبر.",
+  "tr": "Bir fiyat, formatın sabit boyutunda izin verdiğinden genişse uygulama daha büyük format gerektiğini söyler.",
+  "fr": "Si un prix est plus large que ce que permet un format à sa taille fixe, l'app indique qu'il faut un format plus grand.",
+  "es": "Si un precio es más ancho de lo que permite un formato con su tamaño fijo, la app indica que necesita un formato mayor.",
+  "de": "Ist ein Preis breiter, als ein Format bei fester Größe erlaubt, meldet die App: größeres Format nötig."
+ },
+ "help.guide.offers.l4": {
+  "en": "Reduced to clear prints was/now labels for short-dated stock; it is stored apart from the product.",
+  "ar": "التخفيض للتصفية يطبع ملصقات كان/الآن للبضاعة قريبة الانتهاء؛ ويُحفظ منفصلًا عن المنتج.",
+  "tr": "Tasfiye indirimi, son kullanma tarihi yakın ürünler için eski/yeni etiketleri basar; üründen ayrı saklanır.",
+  "fr": "La démarque imprime des étiquettes avant/maintenant pour les dates courtes ; elle est stockée à part du produit.",
+  "es": "La rebaja de liquidación imprime etiquetas antes/ahora para fechas cortas; se guarda aparte del producto.",
+  "de": "Abverkauf druckt Vorher/Jetzt-Etiketten für kurze MHDs; getrennt vom Produkt gespeichert."
+ },
+ "help.guide.languages.l2": {
+  "en": "The label language is separate from the app language: an English app can print Arabic labels, and the other way round. Set it in More → Label settings.",
+  "ar": "لغة الملصقات منفصلة عن لغة التطبيق: يمكن لتطبيق بالإنجليزية طباعة ملصقات بالعربية والعكس. اضبطها من المزيد ← إعدادات الملصقات.",
+  "tr": "Etiket dili uygulama dilinden ayrıdır: İngilizce uygulama Arapça etiket basabilir, tersi de olur. Menü → Etiket ayarları'ndan ayarlayın.",
+  "fr": "La langue des étiquettes est distincte de celle de l'app : une app en anglais peut imprimer en arabe, et inversement. Réglez-la dans Menu → Réglages des étiquettes.",
+  "es": "El idioma de las etiquetas es independiente del de la app: una app en inglés puede imprimir en árabe y al revés. Ajústalo en Menú → Ajustes de etiquetas.",
+  "de": "Die Etikettensprache ist unabhängig von der App-Sprache: Eine englische App kann arabische Etiketten drucken und umgekehrt. Unter Menü → Etiketteneinstellungen."
+ },
+ "help.faq.printing.title": {
+  "en": "Printing",
+  "ar": "الطباعة",
+  "tr": "Yazdırma",
+  "fr": "Impression",
+  "es": "Impresión",
+  "de": "Drucken"
+ },
+ "help.faq.printing.q1": {
+  "en": "My labels print slightly off the lines. What do I do?",
+  "ar": "تُطبع ملصقاتي منزاحة قليلًا عن الخطوط. ماذا أفعل؟",
+  "tr": "Etiketlerim çizgilerden biraz kaymış basılıyor. Ne yapmalıyım?",
+  "fr": "Mes étiquettes s'impriment légèrement décalées. Que faire ?",
+  "es": "Mis etiquetas salen un poco desplazadas. ¿Qué hago?",
+  "de": "Meine Etiketten sind leicht verschoben. Was tun?"
+ },
+ "help.faq.printing.a1": {
+  "en": "Use More → Printer calibration. Print the page at Actual size, measure it, and the app tells you whether a small offset fixes it or the printer is scaling.",
+  "ar": "استخدم المزيد ← معايرة الطابعة. اطبع الصفحة بالحجم الفعلي وقِسها، وسيخبرك التطبيق هل تصلحها إزاحة صغيرة أم أن الطابعة تغيّر المقاس.",
+  "tr": "Menü → Yazıcı kalibrasyonu'nu kullanın. Sayfayı Gerçek boyutta yazdırıp ölçün; uygulama küçük bir ofsetin düzeltip düzeltmeyeceğini veya yazıcının ölçekleyip ölçeklemediğini söyler.",
+  "fr": "Utilisez Menu → Étalonnage de l'imprimante. Imprimez la page en taille réelle, mesurez-la ; l'app vous dit si un petit décalage suffit ou si l'imprimante met à l'échelle.",
+  "es": "Usa Menú → Calibración de la impresora. Imprime la página a tamaño real y mídela; la app te dice si basta un pequeño desplazamiento o si la impresora escala.",
+  "de": "Nutzen Sie Menü → Druckerkalibrierung. Seite in tatsächlicher Größe drucken und messen; die App sagt, ob ein kleiner Versatz reicht oder der Drucker skaliert."
+ },
+ "help.faq.printing.q2": {
+  "en": "Everything prints a little too small.",
+  "ar": "كل شيء يُطبع أصغر قليلًا.",
+  "tr": "Her şey biraz küçük basılıyor.",
+  "fr": "Tout s'imprime un peu trop petit.",
+  "es": "Todo se imprime un poco pequeño.",
+  "de": "Alles wird etwas zu klein gedruckt."
+ },
+ "help.faq.printing.a2": {
+  "en": "The print dialog is set to Fit to page. Choose 100% / Actual size (sometimes called “None” for scaling) and print again.",
+  "ar": "مربع حوار الطباعة مضبوط على «ملاءمة الصفحة». اختر 100% / الحجم الفعلي ثم اطبع مجددًا.",
+  "tr": "Yazdırma penceresi Sayfaya sığdır'a ayarlı. %100 / Gerçek boyut'u seçip tekrar yazdırın.",
+  "fr": "La boîte d'impression est réglée sur « Ajuster à la page ». Choisissez 100 % / Taille réelle et réimprimez.",
+  "es": "El cuadro de impresión está en «Ajustar a la página». Elige 100 % / Tamaño real e imprime de nuevo.",
+  "de": "Der Druckdialog steht auf „An Seite anpassen“. 100 % / tatsächliche Größe wählen und erneut drucken."
+ },
+ "help.faq.printing.q3": {
+  "en": "I shared the PDF. Why are the labels still waiting?",
+  "ar": "شاركت ملف PDF. لماذا ما زالت الملصقات بالانتظار؟",
+  "tr": "PDF'i paylaştım. Etiketler neden hâlâ bekliyor?",
+  "fr": "J'ai partagé le PDF. Pourquoi les étiquettes attendent-elles encore ?",
+  "es": "Compartí el PDF. ¿Por qué siguen esperando las etiquetas?",
+  "de": "Ich habe das PDF geteilt. Warum warten die Etiketten noch?"
+ },
+ "help.faq.printing.a3": {
+  "en": "Sharing is not printing. Labels leave To print only when you print and then answer “Yes, printed”, so a price change is never lost.",
+  "ar": "المشاركة ليست طباعة. لا تخرج الملصقات من قائمة الطباعة إلا عند الطباعة ثم الإجابة «نعم، طُبعت»، فلا يضيع تغيير سعر أبدًا.",
+  "tr": "Paylaşmak yazdırmak değildir. Etiketler ancak yazdırıp “Evet, yazdırıldı” dediğinizde çıkar; böylece hiçbir fiyat değişikliği kaybolmaz.",
+  "fr": "Partager n'est pas imprimer. Les étiquettes quittent À imprimer seulement après impression et « Oui, imprimé », pour qu'aucun changement de prix ne se perde.",
+  "es": "Compartir no es imprimir. Las etiquetas salen de Por imprimir solo al imprimir y responder «Sí, impresas», para que no se pierda ningún cambio de precio.",
+  "de": "Teilen ist kein Drucken. Etiketten verlassen „Zu drucken“ erst nach dem Druck und „Ja, gedruckt“ — so geht keine Preisänderung verloren."
+ },
+ "help.faq.labels.title": {
+  "en": "Labels",
+  "ar": "الملصقات",
+  "tr": "Etiketler",
+  "fr": "Étiquettes",
+  "es": "Etiquetas",
+  "de": "Etiketten"
+ },
+ "help.faq.labels.q1": {
+  "en": "Why doesn't the app shrink a long name to fit?",
+  "ar": "لماذا لا يصغّر التطبيق الاسم الطويل ليتسع؟",
+  "tr": "Uygulama uzun adı sığsın diye neden küçültmüyor?",
+  "fr": "Pourquoi l'app ne réduit-elle pas un nom long ?",
+  "es": "¿Por qué la app no encoge un nombre largo?",
+  "de": "Warum verkleinert die App lange Namen nicht?"
+ },
+ "help.faq.labels.a1": {
+  "en": "Like a till system, every label of a type uses the same fixed sizes so your shelves look consistent. Write a shorter label name; your full product name is kept.",
+  "ar": "كما في أنظمة الكاشير، يستخدم كل ملصق من النوع نفسه أحجامًا ثابتة لتبدو رفوفك متناسقة. اكتب اسم ملصق أقصر؛ ويبقى اسم منتجك الكامل محفوظًا.",
+  "tr": "Kasa sistemleri gibi, aynı türdeki her etiket sabit boyutları kullanır; raflarınız tutarlı görünür. Daha kısa bir etiket adı yazın; tam ürün adınız saklanır.",
+  "fr": "Comme un système de caisse, chaque étiquette d'un type utilise les mêmes tailles fixes pour des rayons homogènes. Écrivez un nom d'étiquette plus court ; le nom complet est conservé.",
+  "es": "Como un sistema de caja, cada etiqueta de un tipo usa los mismos tamaños fijos para que los estantes se vean uniformes. Escribe un nombre de etiqueta más corto; el nombre completo se conserva.",
+  "de": "Wie bei einem Kassensystem nutzt jedes Etikett einer Art dieselben festen Größen — Ihre Regale wirken einheitlich. Schreiben Sie einen kürzeren Etikettennamen; der volle Name bleibt."
+ },
+ "help.faq.labels.q2": {
+  "en": "It says “This price needs a larger label format”.",
+  "ar": "يظهر «هذا السعر يحتاج إلى مقاس ملصق أكبر».",
+  "tr": "“Bu fiyat için daha büyük bir etiket formatı gerekir” diyor.",
+  "fr": "Il est écrit « Ce prix nécessite un format d'étiquette plus grand ».",
+  "es": "Dice «Este precio necesita un formato de etiqueta más grande».",
+  "de": "Es steht „Dieser Preis braucht ein größeres Etikettenformat“."
+ },
+ "help.faq.labels.a2": {
+  "en": "The price, as printed with its currency, is wider than that label's fixed price area. Print it on a larger ticket or an offer card; the product and price are not changed.",
+  "ar": "السعر بعملته المطبوعة أعرض من مساحة السعر الثابتة في ذلك الملصق. اطبعه على بطاقة رف أكبر أو بطاقة عرض؛ لا يتغيّر المنتج ولا السعر.",
+  "tr": "Para birimiyle basılan fiyat, o etiketin sabit fiyat alanından geniş. Daha büyük bir etikete veya kampanya kartına basın; ürün ve fiyat değişmez.",
+  "fr": "Le prix, tel qu'imprimé avec sa devise, est plus large que la zone fixe de cette étiquette. Imprimez-le sur une étiquette plus grande ou une carte ; rien n'est modifié.",
+  "es": "El precio, tal como se imprime con su moneda, es más ancho que el área fija de esa etiqueta. Imprímelo en una etiqueta mayor o un cartel; no cambia nada.",
+  "de": "Der Preis ist mit Währung breiter als das feste Preisfeld dieses Etiketts. Drucken Sie ihn auf ein größeres Etikett oder eine Karte; nichts wird geändert."
+ },
+ "help.faq.labels.q3": {
+  "en": "A printed barcode will not scan.",
+  "ar": "باركود مطبوع لا يُقرأ.",
+  "tr": "Basılan barkod okunmuyor.",
+  "fr": "Un code-barres imprimé ne se lit pas.",
+  "es": "Un código impreso no se escanea.",
+  "de": "Ein gedruckter Barcode lässt sich nicht scannen."
+ },
+ "help.faq.labels.a3": {
+  "en": "Check the print is sharp and at Actual size, and that the blank space either side of the bars is not trimmed. Test with your shop scanner before printing many.",
+  "ar": "تأكد أن الطباعة واضحة وبالحجم الفعلي، وأن الفراغ على جانبي الخطوط غير مقصوص. جرّب بماسح متجرك قبل طباعة الكثير.",
+  "tr": "Baskının net ve Gerçek boyutta olduğunu, çubukların iki yanındaki boşluğun kesilmediğini kontrol edin. Çok basmadan önce mağaza okuyucunuzla deneyin.",
+  "fr": "Vérifiez une impression nette en taille réelle et que les marges blanches autour des barres ne sont pas rognées. Testez avec votre scanner avant d'en imprimer beaucoup.",
+  "es": "Comprueba que la impresión sea nítida y a tamaño real, y que el espacio en blanco a los lados no esté recortado. Prueba con tu escáner antes de imprimir muchas.",
+  "de": "Prüfen Sie scharfen Druck in tatsächlicher Größe und dass der Leerraum neben den Balken nicht abgeschnitten ist. Vor großen Mengen mit Ihrem Scanner testen."
+ },
+ "help.faq.plans.title": {
+  "en": "Free and Pro",
+  "ar": "المجاني وPro",
+  "tr": "Ücretsiz ve Pro",
+  "fr": "Gratuit et Pro",
+  "es": "Gratis y Pro",
+  "de": "Gratis und Pro"
+ },
+ "help.faq.plans.q1": {
+  "en": "What does Pro add?",
+  "ar": "ماذا يضيف Pro؟",
+  "tr": "Pro ne ekler?",
+  "fr": "Qu'apporte Pro ?",
+  "es": "¿Qué añade Pro?",
+  "de": "Was bietet Pro?"
+ },
+ "help.faq.plans.a1": {
+  "en": "Free includes up to 200 products, price, unit-price and barcode labels, CSV, Excel and Till family imports, preview, calibration, unlimited printing, backup and all six languages. Pro is a one-time purchase that adds unlimited products, offers, reductions, offer cards, your own sheets and multiple profiles. Existing data is never locked.",
+  "ar": "يشمل المجاني حتى 200 منتج، وملصقات السعر وسعر الوحدة والباركود، والاستيراد، والمعاينة، والمعايرة، وطباعة غير محدودة، والنسخ الاحتياطي واللغات الست. Pro شراء لمرة واحدة يضيف منتجات غير محدودة والعروض والتخفيضات وبطاقات العروض وأوراقك الخاصة وملفات متعددة. لا تُقفل بياناتك الحالية أبدًا.",
+  "tr": "Ücretsiz sürüm 200'e kadar ürün, fiyat, birim fiyat ve barkod etiketleri, içe aktarma, önizleme, kalibrasyon, sınırsız yazdırma, yedekleme ve altı dili içerir. Pro tek seferlik bir satın almadır: sınırsız ürün, kampanyalar, indirimler, kampanya kartları, kendi sayfalarınız ve birden çok profil ekler. Mevcut veriler asla kilitlenmez.",
+  "fr": "La version gratuite comprend jusqu'à 200 produits, les étiquettes prix, prix unitaire et code-barres, les imports, l'aperçu, l'étalonnage, l'impression illimitée, la sauvegarde et les six langues. Pro est un achat unique qui ajoute produits illimités, offres, démarques, cartes, vos propres planches et plusieurs profils. Vos données existantes ne sont jamais bloquées.",
+  "es": "Gratis incluye hasta 200 productos, etiquetas de precio, precio unitario y código de barras, importaciones, vista previa, calibración, impresión ilimitada, copias de seguridad y los seis idiomas. Pro es una compra única que añade productos ilimitados, ofertas, rebajas, carteles, tus propias hojas y varios perfiles. Tus datos nunca se bloquean.",
+  "de": "Gratis umfasst bis zu 200 Produkte, Preis-, Grundpreis- und Barcode-Etiketten, Importe, Vorschau, Kalibrierung, unbegrenztes Drucken, Sicherung und alle sechs Sprachen. Pro ist ein Einmalkauf mit unbegrenzten Produkten, Angeboten, Reduzierungen, Angebotskarten, eigenen Bögen und mehreren Profilen. Vorhandene Daten werden nie gesperrt."
+ }
+}

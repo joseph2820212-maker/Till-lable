@@ -94,10 +94,12 @@ describe('legal parity with Till Note', () => {
   });
 
   it('FAQ mirrors the Till Note chapter set and the guide has the safe-support chapter', () => {
-    expect(FAQ_CHAPTER_IDS).toEqual(['gettingStarted', 'dataPrivacy', 'permissions', 'troubleshooting', 'support']);
+    // The family (Till Note) chapter set comes first, unchanged and in order; TillLabel's label chapters follow.
+    expect(FAQ_CHAPTER_IDS.slice(0, 5)).toEqual(['gettingStarted', 'dataPrivacy', 'permissions', 'troubleshooting', 'support']);
+    expect(FAQ_CHAPTER_IDS.slice(5)).toEqual(['printing', 'labels', 'plans']);
     expect(GUIDE_CHAPTER_IDS).toContain('support');
     const faq = getFaqChapters(t);
-    expect(faq.flatMap(c => c.blocks).filter(b => b.k === 'h').map(b => b.t)).toEqual([
+    expect(faq.flatMap(c => c.blocks).filter(b => b.k === 'h').map(b => b.t).slice(0, 7)).toEqual([
       'Is TillLabel an online app?',
       'Does TillLabel send my figures to a server?',
       'Why does the app ask for the camera or files?',

@@ -177,7 +177,7 @@
       "languages": {
         "title": "Languages and currency",
         "l1": "Six languages: English, Arabic, Turkish, French, Spanish and German. Arabic flips the layout right-to-left.",
-        "l2": "Numbers are always shown with Western digits so prices read the same on a label in any language.",
+        "l2": "The label language is separate from the app language: an English app can print Arabic labels, and the other way round. Set it in More → Label settings.",
         "l3": "Changing the currency changes how prices are shown; it does not convert your figures."
       },
       "support": {
@@ -185,6 +185,54 @@
         "l1": "More → About → Email support. The email opens with your app version and device already filled in.",
         "l2": "Describe the screen and what you were trying to do; add a screenshot if it shows no sensitive figures.",
         "l3": "Never send backup passphrases, bank details, store passwords or unredacted product lists. Support will only ever ask for redacted information."
+      },
+      "firstLabels": {
+        "title": "Your first labels",
+        "l1": "Choose the app language, your shop currency and the label language on Home → Set up. Each is set on its own.",
+        "l2": "Print a Label test on the paper you will use (More → Print setup). Check the top, middle and bottom labels.",
+        "l3": "Add products (Products → Add, Scan or Import) or make a one-off Quick label from Home.",
+        "l4": "Open To print, choose the stationery and where to start on the sheet, preview the exact PDF and print."
+      },
+      "products": {
+        "title": "Product name and label name",
+        "l1": "The product name is kept exactly as you typed or imported it, however long.",
+        "l2": "The label name is what prints. It has a counter (for example 38 / 40); leave it empty if the full name already fits.",
+        "l3": "Every label type has fixed text sizes. Nothing shrinks to fit: if text is too wide, the app says so and suggests a shorter label name or a larger format.",
+        "l4": "Changing a price puts the label in To print automatically. Saving without a change adds nothing."
+      },
+      "scanning": {
+        "title": "Scanning barcodes",
+        "l1": "Products → Scan opens a product from its barcode; an unknown code offers to add it.",
+        "l2": "The camera is used only to read the code. Use the torch in dim aisles, or type the code instead.",
+        "l3": "A barcode with a wrong check digit is refused, never corrected, so the printed barcode always matches the product."
+      },
+      "importing": {
+        "title": "Importing products",
+        "l1": "Products → Import reads CSV and Excel (.xlsx) files, or a price-change file from another Till family app.",
+        "l2": "Match the columns, then confirm how prices are written (1,234.56 or 1.234,56). The app never guesses a value like 1,234.",
+        "l3": "The preview shows every row as New, Changed, Same, Conflict or Invalid. Nothing is saved until you tap Import, and then all rows are saved or none.",
+        "l4": "Full names and codes are kept as they are in your file; nothing is shortened."
+      },
+      "printing": {
+        "title": "Printing and confirming",
+        "l1": "To print lists only labels whose printed content changed. Products and labels are counted separately.",
+        "l2": "For a part-used sheet, set the start label so the used ones are skipped. Never feed a used sticker sheet through the printer again.",
+        "l3": "Preview shows the exact PDF that prints. After you print and come back, the app asks whether the labels printed correctly.",
+        "l4": "Only “Yes, printed” clears labels from To print. Keep waiting leaves them; Share PDF never counts as printed."
+      },
+      "calibration": {
+        "title": "Stationery and calibration",
+        "l1": "More → Print setup lists the shelf tickets, sticker sheets and offer cards. Pro users can add their own sheet with its exact measurements.",
+        "l2": "Print the calibration page at 100% / Actual size and measure the 100 mm line first. If it is not 100 mm, the printer is scaling.",
+        "l3": "If every label is shifted by the same amount, enter the measurements and apply the offset (0.5 mm steps).",
+        "l4": "If the shift grows down the sheet, it is scaling or paper feed; an offset cannot fix that. Check Actual size and the paper guides."
+      },
+      "offers": {
+        "title": "Offers and reductions",
+        "l1": "Home → Offers creates was/now, % off, money off, multibuy and member-price offers (Pro). The product's normal price never changes.",
+        "l2": "Offer labels go to To print. Choose a shelf ticket, or an A6 (portrait or landscape), A5 or A4 card for a bigger price.",
+        "l3": "If a price is wider than a format allows at its fixed size, the app says the price needs a larger label format.",
+        "l4": "Reduced to clear prints was/now labels for short-dated stock; it is stored apart from the product."
       }
     },
     "tabFaq": "Questions",
@@ -218,6 +266,29 @@
         "a1": "Email {{supportEmail}} – the button in More → About fills in your app and device details. Add the screen you were on, what you were trying to do and screenshots if they contain no sensitive figures.",
         "q2": "What can I safely send to support?",
         "a2": "Your device type, operating system version, app version, the screen name, a short description and screenshots with sensitive figures hidden. Never send backup passphrases, bank details, store account passwords or unredacted product lists."
+      },
+      "printing": {
+        "title": "Printing",
+        "q1": "My labels print slightly off the lines. What do I do?",
+        "a1": "Use More → Printer calibration. Print the page at Actual size, measure it, and the app tells you whether a small offset fixes it or the printer is scaling.",
+        "q2": "Everything prints a little too small.",
+        "a2": "The print dialog is set to Fit to page. Choose 100% / Actual size (sometimes called “None” for scaling) and print again.",
+        "q3": "I shared the PDF. Why are the labels still waiting?",
+        "a3": "Sharing is not printing. Labels leave To print only when you print and then answer “Yes, printed”, so a price change is never lost."
+      },
+      "labels": {
+        "title": "Labels",
+        "q1": "Why doesn't the app shrink a long name to fit?",
+        "a1": "Like a till system, every label of a type uses the same fixed sizes so your shelves look consistent. Write a shorter label name; your full product name is kept.",
+        "q2": "It says “This price needs a larger label format”.",
+        "a2": "The price, as printed with its currency, is wider than that label's fixed price area. Print it on a larger ticket or an offer card; the product and price are not changed.",
+        "q3": "A printed barcode will not scan.",
+        "a3": "Check the print is sharp and at Actual size, and that the blank space either side of the bars is not trimmed. Test with your shop scanner before printing many."
+      },
+      "plans": {
+        "title": "Free and Pro",
+        "q1": "What does Pro add?",
+        "a1": "Free includes up to 200 products, price, unit-price and barcode labels, CSV, Excel and Till family imports, preview, calibration, unlimited printing, backup and all six languages. Pro is a one-time purchase that adds unlimited products, offers, reductions, offer cards, your own sheets and multiple profiles. Existing data is never locked."
       }
     },
     "title": "Help"

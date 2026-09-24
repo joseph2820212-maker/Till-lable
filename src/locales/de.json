@@ -177,7 +177,7 @@
       "languages": {
         "title": "Sprachen und Währung",
         "l1": "Sechs Sprachen: Englisch, Arabisch, Türkisch, Französisch, Spanisch und Deutsch. Arabisch dreht das Layout auf rechts-nach-links.",
-        "l2": "Zahlen werden immer mit westlichen Ziffern gezeigt, damit Preise auf einem Etikett in jeder Sprache gleich lesbar sind.",
+        "l2": "Die Etikettensprache ist unabhängig von der App-Sprache: Eine englische App kann arabische Etiketten drucken und umgekehrt. Unter Menü → Etiketteneinstellungen.",
         "l3": "Die Währung zu ändern ändert die Anzeige der Preise; Ihre Zahlen werden nicht umgerechnet."
       },
       "support": {
@@ -185,6 +185,54 @@
         "l1": "Mehr → Info → Support anschreiben. Die E-Mail öffnet sich mit App-Version und Gerät bereits eingetragen.",
         "l2": "Beschreiben Sie den Bildschirm und Ihr Vorhaben; fügen Sie einen Screenshot bei, wenn er keine sensiblen Zahlen zeigt.",
         "l3": "Senden Sie nie Sicherungs-Passphrasen, Bankdaten, Store-Passwörter oder ungeschwärzte Produktlisten. Der Support fragt nur nach geschwärzten Angaben."
+      },
+      "firstLabels": {
+        "title": "Ihre ersten Etiketten",
+        "l1": "Wählen Sie unter Start → Einrichten App-Sprache, Währung und Etikettensprache. Jede Einstellung ist unabhängig.",
+        "l2": "Drucken Sie einen Etikettentest auf Ihrem Papier (Menü → Druckeinrichtung). Prüfen Sie oben, Mitte und unten.",
+        "l3": "Legen Sie Produkte an (Produkte → Neu, Scannen oder Import) oder machen Sie ein Schnelletikett auf Start.",
+        "l4": "Öffnen Sie „Zu drucken“, wählen Sie Bogen und Startposition, prüfen Sie das PDF und drucken Sie."
+      },
+      "products": {
+        "title": "Produktname und Etikettenname",
+        "l1": "Der Produktname bleibt genau wie eingegeben oder importiert, egal wie lang.",
+        "l2": "Gedruckt wird der Etikettenname. Er hat einen Zähler (z. B. 38 / 40); leer lassen, wenn der volle Name passt.",
+        "l3": "Jede Etikettenart hat feste Schriftgrößen. Nichts wird verkleinert: Ist Text zu breit, sagt die App das und schlägt einen kürzeren Namen oder ein größeres Format vor.",
+        "l4": "Eine Preisänderung legt das Etikett automatisch unter „Zu drucken“ ab. Speichern ohne Änderung fügt nichts hinzu."
+      },
+      "scanning": {
+        "title": "Barcodes scannen",
+        "l1": "Produkte → Scannen öffnet ein Produkt; ein unbekannter Code bietet das Anlegen an.",
+        "l2": "Die Kamera liest nur den Code. Nutzen Sie das Licht in dunklen Gängen oder tippen Sie den Code ein.",
+        "l3": "Ein Barcode mit falscher Prüfziffer wird abgelehnt, nie korrigiert — der Druck passt so immer zum Produkt."
+      },
+      "importing": {
+        "title": "Produkte importieren",
+        "l1": "Produkte → Import liest CSV- und Excel-Dateien (.xlsx) oder eine Preisänderungsdatei aus einer anderen App der Till-Familie.",
+        "l2": "Spalten zuordnen, dann das Preisformat bestätigen (1,234.56 oder 1.234,56). Einen Wert wie 1,234 rät die App nie.",
+        "l3": "Die Vorschau zeigt jede Zeile als Neu, Geändert, Gleich, Konflikt oder Ungültig. Gespeichert wird erst bei „Importieren“ — alles oder nichts.",
+        "l4": "Vollständige Namen und Codes bleiben wie in Ihrer Datei; nichts wird gekürzt."
+      },
+      "printing": {
+        "title": "Drucken und bestätigen",
+        "l1": "„Zu drucken“ zeigt nur Etiketten, deren Druckinhalt sich geändert hat. Produkte und Etiketten werden getrennt gezählt.",
+        "l2": "Bei angebrochenen Bögen die Startposition setzen, damit benutzte übersprungen werden. Einen benutzten Klebebogen nie erneut einlegen.",
+        "l3": "Die Vorschau zeigt genau das PDF, das gedruckt wird. Nach dem Druck fragt die App, ob alles richtig gedruckt wurde.",
+        "l4": "Nur „Ja, gedruckt“ entfernt Etiketten aus „Zu drucken“. „Weiter warten“ lässt sie; PDF teilen zählt nie als gedruckt."
+      },
+      "calibration": {
+        "title": "Bögen und Kalibrierung",
+        "l1": "Menü → Druckeinrichtung zeigt Regaletiketten, Klebebögen und Angebotskarten. Mit Pro legen Sie eigene Bögen mit genauen Maßen an.",
+        "l2": "Kalibrierseite mit 100 % / tatsächlicher Größe drucken und zuerst die 100-mm-Linie messen. Ist sie nicht 100 mm, skaliert der Drucker.",
+        "l3": "Sind alle Etiketten gleich verschoben, Messwerte eingeben und Versatz übernehmen (0,5-mm-Schritte).",
+        "l4": "Wächst die Verschiebung nach unten, ist es Skalierung oder Einzug; ein Versatz hilft nicht. Tatsächliche Größe und Papierführung prüfen."
+      },
+      "offers": {
+        "title": "Angebote und Reduzierungen",
+        "l1": "Start → Angebote erstellt Vorher/Jetzt, % Rabatt, Betrag, Mehrfachkauf und Mitgliederpreis (Pro). Der Normalpreis ändert sich nie.",
+        "l2": "Angebotsetiketten landen unter „Zu drucken“. Wählen Sie ein Regaletikett oder eine A6- (hoch/quer), A5- oder A4-Karte für einen größeren Preis.",
+        "l3": "Ist ein Preis breiter, als ein Format bei fester Größe erlaubt, meldet die App: größeres Format nötig.",
+        "l4": "Abverkauf druckt Vorher/Jetzt-Etiketten für kurze MHDs; getrennt vom Produkt gespeichert."
       }
     },
     "tabFaq": "Fragen",
@@ -218,6 +266,29 @@
         "a1": "Schreiben Sie an {{supportEmail}} – die Schaltfläche unter Mehr → Info füllt App- und Gerätedaten aus. Ergänzen Sie den Bildschirm, was Sie tun wollten, und Screenshots ohne sensible Zahlen.",
         "q2": "Was kann ich dem Support gefahrlos senden?",
         "a2": "Gerätetyp, Betriebssystem- und App-Version, Bildschirmname, eine kurze Beschreibung und Screenshots ohne sensible Zahlen. Senden Sie nie Sicherungs-Passphrasen, Bankdaten, Store-Kontopasswörter oder ungeschwärzte Produktlisten."
+      },
+      "printing": {
+        "title": "Drucken",
+        "q1": "Meine Etiketten sind leicht verschoben. Was tun?",
+        "a1": "Nutzen Sie Menü → Druckerkalibrierung. Seite in tatsächlicher Größe drucken und messen; die App sagt, ob ein kleiner Versatz reicht oder der Drucker skaliert.",
+        "q2": "Alles wird etwas zu klein gedruckt.",
+        "a2": "Der Druckdialog steht auf „An Seite anpassen“. 100 % / tatsächliche Größe wählen und erneut drucken.",
+        "q3": "Ich habe das PDF geteilt. Warum warten die Etiketten noch?",
+        "a3": "Teilen ist kein Drucken. Etiketten verlassen „Zu drucken“ erst nach dem Druck und „Ja, gedruckt“ — so geht keine Preisänderung verloren."
+      },
+      "labels": {
+        "title": "Etiketten",
+        "q1": "Warum verkleinert die App lange Namen nicht?",
+        "a1": "Wie bei einem Kassensystem nutzt jedes Etikett einer Art dieselben festen Größen — Ihre Regale wirken einheitlich. Schreiben Sie einen kürzeren Etikettennamen; der volle Name bleibt.",
+        "q2": "Es steht „Dieser Preis braucht ein größeres Etikettenformat“.",
+        "a2": "Der Preis ist mit Währung breiter als das feste Preisfeld dieses Etiketts. Drucken Sie ihn auf ein größeres Etikett oder eine Karte; nichts wird geändert.",
+        "q3": "Ein gedruckter Barcode lässt sich nicht scannen.",
+        "a3": "Prüfen Sie scharfen Druck in tatsächlicher Größe und dass der Leerraum neben den Balken nicht abgeschnitten ist. Vor großen Mengen mit Ihrem Scanner testen."
+      },
+      "plans": {
+        "title": "Gratis und Pro",
+        "q1": "Was bietet Pro?",
+        "a1": "Gratis umfasst bis zu 200 Produkte, Preis-, Grundpreis- und Barcode-Etiketten, Importe, Vorschau, Kalibrierung, unbegrenztes Drucken, Sicherung und alle sechs Sprachen. Pro ist ein Einmalkauf mit unbegrenzten Produkten, Angeboten, Reduzierungen, Angebotskarten, eigenen Bögen und mehreren Profilen. Vorhandene Daten werden nie gesperrt."
       }
     },
     "title": "Hilfe"

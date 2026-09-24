@@ -177,7 +177,7 @@
       "languages": {
         "title": "Diller ve para birimi",
         "l1": "Altı dil: İngilizce, Arapça, Türkçe, Fransızca, İspanyolca ve Almanca. Arapça düzeni sağdan sola çevirir.",
-        "l2": "Sayılar her zaman Batı rakamlarıyla gösterilir; fiyatlar her dilde etikette aynı okunur.",
+        "l2": "Etiket dili uygulama dilinden ayrıdır: İngilizce uygulama Arapça etiket basabilir, tersi de olur. Menü → Etiket ayarları'ndan ayarlayın.",
         "l3": "Para birimini değiştirmek fiyatların gösterimini değiştirir; rakamlarınızı dönüştürmez."
       },
       "support": {
@@ -185,6 +185,54 @@
         "l1": "Diğer → Hakkında → Desteğe e-posta gönder. E-posta, uygulama sürümünüz ve cihazınız dolu olarak açılır.",
         "l2": "Ekranı ve yapmaya çalıştığınızı anlatın; hassas rakam göstermiyorsa bir ekran görüntüsü ekleyin.",
         "l3": "Yedek parolalarını, banka bilgilerini, mağaza parolalarını veya karartılmamış ürün listelerini asla göndermeyin. Destek yalnızca karartılmış bilgi ister."
+      },
+      "firstLabels": {
+        "title": "İlk etiketleriniz",
+        "l1": "Ana Sayfa → Kurulum'da uygulama dilini, mağaza para birimini ve etiket dilini seçin. Her biri ayrı ayarlanır.",
+        "l2": "Kullanacağınız kâğıda Etiket testi yazdırın (Menü → Yazdırma ayarları). Üst, orta ve alt etiketleri kontrol edin.",
+        "l3": "Ürün ekleyin (Ürünler → Ekle, Tara veya İçe aktar) ya da Ana Sayfa'dan Hızlı etiket yapın.",
+        "l4": "Yazdırılacak'ı açın, kâğıdı ve sayfada başlangıç yerini seçin, tam PDF'i önizleyip yazdırın."
+      },
+      "products": {
+        "title": "Ürün adı ve etiket adı",
+        "l1": "Ürün adı ne kadar uzun olursa olsun, yazdığınız veya içe aktardığınız gibi saklanır.",
+        "l2": "Basılan, etiket adıdır. Bir sayacı vardır (örn. 38 / 40); tam ad zaten sığıyorsa boş bırakın.",
+        "l3": "Her etiket türünün sabit yazı boyutları vardır. Sığsın diye hiçbir şey küçülmez: metin çok genişse uygulama söyler, daha kısa ad veya daha büyük format önerir.",
+        "l4": "Fiyatı değiştirmek etiketi otomatik olarak Yazdırılacak'a koyar. Değişiklik yapmadan kaydetmek bir şey eklemez."
+      },
+      "scanning": {
+        "title": "Barkod tarama",
+        "l1": "Ürünler → Tara, barkoddan ürünü açar; bilinmeyen kod eklemeyi önerir.",
+        "l2": "Kamera yalnızca kodu okumak için kullanılır. Loş reyonlarda feneri kullanın veya kodu yazın.",
+        "l3": "Kontrol basamağı hatalı barkod reddedilir, asla düzeltilmez; böylece basılan barkod her zaman ürünle eşleşir."
+      },
+      "importing": {
+        "title": "Ürünleri içe aktarma",
+        "l1": "Ürünler → İçe aktar, CSV ve Excel (.xlsx) dosyalarını veya başka bir Till ailesi uygulamasından fiyat değişikliği dosyasını okur.",
+        "l2": "Sütunları eşleştirin, sonra fiyatların nasıl yazıldığını onaylayın (1,234.56 veya 1.234,56). Uygulama 1,234 gibi bir değeri asla tahmin etmez.",
+        "l3": "Önizleme her satırı Yeni, Değişen, Aynı, Çakışma veya Geçersiz olarak gösterir. İçe aktar'a dokunana kadar hiçbir şey kaydedilmez; sonra ya tüm satırlar kaydedilir ya hiçbiri.",
+        "l4": "Tam adlar ve kodlar dosyanızdaki gibi saklanır; hiçbir şey kısaltılmaz."
+      },
+      "printing": {
+        "title": "Yazdırma ve onaylama",
+        "l1": "Yazdırılacak listesi yalnızca basılı içeriği değişen etiketleri gösterir. Ürünler ve etiketler ayrı sayılır.",
+        "l2": "Kısmen kullanılmış sayfada başlangıç etiketini ayarlayın ki kullanılanlar atlansın. Kullanılmış etiket sayfasını yazıcıya asla tekrar sokmayın.",
+        "l3": "Önizleme, basılacak tam PDF'i gösterir. Yazdırıp geri döndüğünüzde uygulama etiketlerin doğru basılıp basılmadığını sorar.",
+        "l4": "Etiketleri Yazdırılacak'tan yalnızca “Evet, yazdırıldı” kaldırır. “Beklesin” bırakır; PDF paylaşmak asla yazdırma sayılmaz."
+      },
+      "calibration": {
+        "title": "Kâğıt ve kalibrasyon",
+        "l1": "Menü → Yazdırma ayarları raf etiketlerini, etiket sayfalarını ve kampanya kartlarını listeler. Pro kullanıcılar kendi sayfalarını tam ölçüleriyle ekleyebilir.",
+        "l2": "Kalibrasyon sayfasını %100 / Gerçek boyutta yazdırın ve önce 100 mm çizgisini ölçün. 100 mm değilse yazıcı ölçekliyor demektir.",
+        "l3": "Tüm etiketler aynı miktarda kaymışsa ölçümleri girip ofseti uygulayın (0,5 mm adım).",
+        "l4": "Kayma sayfa aşağısında artıyorsa bu ölçekleme veya kâğıt beslemedir; ofset düzeltemez. Gerçek boyutu ve kâğıt kılavuzlarını kontrol edin."
+      },
+      "offers": {
+        "title": "Kampanyalar ve indirimler",
+        "l1": "Ana Sayfa → Kampanyalar ile eski/yeni, % indirim, tutar indirimi, çoklu alım ve üye fiyatı oluşturulur (Pro). Ürünün normal fiyatı asla değişmez.",
+        "l2": "Kampanya etiketleri Yazdırılacak'a gider. Raf etiketi ya da daha büyük fiyat için A6 (dikey veya yatay), A5 veya A4 kart seçin.",
+        "l3": "Bir fiyat, formatın sabit boyutunda izin verdiğinden genişse uygulama daha büyük format gerektiğini söyler.",
+        "l4": "Tasfiye indirimi, son kullanma tarihi yakın ürünler için eski/yeni etiketleri basar; üründen ayrı saklanır."
       }
     },
     "tabFaq": "Sorular",
@@ -218,6 +266,29 @@
         "a1": "{{supportEmail}} adresine yazın – Diğer → Hakkında bölümündeki düğme uygulama ve cihaz bilgilerinizi otomatik doldurur. Bulunduğunuz ekranı, yapmaya çalıştığınızı ve hassas rakam içermiyorsa ekran görüntülerini ekleyin.",
         "q2": "Desteğe güvenle ne gönderebilirim?",
         "a2": "Cihaz türünüz, işletim sistemi sürümünüz, uygulama sürümü, ekran adı, kısa bir açıklama ve hassas rakamları gizlenmiş ekran görüntüleri. Yedek parolalarını, banka bilgilerini, mağaza hesabı parolalarını veya karartılmamış ürün listelerini asla göndermeyin."
+      },
+      "printing": {
+        "title": "Yazdırma",
+        "q1": "Etiketlerim çizgilerden biraz kaymış basılıyor. Ne yapmalıyım?",
+        "a1": "Menü → Yazıcı kalibrasyonu'nu kullanın. Sayfayı Gerçek boyutta yazdırıp ölçün; uygulama küçük bir ofsetin düzeltip düzeltmeyeceğini veya yazıcının ölçekleyip ölçeklemediğini söyler.",
+        "q2": "Her şey biraz küçük basılıyor.",
+        "a2": "Yazdırma penceresi Sayfaya sığdır'a ayarlı. %100 / Gerçek boyut'u seçip tekrar yazdırın.",
+        "q3": "PDF'i paylaştım. Etiketler neden hâlâ bekliyor?",
+        "a3": "Paylaşmak yazdırmak değildir. Etiketler ancak yazdırıp “Evet, yazdırıldı” dediğinizde çıkar; böylece hiçbir fiyat değişikliği kaybolmaz."
+      },
+      "labels": {
+        "title": "Etiketler",
+        "q1": "Uygulama uzun adı sığsın diye neden küçültmüyor?",
+        "a1": "Kasa sistemleri gibi, aynı türdeki her etiket sabit boyutları kullanır; raflarınız tutarlı görünür. Daha kısa bir etiket adı yazın; tam ürün adınız saklanır.",
+        "q2": "“Bu fiyat için daha büyük bir etiket formatı gerekir” diyor.",
+        "a2": "Para birimiyle basılan fiyat, o etiketin sabit fiyat alanından geniş. Daha büyük bir etikete veya kampanya kartına basın; ürün ve fiyat değişmez.",
+        "q3": "Basılan barkod okunmuyor.",
+        "a3": "Baskının net ve Gerçek boyutta olduğunu, çubukların iki yanındaki boşluğun kesilmediğini kontrol edin. Çok basmadan önce mağaza okuyucunuzla deneyin."
+      },
+      "plans": {
+        "title": "Ücretsiz ve Pro",
+        "q1": "Pro ne ekler?",
+        "a1": "Ücretsiz sürüm 200'e kadar ürün, fiyat, birim fiyat ve barkod etiketleri, içe aktarma, önizleme, kalibrasyon, sınırsız yazdırma, yedekleme ve altı dili içerir. Pro tek seferlik bir satın almadır: sınırsız ürün, kampanyalar, indirimler, kampanya kartları, kendi sayfalarınız ve birden çok profil ekler. Mevcut veriler asla kilitlenmez."
       }
     },
     "title": "Yardım"

@@ -8,8 +8,15 @@ type T = (key: string, opts?: Record<string, unknown>) => string;
  * here; every sentence is a locale key (help.*), so the six languages are
  * guaranteed complete by the locale parity test.
  */
-/** How-to chapters. Label-specific chapters (quick label, printing, calibration, import) are added with their gates. */
+/** How-to chapters, in the order a new shop meets them. */
 const GUIDE_CHAPTERS: { id: string; items: number }[] = [
+  { id: 'firstLabels', items: 4 },
+  { id: 'products', items: 4 },
+  { id: 'scanning', items: 3 },
+  { id: 'importing', items: 4 },
+  { id: 'printing', items: 4 },
+  { id: 'calibration', items: 4 },
+  { id: 'offers', items: 4 },
   { id: 'backup', items: 3 },
   { id: 'languages', items: 3 },
   { id: 'support', items: 3 },
@@ -22,6 +29,10 @@ const FAQ_CHAPTERS: { id: string; questions: number }[] = [
   { id: 'permissions', questions: 1 },
   { id: 'troubleshooting', questions: 2 },
   { id: 'support', questions: 2 },
+  // TillLabel's own chapters follow the family (Till Note) set, which stays first and unchanged.
+  { id: 'printing', questions: 3 },
+  { id: 'labels', questions: 3 },
+  { id: 'plans', questions: 1 },
 ];
 
 export const GUIDE_CHAPTER_IDS = GUIDE_CHAPTERS.map(c => c.id);

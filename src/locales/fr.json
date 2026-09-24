@@ -177,7 +177,7 @@
       "languages": {
         "title": "Langues et devise",
         "l1": "Six langues : anglais, arabe, turc, français, espagnol et allemand. L'arabe passe la mise en page de droite à gauche.",
-        "l2": "Les nombres utilisent toujours les chiffres occidentaux pour que les prix se lisent pareil sur une étiquette dans toute langue.",
+        "l2": "La langue des étiquettes est distincte de celle de l'app : une app en anglais peut imprimer en arabe, et inversement. Réglez-la dans Menu → Réglages des étiquettes.",
         "l3": "Changer de devise change l'affichage des prix ; cela ne convertit pas vos chiffres."
       },
       "support": {
@@ -185,6 +185,54 @@
         "l1": "Plus → À propos → Écrire au support. L'e-mail s'ouvre avec la version de l'app et l'appareil déjà renseignés.",
         "l2": "Décrivez l'écran et ce que vous vouliez faire ; ajoutez une capture si elle ne montre pas de chiffres sensibles.",
         "l3": "N'envoyez jamais de phrases secrètes de sauvegarde, de coordonnées bancaires, de mots de passe de store ou de listes de produits non masquées. Le support ne demandera que des informations masquées."
+      },
+      "firstLabels": {
+        "title": "Vos premières étiquettes",
+        "l1": "Choisissez la langue de l'app, la devise du magasin et la langue des étiquettes dans Accueil → Configuration. Chaque réglage est indépendant.",
+        "l2": "Imprimez un test d'étiquettes sur le papier que vous utiliserez (Menu → Configuration d'impression). Vérifiez le haut, le milieu et le bas.",
+        "l3": "Ajoutez des produits (Produits → Ajouter, Scanner ou Importer) ou faites une Étiquette rapide depuis l'Accueil.",
+        "l4": "Ouvrez À imprimer, choisissez le support et la position de départ, prévisualisez le PDF exact et imprimez."
+      },
+      "products": {
+        "title": "Nom du produit et nom d'étiquette",
+        "l1": "Le nom du produit est conservé tel que saisi ou importé, quelle que soit sa longueur.",
+        "l2": "Le nom d'étiquette est ce qui s'imprime. Il a un compteur (ex. 38 / 40) ; laissez-le vide si le nom complet tient.",
+        "l3": "Chaque type d'étiquette a des tailles de texte fixes. Rien ne rétrécit : si le texte est trop large, l'app le dit et propose un nom plus court ou un format plus grand.",
+        "l4": "Changer un prix place l'étiquette dans À imprimer automatiquement. Enregistrer sans changement n'ajoute rien."
+      },
+      "scanning": {
+        "title": "Scanner les codes-barres",
+        "l1": "Produits → Scanner ouvre un produit par son code ; un code inconnu propose de l'ajouter.",
+        "l2": "L'appareil photo sert uniquement à lire le code. Utilisez la lampe dans les allées sombres ou tapez le code.",
+        "l3": "Un code-barres avec une clé fausse est refusé, jamais corrigé : le code imprimé correspond toujours au produit."
+      },
+      "importing": {
+        "title": "Importer des produits",
+        "l1": "Produits → Importer lit les fichiers CSV et Excel (.xlsx), ou un fichier de changement de prix d'une autre app de la famille Till.",
+        "l2": "Associez les colonnes, puis confirmez l'écriture des prix (1,234.56 ou 1.234,56). L'app ne devine jamais une valeur comme 1,234.",
+        "l3": "L'aperçu montre chaque ligne : Nouveau, Modifié, Identique, Conflit ou Invalide. Rien n'est enregistré avant « Importer », puis tout ou rien.",
+        "l4": "Les noms complets et codes sont conservés tels quels ; rien n'est raccourci."
+      },
+      "printing": {
+        "title": "Imprimer et confirmer",
+        "l1": "À imprimer ne liste que les étiquettes dont le contenu imprimé a changé. Produits et étiquettes sont comptés séparément.",
+        "l2": "Pour une planche entamée, réglez l'étiquette de départ afin de sauter les utilisées. Ne repassez jamais une planche autocollante entamée.",
+        "l3": "L'aperçu montre le PDF exact qui s'imprime. Après l'impression, au retour, l'app demande si les étiquettes sont bien imprimées.",
+        "l4": "Seul « Oui, imprimé » retire les étiquettes d'À imprimer. « Garder en attente » les laisse ; partager le PDF ne compte jamais."
+      },
+      "calibration": {
+        "title": "Supports et étalonnage",
+        "l1": "Menu → Configuration d'impression liste les étiquettes de rayon, planches et cartes. En Pro, ajoutez votre propre planche avec ses mesures exactes.",
+        "l2": "Imprimez la page d'étalonnage à 100 % / Taille réelle et mesurez d'abord la ligne de 100 mm. Si ce n'est pas 100 mm, l'imprimante met à l'échelle.",
+        "l3": "Si toutes les étiquettes sont décalées de la même valeur, saisissez les mesures et appliquez le décalage (pas de 0,5 mm).",
+        "l4": "Si le décalage augmente vers le bas, c'est l'échelle ou l'entraînement ; un décalage n'y peut rien. Vérifiez la taille réelle et les guides."
+      },
+      "offers": {
+        "title": "Offres et démarques",
+        "l1": "Accueil → Offres crée des offres avant/maintenant, % de remise, montant, lot et prix adhérent (Pro). Le prix normal ne change jamais.",
+        "l2": "Les étiquettes d'offre vont dans À imprimer. Choisissez une étiquette de rayon, ou une carte A6 (portrait ou paysage), A5 ou A4 pour un prix plus grand.",
+        "l3": "Si un prix est plus large que ce que permet un format à sa taille fixe, l'app indique qu'il faut un format plus grand.",
+        "l4": "La démarque imprime des étiquettes avant/maintenant pour les dates courtes ; elle est stockée à part du produit."
       }
     },
     "tabFaq": "Questions",
@@ -218,6 +266,29 @@
         "a1": "Écrivez à {{supportEmail}} – le bouton dans Plus → À propos pré-remplit les détails de l'app et de l'appareil. Ajoutez l'écran concerné, ce que vous vouliez faire et des captures si elles ne contiennent pas de chiffres sensibles.",
         "q2": "Que puis-je envoyer au support en toute sécurité ?",
         "a2": "Le type d'appareil, la version du système, la version de l'app, le nom de l'écran, une courte description et des captures sans chiffres sensibles. N'envoyez jamais de phrases secrètes de sauvegarde, de coordonnées bancaires, de mots de passe de compte store ni de listes de produits non masquées."
+      },
+      "printing": {
+        "title": "Impression",
+        "q1": "Mes étiquettes s'impriment légèrement décalées. Que faire ?",
+        "a1": "Utilisez Menu → Étalonnage de l'imprimante. Imprimez la page en taille réelle, mesurez-la ; l'app vous dit si un petit décalage suffit ou si l'imprimante met à l'échelle.",
+        "q2": "Tout s'imprime un peu trop petit.",
+        "a2": "La boîte d'impression est réglée sur « Ajuster à la page ». Choisissez 100 % / Taille réelle et réimprimez.",
+        "q3": "J'ai partagé le PDF. Pourquoi les étiquettes attendent-elles encore ?",
+        "a3": "Partager n'est pas imprimer. Les étiquettes quittent À imprimer seulement après impression et « Oui, imprimé », pour qu'aucun changement de prix ne se perde."
+      },
+      "labels": {
+        "title": "Étiquettes",
+        "q1": "Pourquoi l'app ne réduit-elle pas un nom long ?",
+        "a1": "Comme un système de caisse, chaque étiquette d'un type utilise les mêmes tailles fixes pour des rayons homogènes. Écrivez un nom d'étiquette plus court ; le nom complet est conservé.",
+        "q2": "Il est écrit « Ce prix nécessite un format d'étiquette plus grand ».",
+        "a2": "Le prix, tel qu'imprimé avec sa devise, est plus large que la zone fixe de cette étiquette. Imprimez-le sur une étiquette plus grande ou une carte ; rien n'est modifié.",
+        "q3": "Un code-barres imprimé ne se lit pas.",
+        "a3": "Vérifiez une impression nette en taille réelle et que les marges blanches autour des barres ne sont pas rognées. Testez avec votre scanner avant d'en imprimer beaucoup."
+      },
+      "plans": {
+        "title": "Gratuit et Pro",
+        "q1": "Qu'apporte Pro ?",
+        "a1": "La version gratuite comprend jusqu'à 200 produits, les étiquettes prix, prix unitaire et code-barres, les imports, l'aperçu, l'étalonnage, l'impression illimitée, la sauvegarde et les six langues. Pro est un achat unique qui ajoute produits illimités, offres, démarques, cartes, vos propres planches et plusieurs profils. Vos données existantes ne sont jamais bloquées."
       }
     },
     "title": "Aide"

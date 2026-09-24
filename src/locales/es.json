@@ -1105,7 +1105,8 @@
     },
     "previewWasNow": "Antes {{was}} → ahora {{now}}",
     "previewMultibuy": "{{quantity}} por {{total}} (una: {{each}})",
-    "previewNow": "Precio de oferta {{price}}"
+    "previewNow": "Precio de oferta {{price}}",
+    "endDate": "Termina"
   },
   "reduce": {
     "title": "Rebaja de liquidación",

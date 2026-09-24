@@ -1105,7 +1105,8 @@
     },
     "previewWasNow": "كان {{was}} ← الآن {{now}}",
     "previewMultibuy": "{{quantity}} بـ {{total}} (الواحدة: {{each}})",
-    "previewNow": "سعر العرض {{price}}"
+    "previewNow": "سعر العرض {{price}}",
+    "endDate": "ينتهي"
   },
   "reduce": {
     "title": "تخفيض للتصفية",

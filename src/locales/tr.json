@@ -1105,7 +1105,8 @@
     },
     "previewWasNow": "Eski {{was}} → yeni {{now}}",
     "previewMultibuy": "{{quantity}} adet {{total}} (tanesi: {{each}})",
-    "previewNow": "Kampanya fiyatı {{price}}"
+    "previewNow": "Kampanya fiyatı {{price}}",
+    "endDate": "Bitiş"
   },
   "reduce": {
     "title": "Tasfiye indirimi",

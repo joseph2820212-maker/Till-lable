@@ -1105,7 +1105,8 @@
     },
     "previewWasNow": "Avant {{was}} → maintenant {{now}}",
     "previewMultibuy": "{{quantity}} pour {{total}} (l'unité : {{each}})",
-    "previewNow": "Prix de l'offre {{price}}"
+    "previewNow": "Prix de l'offre {{price}}",
+    "endDate": "Fin"
   },
   "reduce": {
     "title": "Démarque",

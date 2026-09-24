@@ -157,7 +157,7 @@ export const OfferEditorScreen: React.FC = () => {
           {kind !== 'conditional' ? (<><Text style={s.label}>{t('offers.conditions')}</Text><AppTextInput style={s.input} value={conditions} onChangeText={setConditions} placeholder={t('offers.conditionsPh')} placeholderTextColor={colors.textFaint} /></>) : null}
         </View>
         <DatePickerField label={t('offers.start')} value={startDate} onChange={setStartDate} placeholder={t('offers.noDate')} />
-        <DatePickerField label={t('offers.end')} value={endDate} onChange={setEndDate} placeholder={t('offers.noDate')} />
+        <DatePickerField label={t('offers.endDate')} value={endDate} onChange={setEndDate} placeholder={t('offers.noDate')} />
         <Text style={s.note}>{t('offers.datesNote')}</Text>
 
         {previews.length ? (

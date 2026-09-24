@@ -5,6 +5,7 @@ import { useNavigation, useRoute, type RouteProp } from '@react-navigation/nativ
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import * as Print from 'expo-print';
 import * as Sharing from 'expo-sharing';
+import * as FileSystem from 'expo-file-system/legacy';
 import { colors } from '../../../theme/colors';
 import { typography } from '../../../theme/typography';
 import { AppPdfPreviewScreen } from '../../../components/pdf/AppPdfPreviewScreen';
@@ -31,12 +32,16 @@ export const PrintPreviewScreen: React.FC = () => {
   const [job, setJob] = useState<StoredJob | null>(null);
   const [profileName, setProfileName] = useState('');
   const [missing, setMissing] = useState(false);
+  const [pdfGone, setPdfGone] = useState(false);
   const [flow, dispatch] = useReducer((st: PrintFlowState, e: PrintFlowEvent) => printFlow(st, e), startPreview(''));
   const [working, setWorking] = useState(false);
 
   useEffect(() => {
     getJob(params.jobId).then(async j => {
       if (!j) { setMissing(true); return; }
+      // A history entry whose PDF is not on this phone (e.g. from an older backup) must not offer Print or Share.
+      const onPhone = !!j.pdfUri && await FileSystem.getInfoAsync(j.pdfUri).then(i => i.exists && !i.isDirectory, () => false);
+      if (!onPhone) { setPdfGone(true); return; }
       setJob(j);
       setProfileName((await getProfile(j.stationeryProfileId)).name);
     }).catch(() => setMissing(true));
@@ -112,7 +117,7 @@ export const PrintPreviewScreen: React.FC = () => {
       title={job?.displayName ?? t('print.previewTitle')}
       sourceUri={job?.pdfUri ?? null}
       onBack={() => nav.goBack()}
-      error={missing ? t('print.jobMissing') : null}
+      error={missing ? t('print.jobMissing') : pdfGone ? t('print.pdfNotOnPhone') : null}
       banner={banner}
     />
   );

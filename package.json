@@ -8,7 +8,9 @@
     "ios": "expo start --ios",
     "typecheck": "tsc --noEmit",
     "test": "TZ=UTC jest --passWithNoTests",
-    "lint": "eslint \"src/**/*.{ts,tsx}\" --max-warnings 0"
+    "lint": "eslint \"src/**/*.{ts,tsx}\" --max-warnings 0",
+    "validate:build": "node scripts/buildGuard.js",
+    "eas-build-pre-install": "node scripts/buildGuard.js"
   },
   "dependencies": {
     "@config-plugins/react-native-blob-util": "12.0.0",

@@ -18,7 +18,7 @@ import { APP_VERSION } from '../../../appMeta';
 import { initCurrency } from '../../../utils/currency';
 import type { RootStackParamList } from '../../../navigation/AppNavigator';
 import { tabTarget } from '../../../navigation/tabs';
-import { checkStorageIntegrity, createBackup, inspectBackup, loadLastBackupAt, restoreBackup, RestoreError, type BackupInspection } from '../backupFile';
+import { BackupError, checkStorageIntegrity, createBackup, inspectBackup, loadLastBackupAt, restoreBackup, RestoreError, type BackupInspection } from '../backupFile';
 
 type Nav = NativeStackNavigationProp<RootStackParamList>;
 type Pending = { uri: string; name: string; inspection: BackupInspection };
@@ -44,7 +44,7 @@ export const BackupScreen: React.FC = () => {
       setCreateOpen(false);
       setLastAt(new Date().toISOString());
       AppAlert.success(t('backup.createdTitle'), t('backup.createdBody', { file: r.fileName }));
-    } catch { AppAlert.error(t('backup.createFailed')); }
+    } catch (e) { AppAlert.error(e instanceof BackupError ? t(`backup.createErrors.${e.code}`, { name: e.detail ?? '' }) : t('backup.createFailed')); }
     finally { setBusy(false); }
   };
 
@@ -107,6 +107,7 @@ export const BackupScreen: React.FC = () => {
               <LabelRow label={t('common.version')} value={pending.inspection.appVersion ?? '—'} />
               <LabelRow label={t('backup.encrypted')} value={pending.inspection.encrypted ? t('common.yes') : t('common.no')} />
               {counts(pending.inspection.entityCounts).map(([k, v]) => <LabelRow key={k} label={t(`backup.counts.${k}`)} value={v == null ? '—' : String(v)} />)}
+              <LabelRow label={t('backup.counts.pdfs')} value={String(pending.inspection.pdfCount)} />
               <AppButton label={t('backup.restoreAction')} onPress={confirmRestore} variant="danger" style={{ marginTop: spacing.sm }} />
               <AppButton label={t('common.cancel')} onPress={() => setPending(null)} variant="ghost" />
             </View>

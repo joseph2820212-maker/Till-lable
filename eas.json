@@ -6,6 +6,9 @@
     "production": {
       "autoIncrement": true,
       "channel": "production",
+      "env": {
+        "APP_VARIANT": "production"
+      },
       "android": {
         "buildType": "app-bundle"
       },
@@ -13,9 +16,17 @@
         "distribution": "store"
       }
     },
-    "preview": {
+    "review": {
+      "autoIncrement": true,
       "distribution": "internal",
-      "channel": "preview"
+      "channel": "review",
+      "env": {
+        "APP_VARIANT": "review",
+        "EXPO_PUBLIC_BILLING_BYPASS": "1"
+      },
+      "android": {
+        "buildType": "apk"
+      }
     }
   }
 }

@@ -453,7 +453,14 @@
       "promotions": "Offres",
       "reductions": "Étiquettes de démarque",
       "waitingLabels": "En attente d'impression",
-      "printJobs": "Historique d'impression"
+      "printJobs": "Historique d'impression",
+      "pdfs": "PDF de l'historique"
+    },
+    "createErrors": {
+      "too-large": "La sauvegarde serait trop volumineuse (plus de 100 Mo). Votre historique d'impression contient trop de PDF pour un seul fichier.",
+      "missing-pdf": "Aucune sauvegarde créée : le PDF de « {{name}} » dans l'historique d'impression est absent de ce téléphone.",
+      "corrupt-pdf": "Aucune sauvegarde créée : le PDF de « {{name}} » dans l'historique d'impression a changé depuis sa création.",
+      "unreadable-history": "Aucune sauvegarde créée : l'historique d'impression est illisible. Utilisez d'abord « Vérifier l'intégrité des données »."
     }
   },
   "home": {
@@ -750,7 +757,8 @@
     "shareFailed": "Le PDF n'a pas pu être partagé.",
     "shareNote": "Partager le PDF ne marque pas les étiquettes comme imprimées.",
     "testNote": "Une feuille de test ne modifie jamais vos produits ni À imprimer.",
-    "jobMissing": "Ce PDF n'est plus sur le téléphone. Recréez les étiquettes depuis À imprimer."
+    "jobMissing": "Ce PDF n'est plus sur le téléphone. Recréez les étiquettes depuis À imprimer.",
+    "pdfNotOnPhone": "Ce PDF d'étiquettes n'est pas sur ce téléphone (par exemple, il vient d'une ancienne sauvegarde). Recréez les étiquettes depuis À imprimer."
   },
   "printSetup": {
     "title": "Configuration d'impression",

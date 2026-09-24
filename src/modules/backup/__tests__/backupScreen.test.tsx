@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const TestRenderer = require('react-test-renderer');
 const { act } = TestRenderer;
 
+jest.mock('expo-file-system/legacy', () => jest.requireActual('../../../../__mocks__/expo-file-system.ts'));
 jest.mock('react-native', () => require('../../../__tests__/helpers/screenStubs').rn);
 jest.mock('@react-navigation/native', () => require('../../../__tests__/helpers/screenStubs').navigation());
 jest.mock('@react-navigation/native-stack', () => ({}));
@@ -50,8 +51,7 @@ describe('BackupScreen', () => {
     // Now restore that file over a changed store.
     await AsyncStorage.setItem('settings:shop', '{"name":"Changed"}');
     (DocumentPicker as any).__setNextPick({ canceled: false, assets: [{ uri: 'file:///picked.json', name: 'TillLabel_Backup_x.json', size: file.length }] });
-    (FileSystem.readAsStringAsync as jest.Mock).mockResolvedValue(file);
-    (FileSystem.getInfoAsync as jest.Mock).mockResolvedValue({ exists: true, size: file.length });
+    await FileSystem.writeAsStringAsync('file:///picked.json', file);
     const pickRow = r.root.findAllByType('TouchableOpacity').find((x: any) => x.props.accessibilityLabel === 'backup.chooseFile');
     await act(async () => { await pickRow.props.onPress(); });
     await settle();

@@ -1,0 +1,50 @@
+{
+ "backup.createErrors.too-large": {
+  "en": "The backup would be too large (over 100 MB). Your print history holds too many PDFs to fit in one file.",
+  "ar": "ستكون النسخة الاحتياطية كبيرة جدًا (أكثر من 100 ميغابايت). سجل الطباعة يحتوي على ملفات PDF أكثر مما يتسع له ملف واحد.",
+  "tr": "Yedek çok büyük olur (100 MB üzeri). Yazdırma geçmişinizde tek bir dosyaya sığmayacak kadar çok PDF var.",
+  "fr": "La sauvegarde serait trop volumineuse (plus de 100 Mo). Votre historique d'impression contient trop de PDF pour un seul fichier.",
+  "es": "La copia de seguridad sería demasiado grande (más de 100 MB). Tu historial de impresión tiene demasiados PDF para un solo archivo.",
+  "de": "Die Sicherung wäre zu groß (über 100 MB). Ihr Druckverlauf enthält zu viele PDFs für eine Datei."
+ },
+ "backup.createErrors.missing-pdf": {
+  "en": "No backup was made: the PDF for \"{{name}}\" in Print history is missing from this phone.",
+  "ar": "لم تُنشأ نسخة احتياطية: ملف PDF الخاص بـ \"{{name}}\" في سجل الطباعة غير موجود على هذا الهاتف.",
+  "tr": "Yedek alınmadı: Yazdırma geçmişindeki \"{{name}}\" PDF'i bu telefonda yok.",
+  "fr": "Aucune sauvegarde créée : le PDF de « {{name}} » dans l'historique d'impression est absent de ce téléphone.",
+  "es": "No se hizo la copia: el PDF de «{{name}}» del historial de impresión no está en este teléfono.",
+  "de": "Keine Sicherung erstellt: Das PDF zu „{{name}}“ im Druckverlauf fehlt auf diesem Telefon."
+ },
+ "backup.createErrors.corrupt-pdf": {
+  "en": "No backup was made: the PDF for \"{{name}}\" in Print history has changed since it was made.",
+  "ar": "لم تُنشأ نسخة احتياطية: تغيّر ملف PDF الخاص بـ \"{{name}}\" في سجل الطباعة منذ إنشائه.",
+  "tr": "Yedek alınmadı: Yazdırma geçmişindeki \"{{name}}\" PDF'i oluşturulduğundan beri değişmiş.",
+  "fr": "Aucune sauvegarde créée : le PDF de « {{name}} » dans l'historique d'impression a changé depuis sa création.",
+  "es": "No se hizo la copia: el PDF de «{{name}}» del historial de impresión ha cambiado desde que se creó.",
+  "de": "Keine Sicherung erstellt: Das PDF zu „{{name}}“ im Druckverlauf wurde seit der Erstellung verändert."
+ },
+ "backup.createErrors.unreadable-history": {
+  "en": "No backup was made: Print history could not be read. Use Check Data Health first.",
+  "ar": "لم تُنشأ نسخة احتياطية: تعذّرت قراءة سجل الطباعة. استخدم «فحص صحة البيانات» أولًا.",
+  "tr": "Yedek alınmadı: Yazdırma geçmişi okunamadı. Önce «Veri Sağlığını Kontrol Et»i kullanın.",
+  "fr": "Aucune sauvegarde créée : l'historique d'impression est illisible. Utilisez d'abord « Vérifier l'intégrité des données ».",
+  "es": "No se hizo la copia: no se pudo leer el historial de impresión. Usa primero «Comprobar estado de los datos».",
+  "de": "Keine Sicherung erstellt: Der Druckverlauf ist nicht lesbar. Nutzen Sie zuerst „Datenintegrität prüfen“."
+ },
+ "backup.counts.pdfs": {
+  "en": "Print history PDFs",
+  "ar": "ملفات PDF في سجل الطباعة",
+  "tr": "Yazdırma geçmişi PDF'leri",
+  "fr": "PDF de l'historique",
+  "es": "PDF del historial",
+  "de": "PDFs im Druckverlauf"
+ },
+ "print.pdfNotOnPhone": {
+  "en": "This label PDF is not on this phone (for example, it came from an older backup). Create the labels again from To print.",
+  "ar": "ملف PDF لهذه الملصقات غير موجود على هذا الهاتف (مثلًا جاء من نسخة احتياطية أقدم). أنشئ الملصقات من جديد من «للطباعة».",
+  "tr": "Bu etiket PDF'i bu telefonda yok (örneğin eski bir yedekten geldi). Etiketleri Yazdırılacak bölümünden yeniden oluşturun.",
+  "fr": "Ce PDF d'étiquettes n'est pas sur ce téléphone (par exemple, il vient d'une ancienne sauvegarde). Recréez les étiquettes depuis À imprimer.",
+  "es": "Este PDF de etiquetas no está en este teléfono (por ejemplo, viene de una copia antigua). Crea las etiquetas de nuevo desde Por imprimir.",
+  "de": "Dieses Etiketten-PDF ist nicht auf diesem Telefon (z. B. aus einer älteren Sicherung). Erstellen Sie die Etiketten neu unter „Zu drucken“."
+ }
+}

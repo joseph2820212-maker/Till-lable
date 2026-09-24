@@ -453,7 +453,14 @@
       "promotions": "Angebote",
       "reductions": "Reduziert-Etiketten",
       "waitingLabels": "Wartet auf Druck",
-      "printJobs": "Druckverlauf"
+      "printJobs": "Druckverlauf",
+      "pdfs": "PDFs im Druckverlauf"
+    },
+    "createErrors": {
+      "too-large": "Die Sicherung wäre zu groß (über 100 MB). Ihr Druckverlauf enthält zu viele PDFs für eine Datei.",
+      "missing-pdf": "Keine Sicherung erstellt: Das PDF zu „{{name}}“ im Druckverlauf fehlt auf diesem Telefon.",
+      "corrupt-pdf": "Keine Sicherung erstellt: Das PDF zu „{{name}}“ im Druckverlauf wurde seit der Erstellung verändert.",
+      "unreadable-history": "Keine Sicherung erstellt: Der Druckverlauf ist nicht lesbar. Nutzen Sie zuerst „Datenintegrität prüfen“."
     }
   },
   "home": {
@@ -750,7 +757,8 @@
     "shareFailed": "Das PDF konnte nicht geteilt werden.",
     "shareNote": "PDF teilen markiert Etiketten nicht als gedruckt.",
     "testNote": "Ein Testbogen ändert nie Produkte oder „Zu drucken“.",
-    "jobMissing": "Dieses PDF ist nicht mehr auf dem Telefon. Etiketten unter „Zu drucken“ neu erstellen."
+    "jobMissing": "Dieses PDF ist nicht mehr auf dem Telefon. Etiketten unter „Zu drucken“ neu erstellen.",
+    "pdfNotOnPhone": "Dieses Etiketten-PDF ist nicht auf diesem Telefon (z. B. aus einer älteren Sicherung). Erstellen Sie die Etiketten neu unter „Zu drucken“."
   },
   "printSetup": {
     "title": "Druckeinrichtung",

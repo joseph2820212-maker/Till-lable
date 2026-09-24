@@ -453,7 +453,14 @@
       "promotions": "Offers",
       "reductions": "Reduced labels",
       "waitingLabels": "Waiting to print",
-      "printJobs": "Print history"
+      "printJobs": "Print history",
+      "pdfs": "Print history PDFs"
+    },
+    "createErrors": {
+      "too-large": "The backup would be too large (over 100 MB). Your print history holds too many PDFs to fit in one file.",
+      "missing-pdf": "No backup was made: the PDF for \"{{name}}\" in Print history is missing from this phone.",
+      "corrupt-pdf": "No backup was made: the PDF for \"{{name}}\" in Print history has changed since it was made.",
+      "unreadable-history": "No backup was made: Print history could not be read. Use Check Data Health first."
     }
   },
   "home": {
@@ -750,7 +757,8 @@
     "shareFailed": "The PDF could not be shared.",
     "shareNote": "Sharing the PDF does not mark labels as printed.",
     "testNote": "A test sheet never changes your products or To print.",
-    "jobMissing": "This PDF is no longer on the phone. Create the labels again from To print."
+    "jobMissing": "This PDF is no longer on the phone. Create the labels again from To print.",
+    "pdfNotOnPhone": "This label PDF is not on this phone (for example, it came from an older backup). Create the labels again from To print."
   },
   "printSetup": {
     "title": "Print setup",

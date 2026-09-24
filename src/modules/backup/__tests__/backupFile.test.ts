@@ -5,6 +5,7 @@ import { TL_KEYS } from '../../../storage/keys';
 
 const product = (i: number) => ({ id: `P${i}`, name: `Item ${i}`, price: { minor: 100 + i, currency: 'GBP', exponent: 2 } });
 
+jest.mock('expo-file-system/legacy', () => jest.requireActual('../../../../__mocks__/expo-file-system.ts'));
 jest.mock('../../../storage/fileUtils', () => ({ writeAndShare: jest.fn(async (name: string, content: string) => { (global as any).__lastBackup = { name, content }; return `file:///cache/${name}`; }) }));
 
 const mockStorage = AsyncStorage as unknown as { clear: jest.Mock; multiSet: jest.Mock; multiRemove: jest.Mock };
@@ -35,7 +36,8 @@ describe('what a backup contains', () => {
     expect(r.fileName).toMatch(/^TillLabel_Backup_\d{8}_\d{4}\.json$/);
     const payload = JSON.parse(lastBackup().content);
     expect(payload.format).toBe('tilllabel');
-    expect(payload.version).toBe(2);
+    expect(payload.version).toBe(3);
+    expect(payload.pdfCount).toBe(0);
     expect(payload.data).toBeUndefined(); // encrypted: nothing in the clear
     expect(payload.entityCounts).toEqual({ products: 3, promotions: 1, reductions: 0, waitingLabels: 1, printJobs: 1 });
     expect(JSON.stringify(payload)).not.toContain('secret');
@@ -112,19 +114,24 @@ describe('interrupted restore', () => {
     expect(await AsyncStorage.getItem('products:staleKey')).toBe('[]');
     expect(await AsyncStorage.getItem(RESTORE_JOURNAL_KEY)).toBeNull();
   });
-  it('a journal left in "prepared" state (crash mid-restore) is rolled back at launch; "committed" is just cleaned up', async () => {
+  it('a marker left in "prepared" state (crash mid-restore) is rolled back at launch; "committed" is only cleaned up; junk is cleared', async () => {
     mockStorage.clear();
     const snapshot: [string, string][] = [['settings:shop', '{"old":true}'], ['products:categories', '[]']];
     const djb2 = (s: string) => { let h = 5381; for (let i = 0; i < s.length; i++) h = (((h << 5) + h) ^ s.charCodeAt(i)) >>> 0; return h; };
+    const journal = JSON.stringify({ version: 2, snapshot, files: [] });
+    await FileSystem.writeAsStringAsync('file:///docs/.tilllabel_restore/journal.json', journal);
     await AsyncStorage.setItem('settings:shop', '{"half":"written"}');
-    await AsyncStorage.setItem(RESTORE_JOURNAL_KEY, JSON.stringify({ version: 1, state: 'prepared', snapshot, checksum: djb2(JSON.stringify(snapshot)) }));
+    await AsyncStorage.setItem(RESTORE_JOURNAL_KEY, JSON.stringify({ version: 2, state: 'prepared', checksum: djb2(journal) }));
     expect(await recoverInterruptedRestore()).toBe('rolledBack');
     expect(await AsyncStorage.getItem('settings:shop')).toBe('{"old":true}');
     expect(await AsyncStorage.getItem('products:categories')).toBe('[]');
     expect(await AsyncStorage.getItem(RESTORE_JOURNAL_KEY)).toBeNull();
-    await AsyncStorage.setItem(RESTORE_JOURNAL_KEY, JSON.stringify({ version: 1, state: 'committed', snapshot, checksum: djb2(JSON.stringify(snapshot)) }));
+    expect((await FileSystem.getInfoAsync('file:///docs/.tilllabel_restore/journal.json')).exists).toBe(false);
+    await FileSystem.writeAsStringAsync('file:///docs/.tilllabel_restore/journal.json', journal);
+    await AsyncStorage.setItem(RESTORE_JOURNAL_KEY, JSON.stringify({ version: 2, state: 'committed', checksum: djb2(journal) }));
+    await AsyncStorage.setItem('settings:shop', '{"new":true}');
     expect(await recoverInterruptedRestore()).toBe('completed');
-    expect(await AsyncStorage.getItem('settings:shop')).toBe('{"old":true}');
+    expect(await AsyncStorage.getItem('settings:shop')).toBe('{"new":true}'); // never rolled back once committed
     await AsyncStorage.setItem(RESTORE_JOURNAL_KEY, 'garbage');
     expect(await recoverInterruptedRestore()).toBe('none');
     expect(await AsyncStorage.getItem(RESTORE_JOURNAL_KEY)).toBeNull();

@@ -453,7 +453,14 @@
       "promotions": "Ofertas",
       "reductions": "Etiquetas de rebaja",
       "waitingLabels": "Pendiente de imprimir",
-      "printJobs": "Historial de impresión"
+      "printJobs": "Historial de impresión",
+      "pdfs": "PDF del historial"
+    },
+    "createErrors": {
+      "too-large": "La copia de seguridad sería demasiado grande (más de 100 MB). Tu historial de impresión tiene demasiados PDF para un solo archivo.",
+      "missing-pdf": "No se hizo la copia: el PDF de «{{name}}» del historial de impresión no está en este teléfono.",
+      "corrupt-pdf": "No se hizo la copia: el PDF de «{{name}}» del historial de impresión ha cambiado desde que se creó.",
+      "unreadable-history": "No se hizo la copia: no se pudo leer el historial de impresión. Usa primero «Comprobar estado de los datos»."
     }
   },
   "home": {
@@ -750,7 +757,8 @@
     "shareFailed": "No se pudo compartir el PDF.",
     "shareNote": "Compartir el PDF no marca las etiquetas como impresas.",
     "testNote": "Una hoja de prueba nunca cambia tus productos ni Por imprimir.",
-    "jobMissing": "Este PDF ya no está en el teléfono. Vuelve a crear las etiquetas desde Por imprimir."
+    "jobMissing": "Este PDF ya no está en el teléfono. Vuelve a crear las etiquetas desde Por imprimir.",
+    "pdfNotOnPhone": "Este PDF de etiquetas no está en este teléfono (por ejemplo, viene de una copia antigua). Crea las etiquetas de nuevo desde Por imprimir."
   },
   "printSetup": {
     "title": "Configuración de impresión",

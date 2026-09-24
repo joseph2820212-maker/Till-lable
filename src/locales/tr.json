@@ -453,7 +453,14 @@
       "promotions": "Kampanyalar",
       "reductions": "İndirim etiketleri",
       "waitingLabels": "Yazdırılmayı bekleyen",
-      "printJobs": "Yazdırma geçmişi"
+      "printJobs": "Yazdırma geçmişi",
+      "pdfs": "Yazdırma geçmişi PDF'leri"
+    },
+    "createErrors": {
+      "too-large": "Yedek çok büyük olur (100 MB üzeri). Yazdırma geçmişinizde tek bir dosyaya sığmayacak kadar çok PDF var.",
+      "missing-pdf": "Yedek alınmadı: Yazdırma geçmişindeki \"{{name}}\" PDF'i bu telefonda yok.",
+      "corrupt-pdf": "Yedek alınmadı: Yazdırma geçmişindeki \"{{name}}\" PDF'i oluşturulduğundan beri değişmiş.",
+      "unreadable-history": "Yedek alınmadı: Yazdırma geçmişi okunamadı. Önce «Veri Sağlığını Kontrol Et»i kullanın."
     }
   },
   "home": {
@@ -750,7 +757,8 @@
     "shareFailed": "PDF paylaşılamadı.",
     "shareNote": "PDF paylaşmak etiketleri yazdırıldı saymaz.",
     "testNote": "Test sayfası ürünlerinizi veya Yazdırılacak listesini asla değiştirmez.",
-    "jobMissing": "Bu PDF artık telefonda yok. Etiketleri Yazdırılacak'tan yeniden oluşturun."
+    "jobMissing": "Bu PDF artık telefonda yok. Etiketleri Yazdırılacak'tan yeniden oluşturun.",
+    "pdfNotOnPhone": "Bu etiket PDF'i bu telefonda yok (örneğin eski bir yedekten geldi). Etiketleri Yazdırılacak bölümünden yeniden oluşturun."
   },
   "printSetup": {
     "title": "Yazdırma ayarları",

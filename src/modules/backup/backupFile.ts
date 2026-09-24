@@ -24,6 +24,7 @@ import { writeAndShare } from '../../storage/fileUtils';
 import { base64ToBytes } from '../../utils/base64';
 import { encryptString, decryptString, type EncryptedBlob } from '../../backup/backupCrypto';
 import { TL_KEYS, BACKUP_NAMESPACES } from '../../storage/keys';
+import { documentRoot, isSafePdfName, PDF_DIR, retainedPdfDir, retainedPdfName, RETAINED_PDF_LOCK as RESTORE_LOCK } from '../print/storage/retainedPdfs';
 
 export const BACKUP_FORMAT = 'tilllabel';
 /** v3 = data + retained PDFs. v2 (encrypted, data only) and v1 (plaintext) still restore. */
@@ -31,17 +32,11 @@ export const BACKUP_VERSION = 3;
 /** Small AsyncStorage marker for an in-flight restore; the full journal lives in RESTORE_TX_DIR. */
 export const RESTORE_JOURNAL_KEY = 'backup:restoreJournal';
 export const LAST_BACKUP_KEY = 'backup:lastCreatedAt';
-const RESTORE_LOCK = 'backup:restore';
 /** One cap for both sides: an estimated backup above it is never built, and a file above it is never read. */
 export const MAX_BACKUP_BYTES = 100 * 1024 * 1024;
-/** Where job PDFs live (utils/pdfFile.ts, temporary:false) and where restored PDFs are written. */
-export const PDF_DIR = 'pdf-cache/';
 /** Reserved: the restore transaction's own files. Never a restore target. */
 export const RESTORE_TX_DIR = '.tilllabel_restore/';
 const JOURNAL_FILE = 'journal.json';
-/** A restored PDF name: plain ASCII, no separators, no dot-segments, no percent escapes (V14 names are ASCII). */
-const SAFE_PDF_NAME = /^[A-Za-z0-9_-]+(\.[A-Za-z0-9_-]+)*\.pdf$/;
-const MAX_PDF_NAME = 160;
 
 interface BackupAsset { name: string; sha256: string; size: number; base64: string }
 
@@ -52,6 +47,8 @@ interface BackupPayload {
   appVersion?: string;
   entityCounts?: Record<string, number>;
   pdfCount?: number;
+  /** History entries in the file whose PDF is not included (missing/damaged when backed up, or never retained). */
+  omittedPdfCount?: number;
   checksum?: number;
   data?: Record<string, string>;
   enc?: EncryptedBlob;
@@ -102,31 +99,10 @@ export function entityCountsFor(data: Record<string, string>): Record<string, nu
 }
 
 // ─── Paths ────────────────────────────────────────────────────────────────────
-function documentRoot(): string {
-  const root = FileSystem.documentDirectory;
-  if (!root) throw new Error('Device document storage is unavailable.');
-  return root.endsWith('/') ? root : `${root}/`;
-}
-const pdfDir = () => `${documentRoot()}${PDF_DIR}`;
+const pdfDir = retainedPdfDir;
 const txDir = () => `${documentRoot()}${RESTORE_TX_DIR}`;
 const journalUri = () => `${txDir()}${JOURNAL_FILE}`;
-
-/** True only for a plain file name that cannot leave pdf-cache or alias the reserved transaction directory. */
-export function isSafePdfName(name: unknown): name is string {
-  if (typeof name !== 'string' || !name || name.length > MAX_PDF_NAME) return false;
-  if (!SAFE_PDF_NAME.test(name)) return false;
-  // No separators, no leading dot, no empty or dot-only segments: it can only ever name a file directly in pdf-cache.
-  return !name.split('.').some(seg => seg === '');
-}
-
-/** The pdf-cache file name of a job PDF on THIS phone, or null if the URI is anywhere else. */
-function retainedPdfName(uri: unknown): string | null {
-  if (typeof uri !== 'string' || !uri) return null;
-  const dir = pdfDir();
-  if (!uri.startsWith(dir)) return null;
-  const name = uri.slice(dir.length);
-  return isSafePdfName(name) ? name : null;
-}
+export { isSafePdfName, PDF_DIR };
 
 function utf8Length(s: string): number {
   let n = 0;
@@ -155,7 +131,7 @@ function sha256Hex(base64: string): string {
   return bytesToHex(sha256(base64ToBytes(base64)));
 }
 
-interface StoredJobLike { id?: string; pdfUri?: string; pdfSha256?: string; displayName?: string }
+interface StoredJobLike { id?: string; pdfUri?: string; pdfSha256?: string; displayName?: string; pdfUnavailable?: boolean }
 
 function parseJobs(raw: string | undefined): StoredJobLike[] | null {
   if (raw === undefined) return [];
@@ -163,51 +139,73 @@ function parseJobs(raw: string | undefined): StoredJobLike[] | null {
 }
 
 // ─── Create ───────────────────────────────────────────────────────────────────
-export type BackupErrorCode = 'too-large' | 'missing-pdf' | 'corrupt-pdf' | 'unreadable-history';
+export type BackupErrorCode = 'too-large' | 'pdfs-unavailable' | 'unreadable-history';
+/** A history entry whose retained PDF cannot be included: the file is gone, or its bytes no longer match. */
+export interface UnavailablePdf { jobId: string; label: string; reason: 'missing' | 'corrupt' }
 export class BackupError extends Error {
   readonly code: BackupErrorCode;
-  /** The print-history entry at fault (display name), for the message. */
-  readonly detail?: string;
-  constructor(code: BackupErrorCode, message: string, detail?: string) { super(message); this.code = code; this.detail = detail; this.name = 'BackupError'; }
+  /** For 'pdfs-unavailable': every affected history entry. Nothing was written or shared. */
+  readonly unavailable: UnavailablePdf[];
+  constructor(code: BackupErrorCode, message: string, unavailable: UnavailablePdf[] = []) { super(message); this.code = code; this.unavailable = unavailable; this.name = 'BackupError'; }
 }
 
-export interface BackupSummary { dateLabel: string; fileName: string; uri: string; entityCounts: Record<string, number>; pdfCount: number }
+export interface BackupOptions {
+  /**
+   * Job ids the user explicitly agreed to back up WITHOUT their PDF (after a 'pdfs-unavailable' refusal). Only these
+   * entries lose their PDF; any other missing or damaged PDF refuses the backup again, so nothing is ever omitted
+   * silently.
+   */
+  omitUnavailablePdfs?: string[];
+}
 
-async function collectRetainedPdfs(data: Record<string, string>): Promise<{ plan: { name: string; uri: string; sha: string; size: number; job: string }[] }> {
-  const jobs = parseJobs(data[TL_KEYS.jobs]);
-  if (!jobs) throw new BackupError('unreadable-history', 'Print history could not be read.');
-  const byName = new Map<string, { name: string; uri: string; sha: string; size: number; job: string }>();
-  let stripped = false;
-  const portableJobs = jobs.map(job => {
-    if (!job || !job.pdfUri || retainedPdfName(job.pdfUri)) return job;
-    // Not a retained PDF (PDF generation fell back to a temporary file): history keeps the record, not the path.
-    stripped = true;
-    return { ...job, pdfUri: '' };
-  });
-  if (stripped) data[TL_KEYS.jobs] = JSON.stringify(portableJobs);
-  for (const job of portableJobs) {
-    if (!job || !job.pdfUri) continue; // a job with no retained PDF (e.g. restored from an older backup)
-    const label = job.displayName || job.id || '?';
-    const name = retainedPdfName(job.pdfUri) as string;
-    if (typeof job.pdfSha256 !== 'string') throw new BackupError('corrupt-pdf', `Print history entry has no fingerprint: ${label}`, label);
+export interface BackupSummary { dateLabel: string; fileName: string; uri: string; entityCounts: Record<string, number>; pdfCount: number; omittedPdfCount: number }
+
+interface PdfPlan { name: string; uri: string; sha: string; size: number; jobs: { id: string; label: string }[] }
+
+const jobKey = (job: StoredJobLike, index: number) => (typeof job.id === 'string' && job.id ? job.id : `#${index}`);
+
+/** Stat every referenced retained PDF (no bytes read). Missing files and unverifiable entries are reported, not thrown. */
+async function planRetainedPdfs(jobs: StoredJobLike[]): Promise<{ plan: PdfPlan[]; problems: UnavailablePdf[] }> {
+  const byName = new Map<string, PdfPlan>();
+  const problems: UnavailablePdf[] = [];
+  for (let i = 0; i < jobs.length; i++) {
+    const job = jobs[i];
+    if (!job || !job.pdfUri) continue; // no retained PDF (already unavailable, or restored from an older backup)
+    const id = jobKey(job, i);
+    const label = job.displayName || id;
+    const name = retainedPdfName(job.pdfUri) as string; // non-retained paths were cleared by the caller
+    if (typeof job.pdfSha256 !== 'string') { problems.push({ jobId: id, label, reason: 'corrupt' }); continue; }
     const seen = byName.get(name);
-    if (seen) { if (seen.sha !== job.pdfSha256) throw new BackupError('corrupt-pdf', `Two history entries disagree about ${name}`, label); continue; }
+    if (seen) {
+      if (seen.sha === job.pdfSha256) seen.jobs.push({ id, label });
+      else problems.push({ jobId: id, label, reason: 'corrupt' });
+      continue;
+    }
     const info = await FileSystem.getInfoAsync(job.pdfUri);
-    if (!info.exists || info.isDirectory) throw new BackupError('missing-pdf', `Print history PDF is missing: ${label}`, label);
+    if (!info.exists || info.isDirectory) { problems.push({ jobId: id, label, reason: 'missing' }); continue; }
     const size = (info as { size?: number }).size;
-    byName.set(name, { name, uri: job.pdfUri, sha: job.pdfSha256, size: typeof size === 'number' && size >= 0 ? size : 0, job: label });
+    byName.set(name, { name, uri: job.pdfUri, sha: job.pdfSha256, size: typeof size === 'number' && size >= 0 ? size : 0, jobs: [{ id, label }] });
   }
-  return { plan: [...byName.values()] };
+  return { plan: [...byName.values()], problems };
 }
 
-/** Snapshot the restorable keys and the retained PDFs, and share one encrypted file. Passphrase is mandatory. */
-export async function createBackup(passphrase: string, appVersion: string): Promise<BackupSummary> {
+/**
+ * Snapshot the restorable keys and the retained PDFs, and share one encrypted file. Passphrase is mandatory.
+ * A missing or damaged history PDF refuses the backup with 'pdfs-unavailable' (listing every affected entry) unless
+ * the user explicitly agreed to omit exactly those entries' PDFs via `options.omitUnavailablePdfs`.
+ */
+export async function createBackup(passphrase: string, appVersion: string, options: BackupOptions = {}): Promise<BackupSummary> {
   if (!passphrase) throw new Error('A passphrase is required.');
+  const agreed = new Set(options.omitUnavailablePdfs ?? []);
   return withStorageKeyLock(RESTORE_LOCK, async () => {
     const pairs = await AsyncStorage.multiGet((await AsyncStorage.getAllKeys()) as string[]);
     const data: Record<string, string> = {};
     for (const [k, v] of pairs) if (v !== null && isBackupKey(k)) data[k] = v;
-    const { plan } = await collectRetainedPdfs(data);
+    const parsedJobs = parseJobs(data[TL_KEYS.jobs]);
+    if (!parsedJobs) throw new BackupError('unreadable-history', 'Print history could not be read.');
+    // A PDF outside app storage (generation fell back to a temporary file) was never retained: record kept, path not.
+    const jobs = parsedJobs.map(job => (job && job.pdfUri && !retainedPdfName(job.pdfUri) ? { ...job, pdfUri: '', pdfUnavailable: true } : job));
+    const { plan, problems } = await planRetainedPdfs(jobs);
 
     // Size gate BEFORE any PDF is read into memory.
     const dataJsonBytes = utf8Length(JSON.stringify(data));
@@ -218,24 +216,33 @@ export async function createBackup(passphrase: string, appVersion: string): Prom
     const assets: BackupAsset[] = [];
     let assetBytes = 0;
     for (const p of plan) {
-      let base64: string;
+      let base64: string | null = null;
       try { base64 = await FileSystem.readAsStringAsync(p.uri, { encoding: FileSystem.EncodingType.Base64 }); }
-      catch { throw new BackupError('missing-pdf', `Print history PDF could not be read: ${p.job}`, p.job); }
-      if (sha256Hex(base64) !== p.sha) throw new BackupError('corrupt-pdf', `Print history PDF has changed since it was made: ${p.job}`, p.job);
+      catch { for (const j of p.jobs) problems.push({ jobId: j.id, label: j.label, reason: 'missing' }); continue; }
+      if (sha256Hex(base64) !== p.sha) { for (const j of p.jobs) problems.push({ jobId: j.id, label: j.label, reason: 'corrupt' }); continue; }
       assetBytes += base64.length;
       // The real size can differ from the stat (or the stat was missing): keep the cap honest while reading.
       if (b64Len(dataJsonBytes + assetBytes) > MAX_BACKUP_BYTES) throw new BackupError('too-large', 'The backup would be larger than the limit.');
       assets.push({ name: p.name, sha256: p.sha, size: base64ToBytes(base64).length, base64 });
     }
 
+    // Never omit anything the user has not explicitly agreed to omit.
+    if (problems.some(pr => !agreed.has(pr.jobId))) {
+      throw new BackupError('pdfs-unavailable', `${problems.length} print-history PDF(s) cannot be included.`, problems);
+    }
+    const omitted = new Set(problems.map(pr => pr.jobId));
+    const portableJobs = jobs.map((job, i) => (job && omitted.has(jobKey(job, i)) ? { ...job, pdfUri: '', pdfUnavailable: true } : job));
+    if (data[TL_KEYS.jobs] !== undefined) data[TL_KEYS.jobs] = JSON.stringify(portableJobs);
+    const omittedPdfCount = portableJobs.filter(j => j && !j.pdfUri).length;
+
     const createdAt = new Date().toISOString();
     const entityCounts = entityCountsFor(data);
     const enc = encryptString(JSON.stringify({ data, assets }), passphrase);
-    const payload = JSON.stringify({ format: BACKUP_FORMAT, version: BACKUP_VERSION, createdAt, appVersion, entityCounts, pdfCount: assets.length, enc });
+    const payload = JSON.stringify({ format: BACKUP_FORMAT, version: BACKUP_VERSION, createdAt, appVersion, entityCounts, pdfCount: assets.length, omittedPdfCount, enc });
     const fileName = getBackupFileName();
     const uri = await writeAndShare(fileName, payload);
     await AsyncStorage.setItem(LAST_BACKUP_KEY, createdAt).catch(() => {});
-    return { dateLabel: new Date(createdAt).toLocaleString(), fileName, uri, entityCounts, pdfCount: assets.length };
+    return { dateLabel: new Date(createdAt).toLocaleString(), fileName, uri, entityCounts, pdfCount: assets.length, omittedPdfCount };
   });
 }
 
@@ -253,7 +260,7 @@ async function assertSizeOk(fileUri: string): Promise<void> {
   } catch (e) { if (e instanceof RestoreError) throw e; }
 }
 
-export interface BackupInspection { encrypted: boolean; version: number; createdAt?: string; appVersion?: string; entityCounts: Record<string, number>; pdfCount: number }
+export interface BackupInspection { encrypted: boolean; version: number; createdAt?: string; appVersion?: string; entityCounts: Record<string, number>; pdfCount: number; omittedPdfCount: number }
 
 /** Header only, so the screen can preview counts and decide whether to ask for the passphrase. */
 export async function inspectBackup(fileUri: string): Promise<BackupInspection> {
@@ -264,7 +271,7 @@ export async function inspectBackup(fileUri: string): Promise<BackupInspection> 
   if (!parsed || typeof parsed !== 'object') throw new RestoreError('invalid-format', 'Backup file is not an object.');
   if (parsed.format && parsed.format !== BACKUP_FORMAT) throw new RestoreError('wrong-format', 'This file is not a TillLabel backup.');
   const version = typeof parsed.version === 'number' ? parsed.version : 0;
-  return { encrypted: version >= 2 && !!parsed.enc, version, createdAt: parsed.createdAt, appVersion: parsed.appVersion, entityCounts: parsed.entityCounts ?? {}, pdfCount: typeof parsed.pdfCount === 'number' ? parsed.pdfCount : 0 };
+  return { encrypted: version >= 2 && !!parsed.enc, version, createdAt: parsed.createdAt, appVersion: parsed.appVersion, entityCounts: parsed.entityCounts ?? {}, pdfCount: typeof parsed.pdfCount === 'number' ? parsed.pdfCount : 0, omittedPdfCount: typeof parsed.omittedPdfCount === 'number' ? parsed.omittedPdfCount : 0 };
 }
 
 interface PlannedPdf { name: string; targetUri: string; base64: string; sha256: string }
@@ -292,8 +299,9 @@ function planPdfRestore(data: Record<string, string>, rawAssets: unknown, versio
   const dir = pdfDir();
   const writes = new Map<string, PlannedPdf>();
   const rewritten = jobs.map(job => {
-    if (!job || typeof job !== 'object' || !job.pdfUri) return job;
-    if (version < 3) return { ...job, pdfUri: '' };
+    if (!job || typeof job !== 'object') return job;
+    if (!job.pdfUri) return job.pdfUnavailable ? job : { ...job, pdfUri: '', pdfUnavailable: true };
+    if (version < 3) return { ...job, pdfUri: '', pdfUnavailable: true };
     const src = String(job.pdfUri);
     const name = src.slice(src.lastIndexOf('/') + 1);
     const asset = isSafePdfName(name) ? assets.get(name) : undefined;

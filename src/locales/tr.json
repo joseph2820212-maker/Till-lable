@@ -454,14 +454,17 @@
       "reductions": "İndirim etiketleri",
       "waitingLabels": "Yazdırılmayı bekleyen",
       "printJobs": "Yazdırma geçmişi",
-      "pdfs": "Yazdırma geçmişi PDF'leri"
+      "pdfs": "Yazdırma geçmişi PDF'leri",
+      "omittedPdfs": "PDF'siz geçmiş kayıtları"
     },
     "createErrors": {
       "too-large": "Yedek çok büyük olur (100 MB üzeri). Yazdırma geçmişinizde tek bir dosyaya sığmayacak kadar çok PDF var.",
-      "missing-pdf": "Yedek alınmadı: Yazdırma geçmişindeki \"{{name}}\" PDF'i bu telefonda yok.",
-      "corrupt-pdf": "Yedek alınmadı: Yazdırma geçmişindeki \"{{name}}\" PDF'i oluşturulduğundan beri değişmiş.",
       "unreadable-history": "Yedek alınmadı: Yazdırma geçmişi okunamadı. Önce «Veri Sağlığını Kontrol Et»i kullanın."
-    }
+    },
+    "pdfsUnavailableTitle": "Bazı yazdırma geçmişi PDF'leri eklenemiyor",
+    "pdfsUnavailableBody": "Eksik veya bozuk yazdırma geçmişi PDF'leri: {{count}}. İşletme verileriniz yine de yedeklenebilir, ancak bu geçmiş PDF'ler eklenemez. Geçmiş kayıtları korunur ve «PDF mevcut değil» olarak görünür.",
+    "continueWithoutPdfs": "Eksik PDF'ler olmadan yedekle",
+    "createdBodyOmitted": "{{file}} hazır. Eklenmeyen yazdırma geçmişi PDF'leri: {{count}}. Güvenli bir yerde saklamak için paylaşım menüsünü kullanın."
   },
   "home": {
     "tagline": "Raf fiyat etiketleri",
@@ -915,7 +918,8 @@
       "confirmed": "yazdırıldı",
       "partiallyConfirmed": "kısmen yazdırıldı",
       "cancelled": "iptal"
-    }
+    },
+    "pdfUnavailable": "PDF mevcut değil"
   },
   "labelTest": {
     "subtitle": "Gerçek etiketlerden önce bir örnek sayfa",

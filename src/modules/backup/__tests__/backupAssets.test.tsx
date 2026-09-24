@@ -9,7 +9,13 @@ const { act } = TestRenderer;
 
 jest.mock('expo-file-system/legacy', () => jest.requireActual('../../../../__mocks__/expo-file-system.ts'));
 jest.mock('../../../storage/fileUtils', () => ({ writeAndShare: jest.fn(async (name: string, content: string) => { (global as any).__lastBackup = content; return `file:///cache/${name}`; }) }));
-jest.mock('react-native', () => require('../../../__tests__/helpers/screenStubs').rn);
+jest.mock('react-native', () => {
+  const R = require('react');
+  const { rn } = require('../../../__tests__/helpers/screenStubs');
+  return { ...rn, FlatList: (p: any) => R.createElement('View', null, p.data.length ? p.data.map((item: any, index: number) => R.createElement(R.Fragment, { key: String(index) }, p.renderItem({ item, index }))) : p.ListEmptyComponent) };
+});
+jest.mock('../../../components/ScreenHeader', () => ({ ScreenHeader: 'ScreenHeader' }));
+jest.mock('../../../components/EmptyState', () => ({ EmptyState: 'EmptyState' }));
 jest.mock('@react-navigation/native', () => require('../../../__tests__/helpers/screenStubs').navigation());
 jest.mock('@react-navigation/native-stack', () => ({}));
 jest.mock('react-i18next', () => require('../../../__tests__/helpers/screenStubs').i18n());
@@ -26,6 +32,8 @@ import { navState, flush } from '../../../__tests__/helpers/screenStubs';
 import { BackupError, createBackup, estimateBackupBytes, isSafePdfName, MAX_BACKUP_BYTES, recoverInterruptedRestore, restoreBackup, RESTORE_JOURNAL_KEY } from '../backupFile';
 import { getJob } from '../../print/storage/jobStore';
 import { PrintPreviewScreen } from '../../print/screens/PrintPreviewScreen';
+import { PrintHistoryScreen } from '../../print/screens/PrintHistoryScreen';
+import { texts } from '../../../__tests__/helpers/screenStubs';
 import { TL_KEYS } from '../../../storage/keys';
 
 const fs = FileSystem as unknown as { documentDirectory: string; writeAsStringAsync: jest.Mock; readAsStringAsync: jest.Mock; getInfoAsync: jest.Mock; deleteAsync: jest.Mock };
@@ -122,14 +130,68 @@ describe('backup → wipe → restore on another phone → Print history opens t
 });
 
 describe('a missing or corrupt retained PDF is handled safely', () => {
-  it('backup fails closed, names the history entry, and shares nothing', async () => {
+  it('one missing PDF: the backup stops, lists the entry and shares nothing until the user decides', async () => {
     await seedPhoneA();
     await FileSystem.deleteAsync(`${PHONE_A}pdf-cache/Offer_card_1727172000001.pdf`);
-    await expect(createBackup('pw-123456', '0.1.0')).rejects.toMatchObject({ code: 'missing-pdf', detail: 'Job job2' });
+    const err = await createBackup('pw-123456', '0.1.0').catch(e => e);
+    expect(err).toBeInstanceOf(BackupError);
+    expect(err.code).toBe('pdfs-unavailable');
+    expect(err.unavailable).toEqual([{ jobId: 'job2', label: 'Job job2', reason: 'missing' }]);
+    expect(writeAndShare).not.toHaveBeenCalled(); // "Cancel" = nothing written or shared
+  });
+
+  it('explicit continue: business data and available PDFs back up; the missing one is marked, counted and restores as unavailable', async () => {
     await seedPhoneA();
-    await FileSystem.writeAsStringAsync(`${PHONE_A}pdf-cache/Offer_card_1727172000001.pdf`, b64('%PDF tampered'), { encoding: 'base64' as any });
-    await expect(createBackup('pw-123456', '0.1.0')).rejects.toBeInstanceOf(BackupError);
-    await expect(createBackup('pw-123456', '0.1.0')).rejects.toMatchObject({ code: 'corrupt-pdf' });
+    await AsyncStorage.setItem(TL_KEYS.queue, JSON.stringify([{ id: 'q1', copies: 2 }]));
+    await AsyncStorage.setItem(TL_KEYS.promotions, JSON.stringify([{ id: 'pr1' }]));
+    await AsyncStorage.setItem(TL_KEYS.reductions, JSON.stringify([{ id: 'rd1' }]));
+    await AsyncStorage.setItem(TL_KEYS.shop, JSON.stringify({ name: 'Corner Shop' }));
+    await FileSystem.deleteAsync(`${PHONE_A}pdf-cache/Offer_card_1727172000001.pdf`);
+    const sourceData = Object.fromEntries((await AsyncStorage.multiGet([TL_KEYS.products, TL_KEYS.queue, TL_KEYS.promotions, TL_KEYS.reductions, TL_KEYS.shop])) as [string, string][]);
+    const r = await createBackup('pw-123456', '0.1.0', { omitUnavailablePdfs: ['job2'] });
+    expect(r).toMatchObject({ pdfCount: 1, omittedPdfCount: 1 });
+    expect(JSON.parse(lastFile())).toMatchObject({ pdfCount: 1, omittedPdfCount: 1 }); // stated in the file, never hidden
+
+    fs.documentDirectory = PHONE_B;
+    await wipePhone(PHONE_B);
+    await FileSystem.writeAsStringAsync('file:///picked/backup.json', lastFile());
+    await restoreBackup('file:///picked/backup.json', 'pw-123456');
+    for (const [k, v] of Object.entries(sourceData)) expect(await AsyncStorage.getItem(k)).toBe(v); // all non-PDF data
+    for (const id of ['job1', 'job3']) { // available PDFs byte-identical
+      const j = (await getJob(id))!;
+      expect(await FileSystem.readAsStringAsync(j.pdfUri, { encoding: 'base64' as any })).toBe(PDF_1);
+    }
+    const lost = (await getJob('job2'))!;
+    expect(lost).toMatchObject({ pdfUri: '', pdfUnavailable: true, displayName: 'Job job2', labelCount: 4, status: 'confirmed' });
+    expect(await allStored()).not.toContain(PHONE_A);
+    // Visible in Print history, marked unavailable; the preview cannot print or share it.
+    const history = render(<PrintHistoryScreen />);
+    await act(async () => { await flush(); await flush(); });
+    expect(texts(history)).toContain('Job job2');
+    expect(texts(history).filter(x => x === 'history.pdfUnavailable')).toHaveLength(1);
+    const preview = await previewOf('job2');
+    expect(preview.error).toBe('print.pdfNotOnPhone');
+    expect(preview.sourceUri).toBeNull();
+  });
+
+  it('a damaged PDF (hash mismatch) follows the same rule: listed as corrupt, never silently included or dropped', async () => {
+    await seedPhoneA();
+    await FileSystem.writeAsStringAsync(`${PHONE_A}pdf-cache/Milk_labels_1727172000000.pdf`, b64('%PDF tampered'), { encoding: 'base64' as any });
+    const err = await createBackup('pw-123456', '0.1.0').catch(e => e);
+    expect(err.code).toBe('pdfs-unavailable');
+    expect(err.unavailable).toEqual([{ jobId: 'job1', label: 'Job job1', reason: 'corrupt' }, { jobId: 'job3', label: 'Job job3', reason: 'corrupt' }]);
+    expect(writeAndShare).not.toHaveBeenCalled();
+    const r = await createBackup('pw-123456', '0.1.0', { omitUnavailablePdfs: ['job1', 'job3'] });
+    expect(r).toMatchObject({ pdfCount: 1, omittedPdfCount: 2 });
+  });
+
+  it('agreeing to omit one PDF never covers another that goes missing: the backup stops again', async () => {
+    await seedPhoneA();
+    await FileSystem.deleteAsync(`${PHONE_A}pdf-cache/Offer_card_1727172000001.pdf`);
+    await FileSystem.deleteAsync(`${PHONE_A}pdf-cache/Milk_labels_1727172000000.pdf`);
+    const err = await createBackup('pw-123456', '0.1.0', { omitUnavailablePdfs: ['job2'] }).catch(e => e);
+    expect(err.code).toBe('pdfs-unavailable');
+    expect(err.unavailable.map((u: any) => u.jobId)).toEqual(['job1', 'job2', 'job3']);
     expect(writeAndShare).not.toHaveBeenCalled();
   });
 

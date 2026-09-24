@@ -7,22 +7,6 @@
   "es": "La copia de seguridad sería demasiado grande (más de 100 MB). Tu historial de impresión tiene demasiados PDF para un solo archivo.",
   "de": "Die Sicherung wäre zu groß (über 100 MB). Ihr Druckverlauf enthält zu viele PDFs für eine Datei."
  },
- "backup.createErrors.missing-pdf": {
-  "en": "No backup was made: the PDF for \"{{name}}\" in Print history is missing from this phone.",
-  "ar": "لم تُنشأ نسخة احتياطية: ملف PDF الخاص بـ \"{{name}}\" في سجل الطباعة غير موجود على هذا الهاتف.",
-  "tr": "Yedek alınmadı: Yazdırma geçmişindeki \"{{name}}\" PDF'i bu telefonda yok.",
-  "fr": "Aucune sauvegarde créée : le PDF de « {{name}} » dans l'historique d'impression est absent de ce téléphone.",
-  "es": "No se hizo la copia: el PDF de «{{name}}» del historial de impresión no está en este teléfono.",
-  "de": "Keine Sicherung erstellt: Das PDF zu „{{name}}“ im Druckverlauf fehlt auf diesem Telefon."
- },
- "backup.createErrors.corrupt-pdf": {
-  "en": "No backup was made: the PDF for \"{{name}}\" in Print history has changed since it was made.",
-  "ar": "لم تُنشأ نسخة احتياطية: تغيّر ملف PDF الخاص بـ \"{{name}}\" في سجل الطباعة منذ إنشائه.",
-  "tr": "Yedek alınmadı: Yazdırma geçmişindeki \"{{name}}\" PDF'i oluşturulduğundan beri değişmiş.",
-  "fr": "Aucune sauvegarde créée : le PDF de « {{name}} » dans l'historique d'impression a changé depuis sa création.",
-  "es": "No se hizo la copia: el PDF de «{{name}}» del historial de impresión ha cambiado desde que se creó.",
-  "de": "Keine Sicherung erstellt: Das PDF zu „{{name}}“ im Druckverlauf wurde seit der Erstellung verändert."
- },
  "backup.createErrors.unreadable-history": {
   "en": "No backup was made: Print history could not be read. Use Check Data Health first.",
   "ar": "لم تُنشأ نسخة احتياطية: تعذّرت قراءة سجل الطباعة. استخدم «فحص صحة البيانات» أولًا.",

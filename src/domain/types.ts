@@ -164,6 +164,8 @@ export interface PrintJob {
   status: 'generated' | 'sentToPrinter' | 'confirmed' | 'partiallyConfirmed' | 'cancelled';
   createdAt: IsoDateTime;
   confirmedAt?: IsoDateTime;
+  /** The PDF is not on this phone: it was left out of a backup (missing or damaged, user agreed) or came from an older backup. pdfUri is ''. */
+  pdfUnavailable?: boolean;
 }
 
 export type Material = 'shelfEdgeInsert' | 'adhesiveSheet' | 'plainPaper' | 'card' | 'promoCard';

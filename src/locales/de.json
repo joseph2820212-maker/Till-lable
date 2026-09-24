@@ -454,14 +454,17 @@
       "reductions": "Reduziert-Etiketten",
       "waitingLabels": "Wartet auf Druck",
       "printJobs": "Druckverlauf",
-      "pdfs": "PDFs im Druckverlauf"
+      "pdfs": "PDFs im Druckverlauf",
+      "omittedPdfs": "Verlaufseinträge ohne PDF"
     },
     "createErrors": {
       "too-large": "Die Sicherung wäre zu groß (über 100 MB). Ihr Druckverlauf enthält zu viele PDFs für eine Datei.",
-      "missing-pdf": "Keine Sicherung erstellt: Das PDF zu „{{name}}“ im Druckverlauf fehlt auf diesem Telefon.",
-      "corrupt-pdf": "Keine Sicherung erstellt: Das PDF zu „{{name}}“ im Druckverlauf wurde seit der Erstellung verändert.",
       "unreadable-history": "Keine Sicherung erstellt: Der Druckverlauf ist nicht lesbar. Nutzen Sie zuerst „Datenintegrität prüfen“."
-    }
+    },
+    "pdfsUnavailableTitle": "Einige PDFs aus dem Druckverlauf können nicht aufgenommen werden",
+    "pdfsUnavailableBody": "Fehlende oder beschädigte PDFs im Druckverlauf: {{count}}. Ihre Geschäftsdaten können trotzdem gesichert werden, diese PDFs aber nicht. Die Einträge im Verlauf bleiben erhalten und zeigen „PDF nicht verfügbar“.",
+    "continueWithoutPdfs": "Ohne fehlende PDFs sichern",
+    "createdBodyOmitted": "{{file}} ist bereit. Nicht enthaltene PDFs aus dem Druckverlauf: {{count}}. Bewahren Sie die Datei über das Teilen-Menü sicher auf."
   },
   "home": {
     "tagline": "Regalpreisetiketten",
@@ -915,7 +918,8 @@
       "confirmed": "gedruckt",
       "partiallyConfirmed": "teilweise gedruckt",
       "cancelled": "abgebrochen"
-    }
+    },
+    "pdfUnavailable": "PDF nicht verfügbar"
   },
   "labelTest": {
     "subtitle": "Ein Musterbogen vor echten Etiketten",

@@ -34,6 +34,7 @@ export const PrintHistoryScreen: React.FC = () => {
             <View style={{ flex: 1, minWidth: 0 }}>
               <Text style={s.name} numberOfLines={1}>{item.displayName}</Text>
               <Text style={s.meta}>{`${date(item.createdAt)} · ${t(`history.kind.${item.kind}`)} · ${t('history.labels', { count: item.labelCount })}`}</Text>
+              {!item.pdfUri || item.pdfUnavailable ? <Text style={s.unavailable}>{t('history.pdfUnavailable')}</Text> : null}
             </View>
             <Text style={[s.status, item.status === 'confirmed' && s.ok]}>{t(`history.status.${item.status}`)}</Text>
           </TouchableOpacity>
@@ -51,4 +52,5 @@ const s = StyleSheet.create({
   meta: { ...typography.bodySm, color: colors.textMuted },
   status: { ...typography.bodySm, color: colors.textMuted, fontWeight: '700' },
   ok: { color: colors.successGreen },
+  unavailable: { ...typography.bodySm, color: colors.warningOrange, fontWeight: '600' },
 });

@@ -1,0 +1,50 @@
+{
+ "backup.pdfsUnavailableTitle": {
+  "en": "Some print-history PDFs cannot be included",
+  "ar": "تعذّر تضمين بعض ملفات PDF من سجل الطباعة",
+  "tr": "Bazı yazdırma geçmişi PDF'leri eklenemiyor",
+  "fr": "Certains PDF de l'historique d'impression ne peuvent pas être inclus",
+  "es": "Algunos PDF del historial de impresión no se pueden incluir",
+  "de": "Einige PDFs aus dem Druckverlauf können nicht aufgenommen werden"
+ },
+ "backup.pdfsUnavailableBody": {
+  "en": "Print-history PDFs missing or damaged: {{count}}. Your business data can still be backed up, but these historical PDFs cannot be included. Their history entries are kept and will show “PDF not available”.",
+  "ar": "ملفات PDF مفقودة أو تالفة في سجل الطباعة: {{count}}. لا يزال بإمكانك نسخ بيانات عملك احتياطيًا، لكن لا يمكن تضمين ملفات PDF هذه. تبقى إدخالات السجل وستظهر «ملف PDF غير متاح».",
+  "tr": "Eksik veya bozuk yazdırma geçmişi PDF'leri: {{count}}. İşletme verileriniz yine de yedeklenebilir, ancak bu geçmiş PDF'ler eklenemez. Geçmiş kayıtları korunur ve «PDF mevcut değil» olarak görünür.",
+  "fr": "PDF de l'historique manquants ou endommagés : {{count}}. Vos données commerciales peuvent quand même être sauvegardées, mais ces PDF ne peuvent pas être inclus. Leurs entrées d'historique sont conservées et indiqueront « PDF non disponible ».",
+  "es": "PDF del historial que faltan o están dañados: {{count}}. Tus datos del negocio se pueden guardar igualmente, pero estos PDF no se pueden incluir. Sus entradas del historial se conservan y mostrarán «PDF no disponible».",
+  "de": "Fehlende oder beschädigte PDFs im Druckverlauf: {{count}}. Ihre Geschäftsdaten können trotzdem gesichert werden, diese PDFs aber nicht. Die Einträge im Verlauf bleiben erhalten und zeigen „PDF nicht verfügbar“."
+ },
+ "backup.continueWithoutPdfs": {
+  "en": "Back up without missing PDF(s)",
+  "ar": "نسخ احتياطي بدون ملفات PDF المفقودة",
+  "tr": "Eksik PDF'ler olmadan yedekle",
+  "fr": "Sauvegarder sans les PDF manquants",
+  "es": "Guardar sin los PDF que faltan",
+  "de": "Ohne fehlende PDFs sichern"
+ },
+ "backup.createdBodyOmitted": {
+  "en": "{{file}} is ready. Print-history PDFs not included: {{count}}. Use the share sheet to keep it somewhere safe.",
+  "ar": "{{file}} جاهز. ملفات PDF غير المضمّنة من سجل الطباعة: {{count}}. استخدم قائمة المشاركة لحفظه في مكان آمن.",
+  "tr": "{{file}} hazır. Eklenmeyen yazdırma geçmişi PDF'leri: {{count}}. Güvenli bir yerde saklamak için paylaşım menüsünü kullanın.",
+  "fr": "{{file}} est prêt. PDF de l'historique non inclus : {{count}}. Utilisez le menu de partage pour le conserver en lieu sûr.",
+  "es": "{{file}} está listo. PDF del historial no incluidos: {{count}}. Usa el menú compartir para guardarlo en un lugar seguro.",
+  "de": "{{file}} ist bereit. Nicht enthaltene PDFs aus dem Druckverlauf: {{count}}. Bewahren Sie die Datei über das Teilen-Menü sicher auf."
+ },
+ "backup.counts.omittedPdfs": {
+  "en": "History entries without PDF",
+  "ar": "إدخالات السجل بدون PDF",
+  "tr": "PDF'siz geçmiş kayıtları",
+  "fr": "Entrées d'historique sans PDF",
+  "es": "Entradas del historial sin PDF",
+  "de": "Verlaufseinträge ohne PDF"
+ },
+ "history.pdfUnavailable": {
+  "en": "PDF not available",
+  "ar": "ملف PDF غير متاح",
+  "tr": "PDF mevcut değil",
+  "fr": "PDF non disponible",
+  "es": "PDF no disponible",
+  "de": "PDF nicht verfügbar"
+ }
+}

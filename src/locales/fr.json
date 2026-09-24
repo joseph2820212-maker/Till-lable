@@ -454,14 +454,17 @@
       "reductions": "Étiquettes de démarque",
       "waitingLabels": "En attente d'impression",
       "printJobs": "Historique d'impression",
-      "pdfs": "PDF de l'historique"
+      "pdfs": "PDF de l'historique",
+      "omittedPdfs": "Entrées d'historique sans PDF"
     },
     "createErrors": {
       "too-large": "La sauvegarde serait trop volumineuse (plus de 100 Mo). Votre historique d'impression contient trop de PDF pour un seul fichier.",
-      "missing-pdf": "Aucune sauvegarde créée : le PDF de « {{name}} » dans l'historique d'impression est absent de ce téléphone.",
-      "corrupt-pdf": "Aucune sauvegarde créée : le PDF de « {{name}} » dans l'historique d'impression a changé depuis sa création.",
       "unreadable-history": "Aucune sauvegarde créée : l'historique d'impression est illisible. Utilisez d'abord « Vérifier l'intégrité des données »."
-    }
+    },
+    "pdfsUnavailableTitle": "Certains PDF de l'historique d'impression ne peuvent pas être inclus",
+    "pdfsUnavailableBody": "PDF de l'historique manquants ou endommagés : {{count}}. Vos données commerciales peuvent quand même être sauvegardées, mais ces PDF ne peuvent pas être inclus. Leurs entrées d'historique sont conservées et indiqueront « PDF non disponible ».",
+    "continueWithoutPdfs": "Sauvegarder sans les PDF manquants",
+    "createdBodyOmitted": "{{file}} est prêt. PDF de l'historique non inclus : {{count}}. Utilisez le menu de partage pour le conserver en lieu sûr."
   },
   "home": {
     "tagline": "Étiquettes de prix en rayon",
@@ -915,7 +918,8 @@
       "confirmed": "imprimé",
       "partiallyConfirmed": "partiellement imprimé",
       "cancelled": "annulé"
-    }
+    },
+    "pdfUnavailable": "PDF non disponible"
   },
   "labelTest": {
     "subtitle": "Une planche d'exemples avant les vraies étiquettes",

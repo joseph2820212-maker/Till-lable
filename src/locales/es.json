@@ -454,14 +454,17 @@
       "reductions": "Etiquetas de rebaja",
       "waitingLabels": "Pendiente de imprimir",
       "printJobs": "Historial de impresión",
-      "pdfs": "PDF del historial"
+      "pdfs": "PDF del historial",
+      "omittedPdfs": "Entradas del historial sin PDF"
     },
     "createErrors": {
       "too-large": "La copia de seguridad sería demasiado grande (más de 100 MB). Tu historial de impresión tiene demasiados PDF para un solo archivo.",
-      "missing-pdf": "No se hizo la copia: el PDF de «{{name}}» del historial de impresión no está en este teléfono.",
-      "corrupt-pdf": "No se hizo la copia: el PDF de «{{name}}» del historial de impresión ha cambiado desde que se creó.",
       "unreadable-history": "No se hizo la copia: no se pudo leer el historial de impresión. Usa primero «Comprobar estado de los datos»."
-    }
+    },
+    "pdfsUnavailableTitle": "Algunos PDF del historial de impresión no se pueden incluir",
+    "pdfsUnavailableBody": "PDF del historial que faltan o están dañados: {{count}}. Tus datos del negocio se pueden guardar igualmente, pero estos PDF no se pueden incluir. Sus entradas del historial se conservan y mostrarán «PDF no disponible».",
+    "continueWithoutPdfs": "Guardar sin los PDF que faltan",
+    "createdBodyOmitted": "{{file}} está listo. PDF del historial no incluidos: {{count}}. Usa el menú compartir para guardarlo en un lugar seguro."
   },
   "home": {
     "tagline": "Etiquetas de precio para estantería",
@@ -915,7 +918,8 @@
       "confirmed": "impreso",
       "partiallyConfirmed": "impreso en parte",
       "cancelled": "cancelado"
-    }
+    },
+    "pdfUnavailable": "PDF no disponible"
   },
   "labelTest": {
     "subtitle": "Una hoja de muestras antes de las etiquetas reales",

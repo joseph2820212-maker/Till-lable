@@ -159,7 +159,8 @@ $BT/aapt2 dump xmltree "$OUT" --file AndroidManifest.xml | grep -iE "debuggable|
 
 Use the "READY FOR OWNER TEST" table in `docs/gates/BUILD/REPORT.md`: install, camera scanning, printing at exact
 scale, paper measurements on each stationery, calibration, barcode scan-back, the Arabic right-to-left walk-through,
-and backup → restore on a second phone. Nothing on that list counts as passed until the owner records evidence.
+and backup → restore on a second phone, including a **benchmark of a substantial backup** (time and memory near the
+100 MB cap are device-unverified). Nothing on that list counts as passed until the owner records evidence.
 
 ## 4. Things to know
 

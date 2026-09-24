@@ -37,15 +37,23 @@ export const BackupScreen: React.FC = () => {
 
   const counts = (c: Record<string, number>) => [['products', c.products], ['promotions', c.promotions], ['reductions', c.reductions], ['waitingLabels', c.waitingLabels], ['printJobs', c.printJobs]] as [string, number | undefined][];
 
-  const doCreate = async (passphrase: string) => {
+  const doCreate = async (passphrase: string, omitUnavailablePdfs?: string[]) => {
     setBusy(true);
     try {
-      const r = await createBackup(passphrase, APP_VERSION);
+      const r = await createBackup(passphrase, APP_VERSION, { omitUnavailablePdfs });
       setCreateOpen(false);
       setLastAt(new Date().toISOString());
-      AppAlert.success(t('backup.createdTitle'), t('backup.createdBody', { file: r.fileName }));
-    } catch (e) { AppAlert.error(e instanceof BackupError ? t(`backup.createErrors.${e.code}`, { name: e.detail ?? '' }) : t('backup.createFailed')); }
-    finally { setBusy(false); }
+      AppAlert.success(t('backup.createdTitle'), r.omittedPdfCount ? t('backup.createdBodyOmitted', { file: r.fileName, count: r.omittedPdfCount }) : t('backup.createdBody', { file: r.fileName }));
+    } catch (e) {
+      if (e instanceof BackupError && e.code === 'pdfs-unavailable') {
+        // Nothing was written. Ask; never leave a PDF out without an explicit answer.
+        const names = e.unavailable.slice(0, 5).map(u => `• ${u.label}`).join('\n') + (e.unavailable.length > 5 ? '\n…' : '');
+        AppAlert.alert(t('backup.pdfsUnavailableTitle'), `${t('backup.pdfsUnavailableBody', { count: e.unavailable.length })}\n\n${names}`, [
+          { text: t('common.cancel'), style: 'cancel' },
+          { text: t('backup.continueWithoutPdfs'), onPress: () => { doCreate(passphrase, e.unavailable.map(u => u.jobId)); } },
+        ]);
+      } else AppAlert.error(e instanceof BackupError ? t(`backup.createErrors.${e.code}`) : t('backup.createFailed'));
+    } finally { setBusy(false); }
   };
 
   const pickFile = async () => {
@@ -108,6 +116,7 @@ export const BackupScreen: React.FC = () => {
               <LabelRow label={t('backup.encrypted')} value={pending.inspection.encrypted ? t('common.yes') : t('common.no')} />
               {counts(pending.inspection.entityCounts).map(([k, v]) => <LabelRow key={k} label={t(`backup.counts.${k}`)} value={v == null ? '—' : String(v)} />)}
               <LabelRow label={t('backup.counts.pdfs')} value={String(pending.inspection.pdfCount)} />
+              {pending.inspection.omittedPdfCount ? <LabelRow label={t('backup.counts.omittedPdfs')} value={String(pending.inspection.omittedPdfCount)} /> : null}
               <AppButton label={t('backup.restoreAction')} onPress={confirmRestore} variant="danger" style={{ marginTop: spacing.sm }} />
               <AppButton label={t('common.cancel')} onPress={() => setPending(null)} variant="ghost" />
             </View>

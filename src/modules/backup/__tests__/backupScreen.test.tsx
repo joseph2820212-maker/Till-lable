@@ -82,4 +82,37 @@ describe('BackupScreen', () => {
     expect(err).toHaveBeenCalledWith('backup.errors.wrong-format');
     err.mockRestore();
   });
+  it('a missing history PDF asks first: Cancel writes nothing; "Back up without missing PDF(s)" backs up and says how many were left out', async () => {
+    await FileSystem.writeAsStringAsync('file:///docs/pdf-cache/Kept_1.pdf', 'JVBERi0xLjcgS2VwdA==', { encoding: 'base64' as any });
+    const sha = (b: string) => require('@noble/hashes/utils.js').bytesToHex(require('@noble/hashes/sha2.js').sha256(new Uint8Array(Buffer.from(b, 'base64'))));
+    await AsyncStorage.setItem(TL_KEYS.jobs, JSON.stringify([
+      { id: 'jKept', displayName: 'Milk labels', pdfUri: 'file:///docs/pdf-cache/Kept_1.pdf', pdfSha256: sha('JVBERi0xLjcgS2VwdA==') },
+      { id: 'jGone', displayName: 'Old offer cards', pdfUri: 'file:///docs/pdf-cache/Gone_1.pdf', pdfSha256: 'a'.repeat(64) },
+    ]));
+    const { writeAndShare } = require('../../../storage/fileUtils');
+    const success = jest.spyOn(AppAlert, 'success').mockImplementation(() => {});
+    let choice: 'cancel' | 'continue' = 'cancel';
+    const alert = jest.spyOn(AppAlert, 'alert').mockImplementation((_t, _m, buttons) => {
+      (choice === 'cancel' ? buttons?.find(b => b.style === 'cancel') : buttons?.find(b => b.text === 'backup.continueWithoutPdfs'))?.onPress?.();
+    });
+    const r = render(<BackupScreen />);
+    await settle();
+    const createRow = r.root.findAllByType('TouchableOpacity').find((x: any) => x.props.accessibilityLabel === 'backup.createNow');
+    act(() => { createRow.props.onPress(); });
+    await act(async () => { await r.root.findByType('PassphraseModal').props.onConfirm('my backup pass'); });
+    await settle();
+    expect(alert).toHaveBeenCalledWith('backup.pdfsUnavailableTitle', expect.stringContaining('backup.pdfsUnavailableBody|count=1'), expect.any(Array));
+    expect(alert.mock.calls[0][1]).toContain('Old offer cards');
+    expect(alert.mock.calls[0][2]!.map(b => b.text)).toEqual(['common.cancel', 'backup.continueWithoutPdfs']);
+    expect(writeAndShare).not.toHaveBeenCalled();
+    expect(success).not.toHaveBeenCalled();
+
+    choice = 'continue';
+    await act(async () => { await r.root.findByType('PassphraseModal').props.onConfirm('my backup pass'); });
+    await settle(); await settle();
+    expect(writeAndShare).toHaveBeenCalledTimes(1);
+    expect(success).toHaveBeenCalledWith('backup.createdTitle', expect.stringContaining('backup.createdBodyOmitted'));
+    expect(success.mock.calls[0][1]).toContain('count=1');
+    success.mockRestore(); alert.mockRestore();
+  });
 });

@@ -454,14 +454,17 @@
       "reductions": "Reduced labels",
       "waitingLabels": "Waiting to print",
       "printJobs": "Print history",
-      "pdfs": "Print history PDFs"
+      "pdfs": "Print history PDFs",
+      "omittedPdfs": "History entries without PDF"
     },
     "createErrors": {
       "too-large": "The backup would be too large (over 100 MB). Your print history holds too many PDFs to fit in one file.",
-      "missing-pdf": "No backup was made: the PDF for \"{{name}}\" in Print history is missing from this phone.",
-      "corrupt-pdf": "No backup was made: the PDF for \"{{name}}\" in Print history has changed since it was made.",
       "unreadable-history": "No backup was made: Print history could not be read. Use Check Data Health first."
-    }
+    },
+    "pdfsUnavailableTitle": "Some print-history PDFs cannot be included",
+    "pdfsUnavailableBody": "Print-history PDFs missing or damaged: {{count}}. Your business data can still be backed up, but these historical PDFs cannot be included. Their history entries are kept and will show “PDF not available”.",
+    "continueWithoutPdfs": "Back up without missing PDF(s)",
+    "createdBodyOmitted": "{{file}} is ready. Print-history PDFs not included: {{count}}. Use the share sheet to keep it somewhere safe."
   },
   "home": {
     "tagline": "Shelf price labels",
@@ -915,7 +918,8 @@
       "confirmed": "printed",
       "partiallyConfirmed": "partly printed",
       "cancelled": "cancelled"
-    }
+    },
+    "pdfUnavailable": "PDF not available"
   },
   "labelTest": {
     "subtitle": "One sheet of samples before real labels",

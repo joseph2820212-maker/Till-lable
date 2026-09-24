@@ -20,6 +20,7 @@ import { colors } from './theme/colors';
 import { initializeLanguage } from './i18n';
 import { initCurrency } from './utils/currency';
 import { recoverInterruptedRestore } from './modules/backup/backupFile';
+import { reconcileJobPdfs } from './modules/print/storage/jobStore';
 import { loadLabelSettings } from './modules/settings/storage/labelSettings';
 
 installGlobalErrorLogger();
@@ -62,6 +63,8 @@ function FontBootstrap({ onRetry }: { onRetry: () => void }) {
     let cancelled = false;
     (async () => {
       try { await recoverInterruptedRestore(); } catch { /* a broken journal must never block startup */ }
+      // Background, best effort: remove retained PDFs no history entry refers to (retries any failed prune cleanup).
+      reconcileJobPdfs().catch(() => undefined);
       await initializeLanguage();
       await initCurrency();
       try { await loadLabelSettings(); } catch { /* defaults stay; settings screen can re-save */ }

@@ -25,7 +25,8 @@ before the independent audit.
 | Reduced to clear (Pro) | Batch with quick 25 / 50 / 75 % buttons, reason, copies; stored apart from the product | `ReducedLabelScreen.tsx` |
 | Settings | App language, currency, printed-label language (independent), default label type, offer style (yellow / ink-saving), SKU on cards, barcode on offers, unit-price decimals | `labelSettings.ts` |
 | Help & support | Guide: 10 chapters (first labels, product vs label name, scanning, importing, printing, calibration, offers, backup, languages, safe support); Questions: the family set + Printing, Labels, Free and Pro | `more/content/helpContent.ts` |
-| Backup & restore | Encrypted file (AES-256-GCM + scrypt) with the store data AND the retained Print-history PDFs; size estimated and capped before anything is read; staged, journalled restore that rolls data and files back together; pdfUri rewritten to the new phone | `backup/backupFile.ts` (closure) |
+| Backup & restore | Encrypted file (AES-256-GCM + scrypt) with the store data AND the retained Print-history PDFs; size estimated and capped before anything is read; a missing or damaged history PDF is only left out after the user explicitly agrees; staged, journalled restore that rolls data and files back together; pdfUri rewritten to the new phone | `backup/backupFile.ts` (closure) |
+| PDF lifecycle | Pruning history past 300 entries deletes a PDF only when no surviving entry uses it; a start-up pass removes old unreferenced PDFs | `print/storage/retainedPdfs.ts` (closure) |
 | Languages | Every new string in English, Arabic, Turkish, French, Spanish and German (512 new keys + help); RTL layouts | `src/locales/*`, `scripts/locale-keys/g3-*.json` |
 
 ## Verification
@@ -77,6 +78,8 @@ Arabic layout check is part of the phone test below.
 | Paper: 70 × 38 A4 card 14-up, Avery L7160 / L7159 / L7163, A6 / A5 / A4 cards | Label test, measure top / middle / bottom |
 | Calibration: 100 mm line, first / last label | Printer calibration |
 | Barcode scan-back from paper (S22, another phone, shop scanner) | Print price + barcode labels |
+| Backup of a substantial history (e.g. 300 jobs, file near the 100 MB cap): time, memory, no crash; then restore on a second phone and open old PDFs from Print history | Menu → Backup & restore (memory/time are **device-unverified**) |
+| Backup with one history PDF deleted: the question appears; Cancel writes nothing; "Back up without missing PDF(s)" works and the restored entry shows "PDF not available" | Delete a file via a file manager, then back up |
 | Arabic right-to-left layout on the phone | Menu → Language → العربية, walk every screen |
 | Arabic / Turkish wording review by a native reader | All screens and labels |
 

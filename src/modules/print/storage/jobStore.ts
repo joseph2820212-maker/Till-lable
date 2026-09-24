@@ -7,6 +7,8 @@ import { TL_KEYS } from '../../../storage/keys';
 import { readList, updateList } from '../../../storage/repo';
 import { SCHEMA_VERSIONS, type PrintJob, type PrintJobLine } from '../../../domain/types';
 import { makeId, nowIso } from '../../products/utils/ids';
+import { deletePrunedJobPdfs, reconcileRetainedPdfs } from './retainedPdfs';
+import { readStorageList } from '../../../utils/storageSafety';
 
 export interface JobInput {
   lines: PrintJobLine[];
@@ -24,7 +26,7 @@ export interface JobInput {
 
 export type StoredJob = PrintJob & { labelCount: number; pageCount: number; kind: JobInput['kind'] };
 
-const MAX_JOBS = 300;
+export const MAX_JOBS = 300;
 
 export async function listJobs(): Promise<StoredJob[]> {
   return (await readList<StoredJob>(TL_KEYS.jobs)).filter(j => j && j.id).sort((a, b) => b.createdAt.localeCompare(a.createdAt));
@@ -40,8 +42,20 @@ export async function recordJob(input: JobInput): Promise<StoredJob> {
     layoutId: 'sheet', rendererVersion: input.rendererVersion, pdfUri: input.pdfUri, displayName: input.displayName, pdfSha256: input.pdfSha256,
     startPosition: input.startPosition, status: 'generated', createdAt: nowIso(), labelCount: input.labelCount, pageCount: input.pageCount, kind: input.kind,
   };
-  await updateList<StoredJob>(TL_KEYS.jobs, list => ({ list: [...list, job].slice(-MAX_JOBS), result: undefined }));
+  const { pruned, kept } = await updateList<StoredJob, { pruned: StoredJob[]; kept: StoredJob[] }>(TL_KEYS.jobs, list => {
+    const next = [...list, job];
+    const cut = Math.max(0, next.length - MAX_JOBS);
+    return { list: next.slice(cut), result: { pruned: next.slice(0, cut), kept: next.slice(cut) } };
+  });
+  // After the history write: remove PDFs only pruned jobs used. Best effort; reconcileJobPdfs() retries leftovers.
+  if (pruned.length) await deletePrunedJobPdfs(pruned, kept);
   return job;
+}
+
+/** Delete retained PDFs that no history entry refers to (e.g. a cleanup that failed earlier). Never throws. */
+export function reconcileJobPdfs(now?: number) {
+  // Strict: a corrupt or unreadable history must never look like "no references" (that would delete every PDF).
+  return reconcileRetainedPdfs(() => readStorageList<StoredJob>(TL_KEYS.jobs, { strict: true }), now);
 }
 
 export async function setJobStatus(id: string, status: PrintJob['status']): Promise<void> {

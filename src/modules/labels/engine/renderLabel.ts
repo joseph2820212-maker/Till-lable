@@ -224,14 +224,15 @@ export function renderLabel(c: LabelContent, box: { widthMm: number; heightMm: n
   const nowWord = promoKind === 'wasNow' ? labelText(L, 'now') : '';
   const descender = arabicSymbol ? 0.3 : 0.16;
   const priceWidth = measureMm(parts.number, t.pricePt, 'bold') + measureMm(parts.symbol + parts.space, t.pricePt * symRatio, 'bold');
-  const inlineNow = nowWord && !t.isCard ? measureMm(`${nowWord} `, t.nowPt, 'bold') : 0;
+  const inlineNow = nowWord && t.nowInline ? measureMm(`${nowWord} `, t.nowPt, 'bold') : 0;
   if (priceWidth + inlineNow > w + 0.01) return fail('priceDoesNotFit', 'needsLargerFormat');
   const sym = `<span class="cur" style="font-size:${Math.round(symRatio * 100)}%">${escapeHtml(parts.symbol)}</span>`;
   const amount = parts.symbolPosition === 'before' ? `${sym}${parts.space ? '&nbsp;' : ''}${escapeHtml(parts.number)}` : `${escapeHtml(parts.number)}&nbsp;${sym}`;
   let priceHtml: string;
   if (t.isCard) {
-    const nowLine = nowWord ? `<div class="nowline" style="font-size:${t.nowPt}pt">${escapeHtml(nowWord)}</div>` : '';
-    priceHtml = `<div class="pricebox">${nowLine}<div class="price" style="font-size:${t.pricePt}pt;padding-bottom:${descender}em"><bdi dir="ltr">${amount}</bdi></div></div>`;
+    const nowInlineHtml = nowWord && t.nowInline ? `<span class="now" style="font-size:${t.nowPt}pt">${escapeHtml(nowWord)}</span> ` : '';
+    const nowLine = nowWord && !t.nowInline ? `<div class="nowline" style="font-size:${t.nowPt}pt">${escapeHtml(nowWord)}</div>` : '';
+    priceHtml = `<div class="pricebox">${nowLine}<div class="price" style="font-size:${t.pricePt}pt;padding-bottom:${descender}em">${nowInlineHtml}<bdi dir="ltr">${amount}</bdi></div></div>`;
   } else {
     const nowHtml = nowWord ? `<span class="now" style="font-size:${t.nowPt}pt">${escapeHtml(nowWord)}</span> ` : '';
     priceHtml = `<div class="price" style="font-size:${t.pricePt}pt;padding-bottom:${descender}em">${nowHtml}<bdi dir="ltr">${amount}</bdi></div>`;

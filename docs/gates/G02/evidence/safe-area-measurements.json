@@ -40,6 +40,16 @@
   "minBottomCriticalInkMm": 6.77
  },
  {
+  "file": "offer_a6_landscape.html",
+  "labels": 4,
+  "minInkEdgeMm": 6,
+  "closest": "name",
+  "outside": 0,
+  "overlaps": 0,
+  "pairs": [],
+  "minBottomCriticalInkMm": null
+ },
+ {
   "file": "preset_avery_l7160.html",
   "labels": 6,
   "minInkEdgeMm": 1.73,

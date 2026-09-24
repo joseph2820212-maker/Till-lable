@@ -27,6 +27,7 @@ dimensions alone never become a physical pass.
 | Avery L7163 | A4 | 14 (2 × 7) | 99.1 × 38.1 mm (published, unverified) | not yet sourced | Yes | Unverified | Pending | |
 | Plain paper / card with cutting guides | A4 or US Letter | computed | chosen ticket size | computed | Yes | Design dimension | Pending | Cut marks printed outside the ticket safe area |
 | Offer cards A6 / A5 / A4 | A4 or US Letter (imposed) or the card size itself | 4 / 2 / 1 per A4 | A6 / A5 / A4 | computed | Yes (Pro) | Design dimension | Pending | Cutting guides when imposed on A4 / Letter |
+| Offer cards A6 landscape | A4 landscape (imposed) | 4 (2 × 2) | 148 × 105 mm | computed, centred | Yes (Pro) — owner decision 24 Sep 2026 | Design dimension | Pending | High-impact card: fixed 80 pt price; cutting guides |
 | Custom sheet (user-measured) | A4 | user | user | user | Yes — Pro, advanced | User-defined | Pending | Validated before PDF; test page required |
 | Avery L7651 | A4 | 65 (5 × 13) | 38.1 × 21.2 mm (published, unverified) | not yet sourced | Preset deferred until after the first review | Unverified | — | Can still be entered as a custom profile |
 | Avery 5160 | US Letter | 30 (3 × 10) | 1 × 2⅝ in (published, unverified) | not yet sourced | Preset deferred; **US Letter geometry supported from G2** | Unverified | — | Physical test of a US Letter product deferred until after the first review |
@@ -52,3 +53,5 @@ dimensions alone never become a physical pass.
 ## Safe area (owner handout §10, 24 Sep 2026)
 
 Critical content (SKU, unit price, barcode digits) stays at least 2 mm inside every cut or perforation edge: tickets 2.5 mm, adhesive sheet presets 2 mm, offer cards 6–10 mm. A profile below 2 mm gets the `safeInsetBelowRecommended` warning. Manufacturer presets remain presets on top of the generic engine; their margins stay **Unverified** until checked against the manufacturer's template or a real sheet.
+
+Physical verification (Avery templates, real sheets, calibration, scan-back) is a separate physical gate after the engineering APK (owner decision, 24 Sep 2026). Source-level G2 does not wait for it; presets stay **Unverified** until then.

@@ -62,6 +62,12 @@ export const PRESETS: StationeryProfile[] = [
     material: 'promoCard', refeedSafe: true, verification: 'userDefined', verificationSource: 'ISO 216 A6 imposed on A4',
   },
   {
+    ...base, id: 'preset_offer_a6_landscape_on_a4', name: 'Offer cards A6 landscape (4 per A4 landscape, cutting guides)', orientation: 'landscape',
+    paper: 'A4', pageWidthMm: A4.heightMm, pageHeightMm: A4.widthMm, rows: 2, columns: 2, labelWidthMm: 148, labelHeightMm: 105,
+    ...centred(A4.heightMm, A4.widthMm, 2, 2, 148, 105), gapXMm: 0, gapYMm: 0, safeInsetMm: 6,
+    material: 'promoCard', refeedSafe: true, verification: 'userDefined', verificationSource: 'ISO 216 A6 (landscape) imposed on A4 landscape',
+  },
+  {
     ...base, id: 'preset_offer_a5_on_a4', name: 'Offer cards A5 (2 per A4 landscape, cutting guides)', orientation: 'landscape',
     paper: 'A4', pageWidthMm: A4.heightMm, pageHeightMm: A4.widthMm, rows: 1, columns: 2, labelWidthMm: 148, labelHeightMm: 210,
     ...centred(A4.heightMm, A4.widthMm, 1, 2, 148, 210), gapXMm: 0, gapYMm: 0, safeInsetMm: 8,

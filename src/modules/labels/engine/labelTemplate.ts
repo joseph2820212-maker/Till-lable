@@ -26,15 +26,30 @@ const LANGS: LanguageCode[] = ['en', 'ar', 'tr', 'fr', 'es', 'de'];
 export const LABEL_NAME_MAX = 40;
 
 /**
- * Significant digits the fixed price size is designed around, in the widest currency of the catalogue (each
- * currency with its own decimals, e.g. 9,999.99 · 999,999 · 999.999) on tickets and sticker labels. The A4 card is the
- * large-price fallback and is designed for 7 (99,999.99 · 9,999,999 · 9,999.999). No price is ever refused by the CATALOGUE; a price wider
- * than a format's fixed price area is refused for that format only ("This price needs a larger label format").
+ * ACCEPTANCE IS ALWAYS BY MEASURED WIDTH (owner decisions, 24 Sep 2026): a format accepts a price when that exact
+ * formatted string — currency symbol or code, separators, decimals, printed-label locale — fits its fixed price box.
+ * "£999.99", "999,99 €", "AED 999.99" and "₺999,99" all have different widths; nothing here counts digits to decide.
+ * A price that does not fit is refused for that format only: "This price needs a larger label format".
+ *
+ * Choosing the fixed SIZE itself needs a reference. Owner-approved preset formats have their approved price size
+ * (APPROVED_PRICE_PT). For any other format (e.g. a Pro custom sheet) the size is derived once from a sizing
+ * reference — the widest 9,999.99-shaped price across the whole currency catalogue in all six label languages —
+ * and that reference only picks the type size; it never accepts or rejects a price.
  */
-export const PRICE_DESIGN_DIGITS = 6;
-/** A6 / A5 offer cards are customer-facing: designed for 5 digits (999.99 · 99,999 · 99.999) so the price dominates. */
-export const PRICE_DESIGN_DIGITS_CARD = 5;
-export const PRICE_DESIGN_DIGITS_LARGEST = 7;
+const SIZING_REFERENCE_MINOR = 888888;
+
+/**
+ * Owner-approved fixed price sizes for the preset offer-card formats, keyed by label size in mm (w×h). The card
+ * still refuses any formatted price wider than its box at this size. A layout that cannot give the full size in its
+ * height gets the largest size its height allows (fixed for that {format + layout}).
+ */
+const APPROVED_PRICE_PT: Record<string, number> = {
+  '105x148': 51.5, // A6 portrait — compact
+  '148x105': 80,   // A6 landscape — high-impact
+  '148x210': 73,   // A5 portrait
+  '210x297': 80.5, // A4 portrait — the large-price card
+};
+const approvedPriceFor = (box: { widthMm: number; heightMm: number }): number | undefined => APPROVED_PRICE_PT[`${box.widthMm}x${box.heightMm}`];
 
 /** Labels at least this tall (inner mm) are offer cards. */
 export const CARD_MIN_HEIGHT_MM = 80;
@@ -87,8 +102,8 @@ export interface LabelTemplate {
   moduleMm: number;
   /** Fixed price size (the price has its own full-width row). */
   pricePt: number;
-  /** Significant digits the price size was designed for (in the widest currency). */
-  priceDesignDigits: number;
+  /** True when "Now" prints inline before the price (tickets); false = its own line (offer cards). */
+  nowInline: boolean;
   /** Width the barcode needs with both quiet zones, at the end of the bottom row. */
   barcodeReserveMm: number;
   limits: FieldLimits;
@@ -106,8 +121,6 @@ export const EAN13_QUIET = 18;
 /** Barcodes are never drawn with a module narrower than this (80 % of the GS1 nominal 0.33 mm). */
 export const MIN_MODULE_MM = 0.264;
 
-/** A price with `digits` significant digits (all 8s, the widest digit run). */
-export const designPriceMinor = (digits: number): number => Number('8'.repeat(digits));
 
 /** Width of a printed price at `pt`, measured exactly as renderLabel draws it (symbol at its reduced size). */
 export function priceWidthMm(amountMinor: number, currency: string, lang: LanguageCode, pt: number): number {
@@ -124,10 +137,10 @@ const cached = (key: string, compute: () => number) => {
   return v;
 };
 
-/** Widest `digits`-digit price across every catalogue currency and all six languages, per point (scales linearly). */
-const widestPricePerPt = (digits: number) => cached(`p${digits}`, () => {
+/** Width of the SIZING reference (not an acceptance rule) across every catalogue currency and all six languages, per point. */
+const sizingReferencePerPt = () => cached('ref', () => {
   let widest = 0;
-  for (const lang of LANGS) for (const currency of ALL_CURRENCIES) widest = Math.max(widest, priceWidthMm(designPriceMinor(digits), currency, lang, 100) / 100);
+  for (const lang of LANGS) for (const currency of ALL_CURRENCIES) widest = Math.max(widest, priceWidthMm(SIZING_REFERENCE_MINOR, currency, lang, 100) / 100);
   return widest;
 });
 
@@ -144,10 +157,10 @@ const widestValidityPerPt = () => cached('valid', () => {
   return widest;
 });
 
-/** Widest promotion band text across all six languages and every promotion type, with design-size amounts, per point. */
-const widestHeadlinePerPt = (digits: number) => cached(`h${digits}`, () => {
+/** Widest promotion band text across all six languages and every promotion type, with sizing-reference amounts, per point. */
+const widestHeadlinePerPt = () => cached('h', () => {
   let widest = 0;
-  const big = designPriceMinor(digits);
+  const big = SIZING_REFERENCE_MINOR;
   for (const lang of LANGS) for (const currency of ALL_CURRENCIES) {
     const amount = formatMoney(big, currency, lang);
     const texts = [
@@ -281,7 +294,7 @@ function ticketTemplate(box: Box, layout: LabelLayout): LabelTemplate {
       let bandMm = 0;
       if (plan.withBand) {
         bandPt = round1(clamp(10.5 * s, 7, 24));
-        while (bandPt > 6 && widestHeadlinePerPt(PRICE_DESIGN_DIGITS) * bandPt > w - 3 * k) bandPt = round1(bandPt - 0.2);
+        while (bandPt > 6 && widestHeadlinePerPt() * bandPt > w - 3 * k) bandPt = round1(bandPt - 0.2);
         bandMm = Math.max(5.8 * s, (bandPt * 1.45) / PT_PER_MM);
       }
       const codeMm = plan.withBarcode ? barsMm + line(digitPt, 1.25) : 0;
@@ -289,14 +302,14 @@ function ticketTemplate(box: Box, layout: LabelLayout): LabelTemplate {
       const priceRoomMm = h - head - gap - gap * 0.6 - footMm(plan, unitPt, skuPt, codeMm);
       const byHeight = (priceRoomMm * PT_PER_MM) / (0.96 + 0.3);
       const nowReserve = plan.withBand ? widestNowPerPt() * nowPt : 0; // "Now" inline at a readable size
-      const byWidth = (w - nowReserve) / widestPricePerPt(PRICE_DESIGN_DIGITS);
+      const byWidth = (w - nowReserve) / sizingReferencePerPt();
       const pricePt = halfDown(Math.min(byHeight, byWidth, 40 * k));
       const unitRoom = plan.withBarcode ? w - barcodeReserveMm - gap : w;
       if (pricePt >= floor && unitRoom > 12) {
         return {
           layout, widthMm: w, heightMm: h, scale: k, isCard: false, gapMm: gap, bandPt, bandMm, namePt, nameLines, secondPt,
           smallPt, smallLines, unitPt, skuPt, digitPt, nowPt, barsMm, moduleMm: plan.withBarcode ? moduleMm : 0, pricePt,
-          priceDesignDigits: PRICE_DESIGN_DIGITS, barcodeReserveMm,
+          nowInline: true, barcodeReserveMm,
           limits: limitsFor(w, namePt, nameLines, secondPt, smallPt, smallLines),
         };
       }
@@ -306,48 +319,51 @@ function ticketTemplate(box: Box, layout: LabelLayout): LabelTemplate {
 }
 
 /**
- * Offer cards (A6 / A5 / A4): customer-facing, so the PRICE dominates. Name and details are set smaller relative
- * to the card than on tickets, the price takes the free height (capped only by the widest design price) and is
- * centred in the free area. The SKU is off by default (staff option); "Now" is its own readable line.
+ * Offer cards (A6 portrait / A6 landscape / A5 / A4): customer-facing, so the PRICE dominates. Name and details are
+ * set smaller relative to the card than on tickets; the price uses the format's approved fixed size and is centred in
+ * the free area. The SKU is off by default (staff option). "Now" is its own readable line on every card, so the
+ * price keeps the full card width (landscape cards use a 2-line name and a slimmer band to keep the 80 pt height).
  */
 function cardTemplate(box: Box, layout: LabelLayout): LabelTemplate {
   const w = box.widthMm - 2 * box.safeInsetMm;
   const h = box.heightMm - 2 * box.safeInsetMm;
+  const landscape = w > h;
   const k = clamp(h / 33, 1, 9);
   const plan = PLANS[layout];
-  const digits = w >= 180 ? PRICE_DESIGN_DIGITS_LARGEST : PRICE_DESIGN_DIGITS_CARD;
-  const gap = round1(clamp(w * 0.045, 4, 9));
-  const namePt = round1(clamp(w * 0.19, 14, 36));
-  const nameLines = 3;
+  const gap = round1(clamp(Math.min(w, h) * 0.045, 4, 9));
+  const namePt = round1(clamp(Math.min(w, h) * 0.19, 14, 36));
+  const nameLines = landscape ? 2 : 3;
   const secondPt = round1(namePt * 0.62);
   const smallPt = round1(namePt * 0.55);
-  const smallLines = plan.withSmall ? 2 : 0;
+  const smallLines = plan.withSmall ? (landscape ? 1 : 2) : 0;
   const unitPt = round1(namePt * 0.62);
   const skuPt = round1(namePt * 0.45);
   const nowPt = round1(namePt * 1.1);
+  const nowInline = false; // own line on every card, so the full width goes to the price (AED 999.99 fits landscape)
   const digitPt = round1(clamp(namePt * 0.5, 8, 16));
-  const moduleMm = round1(clamp(0.33 * (w / 93), 0.33, 0.53) * 1000) / 1000;
+  const moduleMm = round1(clamp(0.33 * (Math.min(w, h) / 93), 0.33, 0.53) * 1000) / 1000;
   const barcodeReserveMm = plan.withBarcode ? (EAN13_MODULES + EAN13_QUIET) * moduleMm : 0;
   const barsMm = plan.withBarcode ? clamp(h * 0.12, 12, 22) : 0;
   let bandPt = 0;
   let bandMm = 0;
   if (plan.withBand) {
     bandPt = round1(clamp(namePt * 1.25, 14, 48));
-    while (bandPt > 8 && widestHeadlinePerPt(digits) * bandPt > w - 2 * gap) bandPt = round1(bandPt - 0.2);
-    bandMm = (bandPt * 1.9) / PT_PER_MM;
+    while (bandPt > 8 && widestHeadlinePerPt() * bandPt > w - 2 * gap) bandPt = round1(bandPt - 0.2);
+    bandMm = (bandPt * (landscape ? 1.7 : 1.9)) / PT_PER_MM;
   }
   const codeMm = plan.withBarcode ? barsMm + line(digitPt, 1.25) : 0;
   // Cards add 0.3 em above the pack size so large name descenders never touch it.
   const head = (bandMm ? bandMm + gap * 0.6 : 0) + nameLines * line(namePt, 1.12) + line(secondPt) + (secondPt * 0.3) / PT_PER_MM + smallLines * line(smallPt);
-  const nowLine = plan.withBand ? line(nowPt, 1.1) : 0;
+  const nowLine = plan.withBand && !nowInline ? line(nowPt, 1.1) : 0;
   const priceRoomMm = h - head - nowLine - 2 * gap - footMm(plan, unitPt, skuPt, codeMm);
   const byHeight = (priceRoomMm * PT_PER_MM) / (0.96 + 0.3);
-  const byWidth = w / widestPricePerPt(digits);
-  const pricePt = halfDown(Math.min(byHeight, byWidth));
+  // Approved size for preset cards; other card sizes derive theirs once from the sizing reference.
+  const target = approvedPriceFor(box) ?? w / sizingReferencePerPt();
+  const pricePt = halfDown(Math.min(byHeight, target));
   if (pricePt < namePt * 1.8 || (plan.withBarcode && w - barcodeReserveMm - gap < 20)) throw new LayoutIncompatibleError(layout, box);
   return {
     layout, widthMm: w, heightMm: h, scale: k, isCard: true, gapMm: gap, bandPt, bandMm, namePt, nameLines, secondPt, smallPt,
-    smallLines, unitPt, skuPt, digitPt, nowPt, barsMm, moduleMm: plan.withBarcode ? moduleMm : 0, pricePt, priceDesignDigits: digits,
+    smallLines, unitPt, skuPt, digitPt, nowPt, nowInline, barsMm, moduleMm: plan.withBarcode ? moduleMm : 0, pricePt,
     barcodeReserveMm, limits: limitsFor(w, namePt, nameLines, secondPt, smallPt, smallLines),
   };
 }

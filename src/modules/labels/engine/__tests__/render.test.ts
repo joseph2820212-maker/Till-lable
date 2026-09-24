@@ -21,6 +21,7 @@ const boxOf = (id: string) => { const p = PRESETS.find(x => x.id === id)!; retur
 const box = boxOf('preset_shelf_70x38_a4');
 const a6 = boxOf('preset_offer_a6_on_a4');
 const a4card = boxOf('preset_offer_a4');
+const a6l = boxOf('preset_offer_a6_landscape_on_a4');
 const textOf = (html: string) => html.replace(/<svg[\s\S]*?<\/svg>/g, '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const errors = (r: { issues: { severity: string }[] }) => r.issues.filter(i => i.severity === 'error');
 
@@ -178,7 +179,7 @@ describe('promotions: wording, band, Now, barcode policy', () => {
 });
 
 describe('offer cards: price dominates, centred, SKU off by default', () => {
-  it.each(['preset_offer_a6_on_a4', 'preset_offer_a5_on_a4', 'preset_offer_a4'])('%s: price well above the name size and centred', id => {
+  it.each(['preset_offer_a6_on_a4', 'preset_offer_a6_landscape_on_a4', 'preset_offer_a5_on_a4', 'preset_offer_a4'])('%s: price well above the name size and centred', id => {
     const r = renderLabel({ ...standardContent(0), kind: 'offerCardA6', was: moneyFromMinor(599, 'GBP') }, boxOf(id));
     expect(errors(r)).toEqual([]);
     expect(sizeOf(r.html, 'price')).toBeGreaterThanOrEqual(2.2 * sizeOf(r.html, 'name'));
@@ -283,6 +284,63 @@ describe('prices: no global digit cap — measured against each format’s fixed
   it('unit prices can carry more precision than the selling price', () => {
     const r = renderLabel({ ...standardContent(0, 'priceUnitPrice'), unitPrice: { amount: moneyFromMinor(281, 'GBP'), base: 'per_100g', extraDecimals: 1 } }, box);
     expect(textOf(r.html)).toMatch(/£0\.281\s+per 100 g/);
+  });
+});
+
+describe('price acceptance is by rendered width, never by counting digits (owner decision, 24 Sep 2026)', () => {
+  const price = (minor: number, currency: string, lang: LabelContent['language']) => ({ ...standardContent(PAIRS.findIndex(p => p.lang === lang)), kind: 'offerCardA6' as const, was: moneyFromMinor(minor, currency), price: moneyFromMinor(minor, currency) });
+  const printed = (html: string) => (/<div class="price"[^>]*>([\s\S]*?)<\/div>/.exec(html)?.[1] ?? '').replace(/<span class="now"[^>]*>[^<]*<\/span> /, '').replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ');
+  it.each([
+    [99999, 'GBP', 'en', '£999.99'], [99999, 'EUR', 'de', '999,99 €'], [99999, 'AED', 'en', 'AED 999.99'], [99999, 'TRY', 'tr', '₺999,99'],
+  ] as [number, string, LabelContent['language'], string][])('%s %s (%s) prints as "%s" on A6 portrait and A6 landscape', (minor, currency, lang, shown) => {
+    for (const b of [a6, a6l]) {
+      const r = renderLabel(price(minor, currency, lang), b);
+      expect(errors(r)).toEqual([]);
+      expect(printed(r.html).replace(/\u00A0/g, ' ')).toContain(shown);
+    }
+  });
+  it('the same digit count can fit or not depending on the currency: £9,999.99 fits A6 portrait, AED 9,999.99 needs a larger format', () => {
+    expect(errors(renderLabel(price(999999, 'GBP', 'en'), a6))).toEqual([]);
+    expect(renderLabel(price(999999, 'AED', 'en'), a6).issues[0]).toMatchObject({ code: 'priceDoesNotFit', detail: 'needsLargerFormat' });
+    expect(errors(renderLabel(price(999999, 'AED', 'en'), a4card))).toEqual([]);
+  });
+  it('larger values trigger the larger-format message on A6 landscape and still print on the A4 card', () => {
+    expect(renderLabel(price(9999999, 'GBP', 'en'), a6l).issues[0]).toMatchObject({ code: 'priceDoesNotFit', detail: 'needsLargerFormat' });
+    expect(errors(renderLabel(price(9999999, 'GBP', 'en'), a4card))).toEqual([]);
+  });
+  it('the engine has no digit-count rule anywhere (no digit constants, no digit counting)', () => {
+    const dir = path.resolve(__dirname, '..');
+    for (const f of ['labelTemplate.ts', 'renderLabel.ts', 'renderSheet.ts']) {
+      const src = fs.readFileSync(path.join(dir, f), 'utf8');
+      expect({ f, bad: /DIGITS|priceDigits|priceDesignDigits|significant digits/.test(src) }).toEqual({ f, bad: false });
+    }
+  });
+});
+
+describe('A6 landscape offer card (owner decision: high-impact format)', () => {
+  it('4 per A4 landscape, fixed 80 pt price, "Now" on its own line, same fixed-size rule', () => {
+    const p = PRESETS.find(x => x.id === 'preset_offer_a6_landscape_on_a4')!;
+    expect([p.rows * p.columns, p.orientation, p.labelWidthMm, p.labelHeightMm]).toEqual([4, 'landscape', 148, 105]);
+    const t = templateFor(a6l, 'promo');
+    expect([t.namePt, t.pricePt, t.nowInline]).toEqual([17.7, 80, false]);
+    const r = renderLabel({ ...standardContent(0), kind: 'offerCardA6', was: moneyFromMinor(599, 'GBP') }, a6l);
+    expect(errors(r)).toEqual([]);
+    expect(r.html).toMatch(/class="nowline"[^>]*>Now</);
+    const short = renderLabel({ ...standardContent(0), kind: 'offerCardA6', name: 'Tea', was: moneyFromMinor(199, 'GBP'), price: moneyFromMinor(99, 'GBP') }, a6l);
+    expect(sizeOf(short.html, 'price')).toBe(sizeOf(r.html, 'price'));
+  });
+  it('six languages, RTL and every promotion print on A6 landscape', () => {
+    for (let i = 0; i < PAIRS.length; i++) {
+      for (const extra of [{ was: moneyFromMinor(PAIRS[i].priceMinor + 100, PAIRS[i].currency) }, { percentOffHundredths: 3000 }, { condition: 'Member', validUntil: '2026-12-31' }] as Partial<LabelContent>[]) {
+        const r = renderLabel({ ...standardContent(i), kind: 'offerCardA6', ...extra }, a6l);
+        expect({ lang: PAIRS[i].lang, errors: errors(r) }).toEqual({ lang: PAIRS[i].lang, errors: [] });
+        expect(r.html).toContain(`dir="${PAIRS[i].lang === 'ar' ? 'rtl' : 'ltr'}"`);
+      }
+    }
+  });
+  it('promotion + barcode is available on A6 landscape at its own fixed size', () => {
+    expect(layoutCompatibility(a6l).promoBarcode.ok).toBe(true);
+    expect(templateFor(a6l, 'promoBarcode').pricePt).toBe(48.5); // bars take height on the short side; barcode is optional
   });
 });
 
@@ -510,6 +568,12 @@ describe('sheets, fonts and geometry (E1–E7, L7)', () => {
       { content: { ...standardContent(1), kind: 'offerCardA6', percentOffHundredths: 3000 } },
       { content: { ...standardContent(3), kind: 'offerCardA6', multibuy: { quantity: 2, total: moneyFromMinor(500, 'EUR') } } },
       { content: { ...standardContent(2, 'priceBarcode'), kind: 'offerCardA6', moneyOff: moneyFromMinor(5000, 'TRY') }, options: { promoBarcode: true } },
+    ]);
+    sheet('offer_a6_landscape', 'preset_offer_a6_landscape_on_a4', [
+      { content: { ...standardContent(0), kind: 'offerCardA6', was: moneyFromMinor(599, 'GBP') } },
+      { content: { ...standardContent(1), kind: 'offerCardA6', percentOffHundredths: 3000 } },
+      { content: { ...standardContent(5), kind: 'offerCardA6', was: moneyFromMinor(99999, 'EUR'), price: moneyFromMinor(79999, 'EUR'), name: 'Kaffeevollautomat Barista Plus' } },
+      { content: { ...standardContent(1), kind: 'offerCardA6', language: 'en', name: 'Fresh full-fat milk, Al Ain', secondLine: '2 litre bottle', was: moneyFromMinor(99999, 'AED'), price: moneyFromMinor(89999, 'AED') } },
     ]);
     sheet('offer_a5', 'preset_offer_a5_on_a4', [
       { content: { ...standardContent(5), kind: 'offerCardA5', condition: 'Mit Kundenkarte', validUntil: '2026-10-31' } },

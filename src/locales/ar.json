@@ -123,7 +123,8 @@
     "proActiveFooter": "شكراً لك. كل شيء مفتوح على هذا الجهاز ويبقى مفتوحاً دون اتصال.",
     "proFreeFooter": "الخطة المجانية لا تقفل أبداً ما أدخلته. Pro شراء لمرة واحدة، بدون اشتراك.",
     "dataStorageNotice": "إشعار تخزين البيانات والنسخ الاحتياطي",
-    "aboutApp": "حول {{app}}"
+    "aboutApp": "حول {{app}}",
+    "currencyNotSet": "لم تُختر بعد"
   },
   "billing": {
     "settingsTitle": "الفوترة",

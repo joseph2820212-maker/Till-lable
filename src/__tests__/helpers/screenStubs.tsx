@@ -54,10 +54,12 @@ export const components = {
   FreeLimitSheet: 'FreeLimitSheet',
 };
 
+/** Currency stub: UNSET like a fresh install (no inherited GBP); tests that need one pass it explicitly. */
 export const currency = () => ({
   formatAmountForCurrency: (v: number, c: string) => `${c} ${Number(v).toFixed(2)}`,
-  formatAmount: (v: number) => `GBP ${Number(v).toFixed(2)}`,
-  getCurrencyCode: () => 'GBP',
+  formatAmount: (v: number) => Number(v).toFixed(2),
+  getCurrencyCode: () => '',
+  isCurrencySet: () => false,
   symbolForCode: (c: string) => c,
   currencyAfter: () => false,
 });

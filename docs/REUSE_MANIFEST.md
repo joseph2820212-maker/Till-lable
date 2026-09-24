@@ -18,7 +18,7 @@ plan. Nothing has been copied yet.
 | i18n | TC `src/i18n.ts`, `src/locales/*`, `native-locales/*` | Adapt | `localeKeyParity` unchanged; `localeLengths` (new BUTTON_KEYS, prefix list, key-count threshold); `localeNoCorruption` (new guarded keys) | Keys are pruned in all six files together. Adds printed-label language separate from app language. |
 | Locale tooling | TC `scripts/addLocaleKeys.mjs` | Reuse unchanged | — | |
 | Licence inventory | TC `scripts/genOssLicenses.mjs` | Reuse unchanged | `privacyWording` licence assertions | Re-run whenever a dependency is added. |
-| Currency | TC `src/utils/currency.ts`, `currencyUnits.ts` | Adapt | `currency.test.ts`, `currencyUnits.test.ts` | `minorUnitsFor` reused for exponents. `roundToMinor` is float, so display only. **International carry-forward (24 Sep 2026):** (1) `currencyAfter()` decides symbol placement from the *app* language, so the label engine must not use it; label symbol and decimal placement come from the currency plus the printed-label language. (2) A fresh install silently defaults to GBP (`_code = 'GBP'`); the first product or first-run setup must ask for the currency explicitly (G3), never assume the UK. |
+| Currency | TC `src/utils/currency.ts`, `currencyUnits.ts` | Adapt | `currency.test.ts`, `currencyUnits.test.ts` | `minorUnitsFor` reused for exponents. `roundToMinor` is float, so display only. **International correction (24 Sep 2026) — done:** the inherited GBP default is **removed** (currency is unset until chosen; stored as the ISO code). `currencyAfter()` remains for UI only; printed labels use `formatMoney(amountMinor, currencyCode, labelLanguage)` in `src/domain/formatMoney.ts`. |
 | Locale helpers | TC `src/utils/locale.ts`, `safeParse.ts` | Reuse unchanged | — | `parseStrictAmount` returns a float, so it is replaced for prices by the new parser. |
 | Storage safety | TC `src/utils/storageSafety.ts` | Adapt | `storageSafety.test.ts` | Keep `withStorageKeyLock`, `parseStorageList`, `readStorageList`, `readStorageRawStrict`, `StorageCorruptionError`. Remove `FINANCIAL_STORAGE_WRITE_LOCK` and `SHOPS_WRITE_LOCK` (Till Note leftovers). |
 | File I/O | TC `src/storage/fileUtils.ts`, `src/utils/persistPickedFile.ts` | Reuse unchanged | `fileUtils.test.ts` | |
@@ -136,7 +136,8 @@ Known inherited UK defaults and their handling:
 
 | Inherited behaviour | Where | Handling |
 |---|---|---|
-| Currency defaults to GBP on first run | `src/utils/currency.ts` | Explicit currency choice in first-run / first product (G3) |
-| Currency symbol side follows the app language | `currencyAfter()` in `src/utils/currency.ts` | Not used by the label engine; label formatting takes currency + label language (G2) |
+| Currency defaulted to GBP on first run | `src/utils/currency.ts` | **Removed (24 Sep 2026).** Unset until chosen; stored as ISO code; More / Home show "Not chosen yet". First-use picker in G3. Guard: `noCurrencyDefault.test.ts` |
+| Currency symbol side followed the app language | `currencyAfter()` in `src/utils/currency.ts` | **Not used for printing.** `formatMoney(amountMinor, currencyCode, labelLanguage)` formats from the currency + printed-label language only; missing currency throws `MissingCurrencyError` |
+| Test stubs returned GBP | `src/__tests__/helpers/screenStubs.tsx` | **Removed.** Stubs start unset; tests pass their currency explicitly |
 | Legal governing law England and Wales | `legal.terms.p6` | Correct: it is the publisher's governing law, not a claim about the user's country; mandatory local consumer rights are preserved in the same sentence |
 | UK £14.99 | `SCOPE_LOCK.md` §4 | UK store price only; other stores use local price points |

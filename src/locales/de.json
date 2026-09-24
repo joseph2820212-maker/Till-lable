@@ -123,7 +123,8 @@
     "proActiveFooter": "Danke. Auf diesem Gerät ist alles freigeschaltet und bleibt es auch offline.",
     "proFreeFooter": "Der Gratis-Plan sperrt nie, was Sie schon eingegeben haben. Pro ist ein Einmalkauf, kein Abo.",
     "dataStorageNotice": "Hinweis Datenspeicherung & Sicherung",
-    "aboutApp": "Über {{app}}"
+    "aboutApp": "Über {{app}}",
+    "currencyNotSet": "Noch nicht gewählt"
   },
   "billing": {
     "settingsTitle": "Abrechnung",

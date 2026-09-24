@@ -106,3 +106,43 @@ describe('atomic currency save', () => {
     expect(getCurrencyCode()).toBe('GBP');
   });
 });
+
+// ── International correction (24 Sep 2026): no silent GBP ─────────────
+
+describe('no default currency', () => {
+  it('a fresh module has no currency until the user chooses one', () => {
+    jest.isolateModules(() => {
+      const fresh = require('../currency');
+      expect(fresh.getCurrencyCode()).toBe('');
+      expect(fresh.getCurrencySymbol()).toBe('');
+      expect(fresh.isCurrencySet()).toBe(false);
+    });
+  });
+  it('initCurrency with nothing stored stays unset (never GBP)', async () => {
+    await jest.isolateModulesAsync(async () => {
+      const AS = require('@react-native-async-storage/async-storage').default;
+      await AS.removeItem('settings:currency');
+      const fresh = require('../currency');
+      await fresh.initCurrency();
+      expect(fresh.isCurrencySet()).toBe(false);
+      expect(fresh.getCurrencyCode()).toBe('');
+    });
+  });
+  it('the choice is stored as its ISO code and read back; an old "symbol CODE" value still loads', async () => {
+    await jest.isolateModulesAsync(async () => {
+      const AS = require('@react-native-async-storage/async-storage').default;
+      const fresh = require('../currency');
+      await fresh.setCurrencyOption('د.إ AED');
+      expect(await AS.getItem('settings:currency')).toBe('AED');
+      expect(fresh.getCurrencyCode()).toBe('AED');
+    });
+    await jest.isolateModulesAsync(async () => {
+      const AS = require('@react-native-async-storage/async-storage').default;
+      await AS.setItem('settings:currency', '€ EUR');
+      const fresh = require('../currency');
+      await fresh.initCurrency();
+      expect(fresh.getCurrencyCode()).toBe('EUR');
+      expect(fresh.isCurrencySet()).toBe(true);
+    });
+  });
+});

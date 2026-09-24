@@ -123,7 +123,8 @@
     "proActiveFooter": "Gracias. Todo está desbloqueado en este dispositivo y sigue así sin conexión.",
     "proFreeFooter": "El plan gratuito nunca bloquea lo que ya introdujiste. Pro es un pago único, sin suscripción.",
     "dataStorageNotice": "Aviso de almacenamiento y copias",
-    "aboutApp": "Acerca de {{app}}"
+    "aboutApp": "Acerca de {{app}}",
+    "currencyNotSet": "Aún no elegida"
   },
   "billing": {
     "settingsTitle": "Facturación",

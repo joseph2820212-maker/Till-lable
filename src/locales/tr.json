@@ -123,7 +123,8 @@
     "proActiveFooter": "Teşekkürler. Bu cihazda her şey açık ve çevrimdışıyken de açık kalır.",
     "proFreeFooter": "Ücretsiz plan girdiklerinizi asla kilitlemez. Pro tek seferlik satın almadır, abonelik yoktur.",
     "dataStorageNotice": "Veri depolama ve yedekleme bildirimi",
-    "aboutApp": "{{app}} hakkında"
+    "aboutApp": "{{app}} hakkında",
+    "currencyNotSet": "Henüz seçilmedi"
   },
   "billing": {
     "settingsTitle": "Faturalama",

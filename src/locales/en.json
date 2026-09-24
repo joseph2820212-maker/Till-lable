@@ -123,7 +123,8 @@
     "proActiveFooter": "Thank you. Everything is unlocked on this device and stays unlocked offline.",
     "proFreeFooter": "The free plan never locks what you already entered. Pro is a one-time purchase, no subscription.",
     "dataStorageNotice": "Data storage & backup notice",
-    "aboutApp": "About {{app}}"
+    "aboutApp": "About {{app}}",
+    "currencyNotSet": "Not chosen yet"
   },
   "billing": {
     "settingsTitle": "Billing",

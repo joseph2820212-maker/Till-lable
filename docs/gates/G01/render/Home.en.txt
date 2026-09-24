@@ -8,5 +8,6 @@ Language
 English (UK)
 ›
 Currency
+Not chosen yet
 ›
 Choose the app language and your shop's currency before you add products.

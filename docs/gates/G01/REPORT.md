@@ -124,3 +124,15 @@ right / bottom margins and `isPreset` on stationery, `LabelKind`, `LanguageCode`
 `IndependentSettings`, and `labelKind` + typed `labelLanguage` on PrintIntent. Two inherited UK defaults are recorded
 for G2/G3 (`REUSE_MANIFEST.md`, International carry-forward): the GBP first-run default and `currencyAfter()`
 following the app language.
+
+## Carry-forward — currency correction before G2 (owner, 24 Sep 2026)
+
+The inherited TillCalc GBP behaviour is **removed**, not deferred: `src/utils/currency.ts` starts unset
+(`isCurrencySet()`), stores the chosen currency as its ISO code (older "symbol CODE" values still load), and More /
+Home show "Not chosen yet" (six languages). Printed prices use the new `src/domain/formatMoney.ts`
+(`formatMoney(amountMinor, currencyCode, labelLanguage)`): explicit inputs, deterministic per-language conventions,
+Western digits, Arabic-script symbols only on Arabic labels, `MissingCurrencyError` on a missing or invalid code.
+Test stubs no longer return GBP. Guards: `domain/__tests__/formatMoney.test.ts` (six language + currency pairs and
+four cross-language combinations), `utils/__tests__/currency.test.ts` (no default, ISO storage),
+`__tests__/noCurrencyDefault.test.ts` (no hard-coded currency outside the catalogues). The G3 first-use currency
+picker is still G3 work.

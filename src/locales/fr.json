@@ -123,7 +123,8 @@
     "proActiveFooter": "Merci. Tout est débloqué sur cet appareil et le reste hors ligne.",
     "proFreeFooter": "L'offre gratuite ne verrouille jamais ce que vous avez saisi. Pro est un achat unique, sans abonnement.",
     "dataStorageNotice": "Avis stockage et sauvegarde",
-    "aboutApp": "À propos de {{app}}"
+    "aboutApp": "À propos de {{app}}",
+    "currencyNotSet": "Pas encore choisie"
   },
   "billing": {
     "settingsTitle": "Facturation",

@@ -13,7 +13,7 @@ import { SettingsSection } from '../../../components/settings/SettingsSection';
 import { SettingsRow } from '../../../components/settings/SettingsRow';
 import { AppAlert } from '../../../components/AppAlert';
 import type { RootStackParamList } from '../../../navigation/AppNavigator';
-import { getCurrencyCode, symbolForCode } from '../../../utils/currency';
+import { getCurrencyCode, isCurrencySet, symbolForCode } from '../../../utils/currency';
 import { useBilling } from '../../billing/BillingProvider';
 import { useTier } from '../../billing/useTier';
 import { FreeLimitSheet, type FreeLimitReason } from '../../billing/FreeLimitSheet';
@@ -30,7 +30,7 @@ export const MoreScreen: React.FC = () => {
   const [limit, setLimit] = React.useState<FreeLimitReason | null>(null);
 
   const code = getCurrencyCode();
-  const currencySub = `${code} (${symbolForCode(code)})`;
+  const currencySub = isCurrencySet() ? `${code} (${symbolForCode(code)})` : t('settings.currencyNotSet');
 
   const restore = async () => {
     const r = await billing.restore();

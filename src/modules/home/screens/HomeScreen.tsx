@@ -11,6 +11,7 @@ import { TabRootHeader } from '../../../components/TabRootHeader';
 import { SettingsSection } from '../../../components/settings/SettingsSection';
 import { SettingsRow } from '../../../components/settings/SettingsRow';
 import { APP_NAME } from '../../../appMeta';
+import { getCurrencyCode, isCurrencySet } from '../../../utils/currency';
 import type { RootStackParamList } from '../../../navigation/AppNavigator';
 import { loadWorkSummary, type WorkSummary } from '../../queue/storage/summary';
 
@@ -43,7 +44,7 @@ export const HomeScreen: React.FC = () => {
 
         <SettingsSection title={t('home.setupTitle')} footer={t('home.setupFooter')}>
           <SettingsRow iconNode={<Ionicons name="language-outline" size={18} color={colors.primaryBlue} />} label={t('settings.language')} subtitle={t('settings.languageValue')} onPress={() => nav.navigate('SettingsLanguage')} />
-          <SettingsRow iconNode={<Ionicons name="cash-outline" size={18} color={colors.primaryBlue} />} label={t('settings.currency')} onPress={() => nav.navigate('SettingsCurrency')} isLast />
+          <SettingsRow iconNode={<Ionicons name="cash-outline" size={18} color={colors.primaryBlue} />} label={t('settings.currency')} subtitle={isCurrencySet() ? getCurrencyCode() : t('settings.currencyNotSet')} onPress={() => nav.navigate('SettingsCurrency')} isLast />
         </SettingsSection>
       </ScrollView>
     </View>

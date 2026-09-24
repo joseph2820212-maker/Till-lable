@@ -48,8 +48,14 @@ export const SYMBOL_MAP: Record<string, string> = {
   'FCFA XAF': 'FCFA',
 };
 
-let _symbol = '£';
-let _code = 'GBP';
+/**
+ * No default currency (owner correction, 24 Sep 2026): TillLabel is international, so the currency is
+ * UNSET until the user chooses one. The inherited TillCalc GBP default is removed. Code that needs a
+ * currency must check isCurrencySet() and ask; label rendering takes an explicit ISO code and never reads
+ * this module state (src/domain/formatMoney.ts).
+ */
+let _symbol = '';
+let _code = '';
 let _currencyVersion = 0;
 const currencyListeners = new Set<() => void>();
 
@@ -57,8 +63,19 @@ export function getCurrencySymbol(): string {
   return _symbol;
 }
 
+/** ISO 4217 code of the chosen currency, or '' when the user has not chosen one yet. */
 export function getCurrencyCode(): string {
   return _code;
+}
+
+/** True once the user has chosen a currency. */
+export function isCurrencySet(): boolean {
+  return /^[A-Z]{3}$/.test(_code);
+}
+
+/** The SYMBOL_MAP option for an ISO code (e.g. 'EUR' → '€ EUR'), or undefined. */
+export function optionForCode(code: string): string | undefined {
+  return Object.keys(SYMBOL_MAP).find(o => o.endsWith(` ${code}`));
 }
 
 export function useCurrencyCode(): string {
@@ -99,9 +116,11 @@ export function setCurrencySymbolFromOption(option: string): void {
   if (changed) notifyCurrencyChanged();
 }
 
+/** Persist the choice as its ISO 4217 code (never only the symbol: £, $ and kr are ambiguous). */
 export async function setCurrencyOption(option: string): Promise<void> {
   if (!SYMBOL_MAP[option]) return;
-  await AsyncStorage.setItem(CURRENCY_KEY, option);
+  const code = option.split(' ').pop() as string;
+  await AsyncStorage.setItem(CURRENCY_KEY, code);
   setCurrencySymbolFromOption(option);
 }
 
@@ -109,7 +128,10 @@ export async function setCurrencyOption(option: string): Promise<void> {
 export async function initCurrency(): Promise<void> {
   try {
     const stored = await AsyncStorage.getItem(CURRENCY_KEY);
-    if (stored) setCurrencySymbolFromOption(stored);
+    if (!stored) return; // unset: no silent default
+    // Stored as an ISO code; an older "symbol CODE" option string is still accepted.
+    const option = /^[A-Z]{3}$/.test(stored) ? optionForCode(stored) : SYMBOL_MAP[stored] ? stored : undefined;
+    if (option) setCurrencySymbolFromOption(option);
   } catch {}
 }
 

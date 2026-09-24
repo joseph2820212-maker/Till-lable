@@ -1,8 +1,8 @@
 Currency
 Set your default display currency
 CURRENT CURRENCY
-£
-GBP
+
+
 The currency applies to new products. Saved products and printed labels keep their own currency.
 Number formatting (decimal and thousands separators) follows your app language setting.
 CHOOSE CURRENCY

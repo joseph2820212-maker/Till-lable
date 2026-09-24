@@ -20,6 +20,11 @@ definition, and it must not shape the architecture, data model, UI, unit-price e
 | 5 | Paper / label format | stationery profile | Independent of country; A4, US Letter, A5, A6 and custom pages |
 
 Example that must be valid: Arabic app + English printed label + AED + a custom 70 × 38 mm shelf ticket.
+
+**Currency rule (owner correction, 24 Sep 2026).** There is no default currency anywhere in TillLabel. Until the user
+chooses one, the currency is unset. Currencies are stored as ISO 4217 codes, never only as a symbol (£, $, kr are
+ambiguous). Printed prices are formatted by `formatMoney(amountMinor, currencyCode, labelLanguage)`; the app language
+never overrides printed formatting, and a job without a currency fails clearly instead of assuming one.
 Schema: `IndependentSettings`, `LanguageCode`, `LabelKind`, `PaperSize` in `src/domain/types.ts`.
 
 **Label kinds the architecture supports:** standard price; price + unit price; price + barcode; was/now; percentage
@@ -107,3 +112,4 @@ The feature lists are pinned in code in `src/modules/billing/limits.ts` (`FREE_F
 | 24 Sep 2026 | Pro is lifetime only, UK £14.99, no subscription | §4; recorded in the G10 release recipe |
 | 24 Sep 2026 | **International scope correction:** six-language international app; five independent settings (§0); generic engine with presets on top; UK guidance is one optional country profile | §0, R-03, R-07, R-15, `REGULATORY_PROFILES.md`, G2 acceptance |
 | 24 Sep 2026 | US Letter is supported by the geometry engine from G2; only the physical test of a specific US Letter product is deferred | R-07, `PRINTER_STATIONERY_MATRIX.md` |
+| 24 Sep 2026 | **No silent currency default.** GBP fallback removed now (not deferred to G3); ISO codes stored; printed formatting = currency + label language; G2 fixtures carry explicit currencies | §0, `formatMoney.ts`, G2 acceptance L5/L6 |

@@ -40,6 +40,26 @@ npx expo export --platform android                 # Metro + Hermes bundle: 9.1 
 - Exact arithmetic tests: unit price, % off, money off, saving, percent below — integer, half-up, 0/2/3-decimal
   currencies, no float step.
 
+## Independent code review (commit 3c80b36) — 13 findings, all fixed with regression tests
+
+1. "Yes, printed" could clear a label that changed after the PDF was made → only clears when the fingerprint matches.
+2. Windows-1252 CSVs (£ in prices) were misread → strict UTF-8 with a Windows-1252 fallback and a note on screen.
+3. Editing a product dropped its extra barcodes → all barcodes kept.
+4. A UPC-E code lost its expanded form on edit → unchanged codes keep how they were first read.
+5. The same product twice in one import file → shown as a conflict, never written twice.
+6. Semicolon- and tab-separated CSVs → delimiter detected.
+7. Offer prices that were not a real saving (was ≤ now, multibuy not cheaper, member price not lower) → refused.
+8. An ended or edited offer left its old labels waiting → removed; ended offers are dropped when printing.
+9. Double taps could save or queue twice → in-flight guards on every save/queue button.
+10. Changing a price back to the last printed one still waited → the waiting label is removed.
+11. The unit-price error was hidden for "each" → shown.
+12. XLSX number cells were parsed with the text-number profile → read as plain numbers.
+13. A calibration offset could be applied twice → the result is cleared once applied.
+
+Visual check (web preview, English, 390 × 844): all main screens rendered; one wrong label found and fixed in
+db9ad8d (the offer end-date field read "End offer now"). The web preview cannot switch to right-to-left, so the
+Arabic layout check is part of the phone test below.
+
 ## READY FOR OWNER TEST (needs a phone, printer, paper or scanner)
 
 | Check | How |
@@ -50,6 +70,7 @@ npx expo export --platform android                 # Metro + Hermes bundle: 9.1 
 | Paper: 70 × 38 A4 card 14-up, Avery L7160 / L7159 / L7163, A6 / A5 / A4 cards | Label test, measure top / middle / bottom |
 | Calibration: 100 mm line, first / last label | Printer calibration |
 | Barcode scan-back from paper (S22, another phone, shop scanner) | Print price + barcode labels |
+| Arabic right-to-left layout on the phone | Menu → Language → العربية, walk every screen |
 | Arabic / Turkish wording review by a native reader | All screens and labels |
 
 ## Not built (by decision or outside this environment)

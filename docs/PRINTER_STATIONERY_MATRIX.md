@@ -21,7 +21,7 @@ dimensions alone never become a physical pass.
 
 | Preset | Paper | Labels per sheet | Label size | Pitch / margins | Launch | Geometry | Physical | Notes |
 |---|---|---|---|---|---|---|---|---|
-| Shelf-edge ticket / insert | A4 (plain card) or supplier insert strip | computed / from supplier | **70 × 38 mm** (design size) | computed for plain card; supplier grid not yet sourced | **Yes — priority** | Design dimension | Pending | The format TillLabel is built around. If a supplier's perforated insert sheet is used, its exact grid must be sourced from that product. |
+| Shelf-edge ticket / insert | A4 (plain card) or supplier insert strip | **14 (2 × 7)** generic plain A4; US Letter also 2 × 7 | **70 × 38 mm** (design size) | computed, centred (A4: 35 mm sides, 15.5 mm top/bottom) | **Yes — priority** | Design dimension | Pending | The format TillLabel is built around. The generic plain-card profile is **14-up** (2 × 70 = 140 mm, 7 × 38 = 266 mm). The 12 labels in earlier review screenshots were a 12-item fixture, not a 12-up profile. A manufacturer's pre-cut 70 × 38 product with a different grid would be its own named preset, sourced from that product. Safe area 2.5 mm. |
 | Avery L7160 | A4 | 21 (3 × 7) | 63.5 × 38.1 mm (published, unverified) | not yet sourced | Yes | Unverified | Pending | |
 | Avery L7159 | A4 | 24 (3 × 8) | 63.5 × 33.9 mm (published, unverified) | not yet sourced | Yes | Unverified | Pending | |
 | Avery L7163 | A4 | 14 (2 × 7) | 99.1 × 38.1 mm (published, unverified) | not yet sourced | Yes | Unverified | Pending | |
@@ -47,3 +47,8 @@ dimensions alone never become a physical pass.
   Millimetres convert to points once: `pt = mm × 72 / 25.4`.
 - Never infer top margins from label size. Never treat similarly named sheets as interchangeable.
 - Adhesive sheets are not re-fed: the placement map shows used positions and a material warning (TL-28).
+
+
+## Safe area (owner handout §10, 24 Sep 2026)
+
+Critical content (SKU, unit price, barcode digits) stays at least 2 mm inside every cut or perforation edge: tickets 2.5 mm, adhesive sheet presets 2 mm, offer cards 6–10 mm. A profile below 2 mm gets the `safeInsetBelowRecommended` warning. Manufacturer presets remain presets on top of the generic engine; their margins stay **Unverified** until checked against the manufacturer's template or a real sheet.

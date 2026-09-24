@@ -110,3 +110,14 @@ describe('initial presets', () => {
     expect(PRESETS.find(p => p.id === 'preset_avery_l7160')!.refeedSafe).toBe(false);
   });
 });
+
+describe('critical safe area (owner handout §10)', () => {
+  it('warns when critical content would sit closer than 2 mm to the cut edge', () => {
+    const { validateStationery, CRITICAL_SAFE_AREA_MM } = require('../geometry') as typeof import('../geometry');
+    const { PRESETS } = require('../presets') as typeof import('../presets');
+    const p = PRESETS.find(x => x.id === 'preset_shelf_70x38_a4')!;
+    expect(CRITICAL_SAFE_AREA_MM).toBe(2);
+    expect(validateStationery({ ...p, safeInsetMm: 1.5 })).toContainEqual(expect.objectContaining({ code: 'safeInsetBelowRecommended', severity: 'warning' }));
+    expect(validateStationery(p).some(i => i.code === 'safeInsetBelowRecommended')).toBe(false);
+  });
+});

@@ -35,6 +35,8 @@ export type GeometryIssueCode =
   | 'marginsDontAddUpX'
   | 'marginsDontAddUpY'
   | 'safeInsetTooLarge'
+  /** Warning: critical content (SKU, barcode digits, unit price) closer than 2 mm to the cut edge. */
+  | 'safeInsetBelowRecommended'
   | 'nearPrinterEdge';
 
 export interface GeometryIssue {
@@ -64,6 +66,12 @@ export const labelsPerSheet = (p: StationeryProfile): number => p.rows * p.colum
 const round = (n: number, d = 3) => Math.round(n * 10 ** d) / 10 ** d;
 
 /** Validate a stationery profile before any PDF is produced (TL-27). Returns every issue found, errors first. */
+/**
+ * Critical content (SKU, barcode digits, unit price) stays at least this far inside the cut / perforation edge, so a
+ * small feed or cut shift cannot trim it (owner handout §10: roughly 2–3 mm, per format).
+ */
+export const CRITICAL_SAFE_AREA_MM = 2;
+
 export function validateStationery(p: StationeryProfile): GeometryIssue[] {
   const issues: GeometryIssue[] = [];
   const pos = (v: number) => Number.isFinite(v) && v > 0;
@@ -93,6 +101,7 @@ export function validateStationery(p: StationeryProfile): GeometryIssue[] {
     issues.push({ code: 'marginsDontAddUpY', severity: 'error', field: 'marginBottomMm', detail: { totalMm: round(bottom + p.marginBottomMm), pageMm: page.heightMm } });
   }
   if (p.safeInsetMm * 2 >= Math.min(p.labelWidthMm, p.labelHeightMm)) issues.push({ code: 'safeInsetTooLarge', severity: 'error', field: 'safeInsetMm' });
+  if (p.safeInsetMm < CRITICAL_SAFE_AREA_MM) issues.push({ code: 'safeInsetBelowRecommended', severity: 'warning', field: 'safeInsetMm', detail: { recommendedMm: CRITICAL_SAFE_AREA_MM } });
   const edge = Math.min(p.marginLeftMm, p.marginTopMm, page.widthMm - right, page.heightMm - bottom) + p.safeInsetMm;
   if (issues.every(i => i.severity !== 'error') && edge < PRINTER_EDGE_MM) issues.push({ code: 'nearPrinterEdge', severity: 'warning', detail: { edgeMm: round(edge) } });
   return issues.sort((a, b) => (a.severity === b.severity ? 0 : a.severity === 'error' ? -1 : 1));

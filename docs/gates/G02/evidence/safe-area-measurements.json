@@ -1,0 +1,102 @@
+[
+ {
+  "file": "cross_language.html",
+  "labels": 4,
+  "minInkEdgeMm": 2.5,
+  "closest": "name",
+  "outside": 0,
+  "overlaps": 0,
+  "pairs": [],
+  "minBottomCriticalInkMm": 2.88
+ },
+ {
+  "file": "offer_a4.html",
+  "labels": 1,
+  "minInkEdgeMm": 10,
+  "closest": "name",
+  "outside": 0,
+  "overlaps": 0,
+  "pairs": [],
+  "minBottomCriticalInkMm": null
+ },
+ {
+  "file": "offer_a5.html",
+  "labels": 2,
+  "minInkEdgeMm": 8,
+  "closest": "name",
+  "outside": 0,
+  "overlaps": 0,
+  "pairs": [],
+  "minBottomCriticalInkMm": null
+ },
+ {
+  "file": "offer_a6.html",
+  "labels": 4,
+  "minInkEdgeMm": 6,
+  "closest": "name",
+  "outside": 0,
+  "overlaps": 0,
+  "pairs": [],
+  "minBottomCriticalInkMm": 6.77
+ },
+ {
+  "file": "preset_avery_l7160.html",
+  "labels": 6,
+  "minInkEdgeMm": 1.73,
+  "closest": "name",
+  "outside": 0,
+  "overlaps": 0,
+  "pairs": [],
+  "minBottomCriticalInkMm": 2.72
+ },
+ {
+  "file": "preset_avery_l7163.html",
+  "labels": 6,
+  "minInkEdgeMm": 1.73,
+  "closest": "name",
+  "outside": 0,
+  "overlaps": 0,
+  "pairs": [],
+  "minBottomCriticalInkMm": 2.42
+ },
+ {
+  "file": "shelf70x38_priceBarcode.html",
+  "labels": 14,
+  "minInkEdgeMm": 2.5,
+  "closest": "name",
+  "outside": 0,
+  "overlaps": 0,
+  "pairs": [],
+  "minBottomCriticalInkMm": 2.88
+ },
+ {
+  "file": "shelf70x38_priceUnitPrice.html",
+  "labels": 14,
+  "minInkEdgeMm": 2.5,
+  "closest": "name",
+  "outside": 0,
+  "overlaps": 0,
+  "pairs": [],
+  "minBottomCriticalInkMm": 2.88
+ },
+ {
+  "file": "shelf70x38_promotions.html",
+  "labels": 10,
+  "minInkEdgeMm": 2.5,
+  "closest": "name",
+  "outside": 0,
+  "overlaps": 0,
+  "pairs": [],
+  "minBottomCriticalInkMm": 3.14
+ },
+ {
+  "file": "shelf70x38_standardPrice.html",
+  "labels": 14,
+  "minInkEdgeMm": 2.5,
+  "closest": "name",
+  "outside": 0,
+  "overlaps": 0,
+  "pairs": [],
+  "minBottomCriticalInkMm": 2.88
+ }
+]

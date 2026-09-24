@@ -32,7 +32,7 @@ describe('no assumed currency in source', () => {
   });
   it('the label money formatter takes an explicit currency and label language and never reads app state', () => {
     const src = fs.readFileSync(path.join(SRC, 'domain/formatMoney.ts'), 'utf8');
-    expect(src).toMatch(/export function formatMoney\(amountMinor: number, currencyCode: string, labelLanguage: LanguageCode\)/);
+    expect(src).toMatch(/export function formatMoney\(amountMinor: number, currencyCode: string, labelLanguage: LanguageCode(, extraDecimals: 0 \| 1 \| 2 = 0)?\)/);
     expect(src).not.toMatch(/getCurrencyCode|getCurrencySymbol|currencyAfter\(|i18n/);
   });
 });

@@ -81,12 +81,14 @@ export interface MoneyParts {
  * The pieces of a printed price, for renderers that style the symbol separately. Joining them in order gives
  * exactly formatMoney(); both come from the same convention table.
  */
-export function formatMoneyParts(amountMinor: number, currencyCode: string, labelLanguage: LanguageCode): MoneyParts {
+export function formatMoneyParts(amountMinor: number, currencyCode: string, labelLanguage: LanguageCode, extraDecimals: 0 | 1 | 2 = 0): MoneyParts {
   assertCurrency(currencyCode);
   if (!Number.isSafeInteger(amountMinor) || amountMinor < 0) throw new RangeError('amountMinor must be a non-negative safe integer');
   const c = CONVENTIONS[labelLanguage];
   if (!c) throw new RangeError(`Unsupported label language: ${String(labelLanguage)}`);
-  const exponent = minorUnitsFor(currencyCode);
+  // extraDecimals: unit prices may carry more precision than the selling price (e.g. £0.281 per 100 g); the amount
+  // is then in 1/10^extraDecimals of a minor unit. Selling prices always use the currency's own decimals.
+  const exponent = minorUnitsFor(currencyCode) + extraDecimals;
   const digits = String(amountMinor).padStart(exponent + 1, '0');
   const int = exponent === 0 ? digits : digits.slice(0, -exponent);
   const frac = exponent === 0 ? '' : digits.slice(-exponent);
@@ -103,8 +105,8 @@ export function formatMoneyParts(amountMinor: number, currencyCode: string, labe
  * Throws MissingCurrencyError when the currency is missing or not an ISO 4217 code — a label is never
  * printed in an assumed currency.
  */
-export function formatMoney(amountMinor: number, currencyCode: string, labelLanguage: LanguageCode): string {
-  const p = formatMoneyParts(amountMinor, currencyCode, labelLanguage);
+export function formatMoney(amountMinor: number, currencyCode: string, labelLanguage: LanguageCode, extraDecimals: 0 | 1 | 2 = 0): string {
+  const p = formatMoneyParts(amountMinor, currencyCode, labelLanguage, extraDecimals);
   return p.symbolPosition === 'after' ? `${p.number}${p.space}${p.symbol}` : `${p.symbol}${p.space}${p.number}`;
 }
 

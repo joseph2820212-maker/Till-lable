@@ -46,10 +46,19 @@ export type UnitPriceBase = 'per_kg' | 'per_100g' | 'per_litre' | 'per_100ml' | 
 export interface Product {
   schemaVersion: typeof SCHEMA_VERSIONS.product;
   id: string;
+  /**
+   * Full catalogue name exactly as imported (EPOS / CSV / XLSX / TillCalc) or typed. Never shortened to fit a
+   * label (owner handout §2); only a generous storage bound applies (CATALOGUE_LIMITS.productName).
+   */
   name: string;
+  /**
+   * Printable shelf-label name (≤ LABEL_NAME_MAX). Optional: when absent the full name is printed if it fits;
+   * otherwise the user is asked to write one. Editing it never changes `name`.
+   */
+  labelName?: string;
   /** Optional second line, e.g. size or brand. */
   secondLine?: string;
-  /** Final customer selling price (tax included). Never a cost. */
+  /** Final customer selling price (tax included). Never a cost. No digit cap: fit is decided per label format. */
   price: Money;
   sellingUnit: SellingUnit;
   unitPriceBase?: UnitPriceBase;
@@ -253,7 +262,7 @@ export interface PrinterCalibration {
   updatedAt: IsoDateTime;
 }
 
-export type ImportField = 'name' | 'secondLine' | 'price' | 'sellingUnit' | 'barcode' | 'sku' | 'category' | 'supplier' | 'shelfLocation' | 'unitPriceBase' | 'ignore';
+export type ImportField = 'name' | 'labelName' | 'secondLine' | 'price' | 'sellingUnit' | 'barcode' | 'sku' | 'category' | 'supplier' | 'shelfLocation' | 'unitPriceBase' | 'ignore';
 
 export interface ImportMapping {
   schemaVersion: typeof SCHEMA_VERSIONS.importMapping;

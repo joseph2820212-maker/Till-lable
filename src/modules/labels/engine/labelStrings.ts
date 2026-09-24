@@ -10,37 +10,37 @@ export type LabelTextKey =
 
 export const LABEL_TEXT: Record<LanguageCode, Record<LabelTextKey, string>> = {
   en: {
-    was: 'Was', now: 'Now', save: 'Save {{amount}}', percentOff: '{{percent}}% off', moneyOff: '{{amount}} off',
+    was: 'Was', now: 'Now', save: 'Save {{amount}}', percentOff: '{{percent}} off', moneyOff: '{{amount}} off',
     multibuy: '{{quantity}} for {{price}}', reduced: 'Reduced', memberPrice: 'Member price', validUntil: 'Until {{date}}',
     unitPrice: '{{price}} {{base}}',
     per_kg: 'per kg', per_100g: 'per 100 g', per_litre: 'per litre', per_100ml: 'per 100 ml', per_metre: 'per metre', per_item: 'each',
   },
   ar: {
-    was: 'كان', now: 'الآن', save: 'وفّر {{amount}}', percentOff: 'خصم {{percent}}%', moneyOff: 'خصم {{amount}}',
+    was: 'كان', now: 'الآن', save: 'وفّر {{amount}}', percentOff: 'خصم {{percent}}', moneyOff: 'خصم {{amount}}',
     multibuy: '{{quantity}} بـ {{price}}', reduced: 'مخفَّض', memberPrice: 'سعر الأعضاء', validUntil: 'حتى {{date}}',
     unitPrice: '{{price}} {{base}}',
     per_kg: 'للكيلو', per_100g: 'لكل 100 غ', per_litre: 'للتر', per_100ml: 'لكل 100 مل', per_metre: 'للمتر', per_item: 'للقطعة',
   },
   tr: {
-    was: 'Eski fiyat', now: 'Şimdi', save: '{{amount}} tasarruf', percentOff: '%{{percent}} indirim', moneyOff: '{{amount}} indirim',
+    was: 'Eski fiyat', now: 'Şimdi', save: '{{amount}} tasarruf', percentOff: '{{percent}} indirim', moneyOff: '{{amount}} indirim',
     multibuy: '{{quantity}} adet {{price}}', reduced: 'İndirimli', memberPrice: 'Üye fiyatı', validUntil: '{{date}} tarihine kadar',
     unitPrice: '{{base}} {{price}}',
     per_kg: 'kg fiyatı', per_100g: '100 g fiyatı', per_litre: 'litre fiyatı', per_100ml: '100 ml fiyatı', per_metre: 'metre fiyatı', per_item: 'adet fiyatı',
   },
   fr: {
-    was: 'Avant', now: 'Maintenant', save: 'Économisez {{amount}}', percentOff: '{{percent}} % de remise', moneyOff: '{{amount}} de remise',
+    was: 'Avant', now: 'Maintenant', save: 'Économisez {{amount}}', percentOff: '{{percent}} de remise', moneyOff: '{{amount}} de remise',
     multibuy: '{{quantity}} pour {{price}}', reduced: 'Prix réduit', memberPrice: 'Prix adhérent', validUntil: 'Jusqu’au {{date}}',
     unitPrice: '{{price}} {{base}}',
     per_kg: 'le kg', per_100g: 'les 100 g', per_litre: 'le litre', per_100ml: 'les 100 ml', per_metre: 'le mètre', per_item: 'l’unité',
   },
   es: {
-    was: 'Antes', now: 'Ahora', save: 'Ahorra {{amount}}', percentOff: '{{percent}} % de descuento', moneyOff: '{{amount}} de descuento',
+    was: 'Antes', now: 'Ahora', save: 'Ahorra {{amount}}', percentOff: '{{percent}} de descuento', moneyOff: '{{amount}} de descuento',
     multibuy: '{{quantity}} por {{price}}', reduced: 'Rebajado', memberPrice: 'Precio socio', validUntil: 'Hasta el {{date}}',
     unitPrice: '{{price}} {{base}}',
     per_kg: 'el kg', per_100g: 'los 100 g', per_litre: 'el litro', per_100ml: 'los 100 ml', per_metre: 'el metro', per_item: 'la unidad',
   },
   de: {
-    was: 'Vorher', now: 'Jetzt', save: 'Sie sparen {{amount}}', percentOff: '{{percent}} % Rabatt', moneyOff: '{{amount}} Rabatt',
+    was: 'Vorher', now: 'Jetzt', save: 'Sie sparen {{amount}}', percentOff: '{{percent}} Rabatt', moneyOff: '{{amount}} Rabatt',
     multibuy: '{{quantity}} für {{price}}', reduced: 'Reduziert', memberPrice: 'Mitgliederpreis', validUntil: 'Gültig bis {{date}}',
     unitPrice: '{{price}} {{base}}',
     per_kg: 'je kg', per_100g: 'je 100 g', per_litre: 'je Liter', per_100ml: 'je 100 ml', per_metre: 'je Meter', per_item: 'je Stück',
@@ -86,4 +86,21 @@ export function formatPercent(hundredths: number, lang: LanguageCode): string {
   const frac = String(hundredths % 100).padStart(2, '0').replace(/0+$/, '');
   const dec = lang === 'en' || lang === 'ar' ? '.' : ',';
   return frac ? `${whole}${dec}${frac}` : String(whole);
+}
+
+/**
+ * A complete percentage as printed in the label language, sign included, so the renderer can isolate it as ONE
+ * left-to-right run: "25%" (en) · "25٪" (ar, Arabic percent sign U+066A, Western digits) · "%25" (tr) ·
+ * "25 %" (fr: narrow no-break space; es / de: no-break space). Keeping the sign inside the isolated run is what stops an Arabic label
+ * printing "%25 خصم" instead of "خصم 25٪" (owner review, 24 Sep 2026).
+ */
+export function formatPercentText(hundredths: number, lang: LanguageCode): string {
+  const n = formatPercent(hundredths, lang);
+  switch (lang) {
+    case 'ar': return `${n}\u066A`;
+    case 'tr': return `%${n}`;
+    case 'fr': return `${n}\u202F%`;
+    case 'es': case 'de': return `${n}\u00A0%`;
+    default: return `${n}%`;
+  }
 }

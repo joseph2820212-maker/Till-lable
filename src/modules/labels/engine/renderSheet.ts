@@ -7,11 +7,11 @@
  */
 import type { PrinterCalibration, StationeryProfile } from '../../../domain/types';
 import { hasBlockingIssue, labelsPerSheet, mmToPt, pageSizeMm, placeLabels, validateStationery, type GeometryIssue, type LabelBox } from './geometry';
-import { LABEL_CSS, renderLabel, type LabelContent, type LabelIssue, type LabelStyle } from './renderLabel';
+import { LABEL_CSS, renderLabel, type LabelContent, type LabelIssue, type LabelStyle, type RenderOptions } from './renderLabel';
 
-export const RENDERER_VERSION = 'tl-labels-1';
+export const RENDERER_VERSION = 'tl-labels-2';
 
-export interface SheetItem { content: LabelContent; copies: number; style?: LabelStyle }
+export interface SheetItem { content: LabelContent; copies: number; style?: LabelStyle; options?: RenderOptions }
 
 export interface SheetRequest {
   profile: StationeryProfile;
@@ -43,8 +43,8 @@ export function renderSheet(req: SheetRequest): SheetResult {
 
   const p = req.profile;
   const box = { widthMm: p.labelWidthMm, heightMm: p.labelHeightMm, safeInsetMm: p.safeInsetMm };
-  // Sizes are fixed per format (labelTemplate.ts), so every label of a kind on a sheet already matches.
-  const rendered = req.items.map(it => renderLabel(it.content, box, it.style));
+  // Sizes are fixed per {format + layout} (labelTemplate.ts), so every label of a layout on a sheet already matches.
+  const rendered = req.items.map(it => renderLabel(it.content, box, { ...it.options, ...(it.style ? { style: it.style } : {}) }));
   const labelIssues = rendered.flatMap((r, itemIndex) => r.issues.filter(i => i.severity === 'error').map(issue => ({ itemIndex, issue })));
   if (labelIssues.length) return { ok: false, geometryIssues: [], labelIssues };
   const warnings = rendered.flatMap((r, itemIndex) => r.issues.filter(i => i.severity === 'warning').map(issue => ({ itemIndex, issue })));

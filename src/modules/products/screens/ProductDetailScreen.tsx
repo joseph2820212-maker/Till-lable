@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { View, Text, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useFocusEffect, useNavigation, useRoute, type RouteProp } from '@react-navigation/native';
@@ -77,6 +77,8 @@ export const ProductDetailScreen: React.FC = () => {
   const [busy, setBusy] = useState(false);
   const [limitOpen, setLimitOpen] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  // Set before the first await, so a quick double tap can never save the product twice.
+  const inFlight = useRef(false);
 
   const currency = loaded?.price.currency ?? (isCurrencySet() ? getCurrencyCode() : '');
 
@@ -122,32 +124,36 @@ export const ProductDetailScreen: React.FC = () => {
     if (Object.keys(e).length || !parsedPrice?.ok || !unit) return null;
     return {
       name, labelName, secondLine, price: parsedPrice.money, sellingUnit: unit, unitPriceBase: base && unitBasesFor(unit).includes(base) ? base : undefined,
-      barcodes: barcode.trim() ? [{ raw: barcode.trim(), symbology }] : [], sku, labelKind: kind, shelfLocation: shelf,
+      // The first barcode is edited here; any others (e.g. from an import) are kept as they are.
+      barcodes: [...(barcode.trim() ? [{ raw: barcode.trim(), symbology }] : []), ...(loaded?.barcodes ?? []).slice(1).map(b => ({ raw: b.raw }))],
+      sku, labelKind: kind, shelfLocation: shelf,
     };
   };
 
   const save = async () => {
     const draft = buildDraft();
-    if (!draft || busy) return;
-    if (!id && !checkLimit(tier, 'products', await countProductsForLimit()).allowed) { setLimitOpen(true); return; }
+    if (!draft || inFlight.current) return;
+    inFlight.current = true;
     setBusy(true);
     try {
+      if (!id && !checkLimit(tier, 'products', await countProductsForLimit()).allowed) { setLimitOpen(true); return; }
       const r = await saveProduct(draft, { ...ctx, id });
       AppAlert.success(r.queued ? t('productEdit.savedQueued') : t('productEdit.saved'));
       nav.goBack();
     } catch (err) {
       if (err instanceof ProductValidationError) AppAlert.error(t(`productEdit.errors.store.${err.code}`));
       else AppAlert.error(t('productEdit.errors.saveFailed'));
-    } finally { setBusy(false); }
+    } finally { setBusy(false); inFlight.current = false; }
   };
 
   const duplicate = async () => {
-    if (!loaded) return;
-    if (!checkLimit(tier, 'products', await countProductsForLimit()).allowed) { setLimitOpen(true); return; }
+    if (!loaded || inFlight.current) return;
+    inFlight.current = true;
     try {
+      if (!checkLimit(tier, 'products', await countProductsForLimit()).allowed) { setLimitOpen(true); return; }
       const r = await saveProduct(duplicateDraft(loaded, t('productEdit.copyName', { name: loaded.name }).slice(0, CATALOGUE_LIMITS.productName)), ctx);
       nav.replace('ProductDetail', { id: r.product.id });
-    } catch { AppAlert.error(t('productEdit.errors.saveFailed')); }
+    } catch { AppAlert.error(t('productEdit.errors.saveFailed')); } finally { inFlight.current = false; }
   };
   const toggleArchive = async () => {
     if (!loaded) return;
@@ -160,8 +166,8 @@ export const ProductDetailScreen: React.FC = () => {
     AppAlert.success(t('productEdit.addedToQueue'));
   };
 
-  const input = (value: string, onChange: (v: string) => void, opts: { placeholder?: string; keyboard?: 'default' | 'decimal-pad' | 'number-pad'; maxLength?: number; testID?: string } = {}) => (
-    <AppTextInput style={s.input} value={value} onChangeText={onChange} placeholder={opts.placeholder} placeholderTextColor={colors.textFaint} keyboardType={opts.keyboard ?? 'default'} maxLength={opts.maxLength} testID={opts.testID} />
+  const input = (value: string, onChange: (v: string) => void, opts: { placeholder?: string; keyboard?: 'default' | 'decimal-pad' | 'number-pad'; maxLength?: number; testID?: string; multiline?: boolean } = {}) => (
+    <AppTextInput style={s.input} value={value} onChangeText={onChange} placeholder={opts.placeholder} placeholderTextColor={colors.textFaint} keyboardType={opts.keyboard ?? 'default'} maxLength={opts.maxLength} testID={opts.testID} multiline={opts.multiline} />
   );
 
   return (
@@ -177,7 +183,7 @@ export const ProductDetailScreen: React.FC = () => {
 
         <View style={s.field}>
           <View style={s.fieldHead}><Text style={s.label}>{t('productEdit.productName')}</Text><Text style={s.meta}>{t('productEdit.keptInFull')}</Text></View>
-          {input(name, setName, { placeholder: t('productEdit.productNamePh'), maxLength: CATALOGUE_LIMITS.productName, testID: 'pe-name' })}
+          {input(name, setName, { placeholder: t('productEdit.productNamePh'), maxLength: CATALOGUE_LIMITS.productName, testID: 'pe-name', multiline: true })}
           {errors.name ? <Text style={s.err}>{errors.name}</Text> : null}
         </View>
 
@@ -218,14 +224,14 @@ export const ProductDetailScreen: React.FC = () => {
             <Text style={s.label}>{t('productEdit.unitPriceBase')}</Text>
             <ToggleSegment options={[t('productEdit.noUnitPrice'), ...bases.map(b => t(`productEdit.base.${b}`))]} selected={base ? t(`productEdit.base.${base}`) : t('productEdit.noUnitPrice')} onSelect={v => setBase(bases.find(b => t(`productEdit.base.${b}`) === v))} />
             {unitPreview ? <Text style={s.hint}>{t('productEdit.unitPricePreview', { price: formatMoney(unitPreview.minor, currency, language, settings.unitPriceExtraDecimals) })}</Text> : null}
-            {errors.base ? <Text style={s.err}>{errors.base}</Text> : null}
           </>
         ) : null}
+        {errors.base ? <Text style={s.err}>{bases.length ? errors.base : t('productEdit.errors.unitNeedsSoldAs')}</Text> : null}
 
         <View style={s.field}>
           <View style={s.fieldHead}><Text style={s.label}>{t('productEdit.barcode')}</Text><Text style={s.meta}>{barcode.trim() ? (barcodeProblem ? t('productEdit.barcodeCheckFails') : t('productEdit.barcodeOk')) : ''}</Text></View>
           <View style={s.inline}>
-            <View style={{ flex: 1 }}>{input(barcode, v => { setBarcode(v); setSymbology('unknown'); }, { keyboard: 'number-pad', placeholder: '5000157024671', testID: 'pe-barcode' })}</View>
+            <View style={{ flex: 1 }}>{input(barcode, v => { setBarcode(v); setSymbology('unknown'); }, { keyboard: 'number-pad', placeholder: t('productEdit.barcodePh'), testID: 'pe-barcode' })}</View>
             <TouchableOpacity style={s.scanBtn} onPress={() => nav.navigate('Scan', { mode: 'attach' })} accessibilityRole="button" accessibilityLabel={t('productEdit.scanBarcode')}>
               <Ionicons name="barcode-outline" size={22} color={colors.primaryBlue} />
             </TouchableOpacity>

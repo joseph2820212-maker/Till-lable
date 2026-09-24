@@ -517,8 +517,9 @@
       "noLabelName": "Needs a label name — tap to fix",
       "noBarcode": "Barcode label without a barcode — tap to fix",
       "noUnitPrice": "Unit-price label without a unit price — tap to fix",
-      "badPromotion": "The offer no longer matches this price",
-      "productMissing": "The product was removed"
+      "badPromotion": "The offer is not cheaper than the price — edit the offer",
+      "productMissing": "The product was removed",
+      "promotionEnded": "This offer has ended — remove the label"
     }
   },
   "productEdit": {
@@ -616,8 +617,10 @@
         "unitBaseMismatch": "That unit-price base does not match how the product is sold.",
         "duplicateBarcode": "Another product already has this barcode. Each barcode belongs to one product.",
         "notFound": "This product no longer exists."
-      }
-    }
+      },
+      "unitNeedsSoldAs": "A unit price needs to know how it is sold: choose Pack, Weight, Volume or Length."
+    },
+    "barcodePh": "Scan or type the barcode"
   },
   "labelKind": {
     "standardPrice": "Price",
@@ -641,12 +644,12 @@
     "es": "Spanish",
     "de": "German",
     "sample": {
-      "en": "“Was”, “per kg”, “Until 31 Oct 2026”",
-      "ar": "“كان”، “للكيلو”، “حتى 31 أكتوبر 2026”",
-      "tr": "“Eski fiyat”, “kg fiyatı”, “31 Eki 2026 tarihine kadar”",
-      "fr": "“Avant”, “le kg”, “Jusqu’au 31 oct. 2026”",
-      "es": "“Antes”, “el kg”, “Hasta el 31 oct 2026”",
-      "de": "“Vorher”, “je kg”, “Gültig bis 31. Okt. 2026”"
+      "en": "Was · per kg · Until 31 Oct 2026",
+      "ar": "كان · للكيلو · حتى 31 أكتوبر 2026",
+      "tr": "Eski fiyat · kg fiyatı · 31 Eki 2026 tarihine kadar",
+      "fr": "Avant · le kg · Jusqu’au 31 oct. 2026",
+      "es": "Antes · el kg · Hasta el 31 oct 2026",
+      "de": "Vorher · je kg · Gültig bis 31. Okt. 2026"
     }
   },
   "scan": {
@@ -990,7 +993,7 @@
       "nameTooLong": "Row {{row}}: name over 250 characters",
       "labelNameTooLong": "Row {{row}}: label name over 40 characters",
       "fieldTooLong": "Row {{row}}: a value is too long to store",
-      "duplicateInFile": "Row {{row}}: the same barcode appears more than once in the file",
+      "duplicateInFile": "Row {{row}}: the same product appears more than once in the file",
       "matchesTwoProducts": "Row {{row}}: matches two different products",
       "barcodeBelongsToOther": "Row {{row}}: the barcode belongs to another product"
     },
@@ -1029,7 +1032,8 @@
       "badItem": "A product in the file is incomplete. Nothing was imported.",
       "checksumMismatch": "The file was changed or damaged after TillCalc created it. Nothing was imported.",
       "containsCosts": "The file contains cost data, which TillLabel never imports. Nothing was imported."
-    }
+    },
+    "encodingNote": "This file is not UTF-8; it was read as a Windows (Excel) file. Check that names and symbols look right in the preview."
   },
   "offers": {
     "title": "Offers",
@@ -1073,7 +1077,7 @@
     "normalKept": "Each product keeps its normal price; only the offer labels show the offer.",
     "problem": {
       "noLabelName": "needs a label name",
-      "badPromotion": "offer is not below the price",
+      "badPromotion": "offer is not cheaper than the normal price",
       "noBarcode": "no barcode",
       "noUnitPrice": "no unit price"
     },
@@ -1098,7 +1102,10 @@
       "badDates": "The end date is before the start date.",
       "mixedCurrency": "All products in one offer must use the same currency.",
       "saveFailed": "The offer could not be saved. Nothing was changed."
-    }
+    },
+    "previewWasNow": "Was {{was}} → now {{now}}",
+    "previewMultibuy": "{{quantity}} for {{total}} (one: {{each}})",
+    "previewNow": "Offer price {{price}}"
   },
   "reduce": {
     "title": "Reduced to clear",

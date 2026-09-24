@@ -31,7 +31,8 @@ function readSharedStrings(xml: string): string[] {
   return out;
 }
 
-export interface XlsxBook { sheetNames: string[]; rows(sheetIndex?: number): string[][] }
+export interface XlsxSheet { rows: string[][]; /** "row:col" of cells stored as numbers (always "." decimal). */ numericCells: Set<string> }
+export interface XlsxBook { sheetNames: string[]; rows(sheetIndex?: number): string[][]; sheet(sheetIndex?: number): XlsxSheet }
 
 export function readXlsx(bytes: Uint8Array): XlsxBook {
   if (bytes.length > XLSX_LIMITS.compressedBytes) throw new XlsxReadError('tooLarge');
@@ -69,16 +70,19 @@ export function readXlsx(bytes: Uint8Array): XlsxBook {
   if (!sheets.length) throw new XlsxReadError('noSheet');
   return {
     sheetNames: sheets.map(s => s.name),
-    rows(sheetIndex = 0) {
+    rows(sheetIndex = 0) { return this.sheet(sheetIndex).rows; },
+    sheet(sheetIndex = 0) {
       const file = files[sheetFiles[sheetIndex]];
       if (!file) throw new XlsxReadError('noSheet');
       const xml = strFromU8(file);
       const rows: string[][] = [];
+      const numericByRow: number[][] = [];
       const rowRe = /<row\b[^>]*>([\s\S]*?)<\/row>/g;
       let rm: RegExpExecArray | null;
       while ((rm = rowRe.exec(xml))) {
         if (rows.length >= XLSX_LIMITS.rows) throw new XlsxReadError('tooManyRows');
         const cells: string[] = [];
+        const numeric: number[] = [];
         const cellRe = /<c\b([^>]*?)(?:\/>|>([\s\S]*?)<\/c>)/g;
         let cm: RegExpExecArray | null;
         while ((cm = cellRe.exec(rm[1]))) {
@@ -93,13 +97,18 @@ export function readXlsx(bytes: Uint8Array): XlsxBook {
           else {
             const v = /<v>([\s\S]*?)<\/v>/.exec(inner)?.[1];
             if (v !== undefined) value = type === 's' ? shared[Number(v)] ?? '' : decode(v);
+            if (v !== undefined && (type === undefined || type === 'n')) numeric.push(col);
           }
           while (cells.length < col) cells.push('');
           cells[col] = value.slice(0, XLSX_LIMITS.cellChars);
         }
         rows.push(cells);
+        numericByRow.push(numeric);
       }
-      return rows.filter(r => r.some(c => c.trim() !== ''));
+      const kept = rows.map((r, i) => ({ r, n: numericByRow[i] })).filter(x => x.r.some(c => c.trim() !== ''));
+      const numericCells = new Set<string>();
+      kept.forEach((x, i) => x.n.forEach(col => numericCells.add(`${i}:${col}`)));
+      return { rows: kept.map(x => x.r), numericCells };
     },
   };
 }

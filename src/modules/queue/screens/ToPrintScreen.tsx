@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState, useRef } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
@@ -17,6 +17,7 @@ import { formatMoney } from '../../../domain/formatMoney';
 import { loadWorkSummary, type WorkSummary } from '../storage/summary';
 import { listWaiting, removeIntents, setCopies } from '../storage/queueStore';
 import { listProducts } from '../../products/storage/productStore';
+import { listPromotions } from '../../promotions/storage/promotionStore';
 import { resolveQueue, generateSheetJob, optionsFor, type QueueItem } from '../../print/printService';
 import { getProfile } from '../../print/storage/stationeryStore';
 import { generateFailureText } from '../../print/issueText';
@@ -41,12 +42,13 @@ export const ToPrintScreen: React.FC = () => {
   const [profileId, setProfileId] = useState(settings.defaultProfileId);
   const [start, setStart] = useState(1);
   const [busy, setBusy] = useState(false);
+  const inFlight = useRef(false);
 
   const load = useCallback(async () => {
-    const [s, waiting, ps] = await Promise.all([loadWorkSummary(), listWaiting(), listProducts({ includeArchived: true })]);
+    const [s, waiting, ps, promos] = await Promise.all([loadWorkSummary(), listWaiting(), listProducts({ includeArchived: true }), listPromotions()]);
     setSummary(s);
     setProducts(ps);
-    setItems(resolveQueue(waiting.filter(i => Number.isInteger(i.copies) && i.copies > 0 && i.id), ps, language, settings));
+    setItems(resolveQueue(waiting.filter(i => Number.isInteger(i.copies) && i.copies > 0 && i.id), ps, language, settings, promos));
   }, [language, settings]);
 
   useFocusEffect(useCallback(() => { load().catch(() => setSummary(null)); }, [load]));
@@ -70,7 +72,8 @@ export const ToPrintScreen: React.FC = () => {
   };
 
   const printSelected = async () => {
-    if (!selected.length || busy) return;
+    if (!selected.length || inFlight.current) return;
+    inFlight.current = true;
     setBusy(true);
     try {
       const profile = await getProfile(profileId);
@@ -78,7 +81,7 @@ export const ToPrintScreen: React.FC = () => {
       const r = await generateSheetJob({ profileId: profile.id, items: sheetItems, startPosition: start, displayName: t('queue.jobName', { count: labelCount }), kind: 'queue' });
       if (r.ok) nav.navigate('PrintPreview', { jobId: r.job.id });
       else AppAlert.alert(t('print.cannotPrintTitle'), generateFailureText(t, r, selected.map(i => i.intent.title ?? '')));
-    } finally { setBusy(false); }
+    } finally { setBusy(false); inFlight.current = false; }
   };
 
   const reasonText = (i: PrintIntent) => t(`queue.reason.${i.reason}`);

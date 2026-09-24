@@ -517,8 +517,9 @@
       "noLabelName": "Etiket adı gerekli — düzeltmek için dokunun",
       "noBarcode": "Barkodsuz barkod etiketi — düzeltmek için dokunun",
       "noUnitPrice": "Birim fiyatsız birim fiyat etiketi — düzeltmek için dokunun",
-      "badPromotion": "Kampanya artık bu fiyata uymuyor",
-      "productMissing": "Ürün kaldırıldı"
+      "badPromotion": "Kampanya fiyattan ucuz değil — kampanyayı düzenleyin",
+      "productMissing": "Ürün kaldırıldı",
+      "promotionEnded": "Bu kampanya bitti — etiketi kaldırın"
     }
   },
   "productEdit": {
@@ -616,8 +617,10 @@
         "unitBaseMismatch": "Bu birim fiyat tabanı ürünün satış şekline uymuyor.",
         "duplicateBarcode": "Bu barkod başka bir üründe kayıtlı. Her barkod tek bir ürüne aittir.",
         "notFound": "Bu ürün artık yok."
-      }
-    }
+      },
+      "unitNeedsSoldAs": "Birim fiyat için satış şekli gerekir: Paket, Ağırlık, Hacim veya Uzunluk seçin."
+    },
+    "barcodePh": "Barkodu tarayın veya yazın"
   },
   "labelKind": {
     "standardPrice": "Fiyat",
@@ -641,12 +644,12 @@
     "es": "İspanyolca",
     "de": "Almanca",
     "sample": {
-      "en": "“Was”, “per kg”, “Until 31 Oct 2026”",
-      "ar": "“كان”, “للكيلو”, “حتى 31 أكتوبر 2026”",
-      "tr": "“Eski fiyat”, “kg fiyatı”, “31 Eki 2026 tarihine kadar”",
-      "fr": "“Avant”, “le kg”, “Jusqu’au 31 oct. 2026”",
-      "es": "“Antes”, “el kg”, “Hasta el 31 oct 2026”",
-      "de": "“Vorher”, “je kg”, “Gültig bis 31. Okt. 2026”"
+      "en": "Was · per kg · Until 31 Oct 2026",
+      "ar": "كان · للكيلو · حتى 31 أكتوبر 2026",
+      "tr": "Eski fiyat · kg fiyatı · 31 Eki 2026 tarihine kadar",
+      "fr": "Avant · le kg · Jusqu’au 31 oct. 2026",
+      "es": "Antes · el kg · Hasta el 31 oct 2026",
+      "de": "Vorher · je kg · Gültig bis 31. Okt. 2026"
     }
   },
   "scan": {
@@ -990,7 +993,7 @@
       "nameTooLong": "Satır {{row}}: ad 250 karakterden uzun",
       "labelNameTooLong": "Satır {{row}}: etiket adı 40 karakterden uzun",
       "fieldTooLong": "Satır {{row}}: bir değer saklanamayacak kadar uzun",
-      "duplicateInFile": "Satır {{row}}: aynı barkod dosyada birden fazla var",
+      "duplicateInFile": "Satır {{row}}: aynı ürün dosyada birden fazla var",
       "matchesTwoProducts": "Satır {{row}}: iki farklı ürünle eşleşiyor",
       "barcodeBelongsToOther": "Satır {{row}}: barkod başka bir ürüne ait"
     },
@@ -1029,7 +1032,8 @@
       "badItem": "Dosyadaki bir ürün eksik. Hiçbir şey içe aktarılmadı.",
       "checksumMismatch": "Dosya TillCalc oluşturduktan sonra değiştirilmiş veya bozulmuş. Hiçbir şey içe aktarılmadı.",
       "containsCosts": "Dosya maliyet verisi içeriyor; TillLabel bunu asla içe aktarmaz. Hiçbir şey içe aktarılmadı."
-    }
+    },
+    "encodingNote": "Bu dosya UTF-8 değil; Windows (Excel) dosyası olarak okundu. Önizlemede ad ve simgelerin doğru göründüğünü kontrol edin."
   },
   "offers": {
     "title": "Kampanyalar",
@@ -1073,7 +1077,7 @@
     "normalKept": "Her ürün normal fiyatını korur; kampanya yalnızca kampanya etiketlerinde görünür.",
     "problem": {
       "noLabelName": "etiket adı gerekli",
-      "badPromotion": "kampanya fiyatın altında değil",
+      "badPromotion": "kampanya normal fiyattan ucuz değil",
       "noBarcode": "barkod yok",
       "noUnitPrice": "birim fiyat yok"
     },
@@ -1098,7 +1102,10 @@
       "badDates": "Bitiş tarihi başlangıçtan önce.",
       "mixedCurrency": "Bir kampanyadaki tüm ürünler aynı para birimini kullanmalı.",
       "saveFailed": "Kampanya kaydedilemedi. Hiçbir şey değişmedi."
-    }
+    },
+    "previewWasNow": "Eski {{was}} → yeni {{now}}",
+    "previewMultibuy": "{{quantity}} adet {{total}} (tanesi: {{each}})",
+    "previewNow": "Kampanya fiyatı {{price}}"
   },
   "reduce": {
     "title": "Tasfiye indirimi",

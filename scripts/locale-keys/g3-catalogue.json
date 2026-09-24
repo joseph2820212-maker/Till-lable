@@ -1000,52 +1000,52 @@
   "de": "Deutsch"
  },
  "labelLanguage.sample.en": {
-  "en": "“Was”, “per kg”, “Until 31 Oct 2026”",
-  "ar": "“Was”, “per kg”, “Until 31 Oct 2026”",
-  "tr": "“Was”, “per kg”, “Until 31 Oct 2026”",
-  "fr": "« Was », « per kg », « Until 31 Oct 2026 »",
-  "es": "«Was», «per kg», «Until 31 Oct 2026»",
-  "de": "„Was“, „per kg“, „Until 31 Oct 2026“"
+  "en": "Was · per kg · Until 31 Oct 2026",
+  "ar": "Was · per kg · Until 31 Oct 2026",
+  "tr": "Was · per kg · Until 31 Oct 2026",
+  "fr": "Was · per kg · Until 31 Oct 2026",
+  "es": "Was · per kg · Until 31 Oct 2026",
+  "de": "Was · per kg · Until 31 Oct 2026"
  },
  "labelLanguage.sample.ar": {
-  "en": "“كان”، “للكيلو”، “حتى 31 أكتوبر 2026”",
-  "ar": "“كان”، “للكيلو”، “حتى 31 أكتوبر 2026”",
-  "tr": "“كان”, “للكيلو”, “حتى 31 أكتوبر 2026”",
-  "fr": "« كان », « للكيلو », « حتى 31 أكتوبر 2026 »",
-  "es": "«كان», «للكيلو», «حتى 31 أكتوبر 2026»",
-  "de": "„كان“, „للكيلو“, „حتى 31 أكتوبر 2026“"
+  "en": "كان · للكيلو · حتى 31 أكتوبر 2026",
+  "ar": "كان · للكيلو · حتى 31 أكتوبر 2026",
+  "tr": "كان · للكيلو · حتى 31 أكتوبر 2026",
+  "fr": "كان · للكيلو · حتى 31 أكتوبر 2026",
+  "es": "كان · للكيلو · حتى 31 أكتوبر 2026",
+  "de": "كان · للكيلو · حتى 31 أكتوبر 2026"
  },
  "labelLanguage.sample.tr": {
-  "en": "“Eski fiyat”, “kg fiyatı”, “31 Eki 2026 tarihine kadar”",
-  "ar": "“Eski fiyat”، “kg fiyatı”، “31 Eki 2026 tarihine kadar”",
-  "tr": "“Eski fiyat”, “kg fiyatı”, “31 Eki 2026 tarihine kadar”",
-  "fr": "« Eski fiyat », « kg fiyatı », « 31 Eki 2026 tarihine kadar »",
-  "es": "«Eski fiyat», «kg fiyatı», «31 Eki 2026 tarihine kadar»",
-  "de": "„Eski fiyat“, „kg fiyatı“, „31 Eki 2026 tarihine kadar“"
+  "en": "Eski fiyat · kg fiyatı · 31 Eki 2026 tarihine kadar",
+  "ar": "Eski fiyat · kg fiyatı · 31 Eki 2026 tarihine kadar",
+  "tr": "Eski fiyat · kg fiyatı · 31 Eki 2026 tarihine kadar",
+  "fr": "Eski fiyat · kg fiyatı · 31 Eki 2026 tarihine kadar",
+  "es": "Eski fiyat · kg fiyatı · 31 Eki 2026 tarihine kadar",
+  "de": "Eski fiyat · kg fiyatı · 31 Eki 2026 tarihine kadar"
  },
  "labelLanguage.sample.fr": {
-  "en": "“Avant”, “le kg”, “Jusqu’au 31 oct. 2026”",
-  "ar": "“Avant”، “le kg”، “Jusqu’au 31 oct. 2026”",
-  "tr": "“Avant”, “le kg”, “Jusqu’au 31 oct. 2026”",
-  "fr": "« Avant », « le kg », « Jusqu’au 31 oct. 2026 »",
-  "es": "«Avant», «le kg», «Jusqu’au 31 oct. 2026»",
-  "de": "„Avant“, „le kg“, „Jusqu’au 31 oct. 2026“"
+  "en": "Avant · le kg · Jusqu’au 31 oct. 2026",
+  "ar": "Avant · le kg · Jusqu’au 31 oct. 2026",
+  "tr": "Avant · le kg · Jusqu’au 31 oct. 2026",
+  "fr": "Avant · le kg · Jusqu’au 31 oct. 2026",
+  "es": "Avant · le kg · Jusqu’au 31 oct. 2026",
+  "de": "Avant · le kg · Jusqu’au 31 oct. 2026"
  },
  "labelLanguage.sample.es": {
-  "en": "“Antes”, “el kg”, “Hasta el 31 oct 2026”",
-  "ar": "“Antes”، “el kg”، “Hasta el 31 oct 2026”",
-  "tr": "“Antes”, “el kg”, “Hasta el 31 oct 2026”",
-  "fr": "« Antes », « el kg », « Hasta el 31 oct 2026 »",
-  "es": "«Antes», «el kg», «Hasta el 31 oct 2026»",
-  "de": "„Antes“, „el kg“, „Hasta el 31 oct 2026“"
+  "en": "Antes · el kg · Hasta el 31 oct 2026",
+  "ar": "Antes · el kg · Hasta el 31 oct 2026",
+  "tr": "Antes · el kg · Hasta el 31 oct 2026",
+  "fr": "Antes · el kg · Hasta el 31 oct 2026",
+  "es": "Antes · el kg · Hasta el 31 oct 2026",
+  "de": "Antes · el kg · Hasta el 31 oct 2026"
  },
  "labelLanguage.sample.de": {
-  "en": "“Vorher”, “je kg”, “Gültig bis 31. Okt. 2026”",
-  "ar": "“Vorher”، “je kg”، “Gültig bis 31. Okt. 2026”",
-  "tr": "“Vorher”, “je kg”, “Gültig bis 31. Okt. 2026”",
-  "fr": "« Vorher », « je kg », « Gültig bis 31. Okt. 2026 »",
-  "es": "«Vorher», «je kg», «Gültig bis 31. Okt. 2026»",
-  "de": "„Vorher“, „je kg“, „Gültig bis 31. Okt. 2026“"
+  "en": "Vorher · je kg · Gültig bis 31. Okt. 2026",
+  "ar": "Vorher · je kg · Gültig bis 31. Okt. 2026",
+  "tr": "Vorher · je kg · Gültig bis 31. Okt. 2026",
+  "fr": "Vorher · je kg · Gültig bis 31. Okt. 2026",
+  "es": "Vorher · je kg · Gültig bis 31. Okt. 2026",
+  "de": "Vorher · je kg · Gültig bis 31. Okt. 2026"
  },
  "scan.title.find": {
   "en": "Scan a product",

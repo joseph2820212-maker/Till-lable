@@ -517,8 +517,9 @@
       "noLabelName": "Nom d'étiquette requis — touchez pour corriger",
       "noBarcode": "Étiquette code-barres sans code — touchez pour corriger",
       "noUnitPrice": "Étiquette prix unitaire sans prix unitaire — touchez pour corriger",
-      "badPromotion": "L'offre ne correspond plus à ce prix",
-      "productMissing": "Le produit a été retiré"
+      "badPromotion": "L'offre n'est pas moins chère que le prix — modifiez-la",
+      "productMissing": "Le produit a été retiré",
+      "promotionEnded": "Cette offre est terminée — retirez l'étiquette"
     }
   },
   "productEdit": {
@@ -616,8 +617,10 @@
         "unitBaseMismatch": "Cette base de prix unitaire ne correspond pas au mode de vente.",
         "duplicateBarcode": "Un autre produit a déjà ce code-barres. Chaque code-barres appartient à un seul produit.",
         "notFound": "Ce produit n'existe plus."
-      }
-    }
+      },
+      "unitNeedsSoldAs": "Un prix unitaire doit savoir comment le produit est vendu : choisissez Lot, Poids, Volume ou Longueur."
+    },
+    "barcodePh": "Scannez ou tapez le code-barres"
   },
   "labelKind": {
     "standardPrice": "Prix",
@@ -641,12 +644,12 @@
     "es": "Espagnol",
     "de": "Allemand",
     "sample": {
-      "en": "« Was », « per kg », « Until 31 Oct 2026 »",
-      "ar": "« كان », « للكيلو », « حتى 31 أكتوبر 2026 »",
-      "tr": "« Eski fiyat », « kg fiyatı », « 31 Eki 2026 tarihine kadar »",
-      "fr": "« Avant », « le kg », « Jusqu’au 31 oct. 2026 »",
-      "es": "« Antes », « el kg », « Hasta el 31 oct 2026 »",
-      "de": "« Vorher », « je kg », « Gültig bis 31. Okt. 2026 »"
+      "en": "Was · per kg · Until 31 Oct 2026",
+      "ar": "كان · للكيلو · حتى 31 أكتوبر 2026",
+      "tr": "Eski fiyat · kg fiyatı · 31 Eki 2026 tarihine kadar",
+      "fr": "Avant · le kg · Jusqu’au 31 oct. 2026",
+      "es": "Antes · el kg · Hasta el 31 oct 2026",
+      "de": "Vorher · je kg · Gültig bis 31. Okt. 2026"
     }
   },
   "scan": {
@@ -990,7 +993,7 @@
       "nameTooLong": "Ligne {{row}} : nom de plus de 250 caractères",
       "labelNameTooLong": "Ligne {{row}} : nom d'étiquette de plus de 40 caractères",
       "fieldTooLong": "Ligne {{row}} : une valeur est trop longue",
-      "duplicateInFile": "Ligne {{row}} : le même code-barres apparaît plusieurs fois",
+      "duplicateInFile": "Ligne {{row}} : le même produit apparaît plusieurs fois dans le fichier",
       "matchesTwoProducts": "Ligne {{row}} : correspond à deux produits différents",
       "barcodeBelongsToOther": "Ligne {{row}} : le code-barres appartient à un autre produit"
     },
@@ -1029,7 +1032,8 @@
       "badItem": "Un produit du fichier est incomplet. Rien n'a été importé.",
       "checksumMismatch": "Le fichier a été modifié ou endommagé après sa création par TillCalc. Rien n'a été importé.",
       "containsCosts": "Le fichier contient des coûts, que TillLabel n'importe jamais. Rien n'a été importé."
-    }
+    },
+    "encodingNote": "Ce fichier n'est pas en UTF-8 ; il a été lu comme un fichier Windows (Excel). Vérifiez les noms et symboles dans l'aperçu."
   },
   "offers": {
     "title": "Offres",
@@ -1073,7 +1077,7 @@
     "normalKept": "Chaque produit garde son prix normal ; seule l'étiquette d'offre montre l'offre.",
     "problem": {
       "noLabelName": "nom d'étiquette requis",
-      "badPromotion": "offre non inférieure au prix",
+      "badPromotion": "l'offre n'est pas moins chère que le prix normal",
       "noBarcode": "pas de code-barres",
       "noUnitPrice": "pas de prix unitaire"
     },
@@ -1098,7 +1102,10 @@
       "badDates": "La date de fin précède la date de début.",
       "mixedCurrency": "Tous les produits d'une offre doivent avoir la même devise.",
       "saveFailed": "L'offre n'a pas pu être enregistrée. Rien n'a été modifié."
-    }
+    },
+    "previewWasNow": "Avant {{was}} → maintenant {{now}}",
+    "previewMultibuy": "{{quantity}} pour {{total}} (l'unité : {{each}})",
+    "previewNow": "Prix de l'offre {{price}}"
   },
   "reduce": {
     "title": "Démarque",

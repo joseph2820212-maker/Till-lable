@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 import { View, Text, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigation, useRoute, type RouteProp } from '@react-navigation/native';
@@ -25,7 +25,7 @@ import { formatPercentText } from '../../labels/engine/labelStrings';
 import { listProducts } from '../../products/storage/productStore';
 import { endPromotion, listPromotions, savePromotion, validatePromotion } from '../storage/promotionStore';
 import { promotionContent } from '../../labels/content';
-import { enqueueSnapshot } from '../../queue/storage/queueStore';
+import { enqueueSnapshot, removePromotionLabels } from '../../queue/storage/queueStore';
 import { useLabelContext } from '../../labels/hooks/useLabelContext';
 import { ProductPicker } from '../components/ProductPicker';
 
@@ -61,6 +61,7 @@ export const OfferEditorScreen: React.FC = () => {
   const [picker, setPicker] = useState(false);
   const [limit, setLimit] = useState(false);
   const [busy, setBusy] = useState(false);
+  const inFlight = useRef(false);
 
   useEffect(() => {
     listProducts().then(setProducts).catch(() => undefined);
@@ -97,14 +98,25 @@ export const OfferEditorScreen: React.FC = () => {
   const error = !chosen.length ? 'noProducts' : mixedCurrency ? 'mixedCurrency' : !draft ? 'badAmount' : validatePromotion(draft, currency);
   const previews = draft && !error ? chosen.map(p => ({ p, r: promotionContent({ ...draft, schemaVersion: 1, id: 'x', status: 'active', createdAt: '', updatedAt: '' }, p, { language }) })) : [];
 
+  const fm = (m: { minor: number; currency: string }) => formatMoney(m.minor, m.currency, language);
+  /** What the label claims, e.g. "Was £5.99 → £4.49" or "3 for £5.00" (never just the unchanged price). */
+  const previewText = (c: import('../../labels/engine/renderLabel').LabelContent) =>
+    c.kind === 'wasNow' && c.was ? t('offers.previewWasNow', { was: fm(c.was), now: fm(c.price) })
+      : c.kind === 'multibuy' && c.multibuy ? t('offers.previewMultibuy', { quantity: c.multibuy.quantity, total: fm(c.multibuy.total), each: fm(c.price) })
+        : t('offers.previewNow', { price: fm(c.price) });
+
   const save = async (andQueue: boolean) => {
     if (!canUseFeature(tier, FEATURE[kind])) { setLimit(true); return; }
-    if (error || !draft || busy) { AppAlert.error(t(`offers.errors.${error ?? 'badAmount'}`)); return; }
+    if (inFlight.current) return;
+    if (error || !draft) { AppAlert.error(t(`offers.errors.${error ?? 'badAmount'}`)); return; }
+    inFlight.current = true;
     setBusy(true);
     try {
       const promo = await savePromotion({ ...draft, id, status });
       setId(promo.id);
       if (andQueue) {
+        // Re-queuing an edited offer replaces its earlier labels instead of adding a second set.
+        await removePromotionLabels(promo.id);
         let added = 0;
         for (const { p, r } of previews) {
           if (!r.ok) continue;
@@ -116,9 +128,9 @@ export const OfferEditorScreen: React.FC = () => {
           { text: t('quick.goToPrint'), onPress: () => nav.navigate('Tabs', tabTarget('ToPrint')) },
         ]);
       } else { AppAlert.success(t('offers.saved')); nav.goBack(); }
-    } catch { AppAlert.error(t('offers.errors.saveFailed')); } finally { setBusy(false); }
+    } catch { AppAlert.error(t('offers.errors.saveFailed')); } finally { setBusy(false); inFlight.current = false; }
   };
-  const end = async () => { if (!id) return; await endPromotion(id); nav.goBack(); };
+  const end = async () => { if (!id) return; await endPromotion(id); await removePromotionLabels(id); nav.goBack(); };
 
   const valueLabel = kind === 'percentOff' ? t('offers.percent') : kind === 'moneyOff' ? t('offers.amountOff') : kind === 'wasNow' ? t('offers.wasPrice') : kind === 'multibuy' ? t('offers.multibuyTotal') : t('offers.memberPrice');
   return (
@@ -154,7 +166,7 @@ export const OfferEditorScreen: React.FC = () => {
             {previews.map(({ p, r }) => (
               <View key={p.id} style={s.previewRow}>
                 <Text style={s.previewName} numberOfLines={1}>{p.labelName || p.name}</Text>
-                <Text style={r.ok ? s.previewPrice : s.err}>{r.ok ? `${formatMoney(p.price.minor, p.price.currency, language)} → ${formatMoney(r.content.price.minor, r.content.price.currency, language)}` : t(`offers.problem.${r.problem}`)}</Text>
+                <Text style={r.ok ? s.previewPrice : s.err}>{r.ok ? previewText(r.content) : t(`offers.problem.${r.problem}`)}</Text>
               </View>
             ))}
             <Text style={s.note}>{t('offers.normalKept')}</Text>

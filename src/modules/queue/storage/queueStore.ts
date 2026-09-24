@@ -28,6 +28,8 @@ export function planEnqueue(queue: PrintIntent[], printed: PrintedMark[], produc
   if (!waiting && last && last.fingerprint === fingerprint) return { queue, queued: false };
   const now = nowIso();
   if (waiting) {
+    // The change was undone: the shelf already shows exactly this label, so nothing needs printing.
+    if (last && last.fingerprint === fingerprint) return { queue: queue.map(i => (i === waiting ? { ...i, status: 'removed' as const, updatedAt: nowIso() } : i)), queued: false };
     if (waiting.contentFingerprint === fingerprint && waiting.labelKind === kind) return { queue, queued: false };
     return {
       queue: queue.map(i => (i === waiting ? { ...i, contentFingerprint: fingerprint, productRevision: product.revision, labelKind: kind, labelLanguage: ctx.language, reason, title: product.labelName || product.name, updatedAt: now } : i)),
@@ -90,10 +92,13 @@ export async function markPrinted(lines: { intentId: string; contentFingerprint:
     const next = queue.map(i => {
       const line = lines.find(l => l.intentId === i.id);
       if (!line || i.status !== 'waiting') return i;
+      // Record what is now on the shelf.
       if (i.productId && i.purpose === 'normal') {
         const key = printedKey(i.productId, i.labelKind);
         printed = [...printed.filter(m => m.key !== key), { key, fingerprint: line.contentFingerprint, at }];
       }
+      // A label that changed after this PDF was made (e.g. a newer price) is NOT the one that printed: it keeps waiting.
+      if (i.contentFingerprint !== line.contentFingerprint) return i;
       return { ...i, status: 'printed' as const, updatedAt: at };
     });
     // Keep the queue small: drop printed / removed intents older than the newest 500.
@@ -101,4 +106,27 @@ export async function markPrinted(lines: { intentId: string; contentFingerprint:
     const done = next.filter(i => i.status !== 'waiting').slice(-500);
     return { writes: { [TL_KEYS.queue]: [...done, ...live], [TL_KEYS.printed]: printed }, result: undefined };
   });
+}
+
+/**
+ * A PDF was generated for these labels: each waiting label now stands for exactly the content in that PDF. A later
+ * product change refreshes the fingerprint again, so confirming an OLD job can never clear a NEWER label.
+ */
+export async function syncPrintedContent(lines: { intentId: string; contentFingerprint: string }[]): Promise<void> {
+  if (!lines.length) return;
+  await updateList<PrintIntent>(TL_KEYS.queue, list => ({
+    list: list.map(i => {
+      const line = lines.find(l => l.intentId === i.id);
+      return line && i.status === 'waiting' && i.contentFingerprint !== line.contentFingerprint ? { ...i, contentFingerprint: line.contentFingerprint, updatedAt: nowIso() } : i;
+    }),
+    result: undefined,
+  }));
+}
+
+/** Take a promotion's waiting labels out of To print (offer edited or ended). */
+export async function removePromotionLabels(promotionId: string): Promise<void> {
+  await updateList<PrintIntent>(TL_KEYS.queue, list => ({
+    list: list.map(i => (i.status === 'waiting' && i.promotionId === promotionId ? { ...i, status: 'removed' as const, updatedAt: nowIso() } : i)),
+    result: undefined,
+  }));
 }

@@ -63,11 +63,17 @@ export function promotionContent(promo: Promotion, p: Product, o: ContentOptions
   const c: LabelContent = { ...r.content };
   try {
     switch (promo.type.kind) {
-      case 'wasNow': c.kind = 'wasNow'; c.was = promo.type.referencePrice; break;
+      // A "was" price must be higher than the price now; otherwise the label would make a false price claim.
+      case 'wasNow': if (promo.type.referencePrice.minor <= p.price.minor || promo.type.referencePrice.currency !== p.price.currency) return { ok: false, problem: 'badPromotion' }; c.kind = 'wasNow'; c.was = promo.type.referencePrice; break;
       case 'percentOff': c.kind = 'percentOff'; c.percentOffHundredths = promo.type.percentHundredths; c.price = applyPercentOff(p.price, promo.type.percentHundredths); break;
       case 'moneyOff': c.kind = 'moneyOff'; c.moneyOff = promo.type.amount; c.price = applyMoneyOff(p.price, promo.type.amount); break;
-      case 'multibuy': c.kind = 'multibuy'; c.multibuy = { quantity: promo.type.quantity, total: promo.type.totalPrice }; break;
-      case 'conditional': c.kind = 'memberPrice'; c.condition = promo.type.condition; c.price = promo.type.conditionalPrice; break;
+      case 'multibuy':
+        // The multibuy must cost less than buying the items one by one.
+        if (promo.type.totalPrice.currency !== p.price.currency || promo.type.totalPrice.minor >= p.price.minor * promo.type.quantity) return { ok: false, problem: 'badPromotion' };
+        c.kind = 'multibuy'; c.multibuy = { quantity: promo.type.quantity, total: promo.type.totalPrice }; break;
+      case 'conditional':
+        if (promo.type.conditionalPrice.currency !== p.price.currency || promo.type.conditionalPrice.minor >= p.price.minor) return { ok: false, problem: 'badPromotion' };
+        c.kind = 'memberPrice'; c.condition = promo.type.condition; c.price = promo.type.conditionalPrice; break;
     }
   } catch {
     return { ok: false, problem: 'badPromotion' };

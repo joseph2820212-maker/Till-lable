@@ -1,0 +1,82 @@
+{
+ "queue.problem.promotionEnded": {
+  "en": "This offer has ended — remove the label",
+  "ar": "انتهى هذا العرض — أزل الملصق",
+  "tr": "Bu kampanya bitti — etiketi kaldırın",
+  "fr": "Cette offre est terminée — retirez l'étiquette",
+  "es": "Esta oferta terminó — quita la etiqueta",
+  "de": "Dieses Angebot ist beendet — Etikett entfernen"
+ },
+ "offers.previewWasNow": {
+  "en": "Was {{was}} → now {{now}}",
+  "ar": "كان {{was}} ← الآن {{now}}",
+  "tr": "Eski {{was}} → yeni {{now}}",
+  "fr": "Avant {{was}} → maintenant {{now}}",
+  "es": "Antes {{was}} → ahora {{now}}",
+  "de": "Vorher {{was}} → jetzt {{now}}"
+ },
+ "offers.previewMultibuy": {
+  "en": "{{quantity}} for {{total}} (one: {{each}})",
+  "ar": "{{quantity}} بـ {{total}} (الواحدة: {{each}})",
+  "tr": "{{quantity}} adet {{total}} (tanesi: {{each}})",
+  "fr": "{{quantity}} pour {{total}} (l'unité : {{each}})",
+  "es": "{{quantity}} por {{total}} (una: {{each}})",
+  "de": "{{quantity}} für {{total}} (einzeln: {{each}})"
+ },
+ "offers.previewNow": {
+  "en": "Offer price {{price}}",
+  "ar": "سعر العرض {{price}}",
+  "tr": "Kampanya fiyatı {{price}}",
+  "fr": "Prix de l'offre {{price}}",
+  "es": "Precio de oferta {{price}}",
+  "de": "Angebotspreis {{price}}"
+ },
+ "offers.problem.badPromotion": {
+  "en": "offer is not cheaper than the normal price",
+  "ar": "العرض ليس أرخص من السعر العادي",
+  "tr": "kampanya normal fiyattan ucuz değil",
+  "fr": "l'offre n'est pas moins chère que le prix normal",
+  "es": "la oferta no es más barata que el precio normal",
+  "de": "Angebot ist nicht günstiger als der Normalpreis"
+ },
+ "queue.problem.badPromotion": {
+  "en": "The offer is not cheaper than the price — edit the offer",
+  "ar": "العرض ليس أرخص من السعر — عدّل العرض",
+  "tr": "Kampanya fiyattan ucuz değil — kampanyayı düzenleyin",
+  "fr": "L'offre n'est pas moins chère que le prix — modifiez-la",
+  "es": "La oferta no es más barata que el precio — edítala",
+  "de": "Das Angebot ist nicht günstiger als der Preis — Angebot ändern"
+ },
+ "productEdit.errors.unitNeedsSoldAs": {
+  "en": "A unit price needs to know how it is sold: choose Pack, Weight, Volume or Length.",
+  "ar": "يحتاج سعر الوحدة إلى معرفة طريقة البيع: اختر عبوة أو وزنًا أو حجمًا أو طولًا.",
+  "tr": "Birim fiyat için satış şekli gerekir: Paket, Ağırlık, Hacim veya Uzunluk seçin.",
+  "fr": "Un prix unitaire doit savoir comment le produit est vendu : choisissez Lot, Poids, Volume ou Longueur.",
+  "es": "Un precio unitario necesita saber cómo se vende: elige Pack, Peso, Volumen o Longitud.",
+  "de": "Für einen Grundpreis wählen Sie die Verkaufsart: Packung, Gewicht, Volumen oder Länge."
+ },
+ "productEdit.barcodePh": {
+  "en": "Scan or type the barcode",
+  "ar": "امسح الباركود أو اكتبه",
+  "tr": "Barkodu tarayın veya yazın",
+  "fr": "Scannez ou tapez le code-barres",
+  "es": "Escanea o escribe el código",
+  "de": "Barcode scannen oder eintippen"
+ },
+ "importer.encodingNote": {
+  "en": "This file is not UTF-8; it was read as a Windows (Excel) file. Check that names and symbols look right in the preview.",
+  "ar": "هذا الملف ليس UTF-8؛ قُرئ كملف Windows ‏(Excel). تحقّق في المعاينة من صحة الأسماء والرموز.",
+  "tr": "Bu dosya UTF-8 değil; Windows (Excel) dosyası olarak okundu. Önizlemede ad ve simgelerin doğru göründüğünü kontrol edin.",
+  "fr": "Ce fichier n'est pas en UTF-8 ; il a été lu comme un fichier Windows (Excel). Vérifiez les noms et symboles dans l'aperçu.",
+  "es": "Este archivo no es UTF-8; se leyó como archivo de Windows (Excel). Comprueba en la vista previa que nombres y símbolos se vean bien.",
+  "de": "Diese Datei ist kein UTF-8; sie wurde als Windows-Datei (Excel) gelesen. Prüfen Sie Namen und Symbole in der Vorschau."
+ },
+ "importer.reason.duplicateInFile": {
+  "en": "Row {{row}}: the same product appears more than once in the file",
+  "ar": "الصف {{row}}: المنتج نفسه يتكرر في الملف",
+  "tr": "Satır {{row}}: aynı ürün dosyada birden fazla var",
+  "fr": "Ligne {{row}} : le même produit apparaît plusieurs fois dans le fichier",
+  "es": "Fila {{row}}: el mismo producto aparece más de una vez",
+  "de": "Zeile {{row}}: dasselbe Produkt kommt mehrfach vor"
+ }
+}

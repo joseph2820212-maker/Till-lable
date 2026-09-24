@@ -63,6 +63,8 @@ export const CalibrationScreen: React.FC = () => {
   const saveOffset = async (x: number, y: number) => {
     const c = await saveCalibration(profileId, x, y);
     setOffset({ x: c.offsetXMm, y: c.offsetYMm });
+    // The measurement was of the OLD offset: clear it so the same correction can never be applied twice.
+    setVerdict(null);
     AppAlert.success(t('calibration.saved', { x: c.offsetXMm, y: c.offsetYMm }));
   };
   const field = (k: keyof typeof m, label: string) => (

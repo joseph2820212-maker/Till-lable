@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { View, Text, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigation, useRoute, type RouteProp } from '@react-navigation/native';
@@ -51,6 +51,7 @@ export const ReducedLabelScreen: React.FC = () => {
   const [picker, setPicker] = useState(false);
   const [limit, setLimit] = useState(false);
   const [busy, setBusy] = useState(false);
+  const inFlight = useRef(false);
 
   const choose = async (id?: string) => {
     if (!id) return;
@@ -68,7 +69,8 @@ export const ReducedLabelScreen: React.FC = () => {
   const quick = (pct: number) => { if (n?.ok) setReduced(priceToInput(applyPercentOff(n.money, pct * 100))); };
   const add = async () => {
     if (!canUseFeature(tier, 'reducedToClear')) { setLimit(true); return; }
-    if (!valid || !n?.ok || !r?.ok || busy) return;
+    if (!valid || !n?.ok || !r?.ok || inFlight.current) return;
+    inFlight.current = true;
     setBusy(true);
     try {
       const batch = await saveReduction({ productId: product?.id, productName: name.trim(), normalPrice: n.money, reducedPrice: r.money, copies, reason });
@@ -77,7 +79,7 @@ export const ReducedLabelScreen: React.FC = () => {
         { text: t('common.ok'), style: 'cancel', onPress: () => nav.goBack() },
         { text: t('quick.goToPrint'), onPress: () => nav.navigate('Tabs', tabTarget('ToPrint')) },
       ]);
-    } catch { AppAlert.error(t('reduce.failed')); } finally { setBusy(false); }
+    } catch { AppAlert.error(t('reduce.failed')); } finally { setBusy(false); inFlight.current = false; }
   };
 
   return (

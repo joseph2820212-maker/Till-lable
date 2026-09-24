@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useRef } from 'react';
 import { View, Text, StyleSheet, StatusBar, ScrollView, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigation } from '@react-navigation/native';
@@ -19,8 +19,8 @@ import { EmptyState } from '../../../components/EmptyState';
 import type { RootStackParamList } from '../../../navigation/AppNavigator';
 import { tabTarget } from '../../../navigation/tabs';
 import { getCurrencyCode, isCurrencySet } from '../../../utils/currency';
-import { base64ToBytes, utf8Decode } from '../../../utils/base64';
-import { parseCsv } from '../../products/utils/csvParse';
+import { base64ToBytes, decodeText } from '../../../utils/base64';
+import { detectDelimiter, parseCsv } from '../../products/utils/csvParse';
 import { listProducts, countProductsForLimit } from '../../products/storage/productStore';
 import { formatMoney } from '../../../domain/formatMoney';
 import { moneyFromMinor, toDecimalString, type NumberProfile } from '../../../domain/money';
@@ -40,7 +40,7 @@ const MAX_FILE_BYTES = 10 * 1024 * 1024;
 const PROFILES: Record<'dot' | 'comma', NumberProfile> = { dot: { decimal: '.', grouping: ',' }, comma: { decimal: ',', grouping: '.' } };
 const STATUSES: RowStatus[] = ['new', 'changed', 'unchanged', 'conflict', 'invalid'];
 
-interface Loaded { name: string; source: ImportBatch['source']; sha: string; rows: string[][]; book?: XlsxBook; fixed?: boolean; previous: ImportBatch | null }
+interface Loaded { name: string; source: ImportBatch['source']; sha: string; rows: string[][]; numeric?: Set<string>; book?: XlsxBook; fixed?: boolean; previous: ImportBatch | null; encoding?: string }
 
 /**
  * Import products from CSV, Excel (XLSX) or a TillCalc price-change file. Nothing is written until the preview has
@@ -62,6 +62,7 @@ export const ImportScreen: React.FC = () => {
   const [queueOnImport, setQueueOnImport] = useState(true);
   const [step, setStep] = useState<'pick' | 'map' | 'preview'>('pick');
   const [busy, setBusy] = useState(false);
+  const inFlight = useRef(false);
   const [filter, setFilter] = useState<RowStatus>('new');
 
   const pick = async () => {
@@ -80,12 +81,12 @@ export const ImportScreen: React.FC = () => {
       setProducts(await listProducts({ includeArchived: true }));
       if (isZip) {
         const book = readXlsx(bytes);
-        const rows = book.rows(0);
-        setFile({ name: asset.name, source: 'xlsx', sha, rows, book, previous });
-        startMapping(rows);
+        const sheet = book.sheet(0);
+        setFile({ name: asset.name, source: 'xlsx', sha, rows: sheet.rows, numeric: sheet.numericCells, book, previous });
+        startMapping(sheet.rows);
         return;
       }
-      const text = utf8Decode(bytes);
+      const { text, encoding } = decodeText(bytes);
       if (/^\s*\{/.test(text)) {
         const r = parsePriceChangeFile(text);
         if (!r.ok) { AppAlert.error(t(`importer.priceChange.${r.error}`)); return; }
@@ -96,9 +97,9 @@ export const ImportScreen: React.FC = () => {
         setMapping(['name', 'secondLine', 'price', 'barcode', 'sku']); setHasHeader(true); setProfileKey('dot'); setProfileConfirmed(true); setStep('preview');
         return;
       }
-      const rows = parseCsv(text.includes(';') && !text.includes(',') ? text.replace(/;/g, ',') : text);
+      const rows = parseCsv(text, detectDelimiter(text));
       if (!rows.length) { AppAlert.error(t('importer.errors.empty')); return; }
-      setFile({ name: asset.name, source: 'csv', sha, rows, previous });
+      setFile({ name: asset.name, source: 'csv', sha, rows, previous, encoding });
       startMapping(rows);
     } catch (e) {
       AppAlert.error(e instanceof XlsxReadError ? t(`importer.errors.xlsx.${e.code}`) : t('importer.errors.read'));
@@ -117,7 +118,7 @@ export const ImportScreen: React.FC = () => {
   };
 
   const rows = file?.rows ?? [];
-  const settings = { mapping, hasHeader, profile: PROFILES[profileKey], currency };
+  const settings = { mapping, hasHeader, profile: PROFILES[profileKey], currency, numericCells: file?.numeric };
   const plan: PlannedRow[] = useMemo(() => (file && step === 'preview' && currency ? planImport(rows, settings, products) : []), [file, step, rows, mapping, hasHeader, profileKey, currency, products]);
   const counts = countByStatus(plan);
   const priceCol = mapping.indexOf('price');
@@ -125,7 +126,8 @@ export const ImportScreen: React.FC = () => {
   const canPreview = mapping.includes('name') && mapping.includes('price') && profileConfirmed && !!currency;
 
   const commit = async () => {
-    if (!file || busy) return;
+    if (!file || inFlight.current) return;
+    inFlight.current = true;
     setBusy(true);
     try {
       const used = await countProductsForLimit();
@@ -138,7 +140,7 @@ export const ImportScreen: React.FC = () => {
     } catch (e) {
       if (e instanceof ImportCommitError) AppAlert.error(t(`importer.errors.${e.code}`, { count: e.detail ?? 0, limit: FREE_LIMITS.products }));
       else AppAlert.error(t('importer.errors.commit'));
-    } finally { setBusy(false); }
+    } finally { setBusy(false); inFlight.current = false; }
   };
 
   const header = <ScreenHeader title={t('importer.title')} subtitle={file?.name ?? t('importer.subtitle')} onBack={() => (step === 'preview' && !file?.fixed ? setStep('map') : step === 'map' ? setStep('pick') : nav.goBack())} />;
@@ -172,8 +174,9 @@ export const ImportScreen: React.FC = () => {
         {header}
         <ScrollView contentContainerStyle={s.content} keyboardShouldPersistTaps="handled">
           {file.previous ? <View style={s.warn}><Text style={s.warnText}>{t('importer.alreadyImported')}</Text></View> : null}
+          {file.encoding === 'windows-1252' ? <Text style={s.note}>{t('importer.encodingNote')}</Text> : null}
           {file.book && file.book.sheetNames.length > 1 ? (
-            <DropdownField label={t('importer.sheet')} value={file.book.sheetNames[sheet]} options={file.book.sheetNames} onSelect={v => { const i = file.book!.sheetNames.indexOf(v); setSheet(i); const r = file.book!.rows(i); setFile({ ...file, rows: r }); startMapping(r); }} />
+            <DropdownField label={t('importer.sheet')} value={file.book.sheetNames[sheet]} options={file.book.sheetNames} onSelect={v => { const i = file.book!.sheetNames.indexOf(v); setSheet(i); const sh = file.book!.sheet(i); setFile({ ...file, rows: sh.rows, numeric: sh.numericCells }); startMapping(sh.rows); }} />
           ) : null}
           <View style={s.rowField}><Text style={s.rowLabel}>{t('importer.firstRowHeaders')}</Text><AppSwitch value={hasHeader} onValueChange={setHasHeader} /></View>
           <Text style={s.section}>{t('importer.mapTitle')}</Text>

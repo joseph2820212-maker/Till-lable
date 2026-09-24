@@ -2,7 +2,7 @@
  * The print pipeline: queue items / samples → one sheet HTML (embedded fonts, exact page size, calibration) → ONE
  * PDF file with its SHA-256 → a job record. Preview, print and share all use that same file (handout §24).
  */
-import type { LanguageCode, PrintIntent, PrintJobLine, Product, StationeryProfile } from '../../domain/types';
+import type { LanguageCode, PrintIntent, PrintJobLine, Product, Promotion, StationeryProfile } from '../../domain/types';
 import { renderSheet, type SheetItem } from '../labels/engine/renderSheet';
 import { isPromoKind, type LabelContent, type LabelIssue, type RenderOptions } from '../labels/engine/renderLabel';
 import { buildFontFaceCss } from '../labels/engine/fonts';
@@ -11,17 +11,29 @@ import { generateLabelPdf } from '../labels/engine/pdfJob';
 import { renderTestSheet } from '../labels/engine/testPage';
 import { isCardFormat } from '../labels/engine/labelTemplate';
 import type { GeometryIssue } from '../labels/engine/geometry';
-import { contentFingerprint, productContent, type ContentProblem } from '../labels/content';
+import { contentFingerprint, productContent, promotionContent, type ContentProblem } from '../labels/content';
 import { getCalibration, getProfile } from './storage/stationeryStore';
 import { recordJob, type JobInput, type StoredJob } from './storage/jobStore';
+import { syncPrintedContent } from '../queue/storage/queueStore';
 import type { LabelSettings } from '../settings/storage/labelSettings';
 import { moneyFromMinor } from '../../domain/money';
 
-export interface QueueItem { intent: PrintIntent; content: LabelContent | null; problem?: ContentProblem | 'productMissing' }
+export interface QueueItem { intent: PrintIntent; content: LabelContent | null; problem?: ContentProblem | 'productMissing' | 'promotionEnded' }
 
-/** Resolve each waiting label to what it will print NOW (latest product data; one-off labels print their snapshot). */
-export function resolveQueue(intents: PrintIntent[], products: Product[], language: LanguageCode, settings: LabelSettings): QueueItem[] {
+/**
+ * Resolve each waiting label to what it will print NOW: products and offers use their latest data (an offer label
+ * follows a later price change); one-off labels (Quick label, reductions) print their snapshot.
+ */
+export function resolveQueue(intents: PrintIntent[], products: Product[], language: LanguageCode, settings: LabelSettings, promotions: Promotion[] = []): QueueItem[] {
   return intents.map(intent => {
+    if (intent.promotionId && intent.productId) {
+      const promo = promotions.find(x => x.id === intent.promotionId);
+      const p = products.find(x => x.id === intent.productId);
+      if (!promo || promo.status === 'ended') return { intent, content: null, problem: 'promotionEnded' as const };
+      if (!p) return { intent, content: null, problem: 'productMissing' as const };
+      const r = promotionContent(promo, p, { language, extraDecimals: settings.unitPriceExtraDecimals });
+      return r.ok ? { intent, content: r.content } : { intent, content: null, problem: r.problem };
+    }
     if (intent.snapshot) return { intent, content: intent.snapshot };
     const p = products.find(x => x.id === intent.productId);
     if (!p) return { intent, content: null, problem: 'productMissing' as const };
@@ -73,6 +85,7 @@ export async function generateSheetJob(args: {
     lines, stationeryProfileId: profile.id, rendererVersion: sheet.rendererVersion, pdfUri: pdf.uri, pdfSha256: pdf.sha256, displayName: args.displayName,
     startPosition: args.startPosition ?? 1, labelCount: sheet.labelCount, pageCount: sheet.pageCount, kind: args.kind,
   });
+  if (args.kind === 'queue') await syncPrintedContent(lines);
   return { ok: true, job, warnings: sheet.warnings };
 }
 

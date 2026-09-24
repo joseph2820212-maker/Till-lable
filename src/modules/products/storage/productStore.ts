@@ -45,11 +45,14 @@ export function barcodeFormatOf(raw: string): ProductBarcode['format'] {
   return 'unknown';
 }
 
-function toBarcodes(list: ProductDraft['barcodes']): ProductBarcode[] {
+function toBarcodes(list: ProductDraft['barcodes'], existing: ProductBarcode[] = []): ProductBarcode[] {
   const out: ProductBarcode[] = [];
   for (const b of list ?? []) {
     const raw = (b.raw ?? '').trim();
     if (!raw) continue;
+    // An unchanged code keeps how it was first read (e.g. a UPC-E expanded to UPC-A), so scans still match it.
+    const kept = (!b.symbology || b.symbology === 'unknown') ? existing.find(x => x.raw === raw) : undefined;
+    if (kept) { if (!out.some(x => x.normalized === kept.normalized)) out.push(kept); continue; }
     const normalized = normalizeBarcode(raw, b.symbology ?? 'unknown');
     if (out.some(x => x.normalized === normalized)) continue;
     out.push({ raw, normalized, format: barcodeFormatOf(raw) });
@@ -107,7 +110,7 @@ export function applyDraft(existing: Product | undefined, draft: ProductDraft): 
     price: draft.price,
     sellingUnit: draft.sellingUnit ?? { kind: 'each' as const },
     unitPriceBase: draft.unitPriceBase,
-    barcodes: toBarcodes(draft.barcodes),
+    barcodes: toBarcodes(draft.barcodes, existing?.barcodes),
     sku: clean(draft.sku) || undefined,
     labelKind: draft.labelKind,
     shelfLocation: clean(draft.shelfLocation) || undefined,

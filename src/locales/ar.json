@@ -517,8 +517,9 @@
       "noLabelName": "يحتاج اسم ملصق — اضغط للإصلاح",
       "noBarcode": "ملصق باركود بلا باركود — اضغط للإصلاح",
       "noUnitPrice": "ملصق سعر وحدة بلا سعر وحدة — اضغط للإصلاح",
-      "badPromotion": "لم يعد العرض يطابق هذا السعر",
-      "productMissing": "أُزيل المنتج"
+      "badPromotion": "العرض ليس أرخص من السعر — عدّل العرض",
+      "productMissing": "أُزيل المنتج",
+      "promotionEnded": "انتهى هذا العرض — أزل الملصق"
     }
   },
   "productEdit": {
@@ -616,8 +617,10 @@
         "unitBaseMismatch": "أساس سعر الوحدة لا يطابق طريقة بيع المنتج.",
         "duplicateBarcode": "يملك منتج آخر هذا الباركود. كل باركود يخص منتجًا واحدًا.",
         "notFound": "هذا المنتج لم يعد موجودًا."
-      }
-    }
+      },
+      "unitNeedsSoldAs": "يحتاج سعر الوحدة إلى معرفة طريقة البيع: اختر عبوة أو وزنًا أو حجمًا أو طولًا."
+    },
+    "barcodePh": "امسح الباركود أو اكتبه"
   },
   "labelKind": {
     "standardPrice": "السعر",
@@ -641,12 +644,12 @@
     "es": "الإسبانية",
     "de": "الألمانية",
     "sample": {
-      "en": "“Was”, “per kg”, “Until 31 Oct 2026”",
-      "ar": "“كان”، “للكيلو”، “حتى 31 أكتوبر 2026”",
-      "tr": "“Eski fiyat”، “kg fiyatı”، “31 Eki 2026 tarihine kadar”",
-      "fr": "“Avant”، “le kg”، “Jusqu’au 31 oct. 2026”",
-      "es": "“Antes”، “el kg”، “Hasta el 31 oct 2026”",
-      "de": "“Vorher”، “je kg”، “Gültig bis 31. Okt. 2026”"
+      "en": "Was · per kg · Until 31 Oct 2026",
+      "ar": "كان · للكيلو · حتى 31 أكتوبر 2026",
+      "tr": "Eski fiyat · kg fiyatı · 31 Eki 2026 tarihine kadar",
+      "fr": "Avant · le kg · Jusqu’au 31 oct. 2026",
+      "es": "Antes · el kg · Hasta el 31 oct 2026",
+      "de": "Vorher · je kg · Gültig bis 31. Okt. 2026"
     }
   },
   "scan": {
@@ -990,7 +993,7 @@
       "nameTooLong": "الصف {{row}}: الاسم أطول من 250 حرفًا",
       "labelNameTooLong": "الصف {{row}}: اسم الملصق أطول من 40 حرفًا",
       "fieldTooLong": "الصف {{row}}: قيمة أطول من أن تُخزَّن",
-      "duplicateInFile": "الصف {{row}}: الباركود نفسه يتكرر في الملف",
+      "duplicateInFile": "الصف {{row}}: المنتج نفسه يتكرر في الملف",
       "matchesTwoProducts": "الصف {{row}}: يطابق منتجين مختلفين",
       "barcodeBelongsToOther": "الصف {{row}}: الباركود يخص منتجًا آخر"
     },
@@ -1029,7 +1032,8 @@
       "badItem": "منتج في الملف غير مكتمل. لم يُستورد شيء.",
       "checksumMismatch": "عُدِّل الملف أو تلف بعد أن أنشأه TillCalc. لم يُستورد شيء.",
       "containsCosts": "يحوي الملف بيانات تكلفة، ولا يستوردها TillLabel أبدًا. لم يُستورد شيء."
-    }
+    },
+    "encodingNote": "هذا الملف ليس UTF-8؛ قُرئ كملف Windows ‏(Excel). تحقّق في المعاينة من صحة الأسماء والرموز."
   },
   "offers": {
     "title": "العروض",
@@ -1073,7 +1077,7 @@
     "normalKept": "يحتفظ كل منتج بسعره العادي؛ ولا يظهر العرض إلا على ملصقات العرض.",
     "problem": {
       "noLabelName": "يحتاج اسم ملصق",
-      "badPromotion": "العرض ليس أقل من السعر",
+      "badPromotion": "العرض ليس أرخص من السعر العادي",
       "noBarcode": "لا باركود",
       "noUnitPrice": "لا سعر وحدة"
     },
@@ -1098,7 +1102,10 @@
       "badDates": "تاريخ الانتهاء قبل تاريخ البدء.",
       "mixedCurrency": "يجب أن تستخدم منتجات العرض الواحد العملة نفسها.",
       "saveFailed": "تعذّر حفظ العرض. لم يتغيّر شيء."
-    }
+    },
+    "previewWasNow": "كان {{was}} ← الآن {{now}}",
+    "previewMultibuy": "{{quantity}} بـ {{total}} (الواحدة: {{each}})",
+    "previewNow": "سعر العرض {{price}}"
   },
   "reduce": {
     "title": "تخفيض للتصفية",

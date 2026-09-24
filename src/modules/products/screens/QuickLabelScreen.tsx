@@ -43,6 +43,7 @@ export const QuickLabelScreen: React.FC = () => {
   const [d, setD] = useState<Draft>(EMPTY);
   const [restored, setRestored] = useState(false);
   const [busy, setBusy] = useState(false);
+  const inFlight = useRef(false);
   const [limitOpen, setLimitOpen] = useState(false);
   const loaded = useRef(false);
   const currency = isCurrencySet() ? getCurrencyCode() : '';
@@ -64,7 +65,8 @@ export const QuickLabelScreen: React.FC = () => {
   const canAdd = !!d.name.trim() && !counter.over && !!price?.ok && d.copies >= 1;
 
   const add = async () => {
-    if (!canAdd || !price?.ok || busy) return;
+    if (!canAdd || !price?.ok || inFlight.current) return;
+    inFlight.current = true;
     setBusy(true);
     try {
       if (d.save) {
@@ -86,7 +88,7 @@ export const QuickLabelScreen: React.FC = () => {
       ]);
     } catch {
       AppAlert.error(t('quick.failed'));
-    } finally { setBusy(false); }
+    } finally { setBusy(false); inFlight.current = false; }
   };
 
   return (

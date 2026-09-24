@@ -8,7 +8,9 @@ import { bytesToHex } from '@noble/hashes/utils.js';
 import { TL_KEYS } from '../../storage/keys';
 import { readList, transact } from '../../storage/repo';
 import { SCHEMA_VERSIONS, type ImportBatch, type PrintIntent, type Product } from '../../domain/types';
-import { isAmbiguousSeparator, parseMoney, type NumberProfile } from '../../domain/money';
+import { exponentFor, isAmbiguousSeparator, moneyFromMinor, parseMoney, type MoneyParse, type NumberProfile } from '../../domain/money';
+import { normalizeArabicNumerals } from '../../utils/locale';
+import { symbolForCode } from '../../utils/currency';
 import { CATALOGUE_LIMITS, LABEL_NAME_MAX } from '../../domain/productLabel';
 import { normalizeBarcode } from '../products/utils/barcode';
 import { applyDraft, validateDraft, type ProductDraft } from '../products/storage/productStore';
@@ -65,9 +67,42 @@ export interface PlannedRow {
   oldPriceMinor?: number;
   productId?: string;
   draft?: ProductDraft;
+  /** Internal: identity used to find the same product twice in one file. */
+  matchKey?: string;
 }
 
-export interface ImportSettings { mapping: MappedField[]; hasHeader: boolean; profile: NumberProfile; currency: string }
+export interface ImportSettings {
+  mapping: MappedField[];
+  hasHeader: boolean;
+  profile: NumberProfile;
+  currency: string;
+  /** XLSX number cells ("row:col" in the raw rows): always "."-decimal, whatever the confirmed text format. */
+  numericCells?: ReadonlySet<string>;
+}
+
+/**
+ * A price cell reduced to its number: surrounding spaces and the shop currency's own symbol or ISO code are removed.
+ * Anything else — another currency, a minus sign, brackets, words — makes the cell unreadable rather than guessed.
+ */
+export function cleanPriceCell(text: string, currency: string): string | null {
+  let s = normalizeArabicNumerals(text).replace(/[\s\u00A0\u202F]/g, '');
+  const symbols = [currency, symbolForCode(currency)].filter(Boolean).sort((a, b) => b.length - a.length);
+  for (const sym of symbols) {
+    if (s.startsWith(sym)) { s = s.slice(sym.length); break; }
+    if (s.endsWith(sym)) { s = s.slice(0, -sym.length); break; }
+  }
+  return /^[\d.,'٫٬]+$/.test(s) ? s : null;
+}
+
+/** An XLSX number cell ("." decimal, possibly float noise like 2.9899999999999998), rounded to the currency. */
+export function parseSpreadsheetNumber(text: string, currency: string): MoneyParse {
+  const n = Number(text);
+  if (!Number.isFinite(n) || n < 0 || !/^\d+(\.\d+)?(e[+-]?\d+)?$/i.test(text)) return { ok: false, error: 'invalid' };
+  const exp = exponentFor(currency);
+  const minor = Math.round(n * 10 ** exp);
+  if (!Number.isSafeInteger(minor)) return { ok: false, error: 'overflow' };
+  return { ok: true, money: moneyFromMinor(minor, currency) };
+}
 
 const cell = (r: string[], mapping: MappedField[], f: MappedField) => { const i = mapping.indexOf(f); return i >= 0 ? (r[i] ?? '').trim() : ''; };
 
@@ -87,7 +122,7 @@ export function planImport(rows: string[][], s: ImportSettings, products: Produc
   const seenBarcodes = new Map<string, number>();
   data.forEach(r => { const b = normalizeBarcode(cell(r, s.mapping, 'barcode')); if (b) seenBarcodes.set(b, (seenBarcodes.get(b) ?? 0) + 1); });
 
-  return data.map((r, idx) => {
+  const planned = data.map((r, idx) => {
     const row = idx + (s.hasHeader ? 2 : 1);
     const name = cell(r, s.mapping, 'name');
     const labelName = cell(r, s.mapping, 'labelName');
@@ -99,8 +134,10 @@ export function planImport(rows: string[][], s: ImportSettings, products: Produc
     if ([...name].length > CATALOGUE_LIMITS.productName) return { ...out, reason: 'nameTooLong' };
     if (labelName && [...labelName].length > LABEL_NAME_MAX) return { ...out, reason: 'labelNameTooLong' };
     if (!priceText) return { ...out, reason: 'missingPrice' };
-    const price = parseMoney(priceText.replace(/[^\d.,\s٠-٩'٫٬-]/g, ''), s.currency, s.profile);
-    if (!price.ok || price.money.minor <= 0) return { ...out, reason: 'badPrice' };
+    const cleaned = cleanPriceCell(priceText, s.currency);
+    const priceCol = s.mapping.indexOf('price');
+    const price = cleaned === null ? null : s.numericCells?.has(`${idx + (s.hasHeader ? 1 : 0)}:${priceCol}`) ? parseSpreadsheetNumber(cleaned, s.currency) : parseMoney(cleaned, s.currency, s.profile);
+    if (!price || !price.ok || price.money.minor <= 0) return { ...out, reason: 'badPrice' };
     out.priceMinor = price.money.minor;
     const barcode = normalizeBarcode(barcodeRaw);
     if (barcode && (seenBarcodes.get(barcode) ?? 0) > 1) return { ...out, status: 'conflict', reason: 'duplicateInFile' };
@@ -126,9 +163,18 @@ export function planImport(rows: string[][], s: ImportSettings, products: Produc
       : { name, labelName: labelName || undefined, secondLine: cell(r, s.mapping, 'secondLine') || undefined, price: price.money, barcodes: barcodeRaw ? [{ raw: barcodeRaw }] : [], sku: sku || undefined, shelfLocation: cell(r, s.mapping, 'shelfLocation') || undefined };
     const err = validateDraft(draft);
     if (err) return { ...out, reason: err === 'labelNameTooLong' ? 'labelNameTooLong' : 'fieldTooLong' };
-    if (!match) return { ...out, status: 'new', draft };
+    const identity = barcode ? `b:${barcode}` : sku ? `s:${sku.toLowerCase()}` : `n:${fold(name)}`;
+    if (!match) return { ...out, status: 'new' as const, draft, matchKey: identity };
     const next = applyDraft(match, draft);
-    return { ...out, status: next.printedChanged ? 'changed' : 'unchanged', productId: match.id, draft, oldPriceMinor: match.price.minor };
+    return { ...out, status: next.printedChanged ? 'changed' as const : 'unchanged' as const, productId: match.id, draft, oldPriceMinor: match.price.minor, matchKey: `p:${match.id}` };
+  });
+  // The same product twice in one file (same SKU, same name without codes, or two rows matching one product) would
+  // create duplicates or let the last row silently win: every such row becomes a conflict instead.
+  const seen = new Map<string, number>();
+  for (const r of planned) if (r.matchKey) seen.set(r.matchKey, (seen.get(r.matchKey) ?? 0) + 1);
+  return planned.map(r => {
+    const { matchKey, ...rest } = r as PlannedRow & { matchKey?: string };
+    return matchKey && (seen.get(matchKey) ?? 0) > 1 ? { ...rest, status: 'conflict' as const, reason: 'duplicateInFile' as const, draft: undefined } : rest;
   });
 }
 

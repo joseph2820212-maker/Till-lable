@@ -13,6 +13,7 @@
   "dependencies": {
     "@config-plugins/react-native-blob-util": "12.0.0",
     "@config-plugins/react-native-pdf": "12.0.0",
+    "@expo-google-fonts/ibm-plex-sans": "0.4.1",
     "@expo-google-fonts/ibm-plex-sans-arabic": "^0.4.2",
     "@expo/vector-icons": "~15.1.1",
     "@noble/ciphers": "^2.2.0",
@@ -21,6 +22,7 @@
     "@react-navigation/bottom-tabs": "^6.6.1",
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/native-stack": "^6.11.0",
+    "bwip-js": "4.11.4",
     "expo": "~54.0.36",
     "expo-camera": "~17.0.10",
     "expo-document-picker": "~14.0.8",
@@ -84,15 +86,27 @@
       "^react-native-blob-util$": "<rootDir>/__mocks__/react-native-blob-util.ts",
       "^expo-camera$": "<rootDir>/__mocks__/expo-camera.tsx",
       "^expo-haptics$": "<rootDir>/__mocks__/expo-haptics.ts",
-      "^expo-document-picker$": "<rootDir>/__mocks__/expo-document-picker.ts"
+      "^expo-document-picker$": "<rootDir>/__mocks__/expo-document-picker.ts",
+      "^bwip-js/generic$": "<rootDir>/node_modules/bwip-js/dist/bwip-js-gen.mjs"
     },
     "transformIgnorePatterns": [
-      "/node_modules/(?!(.pnpm|react-native|@react-native|@react-native-community|expo|@expo|@expo-google-fonts|react-navigation|@react-navigation|@sentry/react-native|native-base|@noble))",
+      "/node_modules/(?!(.pnpm|react-native|@react-native|@react-native-community|expo|@expo|@expo-google-fonts|react-navigation|@react-navigation|@sentry/react-native|native-base|@noble|bwip-js))",
       "/node_modules/react-native-reanimated/plugin/"
     ],
     "testMatch": [
       "**/__tests__/**/*.test.ts",
       "**/__tests__/**/*.test.tsx"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx|mjs)$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "mjs",
+      "json"
     ]
   },
   "private": true

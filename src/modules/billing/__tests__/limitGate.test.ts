@@ -1,7 +1,7 @@
 // The ONE authoritative Free/Pro limit layer (carried over from TillCalc's F02 tests,
 // re-pointed at TillLabel's provisional plan). Adversarial cases: at / over / around the
 // threshold, bad counts, exemptions, Pro never limited, restored data never deleted.
-import { checkLimit, FREE_LIMITS, LIMIT_CAPS, type LimitKind } from '../limits';
+import { canUseFeature, checkLimit, FREE_FEATURES, FREE_LIMITS, LIMIT_CAPS, PRO_FEATURES, type LimitKind } from '../limits';
 
 describe('checkLimit — products threshold', () => {
   it('allowed below the cap, refused AT and OVER the cap on Free', () => {
@@ -12,7 +12,7 @@ describe('checkLimit — products threshold', () => {
     expect(checkLimit('free', 'products', cap + 1)).toEqual({ allowed: false, remaining: 0, limit: cap });
   });
 
-  it('caps match the provisional plan exactly (200 products, Pro-only features)', () => {
+  it('caps match the approved plan exactly (200 products, Pro-only features)', () => {
     expect(LIMIT_CAPS).toEqual({ products: 200, proFeature: null });
     expect(FREE_LIMITS).toEqual({ products: 200 });
   });
@@ -55,5 +55,27 @@ describe('exemptions and restored data (TL-33)', () => {
   it('a restored catalogue over the cap only stops NEW products: the answer carries no deletion instruction', () => {
     const r = checkLimit('free', 'products', 1500);
     expect(r).toEqual({ allowed: false, remaining: 0, limit: 200 });
+  });
+});
+
+describe('owner-approved Free / Pro feature split (24 Sep 2026)', () => {
+  it('the Pro list is exactly the approved nine features', () => {
+    expect([...PRO_FEATURES]).toEqual(['wasNow', 'percentOff', 'moneyOff', 'multibuy', 'reducedToClear', 'offerCards', 'customStationery', 'multipleProfiles', 'bulkQueue']);
+  });
+  it('printing, calibration, preview, import, backup and unit-price labels are Free', () => {
+    for (const f of ['printing', 'calibration', 'pdfPreview', 'csvImport', 'tillcalcImport', 'backupRestore', 'unitPriceLabel', 'priceBarcodeLabel', 'quickLabel', 'standardLabel', 'allLanguages'] as const) {
+      expect(FREE_FEATURES).toContain(f);
+      expect(canUseFeature('free', f)).toBe(true);
+    }
+  });
+  it('no feature is both Free and Pro', () => {
+    expect(PRO_FEATURES.filter(f => (FREE_FEATURES as readonly string[]).includes(f))).toEqual([]);
+  });
+  it('Pro features are refused on Free and allowed on Pro; an unknown feature fails closed', () => {
+    for (const f of PRO_FEATURES) {
+      expect(canUseFeature('free', f)).toBe(false);
+      expect(canUseFeature('pro', f)).toBe(true);
+    }
+    expect(canUseFeature('free', 'somethingNew' as any)).toBe(false);
   });
 });

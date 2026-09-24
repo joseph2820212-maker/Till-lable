@@ -13,7 +13,7 @@ A requirement may not be dropped silently. Changes are recorded in §5 with thei
 | R-04 | Offers: was/now, percentage off, money off, fixed-quantity multibuy, conditional/member price, optional dates | M | TL-03, TL-41 |
 | R-05 | Reduced-to-clear batches stored apart from the normal price | M | TL-02, TL-20 |
 | R-06 | Changed-only print queue (content fingerprint, copy counts, stale-preview detection) | N | TL-06, TL-07, TL-15, TL-16 |
-| R-07 | Stationery: shelf-edge inserts, adhesive sheets, plain paper/card with cutting guides; custom geometry | G | TL-22, TL-27, TL-28 |
+| R-07 | Stationery: 70 × 38 mm shelf-edge ticket/insert (priority), Avery L7160 / L7159 / L7163, plain A4/card with cutting guides; custom sheet editor (Pro). L7651 and US Letter 5160 deferred (owner, 24 Sep 2026) | G | TL-22, TL-27, TL-28 |
 | R-08 | One exact PDF per job for preview, print and export, with checksum | H | TL-18, TL-22, TL-45 |
 | R-09 | Printer/stationery profiles, calibration page, 0.5 mm nudges, placement map | O | TL-23, TL-28 |
 | R-10 | Print confirmation after the dialog (Confirm printed / Keep waiting / Reprint), partial pages, history | O | TL-17, TL-19, TL-21 |
@@ -42,10 +42,28 @@ barcodes; thermal-printer SDKs (a later, separately approved project); iOS build
 - Price fields are the final customer selling price. Net-price imports need an explicit reviewed conversion.
 - App language, printed language, currency and shop timezone are independent settings.
 
-## 4. Provisional commercial settings (not owner-approved)
+## 4. Commercial settings (owner-approved 24 Sep 2026)
 
-200 saved products on Free; no sheet counter; lifetime Pro for larger catalogues and advanced conveniences. The review
-APK unlocks everything, so these do not block testing.
+Lifetime purchase only; no subscription in Release 1. UK launch price **£14.99** (other stores: nearest local price
+point, set in the stores and RevenueCat, not in code). The review APK unlocks everything.
+
+| Free | Pro (lifetime) |
+|---|---|
+| Up to 200 saved products | Unlimited products |
+| Quick label | Was/now |
+| Standard shelf-price label | Percentage off |
+| Price + barcode label | Money off |
+| Unit-price label | Multibuy |
+| CSV and TillCalc import | Reduced-to-clear |
+| Real PDF preview | A4 / A5 / A6 offer cards |
+| Calibration and test printing | Custom sheet layouts |
+| Unlimited normal printing | Multiple saved printer / stationery profiles |
+| Backup and restore | Advanced bulk workflows and queue filters |
+| All six languages | |
+| Existing data is never locked | |
+
+A limit only stops adding new Pro capacity. Existing or restored data is never deleted, hidden or locked (TL-33).
+The feature lists are pinned in code in `src/modules/billing/limits.ts` (`FREE_FEATURES`, `PRO_FEATURES`).
 
 ## 5. Owner decisions and changes
 
@@ -54,3 +72,7 @@ APK unlocks everything, so these do not block testing.
 | 24 Sep 2026 | New repo `tilllabel`, work on `main` | Replaces plan §B branch `build/tilllabel-r1` |
 | 24 Sep 2026 | TillCalc exporter = one commit on TillCalc `main`, only after owner approval at G6 | Replaces plan §L exporter branch |
 | 24 Sep 2026 | Till Note baseline = `codex/testflight-1.0.5-ui-fixes-20260915` @ `b647a481` | Replaces plan §B reference `6fa6e941` |
+| 24 Sep 2026 | Reference Android phone: **Samsung Galaxy S22** (review APK, scanning, performance, PDF preview, printing). A slower second Android is desirable later, not a blocker | `ACCEPTANCE_BUDGETS.md`, device evidence |
+| 24 Sep 2026 | Release-1 stationery: 70 × 38 mm shelf-edge (priority), L7160, L7159, L7163, plain A4/card with guides, custom editor (Pro); L7651 and 5160 deferred | R-07, `PRINTER_STATIONERY_MATRIX.md` |
+| 24 Sep 2026 | Free / Pro split as in §4 | §4, `billing/limits.ts` |
+| 24 Sep 2026 | Pro is lifetime only, UK £14.99, no subscription | §4; recorded in the G10 release recipe |

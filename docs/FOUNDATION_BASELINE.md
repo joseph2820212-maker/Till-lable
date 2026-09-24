@@ -50,6 +50,11 @@ pins Node 20 in `.nvmrc` and CI at G1.
 
 TillLabel starts from TillCalc's lockfile unchanged. No SDK upgrade in Release 1.
 
+## TillLabel reference device
+
+Samsung Galaxy S22 (owner decision, 24 Sep 2026): primary device for the review APK, barcode scanning,
+performance, PDF preview and printing. No TillLabel device evidence exists yet.
+
 ## Logs
 
 Raw logs are kept outside the repo (scratch). Counts above are copied from them. Re-running the same commands on the

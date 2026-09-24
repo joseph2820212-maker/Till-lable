@@ -13,4 +13,4 @@ These are project targets, not manufacturer guarantees. They change only with ev
 | Label PDF | 21-label sheet generated under 2 s on the reference device; large jobs chunked without losing order or copy counts | Device timing at G10 |
 | Cold start | Recorded on the reference device; no fixed budget until measured | Device timing |
 
-Reference device: to be named by the owner (for example the Samsung used for other family apps).
+Reference device: **Samsung Galaxy S22** (owner decision, 24 Sep 2026). A slower second Android may be added later.

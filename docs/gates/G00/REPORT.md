@@ -110,3 +110,18 @@ not exist yet.
 ## Next authorised gate
 
 G1, after (1) owner review of this report and (2) the repository exists and is added to the session.
+
+---
+
+## Addendum — owner decisions closed (24 Sep 2026)
+
+Recorded after G0; the baseline, findings and commands above are unchanged.
+
+| Item (from "Untested / pending") | Decision | Status |
+|---|---|---|
+| Reference device for budgets | Samsung Galaxy S22 | Closed |
+| Sheets actually used in shops | 70 × 38 mm shelf-edge (priority), L7160, L7159, L7163, plain A4/card with guides, custom editor (Pro); L7651 and 5160 deferred | Closed |
+| Commercial Free/Pro split and price | Free and Pro lists in `SCOPE_LOCK.md` §4; lifetime only, UK £14.99, no subscription | Closed |
+| Stationery geometry for every preset | Still not sourced (avery.co.uk blocked) | **Pending** |
+| GB price-marking guidance source | Still not sourced (gov.uk blocked) | **Pending** |
+| Physical paper evidence | Only after printing on real stationery | **Pending** |

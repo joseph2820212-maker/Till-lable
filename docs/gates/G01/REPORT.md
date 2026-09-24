@@ -107,3 +107,12 @@ Recorded by the commit that contains this report (see `git log -1`). Tree clean 
 ## Next authorised gate
 
 G2 (label engine and first engineering APK), after owner review of this report.
+
+---
+
+## Addendum — alignment with the owner decisions of 24 Sep 2026
+
+The G1 values already matched the approved plan (200-product Free cap, lifetime Pro). `limits.ts` now also pins
+the approved Free and Pro feature lists (`FREE_FEATURES`, `PRO_FEATURES`, `canUseFeature`, unknown features fail
+closed) so G3–G5 gate each feature from one list; tests in `limitGate.test.ts`. No screen behaviour changed.
+Reference device for all later device evidence: Samsung Galaxy S22.

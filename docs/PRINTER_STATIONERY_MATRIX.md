@@ -4,28 +4,32 @@ Status words: **User-defined** (typed by the user), **Geometry verified** (check
 spec sheet, source cited), **Paper verified** (printed and measured on listed equipment, photo evidence). Nothing is
 "supported" until it reaches at least Geometry verified.
 
-## Candidate presets (G0)
+## Release-1 set (owner decision, 24 Sep 2026)
 
-The manufacturer pages could not be read from the build environment (the network policy blocks avery.co.uk). Every
-row below is therefore **Unverified**. The sizes are the commonly published ones and are placeholders until checked.
+"Launch" means the app will offer the profile. It does not mean verified: geometry stays **Unverified** until
+sourced from the manufacturer, and physical status stays **Pending** until printed and measured. Manufacturer
+dimensions alone never become a physical pass.
 
-| Preset | Paper | Labels per sheet | Label size (published, unverified) | Pitch / margins | Status | Notes |
-|---|---|---|---|---|---|---|
-| Avery L7160 | A4 | 21 (3 × 7) | 63.5 × 38.1 mm | not yet sourced | Unverified | Candidate |
-| Avery L7159 | A4 | 24 (3 × 8) | 63.5 × 33.9 mm | not yet sourced | Unverified | Candidate |
-| Avery L7163 | A4 | 14 (2 × 7) | 99.1 × 38.1 mm | not yet sourced | Unverified | Candidate |
-| Avery 5160 | US Letter | 30 (3 × 10) | 1 × 2⅝ in | not yet sourced | Unverified | Candidate |
-| Avery L7651 | A4 | 65 (5 × 13) | 38.1 × 21.2 mm | not yet sourced | Unverified | Optional: usable content space must be proven (plan §G) |
-| Plain paper 70 × 38 mm with cut guides | A4 | computed | 70 × 38 mm (design size) | computed | Design dimension | Not a proprietary sheet grid |
-| Plain paper 50 × 38 mm with cut guides | A4 | computed | 50 × 38 mm (design size) | computed | Design dimension | Not a proprietary sheet grid |
+| Preset | Paper | Labels per sheet | Label size | Pitch / margins | Launch | Geometry | Physical | Notes |
+|---|---|---|---|---|---|---|---|---|
+| Shelf-edge ticket / insert | A4 (plain card) or supplier insert strip | computed / from supplier | **70 × 38 mm** (design size) | computed for plain card; supplier grid not yet sourced | **Yes — priority** | Design dimension | Pending | The format TillLabel is built around. If a supplier's perforated insert sheet is used, its exact grid must be sourced from that product. |
+| Avery L7160 | A4 | 21 (3 × 7) | 63.5 × 38.1 mm (published, unverified) | not yet sourced | Yes | Unverified | Pending | |
+| Avery L7159 | A4 | 24 (3 × 8) | 63.5 × 33.9 mm (published, unverified) | not yet sourced | Yes | Unverified | Pending | |
+| Avery L7163 | A4 | 14 (2 × 7) | 99.1 × 38.1 mm (published, unverified) | not yet sourced | Yes | Unverified | Pending | |
+| Plain A4 / card with cutting guides | A4 | computed | chosen ticket size | computed | Yes | Design dimension | Pending | Cut marks printed outside the ticket safe area |
+| Custom sheet (user-measured) | A4 | user | user | user | Yes — Pro, advanced | User-defined | Pending | Validated before PDF; test page required |
+| Avery L7651 | A4 | 65 (5 × 13) | 38.1 × 21.2 mm (published, unverified) | not yet sourced | **Deferred** until after first review | Unverified | — | Only if it comes essentially free |
+| Avery 5160 | US Letter | 30 (3 × 10) | 1 × 2⅝ in (published, unverified) | not yet sourced | **Deferred** until after UK review | Unverified | — | Only if it comes essentially free |
 
 ## What is needed to verify (owner or native operator)
 
 1. The spec sheet for each preset (manufacturer template PDF or product page with top margin, side margin, horizontal
    and vertical pitch). Either allow `avery.co.uk` and `avery.com` in the environment's network policy, or save the
    spec sheets into `docs/evidence/stationery/`.
-2. Which sheets the shops you know actually buy, including shelf-edge insert strips (brand and code).
-3. Paper tests after G2: top, middle and bottom labels measured with a ruler on one laser and one inkjet printer.
+2. For the 70 × 38 mm shelf-edge format: the exact product (brand, code or supplier) if a perforated insert sheet is used
+   rather than plain card.
+3. Paper tests after G2 on the Samsung Galaxy S22: top, middle and bottom labels measured with a ruler on one laser and
+   one inkjet printer.
 
 ## Rules
 

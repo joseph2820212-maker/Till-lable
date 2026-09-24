@@ -1,8 +1,8 @@
 export type Tier = 'free' | 'pro';
 
 /**
- * PROVISIONAL Free plan limits (plan TNF-TL-R1-PLAN-1.1 §A, not an owner-approved commercial decision).
- * The review APK unlocks everything, so these values never block testing.
+ * Free plan limits — owner-approved 24 Sep 2026 (docs/SCOPE_LOCK.md §4). Pro is a lifetime purchase
+ * (UK £14.99, set in the stores, not in code); no subscription. The review APK unlocks everything.
  */
 export const FREE_LIMITS = {
   products: 200,
@@ -14,6 +14,43 @@ export const FREE_LIMITS = {
  * existing and restored data is never deleted, hidden or locked (TL-33).
  */
 export type LimitKind = 'products' | 'proFeature';
+
+/** Everything in Free (owner decision). Printing, calibration, import and backup are never paywalled. */
+export const FREE_FEATURES = [
+  'quickLabel',
+  'standardLabel',
+  'priceBarcodeLabel',
+  'unitPriceLabel',
+  'csvImport',
+  'tillcalcImport',
+  'pdfPreview',
+  'calibration',
+  'printing',
+  'backupRestore',
+  'allLanguages',
+] as const;
+
+/** Pro-only features (owner decision). Each is gated with checkLimit(tier, 'proFeature', 0) in the gate that builds it. */
+export const PRO_FEATURES = [
+  'wasNow',
+  'percentOff',
+  'moneyOff',
+  'multibuy',
+  'reducedToClear',
+  'offerCards',
+  'customStationery',
+  'multipleProfiles',
+  'bulkQueue',
+] as const;
+
+export type FreeFeature = (typeof FREE_FEATURES)[number];
+export type ProFeature = (typeof PRO_FEATURES)[number];
+
+/** True when `feature` may be used on this tier. Unknown features are treated as Pro (fail closed). */
+export function canUseFeature(tier: Tier, feature: FreeFeature | ProFeature): boolean {
+  if ((FREE_FEATURES as readonly string[]).includes(feature)) return true;
+  return checkLimit(tier, 'proFeature', 0).allowed;
+}
 
 export const LIMIT_CAPS: Record<LimitKind, number | null> = {
   products: FREE_LIMITS.products,

@@ -7,7 +7,7 @@
  */
 import type { PrinterCalibration, StationeryProfile } from '../../../domain/types';
 import { hasBlockingIssue, labelsPerSheet, mmToPt, pageSizeMm, placeLabels, validateStationery, type GeometryIssue, type LabelBox } from './geometry';
-import { LABEL_CSS, renderLabel, type LabelContent, type LabelIssue, type LabelStyle } from './renderLabel';
+import { isCardFormat, LABEL_CSS, renderLabel, type LabelContent, type LabelIssue, type LabelStyle, type SizeCaps } from './renderLabel';
 
 export const RENDERER_VERSION = 'tl-labels-1';
 
@@ -43,7 +43,19 @@ export function renderSheet(req: SheetRequest): SheetResult {
 
   const p = req.profile;
   const box = { widthMm: p.labelWidthMm, heightMm: p.labelHeightMm, safeInsetMm: p.safeInsetMm };
-  const rendered = req.items.map(it => renderLabel(it.content, box, it.style));
+  // Pass 1 finds each label's own best sizes; pass 2 renders every label of the same kind at the smallest of
+  // them, so a sheet reads as one set (same name and price size) instead of each ticket sized differently.
+  const first = req.items.map(it => renderLabel(it.content, box, it.style));
+  const caps = new Map<string, SizeCaps>();
+  first.forEach((r, i) => {
+    if (!r.metrics) return;
+    const kind = req.items[i].content.kind;
+    const c = caps.get(kind) ?? { namePt: Infinity, pricePt: Infinity };
+    caps.set(kind, { namePt: Math.min(c.namePt as number, r.metrics.namePt), pricePt: Math.min(c.pricePt as number, r.metrics.pricePt) });
+  });
+  // Offer cards stand alone on the shelf, so each keeps its own largest sizes.
+  const uniform = !isCardFormat(p.labelHeightMm - 2 * p.safeInsetMm);
+  const rendered = req.items.map((it, i) => (uniform && first[i].metrics ? renderLabel(it.content, box, it.style, caps.get(it.content.kind)) : first[i]));
   const labelIssues = rendered.flatMap((r, itemIndex) => r.issues.filter(i => i.severity === 'error').map(issue => ({ itemIndex, issue })));
   if (labelIssues.length) return { ok: false, geometryIssues: [], labelIssues };
   const warnings = rendered.flatMap((r, itemIndex) => r.issues.filter(i => i.severity === 'warning').map(issue => ({ itemIndex, issue })));

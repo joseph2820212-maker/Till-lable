@@ -5,7 +5,7 @@
  */
 import type { BarcodeFormat, LabelKind, LanguageCode, UnitPriceBase } from '../../../domain/types';
 import type { Money } from '../../../domain/money';
-import { formatMoneyValue } from '../../../domain/formatMoney';
+import { formatMoneyParts, formatMoneyValue } from '../../../domain/formatMoney';
 import { escapeHtml } from '../../../utils/htmlEscape';
 import { fitSingleLine, fitText, measureMm, PT_PER_MM } from './textFit';
 import { formatLabelDate, formatPercent, labelText } from './labelStrings';
@@ -42,7 +42,17 @@ export type LabelIssueCode =
 
 export interface LabelIssue { code: LabelIssueCode; severity: 'error' | 'warning'; detail?: string }
 
-export interface RenderedLabel { html: string; issues: LabelIssue[] }
+/** Labels at least this tall (inner mm) are offer cards: each stands alone, price first, no sheet-wide size cap. */
+export const CARD_MIN_HEIGHT_MM = 80;
+export const isCardFormat = (innerHeightMm: number): boolean => innerHeightMm >= CARD_MIN_HEIGHT_MM;
+
+/** Sizes a label was rendered at; a sheet uses the smallest of each so every label on it matches. */
+export interface LabelMetrics { namePt: number; pricePt: number }
+
+export interface RenderedLabel { html: string; issues: LabelIssue[]; metrics?: LabelMetrics }
+
+/** Upper limits imposed by the sheet (uniform sizing). A label never goes above them. */
+export interface SizeCaps { namePt?: number; pricePt?: number }
 
 const PROMO_KINDS: LabelKind[] = ['wasNow', 'percentOff', 'moneyOff', 'multibuy', 'reducedToClear', 'memberPrice'];
 const isPromo = (k: LabelKind) => PROMO_KINDS.includes(k) || k.startsWith('offerCard');
@@ -110,10 +120,19 @@ function headline(c: LabelContent, promo: LabelKind | null): { text: string; htm
 }
 
 /**
- * Render one label into a box of widthMm × heightMm with the given safe inset. Blocking issues (errors) mean the
- * label must not be printed in this format; warnings describe a controlled shortening.
+ * Render one label into a box of widthMm × heightMm with the given safe inset.
+ *
+ * Layout (the same template at every size, scaled from the 70 × 38 mm ticket):
+ *   [promotion band]                          optional, full width
+ *   product name (bold, up to 2 lines)        top, start-aligned
+ *   pack size / second line                   small
+ *   conditions · validity                     small, only when present
+ *   ─ bottom row, one shared bottom line ─
+ *   start side: unit price, then barcode (or SKU)      end side: price
+ * Arabic labels mirror the columns; prices, codes and bars stay left-to-right.
+ * Blocking issues (errors) mean the label must not be printed in this format.
  */
-export function renderLabel(c: LabelContent, box: { widthMm: number; heightMm: number; safeInsetMm: number }, style: LabelStyle = isPromo(c.kind) ? 'promo' : 'standard'): RenderedLabel {
+export function renderLabel(c: LabelContent, box: { widthMm: number; heightMm: number; safeInsetMm: number }, style: LabelStyle = isPromo(c.kind) ? 'promo' : 'standard', caps: SizeCaps = {}): RenderedLabel {
   const issues: LabelIssue[] = [];
   const L = c.language;
   const monies = [c.price, c.was, c.moneyOff, c.unitPrice?.amount, c.multibuy?.total].filter(Boolean) as Money[];
@@ -121,166 +140,215 @@ export function renderLabel(c: LabelContent, box: { widthMm: number; heightMm: n
   const missing = required(c);
   if (missing) issues.push({ code: 'missingField', severity: 'error', detail: missing.field });
   if (issues.length) return { html: '', issues };
+  const fail = (code: LabelIssueCode, detail?: string): RenderedLabel => ({ html: '', issues: [...issues, { code, severity: 'error', detail }] });
 
   const w = box.widthMm - 2 * box.safeInsetMm;
   const h = box.heightMm - 2 * box.safeInsetMm;
-  const hPt = h * PT_PER_MM;
+  const k = clamp(h / 34, 0.6, 7);            // scale from the 70 × 38 mm ticket (34 mm inner height)
+  const gap = 1.1 * k;                         // one vertical rhythm for every zone
   const promoKind = promoOf(c);
-  const promo = isPromo(c.kind);
+  const ptToMm = (pt: number) => pt / PT_PER_MM;
+  const line = (pt: number, lh = 1.18) => ptToMm(pt) * lh;
 
-  // Vertical budget in mm, filled top to bottom.
-  let used = 0;
-  const parts: string[] = [];
-
-  // 1. Promotion band.
+  // ── Promotion band ───────────────────────────────────────────────────────────
+  let bandHtml = '';
+  let bandMm = 0;
   const head = headline(c, promoKind);
   if (head) {
-    const bandPt = fitSingleLine(head.text, w - 2, { maxPt: clamp(hPt * 0.16, 7, 48), minPt: 6.5, weight: 'bold' });
-    if (bandPt === null) { issues.push({ code: 'contentDoesNotFit', severity: 'error', detail: 'headline' }); return { html: '', issues }; }
-    const bandMm = (bandPt * 1.35) / PT_PER_MM;
-    parts.push(`<div class="band" style="font-size:${bandPt}pt;height:${r2(bandMm)}mm;line-height:${r2(bandMm)}mm">${head.html}</div>`);
-    used += bandMm + 0.6;
+    const bandPt = fitSingleLine(head.text, w - 3 * k, { maxPt: 11.5 * k, minPt: 6.5, weight: 'bold' });
+    if (bandPt === null) return fail('contentDoesNotFit', 'headline');
+    bandMm = Math.max(6 * k, line(bandPt, 1.45));
+    bandHtml = `<div class="band" style="height:${r2(bandMm)}mm;font-size:${r2(bandPt)}pt"><span>${head.html}</span></div>`;
   }
 
-  // 2. Barcode (reserved at the bottom so the price keeps its space).
-  let barcodeHtml = '';
-  let barcodeMm = 0;
-  if (c.barcode && (c.kind === 'priceBarcode' || c.barcode)) {
-    try {
-      const sym = encodeBarcode(c.barcode.value, c.barcode.format, true);
-      const barW = Math.min(w * (c.kind === 'priceBarcode' ? 0.62 : 0.5), 40);
-      const mod = moduleWidthFor(sym, barW);
-      if (mod === null) {
-        issues.push({ code: 'barcodeDoesNotFit', severity: c.kind === 'priceBarcode' ? 'error' : 'warning' });
-      } else {
-        const widthMm = barcodeWidthMm(sym, mod);
-        barcodeMm = clamp(h * 0.3, 7, 22);
-        const quietL = sym.quietModules[0] * mod;
-        barcodeHtml = `<div class="barcode" dir="ltr" style="height:${r2(barcodeMm)}mm;width:${r2(widthMm)}mm;padding-left:${r2(quietL)}mm">${sym.svg.replace('<svg ', `<svg preserveAspectRatio="none" style="width:${r2(sym.modules * mod)}mm;height:${r2(barcodeMm)}mm" `)}</div>`;
-      }
-    } catch (e) {
-      issues.push({ code: 'barcodeInvalid', severity: c.kind === 'priceBarcode' ? 'error' : 'warning', detail: (e as { code?: string }).code });
-    }
-  }
-  if (issues.some(i => i.severity === 'error')) return { html: '', issues };
+  // ── Price parts (symbol sized separately) ────────────────────────────────────
+  const parts = formatMoneyParts(c.price.minor, c.price.currency, L);
+  const symRatio = parts.wordSymbol ? 0.58 : 0.78;
+  const arabicSymbol = /[؀-ۿ]/.test(parts.symbol);
+  const priceWidthAt = (pt: number) => measureMm(parts.number, pt, 'bold') + measureMm(parts.symbol + parts.space, pt * symRatio, 'bold');
+  const nowWord = promoKind === 'wasNow' ? labelText(L, 'now') : '';
+  const descender = arabicSymbol ? 0.3 : 0.16;                 // room for "," and Arabic letters below the line
+  const priceBoxMm = (pt: number) => ptToMm(pt) * (0.96 + descender) + (nowWord ? line(pt * 0.3) : 0);
 
-  // 3. Price (never shrunk below its minimum, never clipped). A "Now" prefix (was/now) is measured with it.
-  const priceText = formatMoneyValue(c.price, L);
-  const nowWord = promoKind === 'wasNow' ? `${labelText(L, 'now')} ` : '';
-  const priceMax = clamp(hPt * (promo ? 0.36 : 0.42), 12, 200);
-  const priceMin = clamp(hPt * 0.2, 11, 60);
-  const fitPrice = (width: number, maxPt: number): number | null => {
-    for (let size = maxPt; size >= priceMin - 1e-9; size -= 0.5) {
-      if (measureMm(priceText, size, 'bold') + (nowWord ? measureMm(nowWord, size * 0.4, 'bold') : 0) <= width) return size;
-    }
-    return null;
-  };
-  let pricePt = fitPrice(barcodeHtml ? Math.max(w - (w * 0.62 + 1), w * 0.36) : w, priceMax);
-  let priceBelowBarcode = false;
-  if (pricePt === null && barcodeHtml) {
-    // Not enough room beside the barcode: stack the price above it instead of shrinking it below its minimum.
-    // Stacked, the price is capped lower so the product name keeps a readable size.
-    pricePt = fitPrice(w, Math.max(priceMin, hPt * 0.27));
-    priceBelowBarcode = true;
-  }
-  if (pricePt === null) { issues.push({ code: 'priceDoesNotFit', severity: 'error' }); return { html: '', issues }; }
-  const priceMm = (pricePt * 1.08) / PT_PER_MM;
-
-  // 4. Unit price (required for priceUnitPrice; optional elsewhere).
+  // ── Start column of the bottom row: unit price + barcode (or SKU) ────────────
   let unitHtml = '';
   let unitMm = 0;
+  let unitWidth = 0;
   if (c.unitPrice) {
-    const unitText = labelText(L, 'unitPrice', { price: formatMoneyValue(c.unitPrice.amount, L), base: labelText(L, c.unitPrice.base) });
-    const unitPt = fitSingleLine(unitText, w, { maxPt: clamp(hPt * 0.1, 6.5, 22), minPt: 6, weight: 'regular' });
+    const up = formatMoneyValue(c.unitPrice.amount, L);
+    const base = labelText(L, c.unitPrice.base);
+    const text = labelText(L, 'unitPrice', { price: up, base });
+    const unitPt = fitSingleLine(text, w * 0.55, { maxPt: 7.5 * k, minPt: 6, weight: 'bold' });
     if (unitPt === null) {
       issues.push({ code: 'unitPriceDoesNotFit', severity: c.kind === 'priceUnitPrice' ? 'error' : 'warning' });
       if (c.kind === 'priceUnitPrice') return { html: '', issues };
     } else {
-      unitMm = (unitPt * 1.3) / PT_PER_MM;
-      const priceHtml = ltr(formatMoneyValue(c.unitPrice.amount, L));
-      const baseHtml = escapeHtml(labelText(L, c.unitPrice.base));
-      const composed = labelText(L, 'unitPrice', { price: '\u0000P', base: '\u0000B' });
-      unitHtml = `<div class="unit" style="font-size:${unitPt}pt">${escapeHtml(composed).replace('\u0000P', priceHtml).replace('\u0000B', baseHtml)}</div>`;
+      const composed = escapeHtml(labelText(L, 'unitPrice', { price: '\u0000P', base: '\u0000B' })).replace('\u0000P', ltr(up)).replace('\u0000B', escapeHtml(base));
+      unitHtml = `<div class="unit" style="font-size:${r2(unitPt)}pt">${composed}</div>`;
+      unitMm = line(unitPt);
+      unitWidth = measureMm(text, unitPt, 'bold');
     }
   }
 
-  // 5. Condition, validity date and SKU (small). Conditions are never hidden: the SKU is dropped first, then the
-  // line may wrap to two lines; if even that does not fit, the label is refused rather than hiding a condition.
-  const essentials: string[] = [];
-  if (c.condition) essentials.push(c.condition);
-  if (c.validUntil) essentials.push(labelText(L, 'validUntil', { date: formatLabelDate(c.validUntil, L) }));
-  const withSku = c.sku && !barcodeHtml ? [...essentials, c.sku] : essentials;
-  const smallMaxPt = clamp(hPt * 0.075, 5.5, 16);
-  let smallFit = withSku.length ? fitText(withSku.join(' · '), w, { maxPt: smallMaxPt, minPt: 5.5, maxLines: 1, weight: 'regular' }) : null;
-  let smallParts = withSku;
-  if (smallFit?.overflow && withSku.length > essentials.length) {
-    smallParts = essentials;
-    smallFit = essentials.length ? fitText(essentials.join(' · '), w, { maxPt: smallMaxPt, minPt: 5.5, maxLines: 1, weight: 'regular' }) : null;
+  let codeHtml = '';
+  let codeMm = 0;
+  let codeWidth = 0;
+  if (c.barcode) {
+    try {
+      const sym = encodeBarcode(c.barcode.value, c.barcode.format, false);
+      const mod = moduleWidthFor(sym, Math.min(w * 0.5, 42 * k));
+      if (mod === null) {
+        issues.push({ code: 'barcodeDoesNotFit', severity: c.kind === 'priceBarcode' ? 'error' : 'warning' });
+      } else {
+        const barsW = sym.modules * mod;
+        const barsH = clamp(h * 0.22, 5.5, 26);
+        const digitPt = clamp(6.2 * k, 5.2, 16);
+        const [ql, qr] = sym.quietModules.map(q => q * mod);
+        const svg = sym.svg.replace('<svg ', `<svg preserveAspectRatio="none" style="width:${r2(barsW)}mm;height:${r2(barsH)}mm" `);
+        const digits = [...c.barcode.value].map(d => `<span>${d}</span>`).join('');
+        // Quiet zones are required blank space for scanning. The start zone may overlap the label's own safe
+        // inset (blank label edge) but is never shortened: blank space to the label edge is always >= ql.
+        const pullIn = Math.min(ql, box.safeInsetMm);
+        const ltrLabel = L !== 'ar';
+        const padStart = ql, padEnd = qr;
+        const [padLeft, padRight] = ltrLabel ? [padStart, padEnd] : [padEnd, padStart];
+        const [mLeft, mRight] = ltrLabel ? [-pullIn, 0] : [0, -pullIn];
+        codeHtml = `<div class="barcode" dir="ltr" style="width:${r2(barsW)}mm;padding:0 ${r2(padRight)}mm 0 ${r2(padLeft)}mm;margin:0 ${r2(mRight)}mm 0 ${r2(mLeft)}mm">${svg}<div class="digits" style="font-size:${r2(digitPt)}pt">${digits}</div></div>`;
+        codeMm = barsH + line(digitPt, 1.25);
+        codeWidth = barsW + ql + qr - pullIn;
+      }
+    } catch (e) {
+      issues.push({ code: 'barcodeInvalid', severity: c.kind === 'priceBarcode' ? 'error' : 'warning', detail: (e as { code?: string }).code });
+    }
+    if (issues.some(i => i.severity === 'error')) return { html: '', issues };
   }
-  if (smallFit?.overflow) smallFit = fitText(smallParts.join(' · '), w, { maxPt: smallMaxPt, minPt: 5.5, maxLines: 2, weight: 'regular' });
-  if (smallFit?.overflow && essentials.length) { issues.push({ code: 'contentDoesNotFit', severity: 'error', detail: 'conditions' }); return { html: '', issues }; }
-  const smallMm = smallFit ? (smallFit.lines.length * smallFit.sizePt * 1.3) / PT_PER_MM : 0;
-  const smallHtml = smallFit ? `<div class="small" style="font-size:${smallFit.sizePt}pt">${smallFit.lines.map(line => line.split(' · ').map(part => (part === c.sku ? ltr(part) : escapeHtml(part))).join(' · ')).join('<br/>')}</div>` : '';
+  if (!codeHtml && c.sku) {
+    const skuPt = clamp(6 * k, 5.5, 14);
+    codeHtml = `<div class="sku" style="font-size:${r2(skuPt)}pt">${ltr(c.sku)}</div>`;
+    codeMm = line(skuPt);
+    codeWidth = measureMm(c.sku, skuPt, 'regular');
+  }
+  const startMm = unitMm + codeMm + (unitHtml && codeHtml ? 0.6 * k : 0);
+  const startWidth = Math.max(unitWidth, codeWidth);
 
-  // 6. Name and second line get what is left.
-  const bottomBlock = priceBelowBarcode || !barcodeHtml ? priceMm + barcodeMm : Math.max(priceMm, barcodeMm);
-  const remaining = h - used - bottomBlock - unitMm - smallMm - 0.5;
-  const nameMax = clamp(hPt * 0.13, 7.5, 44);
-  const nameMin = Math.max(6.5, nameMax * 0.62);
-  const lineMm = (size: number) => (size * 1.15) / PT_PER_MM;
-  const lineCap = h >= 120 ? 4 : h >= 80 ? 3 : 2;
-  const linesAtMin = Math.min(lineCap, Math.floor(remaining / lineMm(nameMin)));
-  if (linesAtMin < 1) { issues.push({ code: 'contentDoesNotFit', severity: 'error', detail: 'name' }); return { html: '', issues }; }
-  // Largest size (0.5 pt steps) whose wrapped lines fit both the line cap and the height left.
-  let fitName: ReturnType<typeof fitText> | null = null;
-  for (let size = nameMax; size >= nameMin - 1e-9; size -= 0.5) {
-    const f = fitText(c.name, w, { maxPt: size, minPt: size, maxLines: lineCap, weight: 'bold' });
-    if (!f.overflow && f.lines.length * lineMm(f.sizePt) <= remaining) { fitName = f; break; }
+  // ── Head: name, second line, conditions ──────────────────────────────────────
+  const small: string[] = [];
+  if (c.condition) small.push(c.condition);
+  if (c.validUntil) small.push(labelText(L, 'validUntil', { date: formatLabelDate(c.validUntil, L) }));
+  const smallFit = small.length ? fitText(small.join(' · '), w, { maxPt: 6.8 * k, minPt: 5.5, maxLines: 2, weight: 'regular' }) : null;
+  if (smallFit?.overflow) return fail('contentDoesNotFit', 'conditions');
+  const smallMm = smallFit ? smallFit.lines.length * line(smallFit.sizePt) : 0;
+
+  const nameMax = Math.min(10.5 * k, caps.namePt ?? Infinity);
+  const nameMin = Math.min(nameMax, Math.max(7, 7.2 * k));
+  const lineCap = h >= 120 ? 4 : isCardFormat(h) ? 3 : 2;
+  const secondPt = clamp(7 * k, 6, 30);
+
+  // Price: as large as the height and width allow, never below its minimum, never above the sheet cap.
+  // Minimum is about legibility: full scale on tickets, growing gently on large cards so wide prices still fit.
+  const priceMin = k <= 1 ? Math.max(11, 17 * k) : 17 + 8 * (k - 1);
+  const priceMax = Math.min(34 * k, caps.pricePt ?? Infinity);
+
+  const layout = (namePt: number, besideStart: boolean) => {
+    const f = fitText(c.name, w, { maxPt: namePt, minPt: namePt, maxLines: lineCap, weight: 'bold' });
+    const secondMm = c.secondLine ? line(secondPt) : 0;
+    const headMm = f.lines.length * line(namePt, 1.12) + secondMm + (smallMm ? smallMm + 0.4 * k : 0);
+    const fixed = bandMm + (bandMm ? gap * 0.6 : 0) + headMm + gap;
+    const room = h - fixed;
+    const priceRoomW = besideStart && startWidth ? w - startWidth - gap * 1.5 : w;
+    let pt: number | null = null;
+    for (let size = priceMax; size >= priceMin - 1e-9; size -= 0.5) {
+      const rowMm = besideStart ? Math.max(priceBoxMm(size), startMm) : priceBoxMm(size) + (startMm ? startMm + gap * 0.6 : 0);
+      if (priceWidthAt(size) <= priceRoomW && rowMm <= room) { pt = size; break; }
+    }
+    return { f, pt, headMm };
+  };
+
+  let chosen: { f: ReturnType<typeof fitText>; pt: number; beside: boolean; namePt: number } | null = null;
+  const nameFits = (namePt: number) => { const f = fitText(c.name, w, { maxPt: namePt, minPt: namePt, maxLines: lineCap, weight: 'bold' }); return f.overflow ? null : f; };
+  if (!isCardFormat(h)) {
+    // Shelf tickets: one calm arrangement. Name first (largest that still leaves a legal price), price beside the
+    // unit price / barcode; stacked only when the price cannot fit beside them at its minimum.
+    for (const beside of [true, false]) {
+      for (let namePt = nameMax; namePt >= nameMin - 1e-9 && !chosen; namePt -= 0.5) {
+        const r = layout(namePt, beside);
+        if (!r.f.overflow && r.pt !== null) chosen = { f: r.f, pt: r.pt, beside, namePt };
+      }
+      if (chosen) break;
+    }
+  } else {
+    // Offer cards: the price is the hero. Largest price in either arrangement, then the largest name around it.
+    for (const beside of [true, false]) {
+      const atMinName = layout(nameMin, beside);
+      if (atMinName.pt === null || !nameFits(nameMin)) continue;
+      const pricePt = atMinName.pt;
+      if (chosen && chosen.pt >= pricePt) continue;
+      for (let namePt = nameMax; namePt >= nameMin - 1e-9; namePt -= 0.5) {
+        const r = layout(namePt, beside);
+        if (!r.f.overflow && r.pt !== null && r.pt >= pricePt - 1e-9) { chosen = { f: r.f, pt: pricePt, beside, namePt }; break; }
+      }
+    }
   }
-  if (!fitName) fitName = fitText(c.name, w, { maxPt: nameMin, minPt: nameMin, maxLines: linesAtMin, weight: 'bold' });
-  if (fitName.overflow) issues.push({ code: 'nameShortened', severity: 'warning' });
+  if (!chosen) {
+    // Last resort: shorten the name (reported) rather than the price.
+    for (const beside of [true, false]) {
+      const r = layout(nameMin, beside);
+      if (r.pt !== null) { chosen = { f: fitText(c.name, w, { maxPt: nameMin, minPt: nameMin, maxLines: lineCap, weight: 'bold' }), pt: r.pt, beside, namePt: nameMin }; break; }
+    }
+  }
+  if (!chosen) return fail('priceDoesNotFit');
+  if (chosen.f.overflow) issues.push({ code: 'nameShortened', severity: 'warning' });
+
   let secondHtml = '';
   if (c.secondLine) {
-    const spare = remaining - fitName.lines.length * lineMm(fitName.sizePt);
-    const second = fitText(c.secondLine, w, { maxPt: Math.max(6, fitName.sizePt * 0.72), minPt: 6, maxLines: 1, weight: 'regular' });
-    if (spare >= lineMm(second.sizePt)) secondHtml = `<div class="second" style="font-size:${second.sizePt}pt">${escapeHtml(second.lines[0] ?? '')}</div>`;
-    else issues.push({ code: 'secondLineDropped', severity: 'warning' });
+    const sf = fitText(c.secondLine, w, { maxPt: secondPt, minPt: secondPt, maxLines: 1, weight: 'regular' });
+    if (sf.overflow) issues.push({ code: 'secondLineDropped', severity: 'warning' });
+    secondHtml = `<div class="second" style="font-size:${r2(secondPt)}pt">${escapeHtml(sf.lines[0] ?? '')}</div>`;
   }
+  const smallHtml = smallFit ? `<div class="small" style="font-size:${r2(smallFit.sizePt)}pt">${smallFit.lines.map(l => escapeHtml(l)).join('<br/>')}</div>` : '';
+  const nameHtml = `<div class="name" style="font-size:${r2(chosen.namePt)}pt">${chosen.f.lines.map(l => escapeHtml(l)).join('<br/>')}</div>`;
 
-  const nameHtml = `<div class="name" style="font-size:${fitName.sizePt}pt">${fitName.lines.map(escapeHtml).join('<br/>')}</div>`;
-  const priceHtml = `<div class="price" style="font-size:${pricePt}pt">${promoKind === 'wasNow' ? `<span class="now">${escapeHtml(labelText(L, 'now'))}</span> ` : ''}${ltr(priceText)}</div>`;
-  const bottom = barcodeHtml && !priceBelowBarcode
-    ? `<div class="bottom row">${barcodeHtml}${priceHtml}</div>`
-    : `<div class="bottom">${priceHtml}${barcodeHtml}</div>`;
+  const pt = chosen.pt;
+  const sym = `<span class="cur" style="font-size:${Math.round(symRatio * 100)}%">${escapeHtml(parts.symbol)}</span>`;
+  const amount = parts.symbolPosition === 'before' ? `${sym}${parts.space ? '&nbsp;' : ''}${escapeHtml(parts.number)}` : `${escapeHtml(parts.number)}&nbsp;${sym}`;
+  const nowHtml = nowWord ? `<div class="now" style="font-size:${r2(pt * 0.3)}pt">${escapeHtml(nowWord)}</div>` : '';
+  const priceHtml = `<div class="price" style="font-size:${r2(pt)}pt;padding-bottom:${descender}em">${nowHtml}<bdi dir="ltr">${amount}</bdi></div>`;
+  const startHtml = unitHtml || codeHtml ? `<div class="start">${unitHtml}${codeHtml}</div>` : '';
+  const bottom = chosen.beside
+    ? `<div class="bottom beside">${startHtml}${priceHtml}</div>`
+    : `<div class="bottom stacked">${priceHtml}${startHtml}</div>`;
 
-  const html = `<div class="label ${style}${promo ? ' promo-kind' : ''}" dir="${L === 'ar' ? 'rtl' : 'ltr'}" lang="${L}" style="font-family:${fontStack(L)};padding:${r2(box.safeInsetMm)}mm;width:${r2(box.widthMm)}mm;height:${r2(box.heightMm)}mm">`
-    + parts.join('')
-    + `<div class="body">${nameHtml}${secondHtml}</div>`
-    + unitHtml
-    + smallHtml
+  const html = `<div class="label ${style}${isPromo(c.kind) ? ' promo-kind' : ''}" dir="${L === 'ar' ? 'rtl' : 'ltr'}" lang="${L}" style="font-family:${fontStack(L)};padding:${r2(box.safeInsetMm)}mm;width:${r2(box.widthMm)}mm;height:${r2(box.heightMm)}mm;--gap:${r2(gap)}mm">`
+    + bandHtml
+    + `<div class="head">${nameHtml}${secondHtml}${smallHtml}</div>`
     + bottom
     + `</div>`;
-  return { html, issues };
+  return { html, issues, metrics: { namePt: chosen.namePt, pricePt: pt } };
 }
 
 /** CSS shared by every label (sizes are inline per label). */
 export const LABEL_CSS = `
 .label{box-sizing:border-box;position:relative;overflow:hidden;display:flex;flex-direction:column;color:#000;background:#fff;text-align:start}
-.label .band{font-weight:700;text-align:center;white-space:nowrap;overflow:hidden;border-radius:1mm;margin-bottom:0.6mm}
+.label .band{flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-weight:700;white-space:nowrap;overflow:hidden;border-radius:0.8mm;margin-bottom:calc(var(--gap) * 0.6);line-height:1}
 .label.promo .band{background:#FFD400;color:#000}
-.label.inkSaving .band{background:#fff;color:#000;border:0.5mm solid #000}
+.label.inkSaving .band{background:#fff;color:#000;border:0.4mm solid #000}
 .label.standard .band{background:#000;color:#fff}
-.label .body{flex:1 1 auto;min-height:0;overflow:hidden}
-.label .name{font-weight:700;line-height:1.15}
-.label .second{line-height:1.15;color:#222}
-.label .unit{line-height:1.3;color:#000}
-.label .small{line-height:1.3;color:#222}
-.label .bottom{display:flex;flex-direction:column;align-items:flex-end}
-.label[dir=rtl] .bottom{align-items:flex-start}
-.label .bottom.row{flex-direction:row;justify-content:space-between;align-items:flex-end}
-.label .price{font-weight:700;line-height:1.08;white-space:nowrap}
-.label .price .now{font-size:40%;font-weight:700}
-.label .barcode{direction:ltr;flex:0 0 auto;box-sizing:content-box}
+.label .band s{text-decoration-thickness:0.25mm}
+.label .head{flex:0 0 auto}
+.label .name{font-weight:700;line-height:1.12;letter-spacing:-0.005em}
+.label .second{line-height:1.18;color:#1a1a1a;margin-top:0.3mm}
+.label .small{line-height:1.18;color:#1a1a1a;margin-top:0.4mm}
+.label .bottom{margin-top:auto;flex:0 0 auto;display:flex}
+.label .bottom.beside{flex-direction:row;align-items:last baseline;justify-content:space-between;gap:var(--gap)}
+.label .bottom.stacked{flex-direction:column;justify-content:flex-end;align-items:flex-end;gap:calc(var(--gap) * 0.6)}
+.label .bottom.stacked .start{align-self:flex-start}
+.label .start{display:flex;flex-direction:column;align-items:flex-start;gap:0.6mm;flex:0 0 auto}
+.label .unit{font-weight:700;line-height:1.18;white-space:nowrap}
+.label .sku{line-height:1.18;color:#1a1a1a;white-space:nowrap}
+.label .barcode{direction:ltr;box-sizing:content-box;flex:0 0 auto}
 .label .barcode svg{display:block}
-.label s{text-decoration-thickness:0.3mm}
+.label .digits{display:flex;justify-content:space-between;line-height:1.25;font-variant-numeric:tabular-nums;letter-spacing:0}
+.label .price{font-weight:700;line-height:0.96;white-space:nowrap;text-align:end;flex:0 0 auto;font-variant-numeric:tabular-nums}
+.label .price .now{font-weight:700;line-height:1.18}
+.label .price .cur{font-weight:700}
 `;

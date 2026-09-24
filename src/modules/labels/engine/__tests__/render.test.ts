@@ -13,7 +13,13 @@ import { PAIRS, standardContent, TEST_FONTS } from './fixtures';
 
 const shelf = PRESETS.find(p => p.id === 'preset_shelf_70x38_a4')!;
 const box = { widthMm: shelf.labelWidthMm, heightMm: shelf.labelHeightMm, safeInsetMm: shelf.safeInsetMm };
-const textOf = (html: string) => html.replace(/<svg[\s\S]*?<\/svg>/g, '').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+const textOf = (html: string) => html.replace(/<svg[\s\S]*?<\/svg>/g, '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, '\u00A0').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+
+/** The price exactly as printed (tags removed without adding spaces). */
+const priceOf = (html: string) => {
+  const m = /<div class="price"[^>]*>(?:<div class="now"[^>]*>[^<]*<\/div>)?<bdi dir="ltr">([\s\S]*?)<\/bdi><\/div>/.exec(html);
+  return m ? m[1].replace(/<[^>]+>/g, '').replace(/&nbsp;/g, '\u00A0') : '';
+};
 
 describe('six label languages × three G2 kinds on the 70 × 38 mm shelf ticket (L1, L2)', () => {
   for (let i = 0; i < PAIRS.length; i++) {
@@ -33,15 +39,16 @@ describe('mixed direction (L3) and independence (L4–L6)', () => {
     const c = { ...standardContent(1, 'priceBarcode'), unitPrice: { amount: moneyFromMinor(638, 'AED'), base: 'per_litre' as const } };
     const html = renderLabel(c, box).html;
     expect(html).toContain('dir="rtl"');
-    expect(html).toMatch(/<bdi dir="ltr">12\.75 د\.إ<\/bdi>/);
+    expect(priceOf(html)).toBe('12.75\u00A0د.إ');
+    expect(html).toContain('<bdi dir="ltr">6.38\u00A0د.إ</bdi>');
     expect(html).toMatch(/class="barcode" dir="ltr"/);
     expect(html).not.toMatch(/scaleX\(-1\)|transform:\s*scale\(-1/);
   });
   it('the printed language, not the app, decides the words and the money format', () => {
     const en = renderLabel({ ...standardContent(1), language: 'en', name: 'Fresh full-fat milk' }, box).html;
-    expect(textOf(en)).toContain('AED 12.75');
+    expect(priceOf(en)).toBe('AED\u00A012.75');
     const ar = renderLabel({ ...standardContent(3), language: 'ar', name: 'قشدة' }, box).html;
-    expect(textOf(ar)).toContain('2.89 €');
+    expect(priceOf(ar)).toBe('2.89\u00A0€');
   });
   it('the engine imports no app-language or app-currency state', () => {
     const dir = path.resolve(__dirname, '..');
@@ -93,6 +100,33 @@ describe('every label kind has a slot (Release-1 architecture)', () => {
     expect(r.issues.filter(i => i.severity === 'error')).toEqual([]);
     expect(textOf(r.html)).toContain('Mit Kundenkarte');
     expect(textOf(r.html)).toContain('Gültig bis 31. Okt. 2026');
+  });
+  it('the band keeps the space between words and amounts (one inline run, not separate flex items)', () => {
+    const html = renderLabel({ ...standardContent(0), kind: 'wasNow', was: moneyFromMinor(599, 'GBP') }, box).html;
+    expect(html).toMatch(/<div class="band"[^>]*><span>Was <s>/);
+  });
+  it('labels of the same kind on one sheet share one name size and one price size', () => {
+    const r = renderSheet({ profile: shelf, items: PAIRS.map((_, i) => ({ content: standardContent(i, 'priceBarcode'), copies: 1 })) });
+    if (!r.ok) throw new Error('sheet failed');
+    const names = new Set([...r.html.matchAll(/class="name" style="font-size:([\d.]+)pt"/g)].map(m => m[1]));
+    const prices = new Set([...r.html.matchAll(/class="price" style="font-size:([\d.]+)pt/g)].map(m => m[1]));
+    expect(names.size).toBe(1);
+    expect(prices.size).toBe(1);
+  });
+  it('the barcode keeps its full quiet zone to the label edge', () => {
+    const html = renderLabel(standardContent(0, 'priceBarcode'), box).html;
+    const m = /class="barcode" dir="ltr" style="width:[\d.]+mm;padding:0 ([\d.]+)mm 0 ([\d.]+)mm;margin:0 ([-\d.]+)mm 0 ([-\d.]+)mm/.exec(html)!;
+    const quietLeft = Number(m[2]) + Number(m[4]) + box.safeInsetMm; // blank from label edge to the first bar
+    expect(quietLeft).toBeGreaterThanOrEqual(11 * 0.264 - 0.01);
+  });
+  it('every sample A6 offer card renders, including a long Turkish name and a wide lira price', () => {
+    const r = renderSheet({ profile: PRESETS.find(p => p.id === 'preset_offer_a6_on_a4')!, items: [
+      { content: { ...standardContent(0), kind: 'offerCardA6', was: moneyFromMinor(599, 'GBP') }, copies: 1 },
+      { content: { ...standardContent(1), kind: 'offerCardA6', percentOffHundredths: 3000 }, copies: 1 },
+      { content: { ...standardContent(3), kind: 'offerCardA6', multibuy: { quantity: 2, total: moneyFromMinor(500, 'EUR') } }, copies: 1 },
+      { content: { ...standardContent(2), kind: 'offerCardA6', moneyOff: moneyFromMinor(5000, 'TRY') }, copies: 1 },
+    ] });
+    expect(r.ok ? [] : r.labelIssues).toEqual([]);
   });
   it('a promo kind without its data is refused, not guessed', () => {
     expect(renderLabel(promo('wasNow', {}), box).issues[0]).toMatchObject({ code: 'missingField', detail: 'was' });

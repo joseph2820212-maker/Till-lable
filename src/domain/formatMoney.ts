@@ -65,12 +65,23 @@ function group(int: string, c: LabelNumberConvention): string {
   return int.replace(/\B(?=(\d{3})+(?!\d))/g, c.group);
 }
 
+export interface MoneyParts {
+  /** The grouped number with its decimal mark, e.g. "1.234,50". */
+  number: string;
+  /** The printed currency symbol or ISO code, e.g. "€", "AED", "د.إ". */
+  symbol: string;
+  symbolPosition: 'before' | 'after';
+  /** Space between symbol and number ('' for a glyph symbol placed before, e.g. £4.49). */
+  space: string;
+  /** True for ISO codes and Arabic-script symbols, which labels print smaller than the digits. */
+  wordSymbol: boolean;
+}
+
 /**
- * Format a non-negative amount in minor units for a printed label.
- * Throws MissingCurrencyError when the currency is missing or not an ISO 4217 code — a label is never
- * printed in an assumed currency.
+ * The pieces of a printed price, for renderers that style the symbol separately. Joining them in order gives
+ * exactly formatMoney(); both come from the same convention table.
  */
-export function formatMoney(amountMinor: number, currencyCode: string, labelLanguage: LanguageCode): string {
+export function formatMoneyParts(amountMinor: number, currencyCode: string, labelLanguage: LanguageCode): MoneyParts {
   assertCurrency(currencyCode);
   if (!Number.isSafeInteger(amountMinor) || amountMinor < 0) throw new RangeError('amountMinor must be a non-negative safe integer');
   const c = CONVENTIONS[labelLanguage];
@@ -82,8 +93,19 @@ export function formatMoney(amountMinor: number, currencyCode: string, labelLang
   const number = frac ? `${group(int, c)}${c.decimal}${frac}` : group(int, c);
   const symbol = labelCurrencySymbol(currencyCode, labelLanguage);
   const alphabetic = /^[A-Za-z]/.test(symbol) && symbol.length > 1;
-  if (c.symbolPosition === 'after') return `${number}${c.space}${symbol}`;
-  return alphabetic ? `${symbol}${c.space}${number}` : `${symbol}${number}`;
+  const wordSymbol = alphabetic || ARABIC_SCRIPT.test(symbol);
+  if (c.symbolPosition === 'after') return { number, symbol, symbolPosition: 'after', space: c.space, wordSymbol };
+  return { number, symbol, symbolPosition: 'before', space: alphabetic ? c.space : '', wordSymbol };
+}
+
+/**
+ * Format a non-negative amount in minor units for a printed label.
+ * Throws MissingCurrencyError when the currency is missing or not an ISO 4217 code — a label is never
+ * printed in an assumed currency.
+ */
+export function formatMoney(amountMinor: number, currencyCode: string, labelLanguage: LanguageCode): string {
+  const p = formatMoneyParts(amountMinor, currencyCode, labelLanguage);
+  return p.symbolPosition === 'after' ? `${p.number}${p.space}${p.symbol}` : `${p.symbol}${p.space}${p.number}`;
 }
 
 /** Convenience for a Money value; the currency always comes from the value itself. */

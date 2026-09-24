@@ -1,0 +1,20 @@
+Backup & Restore
+Your products, labels and settings in one encrypted file
+Create a backup
+↑
+Create backup
+No backup made on this device yet
+›
+You choose a password; the file is useless without it. Save it to your cloud drive or email it to yourself.
+Restore from a backup
+↓
+Choose a backup file
+TillLabel_Backup_….json
+›
+Restoring replaces the products, labels and settings on this phone with the file's. If it is interrupted, your current data comes back on the next launch.
+Tools
+✓
+Check Data Health
+Reads every record and reports anything unreadable.
+›
+Backups contain your products, offers, print queue and settings, encrypted with your passphrase. Your Pro purchase and unsaved drafts are not included.

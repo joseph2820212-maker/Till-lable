@@ -1,0 +1,73 @@
+{
+  "expo": {
+    "name": "TillLabel",
+    "slug": "tilllabel",
+    "version": "0.1.0",
+    "orientation": "default",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F7F3E8"
+    },
+    "ios": {
+      "bundleIdentifier": "com.tilllabel.app",
+      "supportsTablet": true,
+      "buildNumber": "1",
+      "infoPlist": {
+        "CFBundleAllowMixedLocalizations": true,
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.tilllabel.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1A2540"
+      },
+      "versionCode": 1,
+      "allowBackup": false,
+      "edgeToEdgeEnabled": true,
+      "softwareKeyboardLayoutMode": "resize"
+    },
+    "plugins": [
+      "expo-localization",
+      "expo-secure-store",
+      "expo-font",
+      "expo-updates",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "TillLabel uses the camera to scan product barcodes so you can find or add items without typing.",
+          "microphonePermission": false,
+          "recordAudioAndroid": false
+        }
+      ],
+      "expo-document-picker",
+      "@config-plugins/react-native-blob-util",
+      "@config-plugins/react-native-pdf",
+      "./plugins/pdfiumAndroidVersion"
+    ],
+    "locales": {
+      "en": "./native-locales/en.json",
+      "ar": "./native-locales/ar.json",
+      "tr": "./native-locales/tr.json",
+      "fr": "./native-locales/fr.json",
+      "es": "./native-locales/es.json",
+      "de": "./native-locales/de.json"
+    },
+    "extra": {
+      "eas": {
+        "projectId": ""
+      }
+    },
+    "updates": {
+      "enabled": false
+    }
+  }
+}

@@ -105,3 +105,25 @@ plan. Nothing has been copied yet.
 |---|---|---|
 | Unit-measure conversion tables with exact factors | TC `pricing/utils/measureUnits`, `calculators/utils` | G1 |
 | Android VIEW/SEND intent receiver pattern | none in either app; new config plugin | G6 |
+
+## G1 — now present in TillLabel (reused, with their tests)
+
+| Item | Source | Where now | Tests present |
+|---|---|---|---|
+| Shared components, theme, hooks, i18n, locale tooling | TC | `src/components`, `src/theme`, `src/hooks`, `src/i18n.ts`, `scripts/addLocaleKeys.mjs` | component, theme, locale parity/length/corruption tests |
+| Navigation shell (one stack per tab) | TC | `src/navigation/*` (4 tabs) | `persistentTabBar`, `navigationWalk` |
+| Storage safety, file utils, secure storage, error log | TC | `src/utils/storageSafety.ts`, `src/storage/fileUtils.ts`, `src/storage/secureStorage.ts`, `src/utils/errorLog.ts` | `storageSafety`, `fileUtils`, `errorLog` |
+| Currency and minor units | TC | `src/utils/currency.ts`, `src/utils/currencyUnits.ts` | `currency`, `currencyUnits` |
+| Barcode normalisation, ids, scan bus, CSV cell parsing | TC `priceList/utils` | `src/modules/products/utils/*` | `products/__tests__/reusedUtils.test.ts` |
+| Backup core (AsyncStorage) + crypto | TC | `src/modules/backup/*`, `src/backup/backupCrypto.ts` (unchanged) | `backupFile`, `backupScreen`, `backupCrypto` |
+| Billing (lifetime), limit layer | TC | `src/modules/billing/*` (`limits.ts` moved here) | `billingHardening`, `billingService`, `freeLimitSheet`, `limitGate` |
+| More / legal / help / about / support | TC | `src/modules/more/*` | `content`, `legalParity`, `supportMail`, `settingsScreens`, `settingsValidation`, `moreScreenSilentAction` |
+| PDF helper and preview | TC | `src/utils/pdfFile.ts`, `src/components/pdf/*` | `pdfFileReliability`, `appPdfPreviewTopAlign`, `csvPreviewModalSafeArea` |
+
+New in G1 (not reused): exact money `src/domain/money.ts` (+ tests), record types `src/domain/types.ts`, storage
+keys and backup namespaces `src/storage/keys.ts`, work summary `src/modules/queue/storage/summary.ts` (+ tests),
+`TabRootHeader`, `EmptyState`, Home / Products / To print screens.
+
+Removed in G1 (TC code with no TillLabel role): calculators, pricing, compare, saved, cash-up, the whole price-list
+module except the utilities above, calculator defaults / history / saved / tax-rate storage, calculator-only
+components, the tax / target / fee defaults screens, report PDF templates, the PIN helper.

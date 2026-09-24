@@ -1,0 +1,36 @@
+About TillLabel
+TillLabel
+Shelf price labels
+TillLabel prints shelf price, offer and reduced-to-clear labels for shops and small businesses, and reprints only the prices that changed. Your products and prices are stored on your device.
+v
+0.1.0
+ · 
+Published by LLILL LTD
+DATA & PRIVACY MODEL
+Offline-first
+Works without internet connection
+Data stored on this device
+Your financial data stays with you
+No account or sign-up required
+Open the app and start making labels straight away
+No tracking, no analytics
+The app contains no analytics or advertising libraries. Purchases are processed by Apple or Google and RevenueCat.
+Contact & support
+For help, email support@tillnote.com. Please include your device type, operating system version, app version, the screen you were on and a short description of the issue. Screenshots help if they contain no sensitive figures.
+Never send backup passphrases, bank details, store account passwords or unredacted product lists unless support specifically asks for redacted diagnostic information.
+Security concern? Contact security@tillnote.com.
+Email support
+support@tillnote.com
+Support & Legal
+Privacy Policy
+›
+Terms of Use
+›
+Data storage & backup notice
+›
+Open Source Licenses
+576 packages
+›
+Offline & Private
+Your data stays on device
+›

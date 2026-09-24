@@ -1,0 +1,403 @@
+{
+  "common": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "back": "Retour",
+    "yes": "Oui",
+    "no": "Non",
+    "ok": "OK",
+    "error": "Erreur",
+    "share": "Partager",
+    "monthsShort": [
+      "janv.",
+      "févr.",
+      "mars",
+      "avr.",
+      "mai",
+      "juin",
+      "juil.",
+      "août",
+      "sept.",
+      "oct.",
+      "nov.",
+      "déc."
+    ],
+    "monthsFull": [
+      "janvier",
+      "février",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "août",
+      "septembre",
+      "octobre",
+      "novembre",
+      "décembre"
+    ],
+    "other": "Autre",
+    "date": "Date",
+    "noData": "Aucune donnée",
+    "version": "Version",
+    "continue": "Continuer",
+    "pleaseWait": "Veuillez patienter…",
+    "datePlaceholder": "JJ/MM/AAAA",
+    "show": "Afficher",
+    "hide": "Masquer",
+    "otherInputLabel": "NOM PERSONNALISÉ",
+    "otherPlaceholder": "Saisissez le vôtre…",
+    "weekdaysShort": [
+      "lu",
+      "ma",
+      "me",
+      "je",
+      "ve",
+      "sa",
+      "di"
+    ],
+    "weekdaysFull": [
+      "lundi",
+      "mardi",
+      "mercredi",
+      "jeudi",
+      "vendredi",
+      "samedi",
+      "dimanche"
+    ],
+    "select": "Choisir…",
+    "csvPreviewBanner": "Aperçu CSV · {{count}} lignes · s'ouvre dans Excel / Sheets"
+  },
+  "errors": {
+    "crashTitle": "Une erreur s'est produite",
+    "crashBody": "Veuillez fermer et rouvrir l'application. Vos données sont en sécurité."
+  },
+  "nav": {
+    "home": "Accueil",
+    "more": "Menu",
+    "products": "Produits",
+    "toPrint": "À imprimer"
+  },
+  "settings": {
+    "language": "Langue",
+    "languageValue": "Français",
+    "proTitle": "TillLabel Pro",
+    "proDesc": "Un catalogue plus grand et des outils avancés",
+    "appGroup": "APPLICATION",
+    "offlinePrivate": "Hors ligne et privé",
+    "offlinePrivateSub": "Vos données restent sur votre appareil",
+    "backupRestore": "Sauvegarde et restauration",
+    "backupRow": "Sauvegarde et restauration",
+    "supportLegal": "Support et mentions légales",
+    "displayLanguage": "LANGUE D'AFFICHAGE",
+    "currency": "Devise",
+    "appTagline": "Étiquettes de prix en rayon",
+    "emailFallbackMsg": "Écrivez-nous à {{email}}",
+    "dataPrivacyModel": "MODÈLE DE DONNÉES ET CONFIDENTIALITÉ",
+    "offlineFirst": "Priorité hors ligne",
+    "offlineFirstSub": "Fonctionne sans connexion internet",
+    "dataOnDevice": "Données stockées sur cet appareil",
+    "dataOnDeviceSub": "Vos données financières restent avec vous",
+    "noAccountRequired": "Aucun compte ni inscription requis",
+    "noAccountRequiredSub": "Ouvrez l'app et créez des étiquettes tout de suite",
+    "calculationsLocalOnly": "Vos étiquettes restent sur votre appareil",
+    "calculationsLocalOnlySub": "Vos produits et prix ne sont pas envoyés aux serveurs de TillLabel",
+    "offlineInfoMsg": "Vos produits, prix et étiquettes restent sur votre appareil et ne sont pas envoyés aux serveurs de TillLabel. Les achats sont traités par Apple ou Google et RevenueCat. Les fichiers ne quittent TillLabel que si vous choisissez de les importer, exporter, partager, imprimer ou sauvegarder.",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfUse": "Conditions d'utilisation",
+    "contactSupport": "Contact / Support",
+    "openSourceLicenses": "Licences open source",
+    "checkRepairData": "Vérifier l'intégrité des données",
+    "appLanguageSub": "Langue d'interface de l'application",
+    "languageSwitching": "Changement de langue…",
+    "languageRolledBack": "Impossible de passer à {{lang}}. Retour à la langue précédente.",
+    "languageChangeFailed": "Échec du changement de langue. Veuillez réessayer.",
+    "backupSecureNote": "Les sauvegardes contiennent vos produits, offres, file d'impression et réglages, chiffrés avec votre phrase secrète. Votre achat Pro et les brouillons non enregistrés ne sont pas inclus.",
+    "currencyScreenTitle": "Devise",
+    "currencyScreenSub": "Définir la devise d'affichage par défaut",
+    "currentCurrency": "DEVISE ACTUELLE",
+    "chooseCurrency": "CHOISIR LA DEVISE",
+    "numberFormatNote": "Le format des nombres (séparateurs décimaux et de milliers) suit le réglage de la langue de l'application.",
+    "defaultsNote": "La devise s'applique aux nouveaux produits. Les produits enregistrés et les étiquettes imprimées gardent leur devise.",
+    "proActive": "TillLabel Pro est actif",
+    "proActiveFooter": "Merci. Tout est débloqué sur cet appareil et le reste hors ligne.",
+    "proFreeFooter": "L'offre gratuite ne verrouille jamais ce que vous avez saisi. Pro est un achat unique, sans abonnement.",
+    "dataStorageNotice": "Avis stockage et sauvegarde",
+    "aboutApp": "À propos de {{app}}"
+  },
+  "billing": {
+    "settingsTitle": "Facturation",
+    "restorePurchases": "Restaurer les achats",
+    "purchaseFailed": "Échec de l’achat. Réessayez.",
+    "retry": "Réessayer",
+    "statusLifetime": "À vie",
+    "purchaseEntitlementMissing": "Votre achat a abouti mais Pro n'est pas encore confirmé. Touchez Réessayer pour vérifier à nouveau, ou Restaurer l'achat. Vous ne serez pas facturé deux fois.",
+    "unlockPro": "Débloquer Pro – {{price}}",
+    "notNow": "Pas maintenant",
+    "restorePurchase": "Restaurer un achat précédent",
+    "lifetimePlaceholderPrice": "paiement unique",
+    "oncePrice": "{{price}} une fois",
+    "proSummary": "Un catalogue de produits plus grand et des outils d'étiquettes avancés. Un seul paiement, à vie. Sans abonnement.",
+    "unlocked": "Pro est débloqué. Merci !",
+    "storeUnavailable": "La boutique est injoignable pour le moment. Vos données sont en sécurité – réessayez en ligne.",
+    "restoreTitle": "Restaurer l'achat",
+    "nothingToRestore": "Aucun achat précédent trouvé pour ce compte.",
+    "proName": "{{app}} Pro",
+    "limit": {
+      "products": {
+        "eyebrow": "Offre gratuite : {{n}} produits enregistrés",
+        "title": "Votre liste de produits est pleine",
+        "keepsWorking": "Chaque produit déjà enregistré reste utilisable : modification, impression, export et sauvegarde. Pro supprime la limite."
+      },
+      "proFeature": {
+        "eyebrow": "Offre gratuite",
+        "title": "Cette fonction nécessite Pro",
+        "keepsWorking": "Tout ce que vous avez enregistré reste utilisable. Pro ajoute un catalogue plus grand et des outils d'étiquettes avancés."
+      }
+    }
+  },
+  "fileCenter": {
+    "pdfError": "Impossible de générer le PDF",
+    "exportPreviewFailed": "Échec de l'aperçu",
+    "preparingPreview": "Préparation de l'aperçu..."
+  },
+  "help": {
+    "tabGuide": "Mode d'emploi",
+    "guideIntro": "Instructions courtes, tâche par tâche, pour le quotidien.",
+    "guide": {
+      "backup": {
+        "title": "Sauvegarde et restauration",
+        "l1": "Plus → Sauvegarde et restauration → Créer une sauvegarde. Le fichier est chiffré avec une phrase secrète de votre choix.",
+        "l2": "Conservez le fichier en lieu sûr (cloud, e-mail à vous-même). Sans la phrase secrète il ne peut être ouvert – même pas par nous.",
+        "l3": "Restaurez sur un nouveau téléphone depuis le même écran. Vos produits, offres, historique d'impression et réglages reviennent ; une restauration interrompue reprend en toute sécurité."
+      },
+      "languages": {
+        "title": "Langues et devise",
+        "l1": "Six langues : anglais, arabe, turc, français, espagnol et allemand. L'arabe passe la mise en page de droite à gauche.",
+        "l2": "Les nombres utilisent toujours les chiffres occidentaux pour que les prix se lisent pareil sur une étiquette dans toute langue.",
+        "l3": "Changer de devise change l'affichage des prix ; cela ne convertit pas vos chiffres."
+      },
+      "support": {
+        "title": "Obtenir un support en sécurité",
+        "l1": "Plus → À propos → Écrire au support. L'e-mail s'ouvre avec la version de l'app et l'appareil déjà renseignés.",
+        "l2": "Décrivez l'écran et ce que vous vouliez faire ; ajoutez une capture si elle ne montre pas de chiffres sensibles.",
+        "l3": "N'envoyez jamais de phrases secrètes de sauvegarde, de coordonnées bancaires, de mots de passe de store ou de listes de produits non masquées. Le support ne demandera que des informations masquées."
+      }
+    },
+    "tabFaq": "Questions",
+    "faqIntro": "Réponses courtes aux questions les plus fréquentes des commerçants.",
+    "faq": {
+      "gettingStarted": {
+        "title": "Premiers pas",
+        "q1": "{{app}} est-elle une app en ligne ?",
+        "a1": "{{app}} fonctionne hors ligne. Vos produits, prix et étiquettes sont stockés sur votre appareil. Seul l'achat Pro communique avec Apple ou Google et RevenueCat, et seuls les fichiers que vous choisissez d'importer, exporter, partager, imprimer ou sauvegarder quittent l'app."
+      },
+      "dataPrivacy": {
+        "title": "Données et confidentialité",
+        "q1": "{{app}} envoie-t-elle mes chiffres à un serveur ?",
+        "a1": "Non. Vos produits et prix ne sont pas envoyés aux serveurs de {{app}} ; il n'y a ni compte ni cloud. Vous êtes responsable des sauvegardes, des exports et de tout ce que vous partagez hors de l'app."
+      },
+      "permissions": {
+        "title": "Caméra et fichiers",
+        "q1": "Pourquoi l'app demande-t-elle la caméra ou les fichiers ?",
+        "a1": "La caméra sert uniquement à lire les codes-barres sur l'écran de scan ; aucune photo n'est prise ni stockée. Les fichiers ne sont utilisés que pour importer un CSV, exporter un PDF ou CSV, partager, ou créer et restaurer une sauvegarde. L'app demande l'autorisation à la première utilisation."
+      },
+      "troubleshooting": {
+        "title": "Dépannage",
+        "q1": "Que se passe-t-il si je perds mon téléphone ?",
+        "a1": "Sans sauvegarde, les données du téléphone sont perdues. Créez une sauvegarde depuis Plus → Sauvegarde et restauration, gardez le fichier en lieu sûr et retenez sa phrase secrète ; restaurez-la sur le nouveau téléphone depuis le même écran.",
+        "q2": "Supprimer l'app supprime-t-il mes données ?",
+        "a2": "Oui. Tout étant stocké sur l'appareil, la désinstallation supprime vos produits, étiquettes et réglages si vous ne les avez pas sauvegardés. Les sauvegardes et exports conservés ailleurs ne sont pas touchés."
+      },
+      "support": {
+        "title": "Contacter le support",
+        "q1": "Comment contacter le support ?",
+        "a1": "Écrivez à {{supportEmail}} – le bouton dans Plus → À propos pré-remplit les détails de l'app et de l'appareil. Ajoutez l'écran concerné, ce que vous vouliez faire et des captures si elles ne contiennent pas de chiffres sensibles.",
+        "q2": "Que puis-je envoyer au support en toute sécurité ?",
+        "a2": "Le type d'appareil, la version du système, la version de l'app, le nom de l'écran, une courte description et des captures sans chiffres sensibles. N'envoyez jamais de phrases secrètes de sauvegarde, de coordonnées bancaires, de mots de passe de compte store ni de listes de produits non masquées."
+      }
+    },
+    "title": "Aide"
+  },
+  "about": {
+    "publisherLine": "Publié par {{publisher}}",
+    "noAnalytics": "Ni suivi, ni analyse d'usage",
+    "noAnalyticsSub": "L'app ne contient aucune bibliothèque d'analyse ni de publicité. Les achats sont traités par Apple ou Google et RevenueCat.",
+    "ossCount": "{{count}} paquets",
+    "description": "{{app}} imprime les étiquettes de prix en rayon, d'offres et de démarque pour les commerces et petites entreprises, et ne réimprime que les prix modifiés. Vos produits et prix sont stockés sur votre appareil."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "intro": "Cette politique de confidentialité explique comment {{app}}, fourni par {{publisher}}, traite vos informations.",
+      "h1": "Hors ligne par conception",
+      "p1": "Vos produits, prix, historique d'étiquettes et réglages sont stockés uniquement sur votre appareil. {{app}} n'a ni système de compte ni serveur qui détient vos données.",
+      "h2": "Pas de suivi",
+      "p2": "L'app ne contient aucune bibliothèque d'analyse, de publicité ou de rapport de plantage. Vos produits, prix et étiquettes restent sur votre appareil et ne sont pas envoyés aux serveurs de TillLabel.",
+      "h3": "Fonctions de l'appareil utilisées",
+      "l1": "Caméra – uniquement pour lire les codes-barres quand vous ouvrez le scanner. Aucune photo n'est stockée.",
+      "l2": "Fichiers – quand vous importez un CSV, ou exportez, partagez ou sauvegardez vos données.",
+      "l3": "Partage – quand vous envoyez un PDF ou un CSV à une autre app. Ce que vous partagez quitte l'app et n'est plus sous son contrôle.",
+      "l4": "Achat intégré – géré par Apple ou Google et le service d'achat RevenueCat, qui reçoit un reçu d'achat et un identifiant d'installation anonyme. Aucun nom, e-mail ni donnée d'entreprise n'est envoyé.",
+      "h4": "Votre contrôle",
+      "p3": "Vous pouvez modifier ou supprimer tout contenu de l'app à tout moment. Désinstaller l'app efface ses données de l'appareil, hormis les sauvegardes et exports que vous avez faits.",
+      "h5": "Sauvegardes",
+      "p4": "Les fichiers de sauvegarde sont chiffrés avec une phrase secrète de votre choix. Nous ne pouvons ni les ouvrir ni les récupérer. Leur emplacement dépend de vous.",
+      "h6": "Enfants",
+      "p5": "{{app}} s'adresse aux professionnels et n'est pas destiné aux enfants. {{publisher}} ne collecte pas sciemment de données personnelles d'enfants.",
+      "h7": "Questions de confidentialité et demandes de données",
+      "p6": "Pour toute question de confidentialité ou demande de données, contactez {{privacyEmail}}.",
+      "l5": "Mises à jour – les nouvelles versions n'arrivent que par l'App Store ou Google Play. L'app ne télécharge pas de mises à jour de code elle-même.",
+      "h8": "Vos responsabilités",
+      "p7": "Vous êtes responsable des fichiers que vous exportez ou partagez, de vos fichiers de sauvegarde et de leurs phrases secrètes, ainsi que des réglages de sauvegarde de votre appareil. Les fichiers exportés ou partagés quittent l'app et ne sont plus sous son contrôle.",
+      "h9": "Contacter le support en sécurité",
+      "p8": "N'envoyez pas vos listes de produits, prix ou fichiers de sauvegarde au support, sauf demande expresse et après masquage. N'envoyez jamais de phrases secrètes de sauvegarde, de coordonnées bancaires ni de mots de passe de compte store.",
+      "h10": "Modifications de cette politique",
+      "p9": "Nous pouvons mettre à jour cette politique de temps à autre. Les changements importants apparaîtront dans l'app et la date ci-dessus sera mise à jour ; la version dans l'app fait foi."
+    },
+    "terms": {
+      "title": "Conditions d'utilisation",
+      "intro": "Ces conditions d'utilisation s'appliquent à {{app}}, fourni par {{publisher}}.",
+      "h1": "Ce qu'est l'app",
+      "p1": "{{app}} imprime des étiquettes de prix à partir des produits et prix que vous saisissez. Il ne fixe pas vos prix et ne se connecte pas à votre caisse.",
+      "h2": "Pas un conseil professionnel",
+      "p2": "L'app ne fournit pas de conseil fiscal, comptable, juridique ou financier. Taux, règles et décisions restent votre responsabilité ; vérifiez-les auprès d'un conseiller qualifié si nécessaire.",
+      "n1": "Un résultat vaut ce que valent les saisies et valeurs par défaut derrière lui. Vérifiez toujours le détail avant d'imprimer un prix.",
+      "h3": "Vos données",
+      "p3": "Vos données professionnelles sont stockées sur votre appareil et ne sont pas envoyées aux serveurs de TillLabel. Vous êtes responsable de vos sauvegardes et des fichiers que vous exportez ou partagez.",
+      "h4": "Achats",
+      "p4": "Pro est un achat intégré unique vendu par Apple ou Google selon leurs conditions. Restaurer un achat nécessite le même compte. L'offre gratuite ne retire jamais l'accès aux données déjà saisies.",
+      "h5": "Responsabilité",
+      "p5": "L'app est fournie en l'état. Dans la limite permise par la loi, {{publisher}} n'est pas responsable des pertes découlant de décisions prises avec l'app, y compris erreurs de prix, données ou profits perdus. Rien ici ne limite une responsabilité qui ne peut l'être légalement.",
+      "h6": "Droit applicable",
+      "p6": "Ces conditions sont régies par le droit de l'Angleterre et du pays de Galles, sans préjudice des droits impératifs des consommateurs prévus par la loi de votre pays.",
+      "h7": "Acceptation de ces conditions",
+      "p7": "En téléchargeant ou en utilisant l'app, vous acceptez ces conditions d'utilisation. Si vous ne les acceptez pas, n'utilisez pas l'app.",
+      "h8": "Admissibilité",
+      "p8": "L'app est destinée à un usage professionnel par des personnes d'au moins 18 ans (ou l'âge de la majorité dans votre pays).",
+      "h9": "Fournisseur",
+      "p9": "{{app}} est fourni par {{publisher}}.",
+      "h10": "Exactitude de vos chiffres",
+      "p10": "Vous êtes responsable de l'exactitude des produits, prix, offres et prix unitaires saisis, et de vérifier chaque étiquette avant de la poser en rayon. Une étiquette ne vaut que par les chiffres qui la fondent.",
+      "h11": "Fourni « en l'état »",
+      "p11": "L'app est fournie « en l'état » et « selon disponibilité », sans garantie d'aucune sorte, expresse ou implicite, dans toute la mesure permise par la loi.",
+      "h12": "Perte de données",
+      "p12": "{{publisher}} n'est pas responsable de la perte de vos données due à la perte ou réinitialisation de l'appareil, à la désinstallation de l'app, à une sauvegarde échouée, à une phrase secrète oubliée ou à vos propres exports et partages, sauf lorsque la loi interdit d'exclure cette responsabilité.",
+      "h13": "Propriété intellectuelle",
+      "p13": "L'app, y compris son design, ses textes et son logiciel (à l'exclusion de vos propres données), appartient à {{publisher}} ou à ses concédants et est protégée par les lois applicables. Un droit d'utilisation personnel, non exclusif et non transférable vous est accordé.",
+      "h14": "Modifications de l'app et de ces conditions",
+      "p14": "L'app peut évoluer au fil du temps, avec des fonctions ajoutées, améliorées ou retirées. Nous pouvons aussi mettre à jour ces conditions ; continuer à utiliser l'app après une mise à jour vaut acceptation des conditions mises à jour.",
+      "h15": "Questions juridiques et sur les conditions",
+      "p15": "Pour toute notification juridique ou question sur les conditions, contactez {{legalEmail}}."
+    },
+    "licences": {
+      "title": "Licences open source",
+      "intro": "{{app}} est construit avec {{count}} paquets open source. Inventaire généré le {{date}}.",
+      "p1": "Chaque paquet reste sous sa propre licence, listée ci-dessous par type puis par paquet. Touchez un paquet pour lire sa licence. Merci à leurs auteurs.",
+      "noText": "texte de licence non fourni par le paquet"
+    },
+    "lastUpdated": "Dernière mise à jour : {{date}}.",
+    "companyNote": "{{publisher}}. Numéro de société : {{companyNumber}}. Siège social : {{registeredOffice}}. Statut TVA : {{vatStatus}}.",
+    "vatNotRegistered": "Non assujetti à la TVA",
+    "dataStorage": {
+      "title": "Avis sur le stockage et la sauvegarde des données",
+      "p1": "Vos produits, prix, historique d'étiquettes et réglages sont stockés localement sur votre appareil.",
+      "l1": "Supprimer l'app supprime ses données stockées localement.",
+      "l2": "La perte, la casse, la réinitialisation ou la désinstallation peuvent entraîner une perte de données.",
+      "l3": "Sauvegardez régulièrement depuis Plus → Sauvegarde et restauration ; conservez le fichier en lieu sûr.",
+      "l4": "Les fichiers de sauvegarde et d'export contiennent vos produits et prix : conservez-les en lieu sûr et ne les partagez qu'avec des personnes de confiance.",
+      "l5": "Les sauvegardes sont chiffrées avec la phrase secrète de votre choix. Si vous la perdez, la sauvegarde ne peut plus être restaurée – ni par vous ni par nous.",
+      "n1": "{{app}} ne peut pas récupérer les données stockées localement si l'appareil, la phrase secrète ou une sauvegarde utilisable est perdu.",
+      "h1": "Signaler un problème de sécurité",
+      "p2": "Pour signaler un problème de sécurité, contactez {{securityEmail}}. N'incluez pas de phrases secrètes, de coordonnées bancaires ni de fichiers de prix non masqués dans le premier message."
+    },
+    "contact": {
+      "title": "Contact et support",
+      "body": "Pour obtenir de l'aide, écrivez à {{supportEmail}}. Indiquez votre type d'appareil, la version du système, la version de l'app, l'écran concerné et une courte description. Les captures d'écran aident si elles ne contiennent pas de chiffres sensibles.",
+      "never": "N'envoyez jamais de phrases secrètes de sauvegarde, de coordonnées bancaires, de mots de passe de compte store ni de listes de produits non masquées, sauf si le support demande expressément des informations de diagnostic masquées.",
+      "security": "Problème de sécurité ? Contactez {{securityEmail}}.",
+      "emailButton": "Écrire au support",
+      "mailBody": "App : {{app}} {{version}}\nAppareil : {{platform}} {{osVersion}}\nÉcran :\nCe que j'essayais de faire :\n\n(N'incluez pas de phrases secrètes de sauvegarde, de coordonnées bancaires ni de listes de produits non masquées.)"
+    }
+  },
+  "backup": {
+    "subtitle": "Vos produits, étiquettes et réglages dans un seul fichier chiffré",
+    "createSection": "Créer une sauvegarde",
+    "createNow": "Créer une sauvegarde",
+    "createFooter": "Vous choisissez un mot de passe ; le fichier est inutilisable sans lui. Enregistrez-le sur votre cloud ou envoyez-le-vous par e-mail.",
+    "lastBackup": "Dernière sauvegarde : {{when}}",
+    "never": "Aucune sauvegarde sur cet appareil",
+    "createdTitle": "Sauvegarde créée",
+    "createdBody": "{{file}} est prêt. Utilisez le partage pour le conserver en lieu sûr.",
+    "createFailed": "La sauvegarde n'a pas pu être créée.",
+    "restoreSection": "Restaurer une sauvegarde",
+    "restoreFooter": "La restauration remplace les produits, étiquettes et réglages de ce téléphone par ceux du fichier. Si elle est interrompue, vos données actuelles reviennent au prochain lancement.",
+    "chooseFile": "Choisir un fichier de sauvegarde",
+    "chooseFileHint": "TillLabel_Backup_….json",
+    "previewTitle": "Contenu du fichier",
+    "encrypted": "Chiffré",
+    "restoreTitle": "Remplacer les données de ce téléphone ?",
+    "restoreConfirm": "Tout ce qui se trouve dans vos produits, étiquettes et réglages sera remplacé par la sauvegarde. Sauvegardez d'abord les données actuelles si vous pourriez en avoir besoin.",
+    "restoreAction": "Restaurer",
+    "restoredTitle": "Restauration terminée",
+    "restoredBody": "{{keys}} jeux de données restaurés. Vos listes et réglages sont de retour.",
+    "toolsSection": "Outils",
+    "checkHint": "Lit chaque enregistrement et signale tout ce qui est illisible.",
+    "checkOkTitle": "Les données sont saines",
+    "checkOkBody": "{{count}} enregistrements lus sans problème.",
+    "checkIssuesTitle": "Certaines données n'ont pas pu être lues",
+    "checkIssuesBody": "{{count}} jeu(x) d'enregistrements illisible(s). Restaurez une sauvegarde récente si quelque chose semble manquer.",
+    "errors": {
+      "read": "Le fichier n'a pas pu être lu.",
+      "too-large": "Ce fichier est trop volumineux pour être une sauvegarde TillLabel.",
+      "invalid-json": "Ce n'est pas un fichier de sauvegarde valide.",
+      "invalid-format": "Le fichier de sauvegarde est endommagé ou incomplet.",
+      "wrong-format": "Ce fichier est une sauvegarde d'une autre app, pas de TillLabel.",
+      "unsupported-version": "Cette sauvegarde a été créée par une version plus récente de TillLabel. Mettez l'app à jour et réessayez.",
+      "passphrase-required": "Cette sauvegarde nécessite son mot de passe.",
+      "wrong-passphrase": "Mot de passe incorrect, ou le fichier a été modifié.",
+      "checksum-mismatch": "Le fichier de sauvegarde est corrompu.",
+      "empty-backup": "Il n'y a rien à restaurer dans ce fichier.",
+      "rolled-back": "La restauration a échoué. Vos données précédentes ont été remises en place.",
+      "rollback-failed": "La restauration a échoué et n'a pas pu être annulée. Redémarrez l'app ; elle se rétablira au lancement."
+    },
+    "pw": {
+      "createTitle": "Définir un mot de passe de sauvegarde",
+      "enterTitle": "Saisir le mot de passe de sauvegarde",
+      "warning": "Le fichier est chiffré avec ce mot de passe. Si vous le perdez, personne ne pourra ouvrir la sauvegarde, nous compris.",
+      "label": "Mot de passe",
+      "confirmLabel": "Confirmer le mot de passe",
+      "placeholder": "Mot de passe de sauvegarde",
+      "minHint": "Au moins {{min}} caractères.",
+      "tooShort": "Utilisez au moins {{min}} caractères.",
+      "mismatch": "Les mots de passe ne correspondent pas.",
+      "creating": "Création de la sauvegarde…",
+      "restoring": "Restauration…"
+    },
+    "counts": {
+      "products": "Produits",
+      "promotions": "Offres",
+      "reductions": "Étiquettes de démarque",
+      "waitingLabels": "En attente d'impression",
+      "printJobs": "Historique d'impression"
+    }
+  },
+  "home": {
+    "tagline": "Étiquettes de prix en rayon",
+    "waitingTitle": "En attente d'impression",
+    "waitingCounts": "Produits : {{products}} · Étiquettes : {{labels}}",
+    "productCount": "Produits enregistrés : {{count}}",
+    "summaryUnavailable": "Les totaux n'ont pas pu être lus. Vos données n'ont pas été modifiées.",
+    "setupTitle": "Configuration",
+    "setupFooter": "Choisissez la langue de l'app et la devise de votre magasin avant d'ajouter des produits."
+  },
+  "products": {
+    "subtitle": "Vos produits et prix enregistrés",
+    "emptyTitle": "Aucun produit pour l'instant",
+    "emptyBody": "Les produits enregistrés apparaîtront ici avec leur prix, code-barres et catégorie."
+  },
+  "queue": {
+    "emptyTitle": "Rien en attente d'impression",
+    "emptyBody": "Les nouveaux produits et les prix modifiés attendent ici jusqu'à l'impression de leurs étiquettes."
+  }
+}

@@ -1,0 +1,37 @@
+Menu
+APP
+Language
+English (UK)
+›
+Currency
+GBP (£)
+›
+Backup & Restore
+Backup & Restore
+›
+Billing
+TillLabel Pro is active
+Lifetime
+Restore purchases
+›
+Thank you. Everything is unlocked on this device and stays unlocked offline.
+Support & Legal
+How to
+Short, task-by-task instructions for the everyday jobs.
+›
+Questions
+Short answers to the questions shop owners ask most.
+›
+Contact / Support
+›
+Privacy Policy
+›
+Terms of Use
+›
+Data storage & backup notice
+›
+Open Source Licenses
+›
+About TillLabel
+v0.1.0
+›

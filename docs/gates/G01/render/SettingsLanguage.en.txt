@@ -1,0 +1,15 @@
+Language
+Interface language for the app
+DISPLAY LANGUAGE
+English
+EN
+العربية
+AR
+Türkçe
+TR
+Français
+FR
+Español
+ES
+Deutsch
+DE

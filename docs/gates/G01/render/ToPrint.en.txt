@@ -1,0 +1,4 @@
+To print
+Products: 1 · Labels: 3
+Waiting to print
+Products: 1 · Labels: 3

@@ -1,0 +1,403 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "back": "Back",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "error": "Error",
+    "share": "Share",
+    "monthsShort": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ],
+    "monthsFull": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "other": "Other",
+    "date": "Date",
+    "noData": "No data",
+    "version": "Version",
+    "continue": "Continue",
+    "pleaseWait": "Please wait…",
+    "datePlaceholder": "DD/MM/YYYY",
+    "show": "Show",
+    "hide": "Hide",
+    "otherInputLabel": "CUSTOM NAME",
+    "otherPlaceholder": "Type your own…",
+    "weekdaysShort": [
+      "Mo",
+      "Tu",
+      "We",
+      "Th",
+      "Fr",
+      "Sa",
+      "Su"
+    ],
+    "weekdaysFull": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "select": "Select…",
+    "csvPreviewBanner": "CSV preview · {{count}} rows · opens in Excel / Sheets"
+  },
+  "errors": {
+    "crashTitle": "Something went wrong",
+    "crashBody": "Please close and reopen the app. Your data is safe."
+  },
+  "nav": {
+    "home": "Home",
+    "more": "Menu",
+    "products": "Products",
+    "toPrint": "To print"
+  },
+  "settings": {
+    "language": "Language",
+    "languageValue": "English (UK)",
+    "proTitle": "TillLabel Pro",
+    "proDesc": "A larger catalogue and advanced label tools",
+    "appGroup": "APP",
+    "offlinePrivate": "Offline & Private",
+    "offlinePrivateSub": "Your data stays on device",
+    "backupRestore": "Backup & Restore",
+    "backupRow": "Backup & Restore",
+    "supportLegal": "Support & Legal",
+    "displayLanguage": "DISPLAY LANGUAGE",
+    "currency": "Currency",
+    "appTagline": "Shelf price labels",
+    "emailFallbackMsg": "Email us at {{email}}",
+    "dataPrivacyModel": "DATA & PRIVACY MODEL",
+    "offlineFirst": "Offline-first",
+    "offlineFirstSub": "Works without internet connection",
+    "dataOnDevice": "Data stored on this device",
+    "dataOnDeviceSub": "Your financial data stays with you",
+    "noAccountRequired": "No account or sign-up required",
+    "noAccountRequiredSub": "Open the app and start making labels straight away",
+    "calculationsLocalOnly": "Your label work stays on your device",
+    "calculationsLocalOnlySub": "Your products and prices are not sent to TillLabel servers",
+    "offlineInfoMsg": "Your products, prices and labels stay on your device and are not sent to TillLabel servers. Purchases are processed by Apple or Google and RevenueCat. Files leave TillLabel only when you choose to import, export, share, print or back them up.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of Use",
+    "contactSupport": "Contact / Support",
+    "openSourceLicenses": "Open Source Licenses",
+    "checkRepairData": "Check Data Health",
+    "appLanguageSub": "Interface language for the app",
+    "languageSwitching": "Switching language…",
+    "languageRolledBack": "Could not switch to {{lang}}. Reverted to previous language.",
+    "languageChangeFailed": "Language change failed. Please try again.",
+    "backupSecureNote": "Backups contain your products, offers, print queue and settings, encrypted with your passphrase. Your Pro purchase and unsaved drafts are not included.",
+    "currencyScreenTitle": "Currency",
+    "currencyScreenSub": "Set your default display currency",
+    "currentCurrency": "CURRENT CURRENCY",
+    "chooseCurrency": "CHOOSE CURRENCY",
+    "numberFormatNote": "Number formatting (decimal and thousands separators) follows your app language setting.",
+    "defaultsNote": "The currency applies to new products. Saved products and printed labels keep their own currency.",
+    "proActive": "TillLabel Pro is active",
+    "proActiveFooter": "Thank you. Everything is unlocked on this device and stays unlocked offline.",
+    "proFreeFooter": "The free plan never locks what you already entered. Pro is a one-time purchase, no subscription.",
+    "dataStorageNotice": "Data storage & backup notice",
+    "aboutApp": "About {{app}}"
+  },
+  "billing": {
+    "settingsTitle": "Billing",
+    "restorePurchases": "Restore purchases",
+    "purchaseFailed": "Purchase failed. Please try again.",
+    "retry": "Retry",
+    "statusLifetime": "Lifetime",
+    "purchaseEntitlementMissing": "Your purchase went through but Pro has not been confirmed yet. Tap Retry to check again, or Restore purchase. You will not be charged twice.",
+    "unlockPro": "Unlock Pro – {{price}}",
+    "notNow": "Not now",
+    "restorePurchase": "Restore a previous purchase",
+    "lifetimePlaceholderPrice": "one-time",
+    "oncePrice": "{{price}} once",
+    "proSummary": "A larger product catalogue and advanced label tools. Pay once, keep forever. No subscription.",
+    "unlocked": "Pro is unlocked. Thank you!",
+    "storeUnavailable": "The store is not reachable right now. Your data is safe – try again when you are online.",
+    "restoreTitle": "Restore purchase",
+    "nothingToRestore": "No previous purchase was found for this store account.",
+    "proName": "{{app}} Pro",
+    "limit": {
+      "products": {
+        "eyebrow": "Free plan: {{n}} saved products",
+        "title": "Your product list is full",
+        "keepsWorking": "Every product you already saved keeps working: edit, print, export and back it up. Pro removes the limit."
+      },
+      "proFeature": {
+        "eyebrow": "Free plan",
+        "title": "This needs Pro",
+        "keepsWorking": "Everything you already saved keeps working. Pro adds a larger catalogue and advanced label tools."
+      }
+    }
+  },
+  "fileCenter": {
+    "pdfError": "Could not generate PDF",
+    "exportPreviewFailed": "Preview failed",
+    "preparingPreview": "Preparing preview..."
+  },
+  "help": {
+    "tabGuide": "How to",
+    "guideIntro": "Short, task-by-task instructions for the everyday jobs.",
+    "guide": {
+      "backup": {
+        "title": "Backup and restore",
+        "l1": "More → Backup & restore → Create backup. The file is encrypted with a passphrase you choose.",
+        "l2": "Keep the file somewhere safe (cloud drive, email to yourself). Without the passphrase it cannot be opened – not even by us.",
+        "l3": "Restore on a new phone from the same screen. Your products, offers, print history and settings come back; a restore that is interrupted resumes safely."
+      },
+      "languages": {
+        "title": "Languages and currency",
+        "l1": "Six languages: English, Arabic, Turkish, French, Spanish and German. Arabic flips the layout right-to-left.",
+        "l2": "Numbers are always shown with Western digits so prices read the same on a label in any language.",
+        "l3": "Changing the currency changes how prices are shown; it does not convert your figures."
+      },
+      "support": {
+        "title": "Getting safe support",
+        "l1": "More → About → Email support. The email opens with your app version and device already filled in.",
+        "l2": "Describe the screen and what you were trying to do; add a screenshot if it shows no sensitive figures.",
+        "l3": "Never send backup passphrases, bank details, store passwords or unredacted product lists. Support will only ever ask for redacted information."
+      }
+    },
+    "tabFaq": "Questions",
+    "faqIntro": "Short answers to the questions shop owners ask most.",
+    "faq": {
+      "gettingStarted": {
+        "title": "Getting started",
+        "q1": "Is {{app}} an online app?",
+        "a1": "{{app}} works offline. Your products, prices and labels are stored on your device. Only the Pro purchase talks to Apple or Google and RevenueCat, and only files you choose to import, export, share, print or back up leave the app."
+      },
+      "dataPrivacy": {
+        "title": "Data & privacy",
+        "q1": "Does {{app}} send my figures to a server?",
+        "a1": "No. Your products and prices are not sent to {{app}} servers; there is no account and no cloud. You are responsible for backup files, exports and anything you share outside the app."
+      },
+      "permissions": {
+        "title": "Camera & files",
+        "q1": "Why does the app ask for the camera or files?",
+        "a1": "The camera is used only to read barcodes on the scan screen; no photo is taken or stored. Files are accessed only when you import a CSV, export a PDF or CSV, share, or create and restore a backup. The app asks the first time you use each feature."
+      },
+      "troubleshooting": {
+        "title": "Troubleshooting",
+        "q1": "What happens if I lose my phone?",
+        "a1": "If you have no backup, the data on the phone is lost. Create a backup from More → Backup & restore, keep the file somewhere safe and remember its passphrase; restore it on the new phone from the same screen.",
+        "q2": "Does deleting the app delete my data?",
+        "a2": "Yes. Because everything is stored on the device, uninstalling removes your products, labels and settings unless you backed them up first. Backups and exports you saved elsewhere are not affected."
+      },
+      "support": {
+        "title": "Contact support",
+        "q1": "How do I contact support?",
+        "a1": "Email {{supportEmail}} – the button in More → About fills in your app and device details. Add the screen you were on, what you were trying to do and screenshots if they contain no sensitive figures.",
+        "q2": "What can I safely send to support?",
+        "a2": "Your device type, operating system version, app version, the screen name, a short description and screenshots with sensitive figures hidden. Never send backup passphrases, bank details, store account passwords or unredacted product lists."
+      }
+    },
+    "title": "Help"
+  },
+  "about": {
+    "publisherLine": "Published by {{publisher}}",
+    "noAnalytics": "No tracking, no analytics",
+    "noAnalyticsSub": "The app contains no analytics or advertising libraries. Purchases are processed by Apple or Google and RevenueCat.",
+    "ossCount": "{{count}} packages",
+    "description": "{{app}} prints shelf price, offer and reduced-to-clear labels for shops and small businesses, and reprints only the prices that changed. Your products and prices are stored on your device."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy policy",
+      "intro": "This Privacy Policy explains how {{app}}, provided by {{publisher}}, handles your information.",
+      "h1": "Offline by design",
+      "p1": "Your products, prices, label history and settings are stored only on your device. {{app}} has no account system and no server that holds your data.",
+      "h2": "No tracking",
+      "p2": "The app contains no analytics, advertising or crash-reporting libraries. Your products, prices and labels stay on your device and are not sent to TillLabel servers.",
+      "h3": "Device features the app may use",
+      "l1": "Camera – only to read barcodes when you open the scanner. No photo is stored.",
+      "l2": "Files – when you import a CSV, or export, share or back up your data.",
+      "l3": "Sharing – when you send a PDF or CSV to another app. What you share leaves the app and is no longer under its control.",
+      "l4": "In-app purchase – handled by Apple or Google and the purchase service RevenueCat, which receives a purchase receipt and an anonymous app-install identifier. No name, email or business data is sent.",
+      "h4": "Your control",
+      "p3": "You can edit or delete anything in the app at any time. Uninstalling the app deletes its data from the device, apart from backups and exports you made yourself.",
+      "h5": "Backups",
+      "p4": "Backup files are encrypted with a passphrase you choose. We cannot open or recover them. Where you store them is up to you.",
+      "h6": "Children",
+      "p5": "{{app}} is intended for business users and is not directed at children. {{publisher}} does not knowingly collect personal data from children.",
+      "h7": "Privacy questions and data requests",
+      "p6": "For privacy questions or data requests, contact {{privacyEmail}}.",
+      "l5": "App updates – new versions come only through the App Store or Google Play. The app does not download code updates itself.",
+      "h8": "Your responsibilities",
+      "p7": "You are responsible for the files you export or share, for your backup files and their passphrases, and for your device-level backup settings. Files you export or share leave the app and are no longer under its control.",
+      "h9": "Contacting support safely",
+      "p8": "Do not send your product lists, prices or backup files to support unless they are specifically requested and have been redacted. Never send backup passphrases, bank details or store account passwords.",
+      "h10": "Changes to this policy",
+      "p9": "We may update this Privacy Policy from time to time. Material changes will be reflected in the app and the date above will be updated; the version in the app is the current one."
+    },
+    "terms": {
+      "title": "Terms of use",
+      "intro": "These Terms of Use apply to {{app}}, provided by {{publisher}}.",
+      "h1": "What the app is",
+      "p1": "{{app}} prints price labels from the products and prices you enter. It does not set your prices and does not connect to your till.",
+      "h2": "No professional advice",
+      "p2": "The app does not give tax, accounting, legal or financial advice. Tax rates, rules and business decisions remain your responsibility; check them with a qualified adviser where needed.",
+      "n1": "A result is only as good as the inputs and defaults behind it. Always check the workings before you print a price.",
+      "h3": "Your data",
+      "p3": "Your business data is stored on your device and is not sent to TillLabel servers. You are responsible for keeping backups and for the files you export or share.",
+      "h4": "Purchases",
+      "p4": "Pro is a one-time in-app purchase sold through Apple or Google under their terms. Restoring a purchase requires the same store account. The free plan never removes access to data you already entered.",
+      "h5": "Liability",
+      "p5": "The app is provided as is. To the extent permitted by law, {{publisher}} is not liable for losses arising from decisions made using the app, including pricing errors, lost data or lost profit. Nothing in these terms limits liability that cannot be limited by law.",
+      "h6": "Governing law",
+      "p6": "These Terms are governed by the laws of England and Wales, without affecting any mandatory consumer rights you have under the laws of your own country.",
+      "h7": "Acceptance of these Terms",
+      "p7": "By downloading or using the app, you agree to these Terms of Use. If you do not agree, please do not use the app.",
+      "h8": "Eligibility",
+      "p8": "The app is intended for business use by individuals who are at least 18 years old (or the age of majority in your country).",
+      "h9": "Provider",
+      "p9": "{{app}} is provided by {{publisher}}.",
+      "h10": "Accuracy of your figures",
+      "p10": "You are responsible for the accuracy of the products, prices, offers and unit prices you enter, and for checking every label before it goes on the shelf. A label is only as good as the figures behind it.",
+      "h11": "Provided \"as is\"",
+      "p11": "The app is provided on an \"as is\" and \"as available\" basis, without warranties of any kind, whether express or implied, to the maximum extent permitted by law.",
+      "h12": "Data loss",
+      "p12": "{{publisher}} is not responsible for loss of your data caused by device loss or reset, uninstalling the app, a failed backup, a forgotten backup passphrase, or your own export or sharing actions, except where responsibility cannot be excluded by law.",
+      "h13": "Intellectual property",
+      "p13": "The app, including its design, text and software (but excluding your own business data), is owned by {{publisher}} or its licensors and is protected by applicable laws. You are granted a personal, non-exclusive, non-transferable right to use the app.",
+      "h14": "Changes to the app and these Terms",
+      "p14": "The app may change over time as features are added, improved or removed. We may also update these Terms from time to time; continued use of the app after an update means you accept the updated Terms.",
+      "h15": "Legal and terms questions",
+      "p15": "For legal notices or terms-related questions, contact {{legalEmail}}."
+    },
+    "licences": {
+      "title": "Open-source licences",
+      "intro": "{{app}} is built with {{count}} open-source packages. Inventory generated on {{date}}.",
+      "p1": "Each package remains under its own licence, listed below by licence type and then by package. Tap a package to read its licence text. Thank you to their authors.",
+      "noText": "licence text not shipped by the package"
+    },
+    "lastUpdated": "Last updated: {{date}}.",
+    "companyNote": "{{publisher}}. Company number: {{companyNumber}}. Registered office: {{registeredOffice}}. VAT status: {{vatStatus}}.",
+    "vatNotRegistered": "Not VAT registered",
+    "dataStorage": {
+      "title": "Data Storage & Backup Notice",
+      "p1": "Your products, prices, label history and settings are stored locally on your device.",
+      "l1": "Deleting the app deletes its locally stored data.",
+      "l2": "Device loss, damage, reset or uninstall may cause data loss.",
+      "l3": "Back up regularly from More → Backup & restore; keep the file somewhere safe.",
+      "l4": "Backup and export files contain your products and prices and should be stored securely and shared only with people you trust.",
+      "l5": "Backups are encrypted with the passphrase you choose. If you lose that passphrase, the backup cannot be restored – not by you and not by us.",
+      "n1": "{{app}} cannot recover locally stored data if the device, the backup passphrase or a usable backup is lost.",
+      "h1": "Reporting a security concern",
+      "p2": "To report a security concern, contact {{securityEmail}}. Do not include backup passphrases, bank details or unredacted price files in the initial report."
+    },
+    "contact": {
+      "title": "Contact & support",
+      "body": "For help, email {{supportEmail}}. Please include your device type, operating system version, app version, the screen you were on and a short description of the issue. Screenshots help if they contain no sensitive figures.",
+      "never": "Never send backup passphrases, bank details, store account passwords or unredacted product lists unless support specifically asks for redacted diagnostic information.",
+      "security": "Security concern? Contact {{securityEmail}}.",
+      "emailButton": "Email support",
+      "mailBody": "App: {{app}} {{version}}\nDevice: {{platform}} {{osVersion}}\nScreen:\nWhat I was trying to do:\n\n(Do not include backup passphrases, bank details or unredacted product lists.)"
+    }
+  },
+  "backup": {
+    "subtitle": "Your products, labels and settings in one encrypted file",
+    "createSection": "Create a backup",
+    "createNow": "Create backup",
+    "createFooter": "You choose a password; the file is useless without it. Save it to your cloud drive or email it to yourself.",
+    "lastBackup": "Last backup: {{when}}",
+    "never": "No backup made on this device yet",
+    "createdTitle": "Backup created",
+    "createdBody": "{{file}} is ready. Use the share sheet to keep it somewhere safe.",
+    "createFailed": "The backup could not be created.",
+    "restoreSection": "Restore from a backup",
+    "restoreFooter": "Restoring replaces the products, labels and settings on this phone with the file's. If it is interrupted, your current data comes back on the next launch.",
+    "chooseFile": "Choose a backup file",
+    "chooseFileHint": "TillLabel_Backup_….json",
+    "previewTitle": "What is in this file",
+    "encrypted": "Encrypted",
+    "restoreTitle": "Replace the data on this phone?",
+    "restoreConfirm": "Everything in your products, labels and settings will be replaced by the backup. Make a backup of the current data first if you might need it.",
+    "restoreAction": "Restore",
+    "restoredTitle": "Restore complete",
+    "restoredBody": "{{keys}} data sets restored. Your lists and settings are back.",
+    "toolsSection": "Tools",
+    "checkHint": "Reads every record and reports anything unreadable.",
+    "checkOkTitle": "Data looks good",
+    "checkOkBody": "{{count}} records read without a problem.",
+    "checkIssuesTitle": "Some data could not be read",
+    "checkIssuesBody": "{{count}} record set(s) are unreadable. Restore a recent backup if anything looks missing.",
+    "errors": {
+      "read": "The file could not be read.",
+      "too-large": "This file is too large to be a TillLabel backup.",
+      "invalid-json": "This is not a valid backup file.",
+      "invalid-format": "The backup file is damaged or incomplete.",
+      "wrong-format": "This file is a backup from another app, not TillLabel.",
+      "unsupported-version": "This backup was made by a newer version of TillLabel. Update the app and try again.",
+      "passphrase-required": "This backup needs its password.",
+      "wrong-passphrase": "Wrong password, or the file has been altered.",
+      "checksum-mismatch": "The backup file is corrupted.",
+      "empty-backup": "There is nothing to restore in this file.",
+      "rolled-back": "The restore failed. Your previous data has been put back.",
+      "rollback-failed": "The restore failed and could not be undone. Restart the app; it will recover on launch."
+    },
+    "pw": {
+      "createTitle": "Set a backup password",
+      "enterTitle": "Enter the backup password",
+      "warning": "The file is encrypted with this password. If you lose the password, the backup cannot be opened by anyone, including us.",
+      "label": "Password",
+      "confirmLabel": "Confirm password",
+      "placeholder": "Backup password",
+      "minHint": "At least {{min}} characters.",
+      "tooShort": "Use at least {{min}} characters.",
+      "mismatch": "The passwords do not match.",
+      "creating": "Creating the backup…",
+      "restoring": "Restoring…"
+    },
+    "counts": {
+      "products": "Products",
+      "promotions": "Offers",
+      "reductions": "Reduced labels",
+      "waitingLabels": "Waiting to print",
+      "printJobs": "Print history"
+    }
+  },
+  "home": {
+    "tagline": "Shelf price labels",
+    "waitingTitle": "Waiting to print",
+    "waitingCounts": "Products: {{products}} · Labels: {{labels}}",
+    "productCount": "Saved products: {{count}}",
+    "summaryUnavailable": "The counts could not be read. Your data has not been changed.",
+    "setupTitle": "Set up",
+    "setupFooter": "Choose the app language and your shop's currency before you add products."
+  },
+  "products": {
+    "subtitle": "Your saved products and prices",
+    "emptyTitle": "No products yet",
+    "emptyBody": "Products you save will appear here with their price, barcode and category."
+  },
+  "queue": {
+    "emptyTitle": "Nothing waiting to print",
+    "emptyBody": "New products and changed prices will wait here until their labels are printed."
+  }
+}

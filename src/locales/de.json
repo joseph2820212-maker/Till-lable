@@ -1,0 +1,403 @@
+{
+  "common": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "back": "Zurück",
+    "yes": "Ja",
+    "no": "Nein",
+    "ok": "OK",
+    "error": "Fehler",
+    "share": "Teilen",
+    "monthsShort": [
+      "Jan.",
+      "Feb.",
+      "März",
+      "Apr.",
+      "Mai",
+      "Juni",
+      "Juli",
+      "Aug.",
+      "Sept.",
+      "Okt.",
+      "Nov.",
+      "Dez."
+    ],
+    "monthsFull": [
+      "Januar",
+      "Februar",
+      "März",
+      "April",
+      "Mai",
+      "Juni",
+      "Juli",
+      "August",
+      "September",
+      "Oktober",
+      "November",
+      "Dezember"
+    ],
+    "other": "Andere",
+    "date": "Datum",
+    "noData": "Keine Daten",
+    "version": "Version",
+    "continue": "Weiter",
+    "pleaseWait": "Bitte warten…",
+    "datePlaceholder": "TT.MM.JJJJ",
+    "show": "Anzeigen",
+    "hide": "Ausblenden",
+    "otherInputLabel": "EIGENER NAME",
+    "otherPlaceholder": "Eigenen eingeben…",
+    "weekdaysShort": [
+      "Mo",
+      "Di",
+      "Mi",
+      "Do",
+      "Fr",
+      "Sa",
+      "So"
+    ],
+    "weekdaysFull": [
+      "Montag",
+      "Dienstag",
+      "Mittwoch",
+      "Donnerstag",
+      "Freitag",
+      "Samstag",
+      "Sonntag"
+    ],
+    "select": "Wählen…",
+    "csvPreviewBanner": "CSV-Vorschau · {{count}} Zeilen · öffnet in Excel / Sheets"
+  },
+  "errors": {
+    "crashTitle": "Etwas ist schiefgelaufen",
+    "crashBody": "Bitte schließen und öffnen Sie die App erneut. Ihre Daten sind sicher."
+  },
+  "nav": {
+    "home": "Start",
+    "more": "Menü",
+    "products": "Produkte",
+    "toPrint": "Zu drucken"
+  },
+  "settings": {
+    "language": "Sprache",
+    "languageValue": "Deutsch",
+    "proTitle": "TillLabel Pro",
+    "proDesc": "Größerer Katalog und erweiterte Werkzeuge",
+    "appGroup": "APP",
+    "offlinePrivate": "Offline und privat",
+    "offlinePrivateSub": "Ihre Daten bleiben auf Ihrem Gerät",
+    "backupRestore": "Backup & Wiederherstellung",
+    "backupRow": "Backup & Wiederherstellung",
+    "supportLegal": "Support & Rechtliches",
+    "displayLanguage": "ANZEIGESPRACHE",
+    "currency": "Währung",
+    "appTagline": "Regalpreisetiketten",
+    "emailFallbackMsg": "Schreiben Sie uns an {{email}}",
+    "dataPrivacyModel": "DATEN- & DATENSCHUTZMODELL",
+    "offlineFirst": "Offline-first",
+    "offlineFirstSub": "Funktioniert ohne Internetverbindung",
+    "dataOnDevice": "Daten auf diesem Gerät gespeichert",
+    "dataOnDeviceSub": "Ihre Finanzdaten bleiben bei Ihnen",
+    "noAccountRequired": "Kein Konto oder Anmeldung erforderlich",
+    "noAccountRequiredSub": "App öffnen und sofort Etiketten erstellen",
+    "calculationsLocalOnly": "Ihre Etikettenarbeit bleibt auf dem Gerät",
+    "calculationsLocalOnlySub": "Ihre Produkte und Preise werden nicht an TillLabel-Server gesendet",
+    "offlineInfoMsg": "Ihre Produkte, Preise und Etiketten bleiben auf dem Gerät und werden nicht an TillLabel-Server gesendet. Käufe werden von Apple oder Google und RevenueCat abgewickelt. Dateien verlassen TillLabel nur, wenn Sie sie importieren, exportieren, teilen, drucken oder sichern.",
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "termsOfUse": "Nutzungsbedingungen",
+    "contactSupport": "Kontakt / Support",
+    "openSourceLicenses": "Open-Source-Lizenzen",
+    "checkRepairData": "Datenintegrität prüfen",
+    "appLanguageSub": "Oberflächensprache der App",
+    "languageSwitching": "Sprache wird gewechselt…",
+    "languageRolledBack": "Wechsel zu {{lang}} fehlgeschlagen. Zurück zur vorherigen Sprache.",
+    "languageChangeFailed": "Sprachwechsel fehlgeschlagen. Bitte erneut versuchen.",
+    "backupSecureNote": "Sicherungen enthalten Produkte, Angebote, Druckwarteschlange und Einstellungen, verschlüsselt mit Ihrer Passphrase. Ihr Pro-Kauf und ungespeicherte Entwürfe sind nicht enthalten.",
+    "currencyScreenTitle": "Währung",
+    "currencyScreenSub": "Standard-Anzeigewährung festlegen",
+    "currentCurrency": "AKTUELLE WÄHRUNG",
+    "chooseCurrency": "WÄHRUNG WÄHLEN",
+    "numberFormatNote": "Die Zahlenformatierung (Dezimal- und Tausendertrennzeichen) richtet sich nach Ihrer App-Spracheinstellung.",
+    "defaultsNote": "Die Währung gilt für neue Produkte. Gespeicherte Produkte und gedruckte Etiketten behalten ihre Währung.",
+    "proActive": "TillLabel Pro ist aktiv",
+    "proActiveFooter": "Danke. Auf diesem Gerät ist alles freigeschaltet und bleibt es auch offline.",
+    "proFreeFooter": "Der Gratis-Plan sperrt nie, was Sie schon eingegeben haben. Pro ist ein Einmalkauf, kein Abo.",
+    "dataStorageNotice": "Hinweis Datenspeicherung & Sicherung",
+    "aboutApp": "Über {{app}}"
+  },
+  "billing": {
+    "settingsTitle": "Abrechnung",
+    "restorePurchases": "Käufe wiederherstellen",
+    "purchaseFailed": "Kauf fehlgeschlagen. Bitte erneut versuchen.",
+    "retry": "Erneut versuchen",
+    "statusLifetime": "Lebenslang",
+    "purchaseEntitlementMissing": "Ihr Kauf ist durchgegangen, aber Pro wurde noch nicht bestätigt. Tippen Sie auf Erneut versuchen oder Kauf wiederherstellen. Es wird nicht doppelt abgebucht.",
+    "unlockPro": "Pro freischalten – {{price}}",
+    "notNow": "Jetzt nicht",
+    "restorePurchase": "Früheren Kauf wiederherstellen",
+    "lifetimePlaceholderPrice": "einmalig",
+    "oncePrice": "{{price}} einmalig",
+    "proSummary": "Größerer Produktkatalog und erweiterte Etikett-Werkzeuge. Einmal zahlen, für immer nutzen. Kein Abo.",
+    "unlocked": "Pro ist freigeschaltet. Danke!",
+    "storeUnavailable": "Der Store ist gerade nicht erreichbar. Ihre Daten sind sicher – online erneut versuchen.",
+    "restoreTitle": "Kauf wiederherstellen",
+    "nothingToRestore": "Für dieses Store-Konto wurde kein früherer Kauf gefunden.",
+    "proName": "{{app}} Pro",
+    "limit": {
+      "products": {
+        "eyebrow": "Gratis-Tarif: {{n}} gespeicherte Produkte",
+        "title": "Ihre Produktliste ist voll",
+        "keepsWorking": "Alle bereits gespeicherten Produkte funktionieren weiter: bearbeiten, drucken, exportieren, sichern. Pro hebt die Grenze auf."
+      },
+      "proFeature": {
+        "eyebrow": "Gratis-Tarif",
+        "title": "Dafür ist Pro nötig",
+        "keepsWorking": "Alles bereits Gespeicherte funktioniert weiter. Pro bringt einen größeren Katalog und erweiterte Etikett-Werkzeuge."
+      }
+    }
+  },
+  "fileCenter": {
+    "pdfError": "PDF konnte nicht erstellt werden",
+    "exportPreviewFailed": "Vorschau fehlgeschlagen",
+    "preparingPreview": "Vorschau wird erstellt..."
+  },
+  "help": {
+    "tabGuide": "Anleitung",
+    "guideIntro": "Kurze Anleitungen, Aufgabe für Aufgabe, für den Alltag.",
+    "guide": {
+      "backup": {
+        "title": "Sicherung und Wiederherstellung",
+        "l1": "Mehr → Sichern & wiederherstellen → Sicherung erstellen. Die Datei wird mit einer selbst gewählten Passphrase verschlüsselt.",
+        "l2": "Bewahren Sie die Datei sicher auf (Cloud, E-Mail an sich selbst). Ohne Passphrase lässt sie sich nicht öffnen – auch nicht von uns.",
+        "l3": "Stellen Sie auf einem neuen Telefon über denselben Bildschirm wieder her. Produkte, Angebote, Druckverlauf und Einstellungen kommen zurück; eine unterbrochene Wiederherstellung setzt sicher fort."
+      },
+      "languages": {
+        "title": "Sprachen und Währung",
+        "l1": "Sechs Sprachen: Englisch, Arabisch, Türkisch, Französisch, Spanisch und Deutsch. Arabisch dreht das Layout auf rechts-nach-links.",
+        "l2": "Zahlen werden immer mit westlichen Ziffern gezeigt, damit Preise auf einem Etikett in jeder Sprache gleich lesbar sind.",
+        "l3": "Die Währung zu ändern ändert die Anzeige der Preise; Ihre Zahlen werden nicht umgerechnet."
+      },
+      "support": {
+        "title": "Sicher Hilfe bekommen",
+        "l1": "Mehr → Info → Support anschreiben. Die E-Mail öffnet sich mit App-Version und Gerät bereits eingetragen.",
+        "l2": "Beschreiben Sie den Bildschirm und Ihr Vorhaben; fügen Sie einen Screenshot bei, wenn er keine sensiblen Zahlen zeigt.",
+        "l3": "Senden Sie nie Sicherungs-Passphrasen, Bankdaten, Store-Passwörter oder ungeschwärzte Produktlisten. Der Support fragt nur nach geschwärzten Angaben."
+      }
+    },
+    "tabFaq": "Fragen",
+    "faqIntro": "Kurze Antworten auf die häufigsten Fragen von Ladeninhabern.",
+    "faq": {
+      "gettingStarted": {
+        "title": "Erste Schritte",
+        "q1": "Ist {{app}} eine Online-App?",
+        "a1": "{{app}} funktioniert offline. Produkte, Preise und Etiketten werden auf dem Gerät gespeichert. Nur der Pro-Kauf spricht mit Apple oder Google und RevenueCat, und nur Dateien, die Sie importieren, exportieren, teilen, drucken oder sichern, verlassen die App."
+      },
+      "dataPrivacy": {
+        "title": "Daten & Datenschutz",
+        "q1": "Sendet {{app}} meine Zahlen an einen Server?",
+        "a1": "Nein. Ihre Produkte und Preise werden nicht an {{app}}-Server gesendet; es gibt kein Konto und keine Cloud. Für Sicherungen, Exporte und alles, was Sie außerhalb der App teilen, sind Sie verantwortlich."
+      },
+      "permissions": {
+        "title": "Kamera & Dateien",
+        "q1": "Warum fragt die App nach Kamera oder Dateien?",
+        "a1": "Die Kamera dient nur dem Lesen von Barcodes auf dem Scan-Bildschirm; es wird kein Foto aufgenommen oder gespeichert. Auf Dateien wird nur zugegriffen, wenn Sie eine CSV importieren, PDF oder CSV exportieren, teilen oder eine Sicherung anlegen und wiederherstellen. Die App fragt beim ersten Einsatz jeder Funktion."
+      },
+      "troubleshooting": {
+        "title": "Fehlerbehebung",
+        "q1": "Was passiert, wenn ich mein Telefon verliere?",
+        "a1": "Ohne Sicherung sind die Daten auf dem Telefon verloren. Erstellen Sie unter Mehr → Sicherung & Wiederherstellung eine Sicherung, bewahren Sie die Datei sicher auf und merken Sie sich die Passphrase; auf dem neuen Telefon stellen Sie sie vom selben Bildschirm aus wieder her.",
+        "q2": "Löscht das Deinstallieren der App meine Daten?",
+        "a2": "Ja. Da alles auf dem Gerät gespeichert ist, entfernt eine Deinstallation Produkte, Etiketten und Einstellungen, sofern Sie sie nicht vorher gesichert haben. Anderswo gespeicherte Sicherungen und Exporte bleiben erhalten."
+      },
+      "support": {
+        "title": "Support kontaktieren",
+        "q1": "Wie erreiche ich den Support?",
+        "a1": "Schreiben Sie an {{supportEmail}} – die Schaltfläche unter Mehr → Info füllt App- und Gerätedaten aus. Ergänzen Sie den Bildschirm, was Sie tun wollten, und Screenshots ohne sensible Zahlen.",
+        "q2": "Was kann ich dem Support gefahrlos senden?",
+        "a2": "Gerätetyp, Betriebssystem- und App-Version, Bildschirmname, eine kurze Beschreibung und Screenshots ohne sensible Zahlen. Senden Sie nie Sicherungs-Passphrasen, Bankdaten, Store-Kontopasswörter oder ungeschwärzte Produktlisten."
+      }
+    },
+    "title": "Hilfe"
+  },
+  "about": {
+    "publisherLine": "Herausgegeben von {{publisher}}",
+    "noAnalytics": "Kein Tracking, keine Analysen",
+    "noAnalyticsSub": "Die App enthält keine Analyse- oder Werbebibliotheken. Käufe werden von Apple oder Google und RevenueCat abgewickelt.",
+    "ossCount": "{{count}} Pakete",
+    "description": "{{app}} druckt Regalpreis-, Angebots- und Reduziert-Etiketten für Geschäfte und kleine Betriebe und druckt nur geänderte Preise neu. Ihre Produkte und Preise werden auf dem Gerät gespeichert."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "intro": "Diese Datenschutzerklärung erklärt, wie {{app}}, bereitgestellt von {{publisher}}, mit Ihren Daten umgeht.",
+      "h1": "Offline von Grund auf",
+      "p1": "Produkte, Preise, Etikettenverlauf und Einstellungen werden nur auf Ihrem Gerät gespeichert. {{app}} hat kein Kontosystem und keinen Server mit Ihren Daten.",
+      "h2": "Kein Tracking",
+      "p2": "Die App enthält keine Analyse-, Werbe- oder Absturzbericht-Bibliotheken. Ihre Produkte, Preise und Etiketten bleiben auf dem Gerät und werden nicht an TillLabel-Server gesendet.",
+      "h3": "Gerätefunktionen, die die App nutzen kann",
+      "l1": "Kamera – nur zum Lesen von Barcodes, wenn Sie den Scanner öffnen. Es wird kein Foto gespeichert.",
+      "l2": "Dateien – wenn Sie eine CSV importieren oder Ihre Daten exportieren, teilen oder sichern.",
+      "l3": "Teilen – wenn Sie ein PDF oder eine CSV an eine andere App senden. Was Sie teilen, verlässt die App und ist nicht mehr unter ihrer Kontrolle.",
+      "l4": "In-App-Kauf – abgewickelt von Apple oder Google und dem Kaufdienst RevenueCat, der einen Kaufbeleg und eine anonyme App-Installations-ID erhält. Es werden weder Name, E-Mail noch Geschäftsdaten gesendet.",
+      "h4": "Ihre Kontrolle",
+      "p3": "Sie können jederzeit alles in der App ändern oder löschen. Das Deinstallieren der App löscht ihre Daten vom Gerät, abgesehen von Backups und Exporten, die Sie selbst gemacht haben.",
+      "h5": "Backups",
+      "p4": "Backup-Dateien werden mit einer selbst gewählten Passphrase verschlüsselt. Wir können sie weder öffnen noch wiederherstellen. Wo Sie sie speichern, liegt bei Ihnen.",
+      "h6": "Kinder",
+      "p5": "{{app}} richtet sich an gewerbliche Nutzer und nicht an Kinder. {{publisher}} erhebt wissentlich keine personenbezogenen Daten von Kindern.",
+      "h7": "Datenschutzfragen und Datenanfragen",
+      "p6": "Bei Datenschutzfragen oder Datenanfragen wenden Sie sich an {{privacyEmail}}.",
+      "l5": "App-Updates – neue Versionen kommen nur über den App Store oder Google Play. Die App lädt selbst keine Code-Updates herunter.",
+      "h8": "Ihre Verantwortung",
+      "p7": "Sie sind verantwortlich für die Dateien, die Sie exportieren oder teilen, für Ihre Sicherungsdateien und deren Passphrasen sowie für die Sicherungseinstellungen Ihres Geräts. Exportierte oder geteilte Dateien verlassen die App und stehen nicht mehr unter ihrer Kontrolle.",
+      "h9": "Sicherer Kontakt zum Support",
+      "p8": "Senden Sie Produktlisten, Preise oder Sicherungsdateien nur auf ausdrückliche Anfrage und geschwärzt an den Support. Senden Sie nie Sicherungs-Passphrasen, Bankdaten oder Store-Kontopasswörter.",
+      "h10": "Änderungen dieser Richtlinie",
+      "p9": "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Wesentliche Änderungen erscheinen in der App und das obige Datum wird angepasst; die Version in der App ist die gültige."
+    },
+    "terms": {
+      "title": "Nutzungsbedingungen",
+      "intro": "Diese Nutzungsbedingungen gelten für {{app}}, bereitgestellt von {{publisher}}.",
+      "h1": "Was die App ist",
+      "p1": "{{app}} druckt Preisetiketten aus den Produkten und Preisen, die Sie eingeben. Es legt keine Preise fest und verbindet sich nicht mit Ihrer Kasse.",
+      "h2": "Keine professionelle Beratung",
+      "p2": "Die App bietet keine Steuer-, Buchhaltungs-, Rechts- oder Finanzberatung. Steuersätze, Regeln und Geschäftsentscheidungen bleiben Ihre Verantwortung; prüfen Sie sie bei Bedarf mit einer qualifizierten Beratung.",
+      "n1": "Ein Ergebnis ist nur so gut wie die Eingaben und Standardwerte dahinter. Prüfen Sie immer den Rechenweg, bevor Sie einen Preis drucken.",
+      "h3": "Ihre Daten",
+      "p3": "Ihre Geschäftsdaten werden auf dem Gerät gespeichert und nicht an TillLabel-Server gesendet. Sie sind für Sicherungen und für exportierte oder geteilte Dateien verantwortlich.",
+      "h4": "Käufe",
+      "p4": "Pro ist ein einmaliger In-App-Kauf über Apple oder Google zu deren Bedingungen. Die Wiederherstellung erfordert dasselbe Store-Konto. Der Gratis-Plan entzieht nie den Zugriff auf bereits eingegebene Daten.",
+      "h5": "Haftung",
+      "p5": "Die App wird wie besehen bereitgestellt. Soweit gesetzlich zulässig, haftet {{publisher}} nicht für Verluste aus Entscheidungen, die mit der App getroffen wurden, einschließlich Preisfehlern, Datenverlust oder entgangenem Gewinn. Nichts hierin beschränkt eine Haftung, die gesetzlich nicht beschränkt werden kann.",
+      "h6": "Anwendbares Recht",
+      "p6": "Diese Bedingungen unterliegen dem Recht von England und Wales, unbeschadet zwingender Verbraucherrechte nach dem Recht Ihres Landes.",
+      "h7": "Annahme dieser Bedingungen",
+      "p7": "Mit dem Herunterladen oder Nutzen der App stimmen Sie diesen Nutzungsbedingungen zu. Wenn Sie nicht zustimmen, nutzen Sie die App bitte nicht.",
+      "h8": "Nutzungsberechtigung",
+      "p8": "Die App ist für die geschäftliche Nutzung durch Personen ab 18 Jahren (oder dem Volljährigkeitsalter in Ihrem Land) bestimmt.",
+      "h9": "Anbieter",
+      "p9": "{{app}} wird von {{publisher}} bereitgestellt.",
+      "h10": "Richtigkeit Ihrer Zahlen",
+      "p10": "Sie sind für die Richtigkeit der eingegebenen Produkte, Preise, Angebote und Grundpreise verantwortlich und prüfen jedes Etikett, bevor es ans Regal kommt. Ein Etikett ist nur so gut wie die Zahlen dahinter.",
+      "h11": "Bereitstellung „wie besehen“",
+      "p11": "Die App wird „wie besehen“ und „wie verfügbar“ bereitgestellt, ohne jegliche ausdrückliche oder stillschweigende Gewährleistung, soweit gesetzlich zulässig.",
+      "h12": "Datenverlust",
+      "p12": "{{publisher}} haftet nicht für Datenverlust durch Geräteverlust oder -zurücksetzung, Deinstallation der App, eine fehlgeschlagene Sicherung, eine vergessene Sicherungs-Passphrase oder Ihre eigenen Export- oder Teilvorgänge, soweit die Haftung gesetzlich ausgeschlossen werden kann.",
+      "h13": "Geistiges Eigentum",
+      "p13": "Die App einschließlich Design, Texten und Software (ohne Ihre eigenen Geschäftsdaten) gehört {{publisher}} oder deren Lizenzgebern und ist gesetzlich geschützt. Ihnen wird ein persönliches, nicht ausschließliches, nicht übertragbares Nutzungsrecht eingeräumt.",
+      "h14": "Änderungen der App und dieser Bedingungen",
+      "p14": "Die App kann sich im Laufe der Zeit ändern, wenn Funktionen hinzugefügt, verbessert oder entfernt werden. Auch diese Bedingungen können wir aktualisieren; die weitere Nutzung der App nach einer Aktualisierung gilt als Zustimmung.",
+      "h15": "Rechtliche Fragen und Fragen zu den Bedingungen",
+      "p15": "Für rechtliche Mitteilungen oder Fragen zu den Bedingungen wenden Sie sich an {{legalEmail}}."
+    },
+    "licences": {
+      "title": "Open-Source-Lizenzen",
+      "intro": "{{app}} ist mit {{count}} Open-Source-Paketen gebaut. Inventar erstellt am {{date}}.",
+      "p1": "Jedes Paket steht unter seiner eigenen Lizenz, unten nach Lizenztyp und dann nach Paket aufgeführt. Tippen Sie auf ein Paket, um den Lizenztext zu lesen. Danke an die Autoren.",
+      "noText": "Lizenztext nicht im Paket enthalten"
+    },
+    "lastUpdated": "Zuletzt aktualisiert: {{date}}.",
+    "companyNote": "{{publisher}}. Firmennummer: {{companyNumber}}. Eingetragener Sitz: {{registeredOffice}}. USt-Status: {{vatStatus}}.",
+    "vatNotRegistered": "Nicht umsatzsteuerlich registriert",
+    "dataStorage": {
+      "title": "Hinweis zu Datenspeicherung und Sicherung",
+      "p1": "Produkte, Preise, Etikettenverlauf und Einstellungen werden lokal auf Ihrem Gerät gespeichert.",
+      "l1": "Das Löschen der App löscht ihre lokal gespeicherten Daten.",
+      "l2": "Geräteverlust, Beschädigung, Zurücksetzen oder Deinstallation können zu Datenverlust führen.",
+      "l3": "Sichern Sie regelmäßig unter Mehr → Sicherung & Wiederherstellung; bewahren Sie die Datei sicher auf.",
+      "l4": "Sicherungs- und Exportdateien enthalten Ihre Produkte und Preise; bewahren Sie sie sicher auf und teilen Sie sie nur mit Vertrauenspersonen.",
+      "l5": "Sicherungen werden mit der von Ihnen gewählten Passphrase verschlüsselt. Geht sie verloren, kann die Sicherung nicht wiederhergestellt werden – weder von Ihnen noch von uns.",
+      "n1": "{{app}} kann lokal gespeicherte Daten nicht wiederherstellen, wenn das Gerät, die Sicherungs-Passphrase oder eine brauchbare Sicherung verloren geht.",
+      "h1": "Sicherheitsproblem melden",
+      "p2": "Um ein Sicherheitsproblem zu melden, wenden Sie sich an {{securityEmail}}. Fügen Sie der ersten Meldung keine Sicherungs-Passphrasen, Bankdaten oder ungeschwärzte Preisdateien bei."
+    },
+    "contact": {
+      "title": "Kontakt & Support",
+      "body": "Für Hilfe schreiben Sie an {{supportEmail}}. Bitte nennen Sie Gerätetyp, Betriebssystemversion, App-Version, den betreffenden Bildschirm und eine kurze Beschreibung. Screenshots helfen, wenn sie keine sensiblen Zahlen enthalten.",
+      "never": "Senden Sie nie Sicherungs-Passphrasen, Bankdaten, Store-Kontopasswörter oder ungeschwärzte Produktlisten, außer der Support bittet ausdrücklich um geschwärzte Diagnosedaten.",
+      "security": "Sicherheitsproblem? Wenden Sie sich an {{securityEmail}}.",
+      "emailButton": "Support anschreiben",
+      "mailBody": "App: {{app}} {{version}}\nGerät: {{platform}} {{osVersion}}\nBildschirm:\nWas ich tun wollte:\n\n(Keine Sicherungs-Passphrasen, Bankdaten oder ungeschwärzten Produktlisten angeben.)"
+    }
+  },
+  "backup": {
+    "subtitle": "Produkte, Etiketten und Einstellungen in einer verschlüsselten Datei",
+    "createSection": "Sicherung erstellen",
+    "createNow": "Sicherung erstellen",
+    "createFooter": "Sie wählen ein Passwort; ohne ist die Datei nutzlos. In der Cloud speichern oder sich selbst mailen.",
+    "lastBackup": "Letzte Sicherung: {{when}}",
+    "never": "Noch keine Sicherung auf diesem Gerät",
+    "createdTitle": "Sicherung erstellt",
+    "createdBody": "{{file}} ist bereit. Über das Teilen-Menü sicher aufbewahren.",
+    "createFailed": "Die Sicherung konnte nicht erstellt werden.",
+    "restoreSection": "Aus Sicherung wiederherstellen",
+    "restoreFooter": "Die Wiederherstellung ersetzt Produkte, Etiketten und Einstellungen auf diesem Telefon durch die der Datei. Wird sie unterbrochen, kehren Ihre aktuellen Daten beim nächsten Start zurück.",
+    "chooseFile": "Sicherungsdatei wählen",
+    "chooseFileHint": "TillLabel_Backup_….json",
+    "previewTitle": "Was diese Datei enthält",
+    "encrypted": "Verschlüsselt",
+    "restoreTitle": "Daten auf diesem Telefon ersetzen?",
+    "restoreConfirm": "Alles in Produkten, Etiketten und Einstellungen wird durch die Sicherung ersetzt. Sichern Sie zuerst die aktuellen Daten, falls Sie sie brauchen könnten.",
+    "restoreAction": "Wiederherstellen",
+    "restoredTitle": "Wiederherstellung abgeschlossen",
+    "restoredBody": "{{keys}} Datensätze wiederhergestellt. Ihre Listen und Einstellungen sind zurück.",
+    "toolsSection": "Werkzeuge",
+    "checkHint": "Liest jeden Datensatz und meldet Unlesbares.",
+    "checkOkTitle": "Daten sind in Ordnung",
+    "checkOkBody": "{{count}} Datensätze fehlerfrei gelesen.",
+    "checkIssuesTitle": "Einige Daten konnten nicht gelesen werden",
+    "checkIssuesBody": "{{count}} Datensatzgruppe(n) unlesbar. Bei fehlenden Daten eine aktuelle Sicherung wiederherstellen.",
+    "errors": {
+      "read": "Die Datei konnte nicht gelesen werden.",
+      "too-large": "Diese Datei ist zu groß für eine TillLabel-Sicherung.",
+      "invalid-json": "Das ist keine gültige Sicherungsdatei.",
+      "invalid-format": "Die Sicherungsdatei ist beschädigt oder unvollständig.",
+      "wrong-format": "Diese Datei ist eine Sicherung einer anderen App, nicht von TillLabel.",
+      "unsupported-version": "Diese Sicherung stammt von einer neueren TillLabel-Version. Aktualisieren Sie die App und versuchen Sie es erneut.",
+      "passphrase-required": "Diese Sicherung braucht ihr Passwort.",
+      "wrong-passphrase": "Falsches Passwort, oder die Datei wurde verändert.",
+      "checksum-mismatch": "Die Sicherungsdatei ist beschädigt.",
+      "empty-backup": "In dieser Datei gibt es nichts wiederherzustellen.",
+      "rolled-back": "Die Wiederherstellung ist fehlgeschlagen. Ihre vorherigen Daten wurden zurückgesetzt.",
+      "rollback-failed": "Die Wiederherstellung ist fehlgeschlagen und konnte nicht rückgängig gemacht werden. App neu starten; sie stellt sich beim Start wieder her."
+    },
+    "pw": {
+      "createTitle": "Sicherungspasswort festlegen",
+      "enterTitle": "Sicherungspasswort eingeben",
+      "warning": "Die Datei wird mit diesem Passwort verschlüsselt. Geht es verloren, kann niemand die Sicherung öffnen, auch wir nicht.",
+      "label": "Passwort",
+      "confirmLabel": "Passwort bestätigen",
+      "placeholder": "Sicherungspasswort",
+      "minHint": "Mindestens {{min}} Zeichen.",
+      "tooShort": "Mindestens {{min}} Zeichen verwenden.",
+      "mismatch": "Die Passwörter stimmen nicht überein.",
+      "creating": "Sicherung wird erstellt…",
+      "restoring": "Wird wiederhergestellt…"
+    },
+    "counts": {
+      "products": "Produkte",
+      "promotions": "Angebote",
+      "reductions": "Reduziert-Etiketten",
+      "waitingLabels": "Wartet auf Druck",
+      "printJobs": "Druckverlauf"
+    }
+  },
+  "home": {
+    "tagline": "Regalpreisetiketten",
+    "waitingTitle": "Wartet auf Druck",
+    "waitingCounts": "Produkte: {{products}} · Etiketten: {{labels}}",
+    "productCount": "Gespeicherte Produkte: {{count}}",
+    "summaryUnavailable": "Die Zahlen konnten nicht gelesen werden. Ihre Daten wurden nicht geändert.",
+    "setupTitle": "Einrichtung",
+    "setupFooter": "Wählen Sie App-Sprache und Währung Ihres Geschäfts, bevor Sie Produkte hinzufügen."
+  },
+  "products": {
+    "subtitle": "Ihre gespeicherten Produkte und Preise",
+    "emptyTitle": "Noch keine Produkte",
+    "emptyBody": "Gespeicherte Produkte erscheinen hier mit Preis, Barcode und Kategorie."
+  },
+  "queue": {
+    "emptyTitle": "Nichts wartet auf den Druck",
+    "emptyBody": "Neue Produkte und geänderte Preise warten hier, bis ihre Etiketten gedruckt sind."
+  }
+}

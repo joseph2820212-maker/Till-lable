@@ -1,0 +1,15 @@
+اللغة
+لغة واجهة التطبيق
+لغة العرض
+English
+EN
+العربية
+AR
+Türkçe
+TR
+Français
+FR
+Español
+ES
+Deutsch
+DE

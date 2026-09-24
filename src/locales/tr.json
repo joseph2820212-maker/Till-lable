@@ -1,0 +1,403 @@
+{
+  "common": {
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "back": "Geri",
+    "yes": "Evet",
+    "no": "Hayır",
+    "ok": "Tamam",
+    "error": "Hata",
+    "share": "Paylaş",
+    "monthsShort": [
+      "Oca",
+      "Şub",
+      "Mar",
+      "Nis",
+      "May",
+      "Haz",
+      "Tem",
+      "Ağu",
+      "Eyl",
+      "Eki",
+      "Kas",
+      "Ara"
+    ],
+    "monthsFull": [
+      "Ocak",
+      "Şubat",
+      "Mart",
+      "Nisan",
+      "Mayıs",
+      "Haziran",
+      "Temmuz",
+      "Ağustos",
+      "Eylül",
+      "Ekim",
+      "Kasım",
+      "Aralık"
+    ],
+    "other": "Diğer",
+    "date": "Tarih",
+    "noData": "Veri yok",
+    "version": "Sürüm",
+    "continue": "Devam",
+    "pleaseWait": "Lütfen bekleyin…",
+    "datePlaceholder": "GG/AA/YYYY",
+    "show": "Göster",
+    "hide": "Gizle",
+    "otherInputLabel": "ÖZEL AD",
+    "otherPlaceholder": "Kendi adınızı yazın…",
+    "weekdaysShort": [
+      "Pt",
+      "Sa",
+      "Ça",
+      "Pe",
+      "Cu",
+      "Ct",
+      "Pz"
+    ],
+    "weekdaysFull": [
+      "Pazartesi",
+      "Salı",
+      "Çarşamba",
+      "Perşembe",
+      "Cuma",
+      "Cumartesi",
+      "Pazar"
+    ],
+    "select": "Seçin…",
+    "csvPreviewBanner": "CSV önizleme · {{count}} satır · Excel / Sheets'te açılır"
+  },
+  "errors": {
+    "crashTitle": "Bir şeyler ters gitti",
+    "crashBody": "Lütfen uygulamayı kapatıp yeniden açın. Verileriniz güvende."
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "more": "Menü",
+    "products": "Ürünler",
+    "toPrint": "Yazdırılacak"
+  },
+  "settings": {
+    "language": "Dil",
+    "languageValue": "Türkçe",
+    "proTitle": "TillLabel Pro",
+    "proDesc": "Daha büyük katalog ve gelişmiş etiket araçları",
+    "appGroup": "UYGULAMA",
+    "offlinePrivate": "Çevrimdışı ve Gizli",
+    "offlinePrivateSub": "Verileriniz cihazınızda kalır",
+    "backupRestore": "Yedekleme ve Geri Yükleme",
+    "backupRow": "Yedekleme ve Geri Yükleme",
+    "supportLegal": "Destek ve Yasal",
+    "displayLanguage": "GÖRÜNÜM DİLİ",
+    "currency": "Para Birimi",
+    "appTagline": "Raf fiyat etiketleri",
+    "emailFallbackMsg": "Bize şu adresten yazın: {{email}}",
+    "dataPrivacyModel": "VERİ VE GİZLİLİK MODELI",
+    "offlineFirst": "Çevrimdışı Öncelikli",
+    "offlineFirstSub": "İnternet bağlantısı olmadan çalışır",
+    "dataOnDevice": "Veriler bu cihazda saklanır",
+    "dataOnDeviceSub": "Mali verileriniz sizinle kalır",
+    "noAccountRequired": "Hesap veya kayıt gerekmez",
+    "noAccountRequiredSub": "Uygulamayı açın ve hemen etiket hazırlamaya başlayın",
+    "calculationsLocalOnly": "Etiket çalışmanız cihazınızda kalır",
+    "calculationsLocalOnlySub": "Ürünleriniz ve fiyatlarınız TillLabel sunucularına gönderilmez",
+    "offlineInfoMsg": "Ürünleriniz, fiyatlarınız ve etiketleriniz cihazınızda kalır ve TillLabel sunucularına gönderilmez. Satın alımlar Apple veya Google ve RevenueCat tarafından işlenir. Dosyalar yalnızca içe aktarmayı, dışa aktarmayı, paylaşmayı, yazdırmayı veya yedeklemeyi seçtiğinizde TillLabel'dan çıkar.",
+    "privacyPolicy": "Gizlilik Politikası",
+    "termsOfUse": "Kullanım Koşulları",
+    "contactSupport": "İletişim / Destek",
+    "openSourceLicenses": "Açık Kaynak Lisansları",
+    "checkRepairData": "Veri Sağlığını Kontrol Et",
+    "appLanguageSub": "Uygulamanın arayüz dili",
+    "languageSwitching": "Dil değiştiriliyor…",
+    "languageRolledBack": "{{lang}} diline geçilemedi. Önceki dile geri dönüldü.",
+    "languageChangeFailed": "Dil değiştirme başarısız oldu. Lütfen tekrar deneyin.",
+    "backupSecureNote": "Yedekler ürünlerinizi, kampanyalarınızı, yazdırma kuyruğunuzu ve ayarlarınızı parolanızla şifrelenmiş olarak içerir. Pro satın alımınız ve kaydedilmemiş taslaklar dahil değildir.",
+    "currencyScreenTitle": "Para Birimi",
+    "currencyScreenSub": "Varsayılan görüntüleme para birimini ayarla",
+    "currentCurrency": "MEVCUT PARA BİRİMİ",
+    "chooseCurrency": "PARA BİRİMİ SEÇ",
+    "numberFormatNote": "Sayı biçimlendirmesi (ondalık ve binlik ayırıcılar) uygulama dili ayarınıza göre belirlenir.",
+    "defaultsNote": "Para birimi yeni ürünlere uygulanır. Kayıtlı ürünler ve yazdırılmış etiketler kendi para birimini korur.",
+    "proActive": "TillLabel Pro etkin",
+    "proActiveFooter": "Teşekkürler. Bu cihazda her şey açık ve çevrimdışıyken de açık kalır.",
+    "proFreeFooter": "Ücretsiz plan girdiklerinizi asla kilitlemez. Pro tek seferlik satın almadır, abonelik yoktur.",
+    "dataStorageNotice": "Veri depolama ve yedekleme bildirimi",
+    "aboutApp": "{{app}} hakkında"
+  },
+  "billing": {
+    "settingsTitle": "Faturalama",
+    "restorePurchases": "Satın alımları geri yükle",
+    "purchaseFailed": "Satın alma başarısız. Tekrar deneyin.",
+    "retry": "Tekrar dene",
+    "statusLifetime": "Ömür boyu",
+    "purchaseEntitlementMissing": "Satın alma tamamlandı ancak Pro henüz doğrulanmadı. Yeniden denemek için Tekrar Dene'ye dokunun veya satın almayı geri yükleyin. İki kez ücretlendirilmezsiniz.",
+    "unlockPro": "Pro'yu aç – {{price}}",
+    "notNow": "Şimdi değil",
+    "restorePurchase": "Önceki satın almayı geri yükle",
+    "lifetimePlaceholderPrice": "tek seferlik",
+    "oncePrice": "{{price}} bir kez",
+    "proSummary": "Daha büyük ürün kataloğu ve gelişmiş etiket araçları. Bir kez ödeyin, sonsuza dek kullanın. Abonelik yok.",
+    "unlocked": "Pro açıldı. Teşekkürler!",
+    "storeUnavailable": "Mağazaya şu anda ulaşılamıyor. Verileriniz güvende – çevrimiçi olunca tekrar deneyin.",
+    "restoreTitle": "Satın almayı geri yükle",
+    "nothingToRestore": "Bu mağaza hesabı için önceki satın alma bulunamadı.",
+    "proName": "{{app}} Pro",
+    "limit": {
+      "products": {
+        "eyebrow": "Ücretsiz plan: {{n}} kayıtlı ürün",
+        "title": "Ürün listeniz dolu",
+        "keepsWorking": "Kaydettiğiniz her ürün çalışmaya devam eder: düzenleme, yazdırma, dışa aktarma ve yedekleme. Pro sınırı kaldırır."
+      },
+      "proFeature": {
+        "eyebrow": "Ücretsiz plan",
+        "title": "Bunun için Pro gerekir",
+        "keepsWorking": "Kaydettiğiniz her şey çalışmaya devam eder. Pro daha büyük bir katalog ve gelişmiş etiket araçları ekler."
+      }
+    }
+  },
+  "fileCenter": {
+    "pdfError": "PDF oluşturulamadı",
+    "exportPreviewFailed": "Önizleme başarısız",
+    "preparingPreview": "Önizleme hazırlanıyor..."
+  },
+  "help": {
+    "tabGuide": "Nasıl yapılır",
+    "guideIntro": "Günlük işler için kısa, adım adım talimatlar.",
+    "guide": {
+      "backup": {
+        "title": "Yedekleme ve geri yükleme",
+        "l1": "Daha Fazla → Yedekle ve geri yükle → Yedek oluştur. Dosya seçtiğiniz bir parolayla şifrelenir.",
+        "l2": "Dosyayı güvenli bir yerde saklayın (bulut sürücü, kendinize e-posta). Parola olmadan açılamaz – bizim tarafımızdan bile.",
+        "l3": "Aynı ekrandan yeni bir telefona geri yükleyin. Ürünleriniz, kampanyalarınız, yazdırma geçmişiniz ve ayarlarınız geri gelir; yarıda kalan bir geri yükleme güvenle devam eder."
+      },
+      "languages": {
+        "title": "Diller ve para birimi",
+        "l1": "Altı dil: İngilizce, Arapça, Türkçe, Fransızca, İspanyolca ve Almanca. Arapça düzeni sağdan sola çevirir.",
+        "l2": "Sayılar her zaman Batı rakamlarıyla gösterilir; fiyatlar her dilde etikette aynı okunur.",
+        "l3": "Para birimini değiştirmek fiyatların gösterimini değiştirir; rakamlarınızı dönüştürmez."
+      },
+      "support": {
+        "title": "Güvenli destek almak",
+        "l1": "Diğer → Hakkında → Desteğe e-posta gönder. E-posta, uygulama sürümünüz ve cihazınız dolu olarak açılır.",
+        "l2": "Ekranı ve yapmaya çalıştığınızı anlatın; hassas rakam göstermiyorsa bir ekran görüntüsü ekleyin.",
+        "l3": "Yedek parolalarını, banka bilgilerini, mağaza parolalarını veya karartılmamış ürün listelerini asla göndermeyin. Destek yalnızca karartılmış bilgi ister."
+      }
+    },
+    "tabFaq": "Sorular",
+    "faqIntro": "Dükkân sahiplerinin en çok sorduğu sorulara kısa yanıtlar.",
+    "faq": {
+      "gettingStarted": {
+        "title": "Başlarken",
+        "q1": "{{app}} çevrimiçi bir uygulama mı?",
+        "a1": "{{app}} çevrimdışı çalışır. Ürünleriniz, fiyatlarınız ve etiketleriniz cihazınızda saklanır. Yalnızca Pro satın alımı Apple veya Google ve RevenueCat ile iletişim kurar; uygulamadan yalnızca içe aktarmayı, dışa aktarmayı, paylaşmayı, yazdırmayı veya yedeklemeyi seçtiğiniz dosyalar çıkar."
+      },
+      "dataPrivacy": {
+        "title": "Veri ve gizlilik",
+        "q1": "{{app}} rakamlarımı bir sunucuya gönderir mi?",
+        "a1": "Hayır. Ürünleriniz ve fiyatlarınız {{app}} sunucularına gönderilmez; hesap ve bulut yoktur. Yedek dosyalarından, dışa aktarımlardan ve uygulama dışında paylaştığınız her şeyden siz sorumlusunuz."
+      },
+      "permissions": {
+        "title": "Kamera ve dosyalar",
+        "q1": "Uygulama neden kamera veya dosya izni istiyor?",
+        "a1": "Kamera yalnızca tarama ekranında barkod okumak için kullanılır; fotoğraf çekilmez veya saklanmaz. Dosyalara yalnızca CSV içe aktarırken, PDF veya CSV dışa aktarırken, paylaşırken ya da yedek oluşturup geri yüklerken erişilir. Uygulama her özelliği ilk kullandığınızda izin ister."
+      },
+      "troubleshooting": {
+        "title": "Sorun giderme",
+        "q1": "Telefonumu kaybedersem ne olur?",
+        "a1": "Yedeğiniz yoksa telefondaki veriler kaybolur. Diğer → Yedekleme ve geri yükleme bölümünden yedek oluşturun, dosyayı güvenli bir yerde saklayın ve parolasını unutmayın; yeni telefonda aynı ekrandan geri yükleyin.",
+        "q2": "Uygulamayı silmek verilerimi siler mi?",
+        "a2": "Evet. Her şey cihazda saklandığı için, önce yedeklemediyseniz kaldırma işlemi ürünlerinizi, etiketlerinizi ve ayarlarınızı siler. Başka yerde sakladığınız yedekler ve dışa aktarımlar etkilenmez."
+      },
+      "support": {
+        "title": "Destekle iletişim",
+        "q1": "Desteğe nasıl ulaşırım?",
+        "a1": "{{supportEmail}} adresine yazın – Diğer → Hakkında bölümündeki düğme uygulama ve cihaz bilgilerinizi otomatik doldurur. Bulunduğunuz ekranı, yapmaya çalıştığınızı ve hassas rakam içermiyorsa ekran görüntülerini ekleyin.",
+        "q2": "Desteğe güvenle ne gönderebilirim?",
+        "a2": "Cihaz türünüz, işletim sistemi sürümünüz, uygulama sürümü, ekran adı, kısa bir açıklama ve hassas rakamları gizlenmiş ekran görüntüleri. Yedek parolalarını, banka bilgilerini, mağaza hesabı parolalarını veya karartılmamış ürün listelerini asla göndermeyin."
+      }
+    },
+    "title": "Yardım"
+  },
+  "about": {
+    "publisherLine": "Yayıncı: {{publisher}}",
+    "noAnalytics": "İzleme yok, analitik yok",
+    "noAnalyticsSub": "Uygulama analiz veya reklam kütüphanesi içermez. Satın almalar Apple veya Google ve RevenueCat tarafından işlenir.",
+    "ossCount": "{{count}} paket",
+    "description": "{{app}}, mağazalar ve küçük işletmeler için raf fiyatı, kampanya ve indirim etiketleri yazdırır ve yalnızca değişen fiyatları yeniden yazdırır. Ürünleriniz ve fiyatlarınız cihazınızda saklanır."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Gizlilik politikası",
+      "intro": "Bu Gizlilik Politikası, {{publisher}} tarafından sunulan {{app}} uygulamasının bilgilerinizi nasıl işlediğini açıklar.",
+      "h1": "Tasarım gereği çevrimdışı",
+      "p1": "Ürünleriniz, fiyatlarınız, etiket geçmişiniz ve ayarlarınız yalnızca cihazınızda saklanır. {{app}} uygulamasının hesap sistemi ve verilerinizi tutan bir sunucusu yoktur.",
+      "h2": "İzleme yok",
+      "p2": "Uygulama analiz, reklam veya çökme raporlama kütüphanesi içermez. Ürünleriniz, fiyatlarınız ve etiketleriniz cihazınızda kalır ve TillLabel sunucularına gönderilmez.",
+      "h3": "Uygulamanın kullanabileceği cihaz özellikleri",
+      "l1": "Kamera – yalnızca tarayıcıyı açtığınızda barkod okumak için. Fotoğraf saklanmaz.",
+      "l2": "Dosyalar – CSV içe aktardığınızda veya verilerinizi dışa aktardığınızda, paylaştığınızda ya da yedeklediğinizde.",
+      "l3": "Paylaşım – bir PDF veya CSV'yi başka bir uygulamaya gönderdiğinizde. Paylaştıklarınız uygulamadan çıkar ve artık onun kontrolünde değildir.",
+      "l4": "Uygulama içi satın alma – Apple veya Google ile satın alma hizmeti RevenueCat tarafından yürütülür; bunlar bir satın alma makbuzu ve anonim bir uygulama yükleme tanımlayıcısı alır. Ad, e-posta veya işletme verisi gönderilmez.",
+      "h4": "Kontrolünüz",
+      "p3": "Uygulamadaki her şeyi istediğiniz zaman düzenleyebilir veya silebilirsiniz. Uygulamayı kaldırmak, kendi yaptığınız yedekler ve dışa aktarmalar dışında verilerini cihazdan siler.",
+      "h5": "Yedekler",
+      "p4": "Yedek dosyaları seçtiğiniz bir parolayla şifrelenir. Onları açamayız veya kurtaramayız. Nerede sakladığınız size kalmış.",
+      "h6": "Çocuklar",
+      "p5": "{{app}} iş kullanıcıları içindir ve çocuklara yönelik değildir. {{publisher}} çocuklardan bilerek kişisel veri toplamaz.",
+      "h7": "Gizlilik soruları ve veri talepleri",
+      "p6": "Gizlilik soruları veya veri talepleri için {{privacyEmail}} adresine yazın.",
+      "l5": "Uygulama güncellemeleri – yeni sürümler yalnızca App Store veya Google Play üzerinden gelir. Uygulama kendi başına kod güncellemesi indirmez.",
+      "h8": "Sorumluluklarınız",
+      "p7": "Dışa aktardığınız veya paylaştığınız dosyalardan, yedek dosyalarınız ve parolalarından ve cihaz düzeyindeki yedekleme ayarlarından siz sorumlusunuz. Dışa aktardığınız veya paylaştığınız dosyalar uygulamadan çıkar ve artık onun denetiminde değildir.",
+      "h9": "Destekle güvenli iletişim",
+      "p8": "Ürün listelerinizi, fiyatlarınızı veya yedek dosyalarınızı özellikle istenmedikçe ve karartılmadıkça desteğe göndermeyin. Yedek parolalarını, banka bilgilerini veya mağaza hesabı parolalarını asla göndermeyin.",
+      "h10": "Bu politikadaki değişiklikler",
+      "p9": "Bu Gizlilik Politikasını zaman zaman güncelleyebiliriz. Önemli değişiklikler uygulamaya yansıtılır ve yukarıdaki tarih güncellenir; uygulamadaki sürüm geçerli olandır."
+    },
+    "terms": {
+      "title": "Kullanım koşulları",
+      "intro": "Bu Kullanım Koşulları, {{publisher}} tarafından sunulan {{app}} için geçerlidir.",
+      "h1": "Uygulama nedir",
+      "p1": "{{app}}, girdiğiniz ürün ve fiyatlardan fiyat etiketleri yazdırır. Fiyatlarınızı belirlemez ve kasanıza bağlanmaz.",
+      "h2": "Profesyonel danışmanlık değildir",
+      "p2": "Uygulama vergi, muhasebe, hukuk veya finans danışmanlığı vermez. Vergi oranları, kurallar ve iş kararları sizin sorumluluğunuzdadır; gerektiğinde nitelikli bir danışmanla kontrol edin.",
+      "n1": "Bir sonuç ancak arkasındaki girdiler ve varsayılanlar kadar iyidir. Fiyat yazdırmadan önce hesaplamayı her zaman kontrol edin.",
+      "h3": "Verileriniz",
+      "p3": "İşletme verileriniz cihazınızda saklanır ve TillLabel sunucularına gönderilmez. Yedek tutmaktan ve dışa aktardığınız ya da paylaştığınız dosyalardan siz sorumlusunuz.",
+      "h4": "Satın almalar",
+      "p4": "Pro, Apple veya Google üzerinden kendi koşullarıyla satılan tek seferlik bir uygulama içi satın almadır. Satın almayı geri yüklemek aynı mağaza hesabını gerektirir. Ücretsiz plan, girdiğiniz verilere erişimi asla kaldırmaz.",
+      "h5": "Sorumluluk",
+      "p5": "Uygulama olduğu gibi sunulur. Yasaların izin verdiği ölçüde, {{publisher}} uygulama kullanılarak alınan kararlardan doğan zararlardan (fiyatlandırma hataları, veri kaybı veya kâr kaybı dahil) sorumlu değildir. Bu koşullardaki hiçbir şey yasal olarak sınırlanamayan sorumluluğu sınırlamaz.",
+      "h6": "Geçerli hukuk",
+      "p6": "Bu koşullar, kendi ülkenizin yasaları kapsamında sahip olduğunuz zorunlu tüketici haklarını etkilemeksizin İngiltere ve Galler yasalarına tabidir.",
+      "h7": "Bu koşulların kabulü",
+      "p7": "Uygulamayı indirerek veya kullanarak bu Kullanım Koşullarını kabul etmiş olursunuz. Kabul etmiyorsanız lütfen uygulamayı kullanmayın.",
+      "h8": "Uygunluk",
+      "p8": "Uygulama, en az 18 yaşında (veya ülkenizdeki reşit olma yaşında) olan kişilerin iş amaçlı kullanımı içindir.",
+      "h9": "Sağlayıcı",
+      "p9": "{{app}}, {{publisher}} tarafından sunulur.",
+      "h10": "Rakamlarınızın doğruluğu",
+      "p10": "Girdiğiniz ürünlerin, fiyatların, kampanyaların ve birim fiyatların doğruluğundan ve her etiketi rafa koymadan önce kontrol etmekten siz sorumlusunuz. Bir etiket, arkasındaki rakamlar kadar doğrudur.",
+      "h11": "\"Olduğu gibi\" sunulur",
+      "p11": "Uygulama, yasaların izin verdiği azami ölçüde, açık veya zımni hiçbir garanti olmaksızın \"olduğu gibi\" ve \"mevcut olduğu şekliyle\" sunulur.",
+      "h12": "Veri kaybı",
+      "p12": "{{publisher}}, cihaz kaybı veya sıfırlanması, uygulamanın kaldırılması, başarısız bir yedekleme, unutulan bir yedek parolası veya kendi dışa aktarma ya da paylaşma işlemleriniz nedeniyle oluşan veri kaybından, yasal olarak sorumluluğun hariç tutulamadığı haller dışında sorumlu değildir.",
+      "h13": "Fikri mülkiyet",
+      "p13": "Uygulama, tasarımı, metinleri ve yazılımı dahil (kendi iş verileriniz hariç) {{publisher}} veya lisans verenlerine aittir ve geçerli yasalarla korunur. Size uygulamayı kullanmak için kişisel, münhasır olmayan ve devredilemez bir hak verilir.",
+      "h14": "Uygulamadaki ve bu koşullardaki değişiklikler",
+      "p14": "Özellikler eklendikçe, geliştirildikçe veya kaldırıldıkça uygulama zamanla değişebilir. Bu koşulları da zaman zaman güncelleyebiliriz; bir güncellemeden sonra uygulamayı kullanmaya devam etmeniz güncellenmiş koşulları kabul ettiğiniz anlamına gelir.",
+      "h15": "Hukuki ve koşullarla ilgili sorular",
+      "p15": "Yasal bildirimler veya koşullarla ilgili sorular için {{legalEmail}} adresine yazın."
+    },
+    "licences": {
+      "title": "Açık kaynak lisansları",
+      "intro": "{{app}}, {{count}} açık kaynak paketle oluşturulmuştur. Envanter {{date}} tarihinde oluşturuldu.",
+      "p1": "Her paket kendi lisansı altında kalır; aşağıda lisans türüne ve ardından pakete göre listelenmiştir. Lisans metnini okumak için bir pakete dokunun. Yazarlarına teşekkürler.",
+      "noText": "paket lisans metni içermiyor"
+    },
+    "lastUpdated": "Son güncelleme: {{date}}.",
+    "companyNote": "{{publisher}}. Şirket numarası: {{companyNumber}}. Kayıtlı ofis: {{registeredOffice}}. KDV durumu: {{vatStatus}}.",
+    "vatNotRegistered": "KDV mükellefi değil",
+    "dataStorage": {
+      "title": "Veri Depolama ve Yedekleme Bildirimi",
+      "p1": "Ürünleriniz, fiyatlarınız, etiket geçmişiniz ve ayarlarınız cihazınızda yerel olarak saklanır.",
+      "l1": "Uygulamayı silmek yerel olarak saklanan verilerini siler.",
+      "l2": "Cihaz kaybı, hasarı, sıfırlanması veya kaldırma veri kaybına yol açabilir.",
+      "l3": "Diğer → Yedekleme ve geri yükleme bölümünden düzenli yedek alın; dosyayı güvenli bir yerde saklayın.",
+      "l4": "Yedek ve dışa aktarma dosyaları ürünlerinizi ve fiyatlarınızı içerir; güvenle saklanmalı ve yalnızca güvendiğiniz kişilerle paylaşılmalıdır.",
+      "l5": "Yedekler seçtiğiniz parola ile şifrelenir. Bu parolayı kaybederseniz yedek geri yüklenemez – ne siz ne de biz açabiliriz.",
+      "n1": "Cihaz, yedek parolası veya kullanılabilir bir yedek kaybolursa {{app}} yerel olarak saklanan verileri kurtaramaz.",
+      "h1": "Güvenlik sorunu bildirme",
+      "p2": "Bir güvenlik sorunu bildirmek için {{securityEmail}} adresine yazın. İlk bildirime yedek parolalarını, banka bilgilerini veya düzenlenmemiş fiyat dosyalarını eklemeyin."
+    },
+    "contact": {
+      "title": "İletişim ve destek",
+      "body": "Yardım için {{supportEmail}} adresine yazın. Lütfen cihaz türünüzü, işletim sistemi sürümünü, uygulama sürümünü, bulunduğunuz ekranı ve sorunun kısa bir açıklamasını ekleyin. Hassas rakam içermiyorsa ekran görüntüleri yardımcı olur.",
+      "never": "Destek özellikle karartılmış tanı bilgisi istemedikçe yedek parolalarını, banka bilgilerini, mağaza hesabı parolalarını veya karartılmamış ürün listelerini asla göndermeyin.",
+      "security": "Güvenlik sorunu mu? {{securityEmail}} adresine yazın.",
+      "emailButton": "Desteğe e-posta gönder",
+      "mailBody": "Uygulama: {{app}} {{version}}\nCihaz: {{platform}} {{osVersion}}\nEkran:\nNe yapmaya çalışıyordum:\n\n(Yedek parolalarını, banka bilgilerini veya karartılmamış ürün listelerini eklemeyin.)"
+    }
+  },
+  "backup": {
+    "subtitle": "Ürünleriniz, etiketleriniz ve ayarlarınız tek bir şifreli dosyada",
+    "createSection": "Yedek oluştur",
+    "createNow": "Yedek oluştur",
+    "createFooter": "Bir parola seçersiniz; dosya onsuz işe yaramaz. Bulut sürücünüze kaydedin veya kendinize e-posta gönderin.",
+    "lastBackup": "Son yedek: {{when}}",
+    "never": "Bu cihazda henüz yedek alınmadı",
+    "createdTitle": "Yedek oluşturuldu",
+    "createdBody": "{{file}} hazır. Güvenli bir yerde saklamak için paylaşım menüsünü kullanın.",
+    "createFailed": "Yedek oluşturulamadı.",
+    "restoreSection": "Yedekten geri yükle",
+    "restoreFooter": "Geri yükleme, bu telefondaki ürünleri, etiketleri ve ayarları dosyadakilerle değiştirir. Yarıda kalırsa, mevcut verileriniz bir sonraki açılışta geri gelir.",
+    "chooseFile": "Yedek dosyası seç",
+    "chooseFileHint": "TillLabel_Backup_….json",
+    "previewTitle": "Bu dosyada neler var",
+    "encrypted": "Şifreli",
+    "restoreTitle": "Bu telefondaki veriler değiştirilsin mi?",
+    "restoreConfirm": "Ürünlerinizdeki, etiketlerinizdeki ve ayarlarınızdaki her şey yedekle değiştirilecek. İhtiyacınız olabilirse önce mevcut verilerin yedeğini alın.",
+    "restoreAction": "Geri yükle",
+    "restoredTitle": "Geri yükleme tamamlandı",
+    "restoredBody": "{{keys}} veri kümesi geri yüklendi. Listeleriniz ve ayarlarınız geri geldi.",
+    "toolsSection": "Araçlar",
+    "checkHint": "Her kaydı okur ve okunamayan her şeyi bildirir.",
+    "checkOkTitle": "Veriler iyi görünüyor",
+    "checkOkBody": "{{count}} kayıt sorunsuz okundu.",
+    "checkIssuesTitle": "Bazı veriler okunamadı",
+    "checkIssuesBody": "{{count}} kayıt kümesi okunamıyor. Bir şey eksik görünüyorsa yakın tarihli bir yedeği geri yükleyin.",
+    "errors": {
+      "read": "Dosya okunamadı.",
+      "too-large": "Bu dosya bir TillLabel yedeği olamayacak kadar büyük.",
+      "invalid-json": "Bu geçerli bir yedek dosyası değil.",
+      "invalid-format": "Yedek dosyası hasarlı veya eksik.",
+      "wrong-format": "Bu dosya TillLabel'ın değil, başka bir uygulamanın yedeği.",
+      "unsupported-version": "Bu yedek TillLabel'ın daha yeni bir sürümüyle oluşturuldu. Uygulamayı güncelleyip tekrar deneyin.",
+      "passphrase-required": "Bu yedek parolasını gerektiriyor.",
+      "wrong-passphrase": "Yanlış parola veya dosya değiştirilmiş.",
+      "checksum-mismatch": "Yedek dosyası bozuk.",
+      "empty-backup": "Bu dosyada geri yüklenecek bir şey yok.",
+      "rolled-back": "Geri yükleme başarısız oldu. Önceki verileriniz geri konuldu.",
+      "rollback-failed": "Geri yükleme başarısız oldu ve geri alınamadı. Uygulamayı yeniden başlatın; açılışta kurtaracaktır."
+    },
+    "pw": {
+      "createTitle": "Yedek parolası belirle",
+      "enterTitle": "Yedek parolasını girin",
+      "warning": "Dosya bu parolayla şifrelenir. Parolayı kaybederseniz yedeği biz dahil kimse açamaz.",
+      "label": "Parola",
+      "confirmLabel": "Parolayı onayla",
+      "placeholder": "Yedek parolası",
+      "minHint": "En az {{min}} karakter.",
+      "tooShort": "En az {{min}} karakter kullanın.",
+      "mismatch": "Parolalar eşleşmiyor.",
+      "creating": "Yedek oluşturuluyor…",
+      "restoring": "Geri yükleniyor…"
+    },
+    "counts": {
+      "products": "Ürünler",
+      "promotions": "Kampanyalar",
+      "reductions": "İndirim etiketleri",
+      "waitingLabels": "Yazdırılmayı bekleyen",
+      "printJobs": "Yazdırma geçmişi"
+    }
+  },
+  "home": {
+    "tagline": "Raf fiyat etiketleri",
+    "waitingTitle": "Yazdırılmayı bekleyenler",
+    "waitingCounts": "Ürün: {{products}} · Etiket: {{labels}}",
+    "productCount": "Kayıtlı ürün: {{count}}",
+    "summaryUnavailable": "Sayılar okunamadı. Verileriniz değişmedi.",
+    "setupTitle": "Kurulum",
+    "setupFooter": "Ürün eklemeden önce uygulama dilini ve mağazanızın para birimini seçin."
+  },
+  "products": {
+    "subtitle": "Kayıtlı ürünleriniz ve fiyatlarınız",
+    "emptyTitle": "Henüz ürün yok",
+    "emptyBody": "Kaydettiğiniz ürünler fiyatı, barkodu ve kategorisiyle burada görünür."
+  },
+  "queue": {
+    "emptyTitle": "Yazdırılmayı bekleyen bir şey yok",
+    "emptyBody": "Yeni ürünler ve değişen fiyatlar, etiketleri yazdırılana kadar burada bekler."
+  }
+}

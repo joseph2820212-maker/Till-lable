@@ -1,0 +1,4 @@
+Products
+Your saved products and prices
+No products yet
+Products you save will appear here with their price, barcode and category.

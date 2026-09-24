@@ -1,0 +1,32 @@
+Privacy policy
+This Privacy Policy explains how TillLabel, provided by LLILL LTD, handles your information. Last updated: 23 September 2026.
+Offline by design
+Your products, prices, label history and settings are stored only on your device. TillLabel has no account system and no server that holds your data.
+No tracking
+The app contains no analytics, advertising or crash-reporting libraries. Your products, prices and labels stay on your device and are not sent to TillLabel servers.
+Device features the app may use
+•
+Camera – only to read barcodes when you open the scanner. No photo is stored.
+•
+Files – when you import a CSV, or export, share or back up your data.
+•
+Sharing – when you send a PDF or CSV to another app. What you share leaves the app and is no longer under its control.
+•
+In-app purchase – handled by Apple or Google and the purchase service RevenueCat, which receives a purchase receipt and an anonymous app-install identifier. No name, email or business data is sent.
+•
+App updates – new versions come only through the App Store or Google Play. The app does not download code updates itself.
+Your responsibilities
+You are responsible for the files you export or share, for your backup files and their passphrases, and for your device-level backup settings. Files you export or share leave the app and are no longer under its control.
+Your control
+You can edit or delete anything in the app at any time. Uninstalling the app deletes its data from the device, apart from backups and exports you made yourself.
+Backups
+Backup files are encrypted with a passphrase you choose. We cannot open or recover them. Where you store them is up to you.
+Children
+TillLabel is intended for business users and is not directed at children. LLILL LTD does not knowingly collect personal data from children.
+Contacting support safely
+Do not send your product lists, prices or backup files to support unless they are specifically requested and have been redacted. Never send backup passphrases, bank details or store account passwords.
+Changes to this policy
+We may update this Privacy Policy from time to time. Material changes will be reflected in the app and the date above will be updated; the version in the app is the current one.
+Privacy questions and data requests
+For privacy questions or data requests, contact privacy@tillnote.com.
+LLILL LTD. Company number: 11792206. Registered office: 20a Southover Street, Brighton, England, BN2 9UD. VAT status: Not VAT registered.

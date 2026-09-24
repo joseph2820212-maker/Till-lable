@@ -1,0 +1,10 @@
+Offline & Private
+Your data stays on device
+DATA & PRIVACY MODEL
+Offline-first
+Works without internet connection
+Your label work stays on your device
+Your products and prices are not sent to TillLabel servers
+No account or sign-up required
+Open the app and start making labels straight away
+Your products, prices and labels stay on your device and are not sent to TillLabel servers. Purchases are processed by Apple or Google and RevenueCat. Files leave TillLabel only when you choose to import, export, share, print or back them up.

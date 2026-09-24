@@ -46,9 +46,13 @@ describe('F08.2 — no inherited Till Note strings remain', () => {
     expect(offenders).toEqual([]);
   });
   it.each(Object.keys(LOCALES))('%s: no TillCalc branding or calculator wording survives the copy from TillCalc', lang => {
-    const offenders = flatten(LOCALES[lang]).filter(([, v]) => /TillCalc/.test(v)).map(([k]) => k);
+    // TillCalc may be named only where TillLabel imports its price-change files (the family hand-off), never as
+    // leftover branding. "Margin" in stationery / page geometry is a page margin, not a pricing margin.
+    const handoff = (k: string) => k.startsWith('importer.') || k === 'queue.reason.handoff';
+    const pageGeometry = (k: string) => k.startsWith('stationery.') || k.startsWith('print.geometry.');
+    const offenders = flatten(LOCALES[lang]).filter(([k, v]) => /TillCalc/.test(v) && !handoff(k)).map(([k]) => k);
     expect(offenders).toEqual([]);
-    if (lang === 'en') expect(flatten(en).filter(([, v]) => /calculat|margin|markup|scenario/i.test(v)).map(([k]) => k)).toEqual([]);
+    if (lang === 'en') expect(flatten(en).filter(([k, v]) => /calculat|margin|markup|scenario/i.test(v) && !pageGeometry(k)).map(([k]) => k)).toEqual([]);
   });
   it('the keys the audit named as unreachable are gone', () => {
     for (const k of ['settings.version', 'settings.backupShareWarning', 'settings.faqDailyBook', 'settings.expenseCatHint', 'settings.onboardingPreviewItems', 'settings.restoreErrors', 'common.appExportTitle', 'nav.dailyBook', 'errors.weakPin', 'settings.changePin']) {

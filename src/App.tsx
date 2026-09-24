@@ -20,6 +20,7 @@ import { colors } from './theme/colors';
 import { initializeLanguage } from './i18n';
 import { initCurrency } from './utils/currency';
 import { recoverInterruptedRestore } from './modules/backup/backupFile';
+import { loadLabelSettings } from './modules/settings/storage/labelSettings';
 
 installGlobalErrorLogger();
 
@@ -63,6 +64,7 @@ function FontBootstrap({ onRetry }: { onRetry: () => void }) {
       try { await recoverInterruptedRestore(); } catch { /* a broken journal must never block startup */ }
       await initializeLanguage();
       await initCurrency();
+      try { await loadLabelSettings(); } catch { /* defaults stay; settings screen can re-save */ }
       if (!cancelled) setBootstrapped(true);
     })();
     return () => { cancelled = true; };

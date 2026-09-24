@@ -10,6 +10,8 @@ jest.mock('@expo/vector-icons', () => ({ Ionicons: 'Ionicons' }));
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
 jest.mock('../../../theme/responsive', () => ({ fs: (v: number) => v, rs: (v: number) => v }));
 jest.mock('../../../components/HeaderTopBleed', () => ({ HeaderTopBleed: 'HeaderTopBleed' }));
+// The stationery picker is covered by the navigation walk; here it renders as a plain node.
+jest.mock('../../print/components/PrintOptions', () => ({ PrintOptions: 'PrintOptions' }));
 
 import { flush, texts } from '../../../__tests__/helpers/screenStubs';
 import { ToPrintScreen } from '../screens/ToPrintScreen';

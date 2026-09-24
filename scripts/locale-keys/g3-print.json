@@ -1,0 +1,1746 @@
+{
+ "queue.selected": {
+  "en": "Selected: {{count}} · Labels: {{labels}}",
+  "ar": "المحدد: {{count}} · الملصقات: {{labels}}",
+  "tr": "Seçili: {{count}} · Etiket: {{labels}}",
+  "fr": "Sélection : {{count}} · Étiquettes : {{labels}}",
+  "es": "Seleccionados: {{count}} · Etiquetas: {{labels}}",
+  "de": "Ausgewählt: {{count}} · Etiketten: {{labels}}"
+ },
+ "queue.selectAll": {
+  "en": "Select all",
+  "ar": "تحديد الكل",
+  "tr": "Tümünü seç",
+  "fr": "Tout sélectionner",
+  "es": "Seleccionar todo",
+  "de": "Alle wählen"
+ },
+ "queue.selectNone": {
+  "en": "Select none",
+  "ar": "إلغاء التحديد",
+  "tr": "Hiçbirini seçme",
+  "fr": "Tout désélectionner",
+  "es": "No seleccionar",
+  "de": "Keine wählen"
+ },
+ "queue.remove": {
+  "en": "Remove",
+  "ar": "إزالة",
+  "tr": "Kaldır",
+  "fr": "Retirer",
+  "es": "Quitar",
+  "de": "Entfernen"
+ },
+ "queue.removeTitle": {
+  "en": "Remove this label?",
+  "ar": "إزالة هذا الملصق؟",
+  "tr": "Bu etiket kaldırılsın mı?",
+  "fr": "Retirer cette étiquette ?",
+  "es": "¿Quitar esta etiqueta?",
+  "de": "Dieses Etikett entfernen?"
+ },
+ "queue.removeBody": {
+  "en": "It leaves To print. The product and its price are not changed.",
+  "ar": "سيخرج من قائمة الطباعة. لن يتغيّر المنتج ولا سعره.",
+  "tr": "Yazdırılacak listesinden çıkar. Ürün ve fiyatı değişmez.",
+  "fr": "Elle quitte À imprimer. Le produit et son prix ne changent pas.",
+  "es": "Sale de Por imprimir. El producto y su precio no cambian.",
+  "de": "Es verlässt „Zu drucken“. Produkt und Preis bleiben unverändert."
+ },
+ "queue.previewPrint": {
+  "en": "Preview and print {{count}} labels",
+  "ar": "معاينة وطباعة {{count}} ملصق",
+  "tr": "{{count}} etiketi önizle ve yazdır",
+  "fr": "Aperçu et impression de {{count}} étiquettes",
+  "es": "Vista previa e imprimir {{count}} etiquetas",
+  "de": "{{count}} Etiketten ansehen und drucken"
+ },
+ "queue.printNote": {
+  "en": "Labels leave this list only when you confirm they printed. Sharing the PDF never counts as printed.",
+  "ar": "لا تخرج الملصقات من هذه القائمة إلا عندما تؤكد أنها طُبعت. مشاركة ملف PDF لا تُحتسب طباعة أبدًا.",
+  "tr": "Etiketler ancak yazdırıldığını onayladığınızda bu listeden çıkar. PDF paylaşmak asla yazdırma sayılmaz.",
+  "fr": "Les étiquettes ne quittent cette liste que lorsque vous confirmez l'impression. Partager le PDF ne compte jamais comme imprimé.",
+  "es": "Las etiquetas salen de esta lista solo cuando confirmas que se imprimieron. Compartir el PDF nunca cuenta como impreso.",
+  "de": "Etiketten verlassen diese Liste erst, wenn Sie den Druck bestätigen. PDF teilen zählt nie als gedruckt."
+ },
+ "queue.jobName": {
+  "en": "Labels ({{count}})",
+  "ar": "ملصقات ({{count}})",
+  "tr": "Etiketler ({{count}})",
+  "fr": "Étiquettes ({{count}})",
+  "es": "Etiquetas ({{count}})",
+  "de": "Etiketten ({{count}})"
+ },
+ "queue.reason.new": {
+  "en": "new product",
+  "ar": "منتج جديد",
+  "tr": "yeni ürün",
+  "fr": "nouveau produit",
+  "es": "producto nuevo",
+  "de": "neues Produkt"
+ },
+ "queue.reason.priceChanged": {
+  "en": "price changed",
+  "ar": "تغيّر السعر",
+  "tr": "fiyat değişti",
+  "fr": "prix modifié",
+  "es": "precio cambiado",
+  "de": "Preis geändert"
+ },
+ "queue.reason.contentChanged": {
+  "en": "label text changed",
+  "ar": "تغيّر نص الملصق",
+  "tr": "etiket metni değişti",
+  "fr": "texte modifié",
+  "es": "texto cambiado",
+  "de": "Etikettext geändert"
+ },
+ "queue.reason.manual": {
+  "en": "added by you",
+  "ar": "أضفته أنت",
+  "tr": "sizin eklediğiniz",
+  "fr": "ajoutée par vous",
+  "es": "añadida por ti",
+  "de": "von Ihnen hinzugefügt"
+ },
+ "queue.reason.import": {
+  "en": "imported",
+  "ar": "مستورد",
+  "tr": "içe aktarıldı",
+  "fr": "importée",
+  "es": "importada",
+  "de": "importiert"
+ },
+ "queue.reason.handoff": {
+  "en": "from TillCalc",
+  "ar": "من TillCalc",
+  "tr": "TillCalc'ten",
+  "fr": "depuis TillCalc",
+  "es": "desde TillCalc",
+  "de": "aus TillCalc"
+ },
+ "queue.problem.noLabelName": {
+  "en": "Needs a label name — tap to fix",
+  "ar": "يحتاج اسم ملصق — اضغط للإصلاح",
+  "tr": "Etiket adı gerekli — düzeltmek için dokunun",
+  "fr": "Nom d'étiquette requis — touchez pour corriger",
+  "es": "Falta nombre de etiqueta — toca para arreglar",
+  "de": "Etikettenname fehlt — zum Beheben tippen"
+ },
+ "queue.problem.noBarcode": {
+  "en": "Barcode label without a barcode — tap to fix",
+  "ar": "ملصق باركود بلا باركود — اضغط للإصلاح",
+  "tr": "Barkodsuz barkod etiketi — düzeltmek için dokunun",
+  "fr": "Étiquette code-barres sans code — touchez pour corriger",
+  "es": "Etiqueta con código sin código — toca para arreglar",
+  "de": "Barcode-Etikett ohne Barcode — zum Beheben tippen"
+ },
+ "queue.problem.noUnitPrice": {
+  "en": "Unit-price label without a unit price — tap to fix",
+  "ar": "ملصق سعر وحدة بلا سعر وحدة — اضغط للإصلاح",
+  "tr": "Birim fiyatsız birim fiyat etiketi — düzeltmek için dokunun",
+  "fr": "Étiquette prix unitaire sans prix unitaire — touchez pour corriger",
+  "es": "Etiqueta de precio unitario sin precio — toca para arreglar",
+  "de": "Grundpreis-Etikett ohne Grundpreis — zum Beheben tippen"
+ },
+ "queue.problem.badPromotion": {
+  "en": "The offer no longer matches this price",
+  "ar": "لم يعد العرض يطابق هذا السعر",
+  "tr": "Kampanya artık bu fiyata uymuyor",
+  "fr": "L'offre ne correspond plus à ce prix",
+  "es": "La oferta ya no coincide con este precio",
+  "de": "Das Angebot passt nicht mehr zu diesem Preis"
+ },
+ "queue.problem.productMissing": {
+  "en": "The product was removed",
+  "ar": "أُزيل المنتج",
+  "tr": "Ürün kaldırıldı",
+  "fr": "Le produit a été retiré",
+  "es": "El producto se eliminó",
+  "de": "Das Produkt wurde entfernt"
+ },
+ "print.stationery": {
+  "en": "Stationery",
+  "ar": "القرطاسية",
+  "tr": "Etiket kâğıdı",
+  "fr": "Support",
+  "es": "Papelería",
+  "de": "Etikettenbogen"
+ },
+ "print.startAt": {
+  "en": "Start at label",
+  "ar": "البدء من الملصق",
+  "tr": "Başlangıç etiketi",
+  "fr": "Commencer à l'étiquette",
+  "es": "Empezar en la etiqueta",
+  "de": "Beginnen bei Etikett"
+ },
+ "print.startAtHint": {
+  "en": "Skip labels already used on a part-used sheet ({{count}} per sheet)",
+  "ar": "تخطَّ الملصقات المستخدمة في ورقة مستعملة جزئيًا ({{count}} لكل ورقة)",
+  "tr": "Kısmen kullanılmış sayfadaki etiketleri atla (sayfada {{count}})",
+  "fr": "Sautez les étiquettes déjà utilisées ({{count}} par planche)",
+  "es": "Salta las etiquetas ya usadas ({{count}} por hoja)",
+  "de": "Bereits benutzte Etiketten überspringen ({{count}} pro Bogen)"
+ },
+ "print.refeedWarning": {
+  "en": "Sticker sheets: never feed a used sheet through the printer again.",
+  "ar": "أوراق الملصقات: لا تُدخل ورقة مستعملة في الطابعة مرة أخرى.",
+  "tr": "Etiket sayfaları: kullanılmış bir sayfayı yazıcıya asla tekrar sokmayın.",
+  "fr": "Planches autocollantes : ne repassez jamais une planche entamée dans l'imprimante.",
+  "es": "Hojas adhesivas: nunca vuelvas a pasar por la impresora una hoja usada.",
+  "de": "Klebebögen: einen angebrochenen Bogen nie erneut durch den Drucker führen."
+ },
+ "print.cannotPrintTitle": {
+  "en": "Cannot create the labels",
+  "ar": "تعذّر إنشاء الملصقات",
+  "tr": "Etiketler oluşturulamıyor",
+  "fr": "Impossible de créer les étiquettes",
+  "es": "No se pueden crear las etiquetas",
+  "de": "Etiketten können nicht erstellt werden"
+ },
+ "print.nothingSelected": {
+  "en": "Select at least one label.",
+  "ar": "حدّد ملصقًا واحدًا على الأقل.",
+  "tr": "En az bir etiket seçin.",
+  "fr": "Sélectionnez au moins une étiquette.",
+  "es": "Selecciona al menos una etiqueta.",
+  "de": "Wählen Sie mindestens ein Etikett."
+ },
+ "print.pdfFailed": {
+  "en": "The PDF could not be created on this phone. Nothing was changed; please try again.",
+  "ar": "تعذّر إنشاء ملف PDF على هذا الهاتف. لم يتغيّر شيء؛ حاول مرة أخرى.",
+  "tr": "PDF bu telefonda oluşturulamadı. Hiçbir şey değişmedi; tekrar deneyin.",
+  "fr": "Le PDF n'a pas pu être créé sur ce téléphone. Rien n'a été modifié ; réessayez.",
+  "es": "No se pudo crear el PDF en este teléfono. No se ha cambiado nada; inténtalo de nuevo.",
+  "de": "Das PDF konnte auf diesem Telefon nicht erstellt werden. Nichts wurde geändert; bitte erneut versuchen."
+ },
+ "print.issue.priceDoesNotFit": {
+  "en": "This price needs a larger label format.",
+  "ar": "هذا السعر يحتاج إلى مقاس ملصق أكبر.",
+  "tr": "Bu fiyat için daha büyük bir etiket formatı gerekir.",
+  "fr": "Ce prix nécessite un format d'étiquette plus grand.",
+  "es": "Este precio necesita un formato de etiqueta más grande.",
+  "de": "Dieser Preis braucht ein größeres Etikettenformat."
+ },
+ "print.issue.tooLong.name": {
+  "en": "The label name is over 40 characters — edit the label name.",
+  "ar": "اسم الملصق أطول من 40 حرفًا — عدّل اسم الملصق.",
+  "tr": "Etiket adı 40 karakterden uzun — etiket adını düzenleyin.",
+  "fr": "Le nom d'étiquette dépasse 40 caractères — modifiez-le.",
+  "es": "El nombre de etiqueta supera 40 caracteres — edítalo.",
+  "de": "Der Etikettenname hat über 40 Zeichen — bitte kürzen."
+ },
+ "print.issue.tooWide.name": {
+  "en": "The label name is too wide for this label — shorten it or choose a larger format.",
+  "ar": "اسم الملصق أعرض من هذا الملصق — اختصره أو اختر مقاسًا أكبر.",
+  "tr": "Etiket adı bu etiket için çok geniş — kısaltın veya daha büyük format seçin.",
+  "fr": "Le nom est trop large pour cette étiquette — raccourcissez-le ou choisissez un format plus grand.",
+  "es": "El nombre es demasiado ancho — acórtalo o elige un formato mayor.",
+  "de": "Der Name ist zu breit — kürzen oder größeres Format wählen."
+ },
+ "print.issue.tooWide.secondLine": {
+  "en": "The pack size is too wide for this label — shorten it or choose a larger format.",
+  "ar": "حجم العبوة أعرض من هذا الملصق — اختصره أو اختر مقاسًا أكبر.",
+  "tr": "Ambalaj metni bu etiket için çok geniş — kısaltın veya daha büyük format seçin.",
+  "fr": "Le format est trop large pour cette étiquette — raccourcissez-le ou choisissez un format plus grand.",
+  "es": "El tamaño es demasiado ancho — acórtalo o elige un formato mayor.",
+  "de": "Die Packungsgröße ist zu breit — kürzen oder größeres Format wählen."
+ },
+ "print.issue.tooWide.condition": {
+  "en": "The offer condition is too long for this label — the member-price layout needs a larger label.",
+  "ar": "شرط العرض أطول من هذا الملصق — يحتاج تصميم سعر الأعضاء إلى ملصق أكبر.",
+  "tr": "Kampanya koşulu bu etiket için çok uzun — üye fiyatı düzeni daha büyük etiket gerektirir.",
+  "fr": "La condition est trop longue — la mise en page prix adhérent nécessite une étiquette plus grande.",
+  "es": "La condición es demasiado larga — el precio socio necesita una etiqueta mayor.",
+  "de": "Die Bedingung ist zu lang — der Mitgliederpreis braucht ein größeres Etikett."
+ },
+ "print.issue.tooWide.headline": {
+  "en": "The offer text is too wide for this label — choose a larger format.",
+  "ar": "نص العرض أعرض من هذا الملصق — اختر مقاسًا أكبر.",
+  "tr": "Kampanya metni bu etiket için çok geniş — daha büyük format seçin.",
+  "fr": "Le texte de l'offre est trop large — choisissez un format plus grand.",
+  "es": "El texto de la oferta es demasiado ancho — elige un formato mayor.",
+  "de": "Der Angebotstext ist zu breit — größeres Format wählen."
+ },
+ "print.issue.layoutIncompatible": {
+  "en": "This label type is not available on this stationery — choose a larger format.",
+  "ar": "نوع الملصق هذا غير متاح على هذه القرطاسية — اختر مقاسًا أكبر.",
+  "tr": "Bu etiket türü bu kâğıtta kullanılamaz — daha büyük format seçin.",
+  "fr": "Ce type d'étiquette n'est pas disponible sur ce support — choisissez un format plus grand.",
+  "es": "Este tipo de etiqueta no está disponible en esta papelería — elige un formato mayor.",
+  "de": "Diese Etikettenart gibt es auf diesem Bogen nicht — größeres Format wählen."
+ },
+ "print.issue.barcodeInvalid": {
+  "en": "The barcode's check digit is wrong — fix the product's barcode.",
+  "ar": "رقم التحقق في الباركود خاطئ — صحّح باركود المنتج.",
+  "tr": "Barkodun kontrol basamağı hatalı — ürünün barkodunu düzeltin.",
+  "fr": "La clé du code-barres est fausse — corrigez le code-barres du produit.",
+  "es": "El dígito de control es incorrecto — corrige el código del producto.",
+  "de": "Die Prüfziffer ist falsch — Barcode des Produkts korrigieren."
+ },
+ "print.issue.barcodeDoesNotFit": {
+  "en": "The barcode does not fit this label — choose a larger format.",
+  "ar": "الباركود لا يتسع في هذا الملصق — اختر مقاسًا أكبر.",
+  "tr": "Barkod bu etikete sığmıyor — daha büyük format seçin.",
+  "fr": "Le code-barres ne tient pas — choisissez un format plus grand.",
+  "es": "El código no cabe en esta etiqueta — elige un formato mayor.",
+  "de": "Der Barcode passt nicht — größeres Format wählen."
+ },
+ "print.issue.unitPriceDoesNotFit": {
+  "en": "The unit price does not fit this label — choose a larger format.",
+  "ar": "سعر الوحدة لا يتسع في هذا الملصق — اختر مقاسًا أكبر.",
+  "tr": "Birim fiyat bu etikete sığmıyor — daha büyük format seçin.",
+  "fr": "Le prix unitaire ne tient pas — choisissez un format plus grand.",
+  "es": "El precio por unidad no cabe — elige un formato mayor.",
+  "de": "Der Grundpreis passt nicht — größeres Format wählen."
+ },
+ "print.issue.mixedCurrency": {
+  "en": "Prices on one label must use one currency.",
+  "ar": "يجب أن تكون أسعار الملصق الواحد بعملة واحدة.",
+  "tr": "Bir etiketteki fiyatlar tek para biriminde olmalı.",
+  "fr": "Les prix d'une étiquette doivent être dans une seule devise.",
+  "es": "Los precios de una etiqueta deben estar en una sola moneda.",
+  "de": "Preise auf einem Etikett brauchen eine Währung."
+ },
+ "print.issue.missingField": {
+  "en": "Something the label needs is missing.",
+  "ar": "ينقص شيء يحتاجه الملصق.",
+  "tr": "Etiketin ihtiyaç duyduğu bir bilgi eksik.",
+  "fr": "Il manque une information à l'étiquette.",
+  "es": "Falta algo que la etiqueta necesita.",
+  "de": "Dem Etikett fehlt eine Angabe."
+ },
+ "print.issue.skuOmitted": {
+  "en": "The SKU was left off (too wide).",
+  "ar": "تُرك رمز المنتج (أعرض من اللازم).",
+  "tr": "Stok kodu çıkarıldı (çok geniş).",
+  "fr": "La référence a été omise (trop large).",
+  "es": "Se omitió la referencia (demasiado ancha).",
+  "de": "Die Artikelnummer entfällt (zu breit)."
+ },
+ "print.geometry.generic": {
+  "en": "This stationery profile is not printable. Check its measurements.",
+  "ar": "ملف القرطاسية هذا غير قابل للطباعة. تحقّق من قياساته.",
+  "tr": "Bu kâğıt profili yazdırılamaz. Ölçülerini kontrol edin.",
+  "fr": "Ce support n'est pas imprimable. Vérifiez ses mesures.",
+  "es": "Esta papelería no se puede imprimir. Revisa sus medidas.",
+  "de": "Dieser Bogen ist nicht druckbar. Maße prüfen."
+ },
+ "print.geometry.nonPositiveSize": {
+  "en": "Sizes must be more than zero.",
+  "ar": "يجب أن تكون المقاسات أكبر من صفر.",
+  "tr": "Ölçüler sıfırdan büyük olmalı.",
+  "fr": "Les dimensions doivent être supérieures à zéro.",
+  "es": "Las medidas deben ser mayores que cero.",
+  "de": "Maße müssen über null liegen."
+ },
+ "print.geometry.invalidCount": {
+  "en": "Rows and columns must be whole numbers from 1 to 200.",
+  "ar": "يجب أن تكون الصفوف والأعمدة أعدادًا صحيحة من 1 إلى 200.",
+  "tr": "Satır ve sütunlar 1–200 arası tam sayı olmalı.",
+  "fr": "Lignes et colonnes : nombres entiers de 1 à 200.",
+  "es": "Filas y columnas: números enteros de 1 a 200.",
+  "de": "Zeilen und Spalten: ganze Zahlen von 1 bis 200."
+ },
+ "print.geometry.negativeMargin": {
+  "en": "Margins cannot be negative.",
+  "ar": "لا يمكن أن تكون الهوامش سالبة.",
+  "tr": "Kenar boşlukları negatif olamaz.",
+  "fr": "Les marges ne peuvent pas être négatives.",
+  "es": "Los márgenes no pueden ser negativos.",
+  "de": "Ränder dürfen nicht negativ sein."
+ },
+ "print.geometry.negativeGap": {
+  "en": "Gaps and the safe area cannot be negative.",
+  "ar": "لا يمكن أن تكون الفراغات والمنطقة الآمنة سالبة.",
+  "tr": "Aralıklar ve güvenli alan negatif olamaz.",
+  "fr": "Les espacements et la zone de sécurité ne peuvent pas être négatifs.",
+  "es": "Los espacios y la zona segura no pueden ser negativos.",
+  "de": "Abstände und Sicherheitsrand dürfen nicht negativ sein."
+ },
+ "print.geometry.pageSizeMismatch": {
+  "en": "The page numbers do not match the chosen paper size.",
+  "ar": "أرقام الصفحة لا تطابق مقاس الورق المختار.",
+  "tr": "Sayfa ölçüleri seçilen kâğıt boyutuna uymuyor.",
+  "fr": "Les dimensions ne correspondent pas au format choisi.",
+  "es": "Las medidas no coinciden con el papel elegido.",
+  "de": "Die Seitenmaße passen nicht zum Papierformat."
+ },
+ "print.geometry.gridTooWide": {
+  "en": "The labels are too wide for the page (by {{overflowMm}} mm).",
+  "ar": "الملصقات أعرض من الصفحة (بمقدار {{overflowMm}} مم).",
+  "tr": "Etiketler sayfaya göre çok geniş ({{overflowMm}} mm).",
+  "fr": "Les étiquettes dépassent la largeur de la page ({{overflowMm}} mm).",
+  "es": "Las etiquetas son más anchas que la página ({{overflowMm}} mm).",
+  "de": "Die Etiketten sind zu breit für die Seite ({{overflowMm}} mm)."
+ },
+ "print.geometry.gridTooTall": {
+  "en": "The labels are too tall for the page (by {{overflowMm}} mm).",
+  "ar": "الملصقات أطول من الصفحة (بمقدار {{overflowMm}} مم).",
+  "tr": "Etiketler sayfaya göre çok uzun ({{overflowMm}} mm).",
+  "fr": "Les étiquettes dépassent la hauteur de la page ({{overflowMm}} mm).",
+  "es": "Las etiquetas son más altas que la página ({{overflowMm}} mm).",
+  "de": "Die Etiketten sind zu hoch für die Seite ({{overflowMm}} mm)."
+ },
+ "print.geometry.marginsDontAddUpX": {
+  "en": "The widths and margins do not add up to the page width.",
+  "ar": "العروض والهوامش لا تساوي عرض الصفحة.",
+  "tr": "Genişlikler ve boşluklar sayfa genişliğini tutmuyor.",
+  "fr": "Largeurs et marges ne correspondent pas à la page.",
+  "es": "Anchos y márgenes no suman el ancho de la página.",
+  "de": "Breiten und Ränder ergeben nicht die Seitenbreite."
+ },
+ "print.geometry.marginsDontAddUpY": {
+  "en": "The heights and margins do not add up to the page height.",
+  "ar": "الارتفاعات والهوامش لا تساوي ارتفاع الصفحة.",
+  "tr": "Yükseklikler ve boşluklar sayfa yüksekliğini tutmuyor.",
+  "fr": "Hauteurs et marges ne correspondent pas à la page.",
+  "es": "Altos y márgenes no suman el alto de la página.",
+  "de": "Höhen und Ränder ergeben nicht die Seitenhöhe."
+ },
+ "print.geometry.safeInsetTooLarge": {
+  "en": "The safe area is larger than the label.",
+  "ar": "المنطقة الآمنة أكبر من الملصق.",
+  "tr": "Güvenli alan etiketten büyük.",
+  "fr": "La zone de sécurité dépasse l'étiquette.",
+  "es": "La zona segura es mayor que la etiqueta.",
+  "de": "Der Sicherheitsrand ist größer als das Etikett."
+ },
+ "print.geometry.safeInsetBelowRecommended": {
+  "en": "Keep at least {{recommendedMm}} mm inside the cut so small text is never trimmed.",
+  "ar": "اترك {{recommendedMm}} مم على الأقل داخل خط القص حتى لا يُقص النص الصغير.",
+  "tr": "Küçük yazı kesilmesin diye kesimden en az {{recommendedMm}} mm içeride kalın.",
+  "fr": "Gardez au moins {{recommendedMm}} mm à l'intérieur de la découpe pour ne jamais rogner le petit texte.",
+  "es": "Deja al menos {{recommendedMm}} mm dentro del corte para no recortar el texto pequeño.",
+  "de": "Mindestens {{recommendedMm}} mm Abstand zum Schnitt, damit kleine Schrift nicht abgeschnitten wird."
+ },
+ "print.geometry.nearPrinterEdge": {
+  "en": "Content is within {{edgeMm}} mm of the paper edge; many printers cannot print there.",
+  "ar": "المحتوى على بعد {{edgeMm}} مم من حافة الورقة؛ كثير من الطابعات لا تطبع هناك.",
+  "tr": "İçerik kâğıt kenarına {{edgeMm}} mm yakın; çoğu yazıcı oraya basamaz.",
+  "fr": "Le contenu est à {{edgeMm}} mm du bord ; beaucoup d'imprimantes n'y impriment pas.",
+  "es": "El contenido está a {{edgeMm}} mm del borde; muchas impresoras no imprimen ahí.",
+  "de": "Inhalt liegt {{edgeMm}} mm am Papierrand; viele Drucker drucken dort nicht."
+ },
+ "print.previewTitle": {
+  "en": "Preview",
+  "ar": "معاينة",
+  "tr": "Önizleme",
+  "fr": "Aperçu",
+  "es": "Vista previa",
+  "de": "Vorschau"
+ },
+ "print.facts": {
+  "en": "{{pages}} page(s) · {{labels}} labels · starts at label {{start}}",
+  "ar": "{{pages}} صفحة · {{labels}} ملصق · يبدأ من الملصق {{start}}",
+  "tr": "{{pages}} sayfa · {{labels}} etiket · {{start}}. etiketten başlar",
+  "fr": "{{pages}} page(s) · {{labels}} étiquettes · à partir de l'étiquette {{start}}",
+  "es": "{{pages}} página(s) · {{labels}} etiquetas · desde la etiqueta {{start}}",
+  "de": "{{pages}} Seite(n) · {{labels}} Etiketten · ab Etikett {{start}}"
+ },
+ "print.print": {
+  "en": "Print",
+  "ar": "طباعة",
+  "tr": "Yazdır",
+  "fr": "Imprimer",
+  "es": "Imprimir",
+  "de": "Drucken"
+ },
+ "print.sharePdf": {
+  "en": "Share PDF",
+  "ar": "مشاركة PDF",
+  "tr": "PDF paylaş",
+  "fr": "Partager le PDF",
+  "es": "Compartir PDF",
+  "de": "PDF teilen"
+ },
+ "print.askTitle": {
+  "en": "Did the labels print correctly?",
+  "ar": "هل طُبعت الملصقات بشكل صحيح؟",
+  "tr": "Etiketler doğru yazdırıldı mı?",
+  "fr": "Les étiquettes se sont-elles bien imprimées ?",
+  "es": "¿Se imprimieron bien las etiquetas?",
+  "de": "Wurden die Etiketten richtig gedruckt?"
+ },
+ "print.yesPrinted": {
+  "en": "Yes, printed",
+  "ar": "نعم، طُبعت",
+  "tr": "Evet, yazdırıldı",
+  "fr": "Oui, imprimé",
+  "es": "Sí, impresas",
+  "de": "Ja, gedruckt"
+ },
+ "print.keepWaiting": {
+  "en": "Keep waiting",
+  "ar": "إبقاؤها بالانتظار",
+  "tr": "Beklesin",
+  "fr": "Garder en attente",
+  "es": "Seguir esperando",
+  "de": "Weiter warten"
+ },
+ "print.printAgain": {
+  "en": "Print again",
+  "ar": "طباعة مرة أخرى",
+  "tr": "Tekrar yazdır",
+  "fr": "Imprimer à nouveau",
+  "es": "Imprimir de nuevo",
+  "de": "Erneut drucken"
+ },
+ "print.keptWaiting": {
+  "en": "The labels are still waiting in To print.",
+  "ar": "ما زالت الملصقات بانتظار الطباعة.",
+  "tr": "Etiketler Yazdırılacak'ta beklemeye devam ediyor.",
+  "fr": "Les étiquettes attendent toujours dans À imprimer.",
+  "es": "Las etiquetas siguen en Por imprimir.",
+  "de": "Die Etiketten warten weiter unter „Zu drucken“."
+ },
+ "print.confirmed": {
+  "en": "Marked as printed ({{count}} labels).",
+  "ar": "حُددت كمطبوعة ({{count}} ملصق).",
+  "tr": "Yazdırıldı olarak işaretlendi ({{count}} etiket).",
+  "fr": "Marquées comme imprimées ({{count}} étiquettes).",
+  "es": "Marcadas como impresas ({{count}} etiquetas).",
+  "de": "Als gedruckt markiert ({{count}} Etiketten)."
+ },
+ "print.confirmFailed": {
+  "en": "Could not record the print. The labels are still waiting.",
+  "ar": "تعذّر تسجيل الطباعة. ما زالت الملصقات بالانتظار.",
+  "tr": "Yazdırma kaydedilemedi. Etiketler hâlâ bekliyor.",
+  "fr": "Impossible d'enregistrer l'impression. Les étiquettes attendent toujours.",
+  "es": "No se pudo registrar la impresión. Las etiquetas siguen esperando.",
+  "de": "Der Druck konnte nicht erfasst werden. Die Etiketten warten weiter."
+ },
+ "print.shareUnavailable": {
+  "en": "Sharing is not available on this phone.",
+  "ar": "المشاركة غير متاحة على هذا الهاتف.",
+  "tr": "Bu telefonda paylaşım yok.",
+  "fr": "Le partage n'est pas disponible sur ce téléphone.",
+  "es": "Compartir no está disponible en este teléfono.",
+  "de": "Teilen ist auf diesem Telefon nicht verfügbar."
+ },
+ "print.shareFailed": {
+  "en": "The PDF could not be shared.",
+  "ar": "تعذّرت مشاركة ملف PDF.",
+  "tr": "PDF paylaşılamadı.",
+  "fr": "Le PDF n'a pas pu être partagé.",
+  "es": "No se pudo compartir el PDF.",
+  "de": "Das PDF konnte nicht geteilt werden."
+ },
+ "print.shareNote": {
+  "en": "Sharing the PDF does not mark labels as printed.",
+  "ar": "مشاركة ملف PDF لا تجعل الملصقات مطبوعة.",
+  "tr": "PDF paylaşmak etiketleri yazdırıldı saymaz.",
+  "fr": "Partager le PDF ne marque pas les étiquettes comme imprimées.",
+  "es": "Compartir el PDF no marca las etiquetas como impresas.",
+  "de": "PDF teilen markiert Etiketten nicht als gedruckt."
+ },
+ "print.testNote": {
+  "en": "A test sheet never changes your products or To print.",
+  "ar": "ورقة الاختبار لا تغيّر منتجاتك ولا قائمة الطباعة.",
+  "tr": "Test sayfası ürünlerinizi veya Yazdırılacak listesini asla değiştirmez.",
+  "fr": "Une feuille de test ne modifie jamais vos produits ni À imprimer.",
+  "es": "Una hoja de prueba nunca cambia tus productos ni Por imprimir.",
+  "de": "Ein Testbogen ändert nie Produkte oder „Zu drucken“."
+ },
+ "print.jobMissing": {
+  "en": "This PDF is no longer on the phone. Create the labels again from To print.",
+  "ar": "لم يعد ملف PDF هذا على الهاتف. أنشئ الملصقات مجددًا من قائمة الطباعة.",
+  "tr": "Bu PDF artık telefonda yok. Etiketleri Yazdırılacak'tan yeniden oluşturun.",
+  "fr": "Ce PDF n'est plus sur le téléphone. Recréez les étiquettes depuis À imprimer.",
+  "es": "Este PDF ya no está en el teléfono. Vuelve a crear las etiquetas desde Por imprimir.",
+  "de": "Dieses PDF ist nicht mehr auf dem Telefon. Etiketten unter „Zu drucken“ neu erstellen."
+ },
+ "printSetup.title": {
+  "en": "Print setup",
+  "ar": "إعداد الطباعة",
+  "tr": "Yazdırma ayarları",
+  "fr": "Configuration d'impression",
+  "es": "Configuración de impresión",
+  "de": "Druckeinrichtung"
+ },
+ "printSetup.subtitle": {
+  "en": "Stationery, test and calibration",
+  "ar": "القرطاسية والاختبار والمعايرة",
+  "tr": "Kâğıt, test ve kalibrasyon",
+  "fr": "Supports, test et étalonnage",
+  "es": "Papelería, prueba y calibración",
+  "de": "Bögen, Test und Kalibrierung"
+ },
+ "printSetup.stationery": {
+  "en": "Stationery profiles",
+  "ar": "ملفات القرطاسية",
+  "tr": "Kâğıt profilleri",
+  "fr": "Profils de support",
+  "es": "Perfiles de papelería",
+  "de": "Etikettenbögen"
+ },
+ "printSetup.stationerySub": {
+  "en": "Tickets, sticker sheets and offer cards",
+  "ar": "بطاقات الرف وأوراق الملصقات وبطاقات العروض",
+  "tr": "Raf etiketleri, etiket sayfaları ve kampanya kartları",
+  "fr": "Étiquettes de rayon, planches et cartes offre",
+  "es": "Etiquetas de estante, hojas adhesivas y carteles",
+  "de": "Regaletiketten, Klebebögen und Angebotskarten"
+ },
+ "printSetup.stationeryFooter": {
+  "en": "Presets marked unverified are not yet checked against the maker's template or a real sheet. Print a label test before using full sheets.",
+  "ar": "القوالب المعلَّمة غير موثّقة لم تُفحص بعد مقابل قالب الصانع أو ورقة حقيقية. اطبع اختبار ملصقات قبل استخدام أوراق كاملة.",
+  "tr": "Doğrulanmamış işaretli hazır profiller üreticinin şablonuna veya gerçek sayfaya göre kontrol edilmedi. Tam sayfa kullanmadan önce etiket testi yazdırın.",
+  "fr": "Les préréglages non vérifiés n'ont pas encore été comparés au gabarit du fabricant ni à une vraie planche. Imprimez un test avant d'utiliser des planches entières.",
+  "es": "Los predefinidos sin verificar aún no se han comprobado con la plantilla del fabricante ni con una hoja real. Imprime una prueba antes de usar hojas completas.",
+  "de": "Ungeprüfte Vorlagen sind noch nicht mit der Herstellervorlage oder einem echten Bogen verglichen. Drucken Sie vorher einen Etikettentest."
+ },
+ "printSetup.perSheet": {
+  "en": "{{count}} per sheet",
+  "ar": "{{count}} لكل ورقة",
+  "tr": "sayfada {{count}}",
+  "fr": "{{count}} par planche",
+  "es": "{{count}} por hoja",
+  "de": "{{count}} pro Bogen"
+ },
+ "printSetup.verification.userDefined": {
+  "en": "design size",
+  "ar": "مقاس تصميمي",
+  "tr": "tasarım ölçüsü",
+  "fr": "dimension de conception",
+  "es": "medida de diseño",
+  "de": "Designmaß"
+ },
+ "printSetup.verification.unverified": {
+  "en": "unverified",
+  "ar": "غير موثّق",
+  "tr": "doğrulanmadı",
+  "fr": "non vérifié",
+  "es": "sin verificar",
+  "de": "ungeprüft"
+ },
+ "printSetup.verification.geometryVerified": {
+  "en": "geometry checked",
+  "ar": "الهندسة مفحوصة",
+  "tr": "geometri kontrol edildi",
+  "fr": "géométrie vérifiée",
+  "es": "geometría comprobada",
+  "de": "Geometrie geprüft"
+ },
+ "printSetup.verification.paperVerified": {
+  "en": "checked on paper",
+  "ar": "مفحوص على الورق",
+  "tr": "kâğıtta kontrol edildi",
+  "fr": "vérifié sur papier",
+  "es": "comprobado en papel",
+  "de": "auf Papier geprüft"
+ },
+ "printSetup.custom": {
+  "en": "your sheet",
+  "ar": "ورقتك",
+  "tr": "sizin sayfanız",
+  "fr": "votre planche",
+  "es": "tu hoja",
+  "de": "Ihr Bogen"
+ },
+ "printSetup.default": {
+  "en": "default",
+  "ar": "افتراضي",
+  "tr": "varsayılan",
+  "fr": "par défaut",
+  "es": "predeterminado",
+  "de": "Standard"
+ },
+ "printSetup.addCustom": {
+  "en": "Add your own sheet",
+  "ar": "إضافة ورقتك الخاصة",
+  "tr": "Kendi sayfanı ekle",
+  "fr": "Ajouter votre planche",
+  "es": "Añadir tu propia hoja",
+  "de": "Eigenen Bogen anlegen"
+ },
+ "printSetup.proOnly": {
+  "en": "TillLabel Pro",
+  "ar": "TillLabel Pro",
+  "tr": "TillLabel Pro",
+  "fr": "TillLabel Pro",
+  "es": "TillLabel Pro",
+  "de": "TillLabel Pro"
+ },
+ "printSetup.tools": {
+  "en": "Tools",
+  "ar": "الأدوات",
+  "tr": "Araçlar",
+  "fr": "Outils",
+  "es": "Herramientas",
+  "de": "Werkzeuge"
+ },
+ "printSetup.labelTest": {
+  "en": "Label test",
+  "ar": "اختبار الملصقات",
+  "tr": "Etiket testi",
+  "fr": "Test d'étiquettes",
+  "es": "Prueba de etiquetas",
+  "de": "Etikettentest"
+ },
+ "printSetup.labelTestSub": {
+  "en": "Print one sheet of samples",
+  "ar": "اطبع ورقة من النماذج",
+  "tr": "Bir sayfa örnek yazdır",
+  "fr": "Imprimer une planche d'exemples",
+  "es": "Imprimir una hoja de muestras",
+  "de": "Einen Bogen Muster drucken"
+ },
+ "printSetup.calibration": {
+  "en": "Printer calibration",
+  "ar": "معايرة الطابعة",
+  "tr": "Yazıcı kalibrasyonu",
+  "fr": "Étalonnage de l'imprimante",
+  "es": "Calibración de la impresora",
+  "de": "Druckerkalibrierung"
+ },
+ "printSetup.calibrationSub": {
+  "en": "Measure, then adjust in 0.5 mm steps",
+  "ar": "قِس ثم عدّل بخطوات 0.5 مم",
+  "tr": "Ölçün, sonra 0,5 mm adımlarla ayarlayın",
+  "fr": "Mesurez, puis ajustez par pas de 0,5 mm",
+  "es": "Mide y ajusta en pasos de 0,5 mm",
+  "de": "Messen, dann in 0,5-mm-Schritten anpassen"
+ },
+ "printSetup.history": {
+  "en": "Print history",
+  "ar": "سجل الطباعة",
+  "tr": "Yazdırma geçmişi",
+  "fr": "Historique d'impression",
+  "es": "Historial de impresión",
+  "de": "Druckverlauf"
+ },
+ "printSetup.historySub": {
+  "en": "Every PDF you created",
+  "ar": "كل ملفات PDF التي أنشأتها",
+  "tr": "Oluşturduğunuz tüm PDF'ler",
+  "fr": "Tous les PDF créés",
+  "es": "Todos los PDF creados",
+  "de": "Alle erstellten PDFs"
+ },
+ "printSetup.paperNote": {
+  "en": "Always print at 100% / Actual size. Never use Fit to page.",
+  "ar": "اطبع دائمًا بنسبة 100% / الحجم الفعلي. لا تستخدم «ملاءمة الصفحة» أبدًا.",
+  "tr": "Her zaman %100 / Gerçek boyutta yazdırın. Sayfaya sığdır'ı asla kullanmayın.",
+  "fr": "Imprimez toujours à 100 % / Taille réelle. N'utilisez jamais « Ajuster à la page ».",
+  "es": "Imprime siempre al 100 % / Tamaño real. Nunca uses «Ajustar a la página».",
+  "de": "Immer mit 100 % / tatsächlicher Größe drucken. Nie „An Seite anpassen“ verwenden."
+ },
+ "stationery.page": {
+  "en": "Page",
+  "ar": "الصفحة",
+  "tr": "Sayfa",
+  "fr": "Page",
+  "es": "Página",
+  "de": "Seite"
+ },
+ "stationery.grid": {
+  "en": "Labels",
+  "ar": "الملصقات",
+  "tr": "Etiketler",
+  "fr": "Étiquettes",
+  "es": "Etiquetas",
+  "de": "Etiketten"
+ },
+ "stationery.gridValue": {
+  "en": "{{rows}} rows × {{columns}} columns = {{count}}",
+  "ar": "{{rows}} صفوف × {{columns}} أعمدة = {{count}}",
+  "tr": "{{rows}} satır × {{columns}} sütun = {{count}}",
+  "fr": "{{rows}} lignes × {{columns}} colonnes = {{count}}",
+  "es": "{{rows}} filas × {{columns}} columnas = {{count}}",
+  "de": "{{rows}} Zeilen × {{columns}} Spalten = {{count}}"
+ },
+ "stationery.labelSize": {
+  "en": "Label size",
+  "ar": "مقاس الملصق",
+  "tr": "Etiket boyutu",
+  "fr": "Taille d'étiquette",
+  "es": "Tamaño de etiqueta",
+  "de": "Etikettengröße"
+ },
+ "stationery.margins": {
+  "en": "Top / left margin",
+  "ar": "الهامش العلوي / الأيسر",
+  "tr": "Üst / sol boşluk",
+  "fr": "Marge haut / gauche",
+  "es": "Margen superior / izquierdo",
+  "de": "Rand oben / links"
+ },
+ "stationery.gaps": {
+  "en": "Gaps across / down",
+  "ar": "الفراغات أفقيًا / عموديًا",
+  "tr": "Yatay / dikey aralık",
+  "fr": "Espacements horizontal / vertical",
+  "es": "Espacios horizontal / vertical",
+  "de": "Abstand quer / längs"
+ },
+ "stationery.safeInset": {
+  "en": "Safe area inside the cut (mm)",
+  "ar": "المنطقة الآمنة داخل القص (مم)",
+  "tr": "Kesim içi güvenli alan (mm)",
+  "fr": "Zone de sécurité (mm)",
+  "es": "Zona segura dentro del corte (mm)",
+  "de": "Sicherheitsrand (mm)"
+ },
+ "stationery.material": {
+  "en": "Material",
+  "ar": "المادة",
+  "tr": "Malzeme",
+  "fr": "Matériau",
+  "es": "Material",
+  "de": "Material"
+ },
+ "stationery.materialValue.card": {
+  "en": "Card, cut",
+  "ar": "كرتون، يُقص",
+  "tr": "Karton, kesilir",
+  "fr": "Carton, à découper",
+  "es": "Cartulina, a cortar",
+  "de": "Karton, zum Schneiden"
+ },
+ "stationery.materialValue.plainPaper": {
+  "en": "Paper, cut",
+  "ar": "ورق، يُقص",
+  "tr": "Kâğıt, kesilir",
+  "fr": "Papier, à découper",
+  "es": "Papel, a cortar",
+  "de": "Papier, zum Schneiden"
+ },
+ "stationery.materialValue.adhesiveSheet": {
+  "en": "Sticker sheet",
+  "ar": "ورقة ملصقات",
+  "tr": "Etiket sayfası",
+  "fr": "Planche autocollante",
+  "es": "Hoja adhesiva",
+  "de": "Klebebogen"
+ },
+ "stationery.materialValue.promoCard": {
+  "en": "Offer cards",
+  "ar": "بطاقات عروض",
+  "tr": "Kampanya kartları",
+  "fr": "Cartes offre",
+  "es": "Carteles",
+  "de": "Angebotskarten"
+ },
+ "stationery.materialValue.shelfEdgeInsert": {
+  "en": "Shelf-edge strip",
+  "ar": "شريط حافة الرف",
+  "tr": "Raf şeridi",
+  "fr": "Bande de rayon",
+  "es": "Tira de estante",
+  "de": "Regalleiste"
+ },
+ "stationery.source": {
+  "en": "Source: {{source}}",
+  "ar": "المصدر: {{source}}",
+  "tr": "Kaynak: {{source}}",
+  "fr": "Source : {{source}}",
+  "es": "Fuente: {{source}}",
+  "de": "Quelle: {{source}}"
+ },
+ "stationery.unverifiedNote": {
+  "en": "Measurements come from the design or the maker's published size. They are confirmed only when you print and measure a real sheet.",
+  "ar": "القياسات من التصميم أو المقاس المنشور للصانع. ولا تُؤكَّد إلا حين تطبع ورقة حقيقية وتقيسها.",
+  "tr": "Ölçüler tasarımdan veya üreticinin yayımladığı boyuttan gelir. Ancak gerçek bir sayfa yazdırıp ölçtüğünüzde doğrulanır.",
+  "fr": "Les mesures viennent de la conception ou de la taille publiée par le fabricant. Elles ne sont confirmées qu'après impression et mesure d'une vraie planche.",
+  "es": "Las medidas provienen del diseño o del tamaño publicado por el fabricante. Solo se confirman al imprimir y medir una hoja real.",
+  "de": "Die Maße stammen aus dem Design oder der Herstellerangabe. Bestätigt sind sie erst, wenn Sie einen echten Bogen drucken und messen."
+ },
+ "stationery.useDefault": {
+  "en": "Use as default",
+  "ar": "استخدام كافتراضي",
+  "tr": "Varsayılan yap",
+  "fr": "Utiliser par défaut",
+  "es": "Usar como predeterminado",
+  "de": "Als Standard verwenden"
+ },
+ "stationery.isDefault": {
+  "en": "This is your default",
+  "ar": "هذا هو الافتراضي لديك",
+  "tr": "Bu sizin varsayılanınız",
+  "fr": "C'est votre support par défaut",
+  "es": "Es tu predeterminado",
+  "de": "Das ist Ihr Standard"
+ },
+ "stationery.defaultSet": {
+  "en": "Default stationery saved.",
+  "ar": "حُفظت القرطاسية الافتراضية.",
+  "tr": "Varsayılan kâğıt kaydedildi.",
+  "fr": "Support par défaut enregistré.",
+  "es": "Papelería predeterminada guardada.",
+  "de": "Standardbogen gespeichert."
+ },
+ "stationery.copyToEdit": {
+  "en": "Copy to make your own",
+  "ar": "نسخ لإنشاء ورقتك",
+  "tr": "Kendinize kopyalayın",
+  "fr": "Copier pour personnaliser",
+  "es": "Copiar para personalizar",
+  "de": "Kopieren und anpassen"
+ },
+ "stationery.copyName": {
+  "en": "{{name}} (my copy)",
+  "ar": "{{name}} (نسختي)",
+  "tr": "{{name}} (kopyam)",
+  "fr": "{{name}} (ma copie)",
+  "es": "{{name}} (mi copia)",
+  "de": "{{name}} (meine Kopie)"
+ },
+ "stationery.newTitle": {
+  "en": "New stationery",
+  "ar": "قرطاسية جديدة",
+  "tr": "Yeni kâğıt",
+  "fr": "Nouveau support",
+  "es": "Nueva papelería",
+  "de": "Neuer Bogen"
+ },
+ "stationery.editTitle": {
+  "en": "Edit stationery",
+  "ar": "تعديل القرطاسية",
+  "tr": "Kâğıdı düzenle",
+  "fr": "Modifier le support",
+  "es": "Editar papelería",
+  "de": "Bogen bearbeiten"
+ },
+ "stationery.subtitle": {
+  "en": "All sizes in millimetres",
+  "ar": "جميع المقاسات بالمليمتر",
+  "tr": "Tüm ölçüler milimetre",
+  "fr": "Toutes les dimensions en millimètres",
+  "es": "Todas las medidas en milímetros",
+  "de": "Alle Maße in Millimetern"
+ },
+ "stationery.name": {
+  "en": "Name",
+  "ar": "الاسم",
+  "tr": "Ad",
+  "fr": "Nom",
+  "es": "Nombre",
+  "de": "Name"
+ },
+ "stationery.namePh": {
+  "en": "e.g. Supplier tickets 70 × 38",
+  "ar": "مثال: بطاقات المورّد 70 × 38",
+  "tr": "örn. Tedarikçi etiketleri 70 × 38",
+  "fr": "ex. Étiquettes fournisseur 70 × 38",
+  "es": "p. ej. Etiquetas proveedor 70 × 38",
+  "de": "z. B. Lieferantenetiketten 70 × 38"
+ },
+ "stationery.nameRequired": {
+  "en": "Give the stationery a name.",
+  "ar": "أعطِ القرطاسية اسمًا.",
+  "tr": "Kâğıda bir ad verin.",
+  "fr": "Donnez un nom au support.",
+  "es": "Pon un nombre a la papelería.",
+  "de": "Geben Sie dem Bogen einen Namen."
+ },
+ "stationery.paper": {
+  "en": "Paper",
+  "ar": "الورق",
+  "tr": "Kâğıt",
+  "fr": "Papier",
+  "es": "Papel",
+  "de": "Papier"
+ },
+ "stationery.paperValue.A4": {
+  "en": "A4",
+  "ar": "A4",
+  "tr": "A4",
+  "fr": "A4",
+  "es": "A4",
+  "de": "A4"
+ },
+ "stationery.paperValue.Letter": {
+  "en": "US Letter",
+  "ar": "US Letter",
+  "tr": "US Letter",
+  "fr": "US Letter",
+  "es": "US Letter",
+  "de": "US Letter"
+ },
+ "stationery.paperValue.A5": {
+  "en": "A5",
+  "ar": "A5",
+  "tr": "A5",
+  "fr": "A5",
+  "es": "A5",
+  "de": "A5"
+ },
+ "stationery.paperValue.A6": {
+  "en": "A6",
+  "ar": "A6",
+  "tr": "A6",
+  "fr": "A6",
+  "es": "A6",
+  "de": "A6"
+ },
+ "stationery.paperValue.custom": {
+  "en": "Custom",
+  "ar": "مخصص",
+  "tr": "Özel",
+  "fr": "Personnalisé",
+  "es": "Personalizado",
+  "de": "Eigenes"
+ },
+ "stationery.orientation.portrait": {
+  "en": "Portrait",
+  "ar": "عمودي",
+  "tr": "Dikey",
+  "fr": "Portrait",
+  "es": "Vertical",
+  "de": "Hochformat"
+ },
+ "stationery.orientation.landscape": {
+  "en": "Landscape",
+  "ar": "أفقي",
+  "tr": "Yatay",
+  "fr": "Paysage",
+  "es": "Horizontal",
+  "de": "Querformat"
+ },
+ "stationery.pageWidth": {
+  "en": "Page width",
+  "ar": "عرض الصفحة",
+  "tr": "Sayfa genişliği",
+  "fr": "Largeur de page",
+  "es": "Ancho de página",
+  "de": "Seitenbreite"
+ },
+ "stationery.pageHeight": {
+  "en": "Page height",
+  "ar": "ارتفاع الصفحة",
+  "tr": "Sayfa yüksekliği",
+  "fr": "Hauteur de page",
+  "es": "Alto de página",
+  "de": "Seitenhöhe"
+ },
+ "stationery.rows": {
+  "en": "Rows",
+  "ar": "الصفوف",
+  "tr": "Satırlar",
+  "fr": "Lignes",
+  "es": "Filas",
+  "de": "Zeilen"
+ },
+ "stationery.columns": {
+  "en": "Columns",
+  "ar": "الأعمدة",
+  "tr": "Sütunlar",
+  "fr": "Colonnes",
+  "es": "Columnas",
+  "de": "Spalten"
+ },
+ "stationery.labelWidth": {
+  "en": "Label width",
+  "ar": "عرض الملصق",
+  "tr": "Etiket genişliği",
+  "fr": "Largeur d'étiquette",
+  "es": "Ancho de etiqueta",
+  "de": "Etikettenbreite"
+ },
+ "stationery.labelHeight": {
+  "en": "Label height",
+  "ar": "ارتفاع الملصق",
+  "tr": "Etiket yüksekliği",
+  "fr": "Hauteur d'étiquette",
+  "es": "Alto de etiqueta",
+  "de": "Etikettenhöhe"
+ },
+ "stationery.marginTop": {
+  "en": "Top margin",
+  "ar": "الهامش العلوي",
+  "tr": "Üst boşluk",
+  "fr": "Marge du haut",
+  "es": "Margen superior",
+  "de": "Rand oben"
+ },
+ "stationery.marginLeft": {
+  "en": "Left margin",
+  "ar": "الهامش الأيسر",
+  "tr": "Sol boşluk",
+  "fr": "Marge de gauche",
+  "es": "Margen izquierdo",
+  "de": "Rand links"
+ },
+ "stationery.gapX": {
+  "en": "Gap across",
+  "ar": "الفراغ الأفقي",
+  "tr": "Yatay aralık",
+  "fr": "Espacement horizontal",
+  "es": "Espacio horizontal",
+  "de": "Abstand quer"
+ },
+ "stationery.gapY": {
+  "en": "Gap down",
+  "ar": "الفراغ العمودي",
+  "tr": "Dikey aralık",
+  "fr": "Espacement vertical",
+  "es": "Espacio vertical",
+  "de": "Abstand längs"
+ },
+ "stationery.valid": {
+  "en": "Printable: {{count}} labels per sheet",
+  "ar": "قابل للطباعة: {{count}} ملصق لكل ورقة",
+  "tr": "Yazdırılabilir: sayfada {{count}} etiket",
+  "fr": "Imprimable : {{count}} étiquettes par planche",
+  "es": "Imprimible: {{count}} etiquetas por hoja",
+  "de": "Druckbar: {{count}} Etiketten pro Bogen"
+ },
+ "stationery.layouts": {
+  "en": "Label types that fit: {{list}}",
+  "ar": "أنواع الملصقات المناسبة: {{list}}",
+  "tr": "Uyan etiket türleri: {{list}}",
+  "fr": "Types d'étiquettes possibles : {{list}}",
+  "es": "Tipos de etiqueta que caben: {{list}}",
+  "de": "Passende Etikettenarten: {{list}}"
+ },
+ "stationery.tooSmall": {
+  "en": "These labels are too small for a price label.",
+  "ar": "هذه الملصقات أصغر من أن تحمل سعرًا.",
+  "tr": "Bu etiketler fiyat etiketi için çok küçük.",
+  "fr": "Ces étiquettes sont trop petites pour un prix.",
+  "es": "Estas etiquetas son demasiado pequeñas para un precio.",
+  "de": "Diese Etiketten sind für ein Preisetikett zu klein."
+ },
+ "stationery.saved": {
+  "en": "Stationery saved.",
+  "ar": "حُفظت القرطاسية.",
+  "tr": "Kâğıt kaydedildi.",
+  "fr": "Support enregistré.",
+  "es": "Papelería guardada.",
+  "de": "Bogen gespeichert."
+ },
+ "stationery.saveFailed": {
+  "en": "The stationery could not be saved.",
+  "ar": "تعذّر حفظ القرطاسية.",
+  "tr": "Kâğıt kaydedilemedi.",
+  "fr": "Le support n'a pas pu être enregistré.",
+  "es": "No se pudo guardar la papelería.",
+  "de": "Der Bogen konnte nicht gespeichert werden."
+ },
+ "stationery.delete": {
+  "en": "Delete this stationery",
+  "ar": "حذف هذه القرطاسية",
+  "tr": "Bu kâğıdı sil",
+  "fr": "Supprimer ce support",
+  "es": "Eliminar esta papelería",
+  "de": "Diesen Bogen löschen"
+ },
+ "stationery.deleteTitle": {
+  "en": "Delete this stationery?",
+  "ar": "حذف هذه القرطاسية؟",
+  "tr": "Bu kâğıt silinsin mi?",
+  "fr": "Supprimer ce support ?",
+  "es": "¿Eliminar esta papelería?",
+  "de": "Diesen Bogen löschen?"
+ },
+ "stationery.deleteBody": {
+  "en": "Your products and print history are not changed.",
+  "ar": "لن تتغيّر منتجاتك ولا سجل الطباعة.",
+  "tr": "Ürünleriniz ve yazdırma geçmişiniz değişmez.",
+  "fr": "Vos produits et votre historique ne changent pas.",
+  "es": "Tus productos y el historial no cambian.",
+  "de": "Produkte und Druckverlauf bleiben unverändert."
+ },
+ "stationery.measureNote": {
+  "en": "Measure the real sheet with a ruler. Manufacturer numbers can differ from what is printed on the box.",
+  "ar": "قِس الورقة الحقيقية بالمسطرة. قد تختلف أرقام الصانع عمّا هو مطبوع على العلبة.",
+  "tr": "Gerçek sayfayı cetvelle ölçün. Üretici ölçüleri kutudakinden farklı olabilir.",
+  "fr": "Mesurez la vraie planche à la règle. Les chiffres du fabricant peuvent différer de la boîte.",
+  "es": "Mide la hoja real con una regla. Las cifras del fabricante pueden diferir de la caja.",
+  "de": "Messen Sie den echten Bogen mit einem Lineal. Herstellerangaben können von der Packung abweichen."
+ },
+ "layout.standard": {
+  "en": "price",
+  "ar": "السعر",
+  "tr": "fiyat",
+  "fr": "prix",
+  "es": "precio",
+  "de": "Preis"
+ },
+ "layout.unitPrice": {
+  "en": "unit price",
+  "ar": "سعر الوحدة",
+  "tr": "birim fiyat",
+  "fr": "prix unitaire",
+  "es": "precio unidad",
+  "de": "Grundpreis"
+ },
+ "layout.barcode": {
+  "en": "barcode",
+  "ar": "باركود",
+  "tr": "barkod",
+  "fr": "code-barres",
+  "es": "código de barras",
+  "de": "Barcode"
+ },
+ "layout.promo": {
+  "en": "offer",
+  "ar": "عرض",
+  "tr": "kampanya",
+  "fr": "offre",
+  "es": "oferta",
+  "de": "Angebot"
+ },
+ "layout.promoDetail": {
+  "en": "offer with date",
+  "ar": "عرض مع تاريخ",
+  "tr": "tarihli kampanya",
+  "fr": "offre datée",
+  "es": "oferta con fecha",
+  "de": "Angebot mit Datum"
+ },
+ "layout.promoBarcode": {
+  "en": "offer + barcode",
+  "ar": "عرض + باركود",
+  "tr": "kampanya + barkod",
+  "fr": "offre + code-barres",
+  "es": "oferta + código",
+  "de": "Angebot + Barcode"
+ },
+ "calibration.subtitle": {
+  "en": "Measure once, print straight",
+  "ar": "قِس مرة واطبع بدقة",
+  "tr": "Bir kez ölçün, düzgün yazdırın",
+  "fr": "Mesurez une fois, imprimez droit",
+  "es": "Mide una vez, imprime recto",
+  "de": "Einmal messen, gerade drucken"
+ },
+ "calibration.step1": {
+  "en": "1. Print the calibration page",
+  "ar": "1. اطبع صفحة المعايرة",
+  "tr": "1. Kalibrasyon sayfasını yazdırın",
+  "fr": "1. Imprimez la page d'étalonnage",
+  "es": "1. Imprime la página de calibración",
+  "de": "1. Kalibrierseite drucken"
+ },
+ "calibration.actualSize": {
+  "en": "Print at 100% / Actual size. Do not use Fit to page.",
+  "ar": "اطبع بنسبة 100% / الحجم الفعلي. لا تستخدم «ملاءمة الصفحة».",
+  "tr": "%100 / Gerçek boyutta yazdırın. Sayfaya sığdır'ı kullanmayın.",
+  "fr": "Imprimez à 100 % / Taille réelle. N'utilisez pas « Ajuster à la page ».",
+  "es": "Imprime al 100 % / Tamaño real. No uses «Ajustar a la página».",
+  "de": "Mit 100 % / tatsächlicher Größe drucken. Nicht „An Seite anpassen“."
+ },
+ "calibration.printPage": {
+  "en": "Create calibration page",
+  "ar": "إنشاء صفحة المعايرة",
+  "tr": "Kalibrasyon sayfası oluştur",
+  "fr": "Créer la page d'étalonnage",
+  "es": "Crear página de calibración",
+  "de": "Kalibrierseite erstellen"
+ },
+ "calibration.step2": {
+  "en": "2. Measure and enter",
+  "ar": "2. قِس وأدخل",
+  "tr": "2. Ölçün ve girin",
+  "fr": "2. Mesurez et saisissez",
+  "es": "2. Mide e introduce",
+  "de": "2. Messen und eingeben"
+ },
+ "calibration.measureHint": {
+  "en": "Measure the 100 mm line. Then, for the first and last label, how far the crosshair is from the label centre (right and down are +).",
+  "ar": "قِس خط 100 مم. ثم في أول ملصق وآخره، كم يبعد التقاطع عن مركز الملصق (اليمين والأسفل +).",
+  "tr": "100 mm çizgisini ölçün. Sonra ilk ve son etikette artı işaretinin etiket merkezinden uzaklığını girin (sağ ve aşağı +).",
+  "fr": "Mesurez la ligne de 100 mm. Puis, pour la première et la dernière étiquette, l'écart de la croix au centre (droite et bas = +).",
+  "es": "Mide la línea de 100 mm. Luego, en la primera y la última etiqueta, cuánto se aleja la cruz del centro (derecha y abajo = +).",
+  "de": "Messen Sie die 100-mm-Linie. Dann beim ersten und letzten Etikett den Abstand des Kreuzes zur Mitte (rechts und unten = +)."
+ },
+ "calibration.line": {
+  "en": "100 mm line measures (mm)",
+  "ar": "طول خط 100 مم (مم)",
+  "tr": "100 mm çizgisi ölçümü (mm)",
+  "fr": "La ligne de 100 mm mesure (mm)",
+  "es": "La línea de 100 mm mide (mm)",
+  "de": "100-mm-Linie misst (mm)"
+ },
+ "calibration.firstX": {
+  "en": "First label: across (mm)",
+  "ar": "أول ملصق: أفقيًا (مم)",
+  "tr": "İlk etiket: yatay (mm)",
+  "fr": "Première étiquette : horizontal (mm)",
+  "es": "Primera etiqueta: horizontal (mm)",
+  "de": "Erstes Etikett: quer (mm)"
+ },
+ "calibration.firstY": {
+  "en": "First label: down (mm)",
+  "ar": "أول ملصق: عموديًا (مم)",
+  "tr": "İlk etiket: dikey (mm)",
+  "fr": "Première étiquette : vertical (mm)",
+  "es": "Primera etiqueta: vertical (mm)",
+  "de": "Erstes Etikett: längs (mm)"
+ },
+ "calibration.lastX": {
+  "en": "Last label: across (mm)",
+  "ar": "آخر ملصق: أفقيًا (مم)",
+  "tr": "Son etiket: yatay (mm)",
+  "fr": "Dernière étiquette : horizontal (mm)",
+  "es": "Última etiqueta: horizontal (mm)",
+  "de": "Letztes Etikett: quer (mm)"
+ },
+ "calibration.lastY": {
+  "en": "Last label: down (mm)",
+  "ar": "آخر ملصق: عموديًا (مم)",
+  "tr": "Son etiket: dikey (mm)",
+  "fr": "Dernière étiquette : vertical (mm)",
+  "es": "Última etiqueta: vertical (mm)",
+  "de": "Letztes Etikett: längs (mm)"
+ },
+ "calibration.check": {
+  "en": "Check",
+  "ar": "تحقّق",
+  "tr": "Kontrol et",
+  "fr": "Vérifier",
+  "es": "Comprobar",
+  "de": "Prüfen"
+ },
+ "calibration.badNumbers": {
+  "en": "Enter numbers only, e.g. 100 or -0.5.",
+  "ar": "أدخل أرقامًا فقط، مثل 100 أو ‎-0.5.",
+  "tr": "Yalnızca sayı girin, örn. 100 veya -0,5.",
+  "fr": "Saisissez seulement des nombres, ex. 100 ou -0,5.",
+  "es": "Introduce solo números, p. ej. 100 o -0,5.",
+  "de": "Nur Zahlen eingeben, z. B. 100 oder -0,5."
+ },
+ "calibration.verdict.aligned.title": {
+  "en": "Aligned",
+  "ar": "مضبوطة",
+  "tr": "Hizalı",
+  "fr": "Aligné",
+  "es": "Alineado",
+  "de": "Ausgerichtet"
+ },
+ "calibration.verdict.aligned.body": {
+  "en": "Your printer places labels correctly. No change needed.",
+  "ar": "طابعتك تضع الملصقات بدقة. لا حاجة لأي تغيير.",
+  "tr": "Yazıcınız etiketleri doğru yerleştiriyor. Değişiklik gerekmez.",
+  "fr": "Votre imprimante place bien les étiquettes. Aucun changement.",
+  "es": "Tu impresora coloca bien las etiquetas. No hace falta cambiar nada.",
+  "de": "Ihr Drucker platziert richtig. Keine Änderung nötig."
+ },
+ "calibration.verdict.uniformOffset.title": {
+  "en": "Whole page shifted",
+  "ar": "الصفحة كلها منزاحة",
+  "tr": "Tüm sayfa kaymış",
+  "fr": "Page entière décalée",
+  "es": "Página entera desplazada",
+  "de": "Ganze Seite verschoben"
+ },
+ "calibration.verdict.uniformOffset.body": {
+  "en": "The same shift everywhere: adjust by {{offsetXMm}} mm across and {{offsetYMm}} mm down.",
+  "ar": "الإزاحة نفسها في كل مكان: عدّل {{offsetXMm}} مم أفقيًا و{{offsetYMm}} مم عموديًا.",
+  "tr": "Her yerde aynı kayma: yatayda {{offsetXMm}} mm, dikeyde {{offsetYMm}} mm ayarlayın.",
+  "fr": "Même décalage partout : ajustez de {{offsetXMm}} mm horizontalement et {{offsetYMm}} mm verticalement.",
+  "es": "El mismo desplazamiento en todo: ajusta {{offsetXMm}} mm en horizontal y {{offsetYMm}} mm en vertical.",
+  "de": "Überall gleich verschoben: {{offsetXMm}} mm quer und {{offsetYMm}} mm längs korrigieren."
+ },
+ "calibration.verdict.scaling.title": {
+  "en": "The printer is scaling",
+  "ar": "الطابعة تغيّر المقاس",
+  "tr": "Yazıcı ölçekliyor",
+  "fr": "L'imprimante met à l'échelle",
+  "es": "La impresora está escalando",
+  "de": "Der Drucker skaliert"
+ },
+ "calibration.verdict.scaling.body": {
+  "en": "The 100 mm line printed as {{percent}} mm. Print again at 100% / Actual size; an offset cannot fix scaling.",
+  "ar": "طُبع خط 100 مم بطول {{percent}} مم. اطبع مجددًا بنسبة 100% / الحجم الفعلي؛ الإزاحة لا تصلح تغيير المقاس.",
+  "tr": "100 mm çizgisi {{percent}} mm basıldı. %100 / Gerçek boyutta tekrar yazdırın; ofset ölçeklemeyi düzeltemez.",
+  "fr": "La ligne de 100 mm mesure {{percent}} mm. Réimprimez à 100 % / Taille réelle ; un décalage ne corrige pas l'échelle.",
+  "es": "La línea de 100 mm salió de {{percent}} mm. Imprime de nuevo al 100 % / Tamaño real; un desplazamiento no corrige la escala.",
+  "de": "Die 100-mm-Linie misst {{percent}} mm. Mit 100 % / tatsächlicher Größe neu drucken; ein Versatz behebt Skalierung nicht."
+ },
+ "calibration.verdict.progressiveDrift.title": {
+  "en": "Shift grows across the sheet",
+  "ar": "الإزاحة تزداد على طول الورقة",
+  "tr": "Kayma sayfa boyunca artıyor",
+  "fr": "Le décalage augmente sur la feuille",
+  "es": "El desplazamiento crece en la hoja",
+  "de": "Verschiebung wächst über den Bogen"
+ },
+ "calibration.verdict.progressiveDrift.body": {
+  "en": "The last label is {{driftXMm}} mm across and {{driftYMm}} mm down further out than the first. This is scaling or paper feed; an offset cannot fix it. Check Actual size and the paper guides.",
+  "ar": "آخر ملصق أبعد من الأول بـ{{driftXMm}} مم أفقيًا و{{driftYMm}} مم عموديًا. هذه مشكلة تحجيم أو تغذية ورق؛ الإزاحة لا تصلحها. تحقّق من الحجم الفعلي وموجّهات الورق.",
+  "tr": "Son etiket ilkine göre {{driftXMm}} mm yatay ve {{driftYMm}} mm dikey daha kaymış. Bu ölçekleme veya kâğıt beslemedir; ofset düzeltemez. Gerçek boyutu ve kâğıt kılavuzlarını kontrol edin.",
+  "fr": "La dernière étiquette est décalée de {{driftXMm}} mm horizontalement et {{driftYMm}} mm verticalement de plus que la première. C'est l'échelle ou l'entraînement ; un décalage ne corrige pas cela. Vérifiez la taille réelle et les guides papier.",
+  "es": "La última etiqueta se desplaza {{driftXMm}} mm en horizontal y {{driftYMm}} mm en vertical más que la primera. Es escala o arrastre del papel; un desplazamiento no lo corrige. Revisa el tamaño real y las guías.",
+  "de": "Das letzte Etikett liegt {{driftXMm}} mm quer und {{driftYMm}} mm längs weiter daneben als das erste. Das ist Skalierung oder Papiereinzug; ein Versatz hilft nicht. Tatsächliche Größe und Papierführung prüfen."
+ },
+ "calibration.apply": {
+  "en": "Apply offset ({{x}} / {{y}} mm)",
+  "ar": "تطبيق الإزاحة ({{x}} / {{y}} مم)",
+  "tr": "Ofseti uygula ({{x}} / {{y}} mm)",
+  "fr": "Appliquer le décalage ({{x}} / {{y}} mm)",
+  "es": "Aplicar desplazamiento ({{x}} / {{y}} mm)",
+  "de": "Versatz übernehmen ({{x}} / {{y}} mm)"
+ },
+ "calibration.current": {
+  "en": "3. Offsets for this stationery",
+  "ar": "3. الإزاحات لهذه القرطاسية",
+  "tr": "3. Bu kâğıt için ofsetler",
+  "fr": "3. Décalages pour ce support",
+  "es": "3. Desplazamientos para esta papelería",
+  "de": "3. Versatz für diesen Bogen"
+ },
+ "calibration.offset.x": {
+  "en": "Across",
+  "ar": "أفقيًا",
+  "tr": "Yatay",
+  "fr": "Horizontal",
+  "es": "Horizontal",
+  "de": "Quer"
+ },
+ "calibration.offset.y": {
+  "en": "Down",
+  "ar": "عموديًا",
+  "tr": "Dikey",
+  "fr": "Vertical",
+  "es": "Vertical",
+  "de": "Längs"
+ },
+ "calibration.minus": {
+  "en": "Decrease by 0.5 mm",
+  "ar": "إنقاص 0.5 مم",
+  "tr": "0,5 mm azalt",
+  "fr": "Diminuer de 0,5 mm",
+  "es": "Reducir 0,5 mm",
+  "de": "Um 0,5 mm verringern"
+ },
+ "calibration.plus": {
+  "en": "Increase by 0.5 mm",
+  "ar": "زيادة 0.5 مم",
+  "tr": "0,5 mm artır",
+  "fr": "Augmenter de 0,5 mm",
+  "es": "Aumentar 0,5 mm",
+  "de": "Um 0,5 mm erhöhen"
+ },
+ "calibration.saved": {
+  "en": "Offsets saved: {{x}} mm across, {{y}} mm down.",
+  "ar": "حُفظت الإزاحات: {{x}} مم أفقيًا، {{y}} مم عموديًا.",
+  "tr": "Ofsetler kaydedildi: yatay {{x}} mm, dikey {{y}} mm.",
+  "fr": "Décalages enregistrés : {{x}} mm horizontal, {{y}} mm vertical.",
+  "es": "Desplazamientos guardados: {{x}} mm horizontal, {{y}} mm vertical.",
+  "de": "Versatz gespeichert: {{x}} mm quer, {{y}} mm längs."
+ },
+ "calibration.direction": {
+  "en": "+ moves everything right / down. Offsets apply to every job on this stationery.",
+  "ar": "‏+ يحرّك كل شيء يمينًا / لأسفل. تنطبق الإزاحات على كل طباعة بهذه القرطاسية.",
+  "tr": "+ her şeyi sağa / aşağı kaydırır. Ofsetler bu kâğıttaki tüm işlere uygulanır.",
+  "fr": "+ déplace tout vers la droite / le bas. S'applique à toutes les impressions sur ce support.",
+  "es": "+ mueve todo a la derecha / abajo. Se aplica a todas las impresiones en esta papelería.",
+  "de": "+ verschiebt alles nach rechts / unten. Gilt für alle Drucke auf diesem Bogen."
+ },
+ "history.subtitle": {
+  "en": "Every PDF, exactly as created",
+  "ar": "كل ملف PDF كما أُنشئ تمامًا",
+  "tr": "Her PDF, oluşturulduğu gibi",
+  "fr": "Chaque PDF, tel que créé",
+  "es": "Cada PDF, tal como se creó",
+  "de": "Jedes PDF, genau wie erstellt"
+ },
+ "history.emptyTitle": {
+  "en": "No PDFs yet",
+  "ar": "لا ملفات PDF بعد",
+  "tr": "Henüz PDF yok",
+  "fr": "Aucun PDF pour l'instant",
+  "es": "Aún no hay PDF",
+  "de": "Noch keine PDFs"
+ },
+ "history.emptyBody": {
+  "en": "Labels you create from To print, tests and calibration pages will appear here.",
+  "ar": "ستظهر هنا الملصقات التي تنشئها من قائمة الطباعة وصفحات الاختبار والمعايرة.",
+  "tr": "Yazdırılacak'tan oluşturduğunuz etiketler, testler ve kalibrasyon sayfaları burada görünür.",
+  "fr": "Les étiquettes créées depuis À imprimer, les tests et les pages d'étalonnage apparaîtront ici.",
+  "es": "Aquí aparecerán las etiquetas creadas desde Por imprimir, las pruebas y las páginas de calibración.",
+  "de": "Hier erscheinen Etiketten aus „Zu drucken“, Tests und Kalibrierseiten."
+ },
+ "history.labels": {
+  "en": "{{count}} labels",
+  "ar": "{{count}} ملصق",
+  "tr": "{{count}} etiket",
+  "fr": "{{count}} étiquettes",
+  "es": "{{count}} etiquetas",
+  "de": "{{count}} Etiketten"
+ },
+ "history.kind.queue": {
+  "en": "labels",
+  "ar": "ملصقات",
+  "tr": "etiketler",
+  "fr": "étiquettes",
+  "es": "etiquetas",
+  "de": "Etiketten"
+ },
+ "history.kind.test": {
+  "en": "label test",
+  "ar": "اختبار",
+  "tr": "etiket testi",
+  "fr": "test",
+  "es": "prueba",
+  "de": "Test"
+ },
+ "history.kind.calibration": {
+  "en": "calibration",
+  "ar": "معايرة",
+  "tr": "kalibrasyon",
+  "fr": "étalonnage",
+  "es": "calibración",
+  "de": "Kalibrierung"
+ },
+ "history.kind.reprint": {
+  "en": "reprint",
+  "ar": "إعادة طباعة",
+  "tr": "yeniden baskı",
+  "fr": "réimpression",
+  "es": "reimpresión",
+  "de": "Nachdruck"
+ },
+ "history.status.generated": {
+  "en": "created",
+  "ar": "أُنشئ",
+  "tr": "oluşturuldu",
+  "fr": "créé",
+  "es": "creado",
+  "de": "erstellt"
+ },
+ "history.status.sentToPrinter": {
+  "en": "sent to printer",
+  "ar": "أُرسل للطابعة",
+  "tr": "yazıcıya gönderildi",
+  "fr": "envoyé",
+  "es": "enviado",
+  "de": "gesendet"
+ },
+ "history.status.confirmed": {
+  "en": "printed",
+  "ar": "طُبع",
+  "tr": "yazdırıldı",
+  "fr": "imprimé",
+  "es": "impreso",
+  "de": "gedruckt"
+ },
+ "history.status.partiallyConfirmed": {
+  "en": "partly printed",
+  "ar": "طُبع جزئيًا",
+  "tr": "kısmen yazdırıldı",
+  "fr": "partiellement imprimé",
+  "es": "impreso en parte",
+  "de": "teilweise gedruckt"
+ },
+ "history.status.cancelled": {
+  "en": "cancelled",
+  "ar": "أُلغي",
+  "tr": "iptal",
+  "fr": "annulé",
+  "es": "cancelado",
+  "de": "abgebrochen"
+ },
+ "labelTest.subtitle": {
+  "en": "One sheet of samples before real labels",
+  "ar": "ورقة نماذج قبل الملصقات الحقيقية",
+  "tr": "Gerçek etiketlerden önce bir örnek sayfa",
+  "fr": "Une planche d'exemples avant les vraies étiquettes",
+  "es": "Una hoja de muestras antes de las etiquetas reales",
+  "de": "Ein Musterbogen vor echten Etiketten"
+ },
+ "labelTest.printedAs": {
+  "en": "Printed as",
+  "ar": "يُطبع بـ",
+  "tr": "Şöyle basılır",
+  "fr": "Imprimé en",
+  "es": "Se imprime en",
+  "de": "Gedruckt als"
+ },
+ "labelTest.languageCurrency": {
+  "en": "{{language}} labels · {{currency}}",
+  "ar": "ملصقات بـ{{language}} · {{currency}}",
+  "tr": "{{language}} etiketler · {{currency}}",
+  "fr": "Étiquettes en {{language}} · {{currency}}",
+  "es": "Etiquetas en {{language}} · {{currency}}",
+  "de": "Etiketten auf {{language}} · {{currency}}"
+ },
+ "labelTest.changeInSettings": {
+  "en": "Change in More → Label settings and Currency.",
+  "ar": "غيّرها من المزيد ← إعدادات الملصقات والعملة.",
+  "tr": "Menü → Etiket ayarları ve Para birimi'nden değiştirin.",
+  "fr": "Modifiable dans Menu → Réglages des étiquettes et Devise.",
+  "es": "Cámbialo en Menú → Ajustes de etiquetas y Moneda.",
+  "de": "Ändern unter Menü → Etiketteneinstellungen und Währung."
+ },
+ "labelTest.type": {
+  "en": "Label type",
+  "ar": "نوع الملصق",
+  "tr": "Etiket türü",
+  "fr": "Type d'étiquette",
+  "es": "Tipo de etiqueta",
+  "de": "Etikettenart"
+ },
+ "labelTest.create": {
+  "en": "Create test sheet",
+  "ar": "إنشاء ورقة اختبار",
+  "tr": "Test sayfası oluştur",
+  "fr": "Créer la planche de test",
+  "es": "Crear hoja de prueba",
+  "de": "Testbogen erstellen"
+ },
+ "labelTest.jobName": {
+  "en": "Label test",
+  "ar": "اختبار الملصقات",
+  "tr": "Etiket testi",
+  "fr": "Test d'étiquettes",
+  "es": "Prueba de etiquetas",
+  "de": "Etikettentest"
+ },
+ "labelTest.sample": {
+  "en": "Sample label",
+  "ar": "ملصق نموذجي",
+  "tr": "Örnek etiket",
+  "fr": "Étiquette exemple",
+  "es": "Etiqueta de muestra",
+  "de": "Musteretikett"
+ },
+ "labelTest.note": {
+  "en": "Check the top, middle and bottom labels. If they sit off the cut lines, use Printer calibration.",
+  "ar": "افحص الملصقات العلوية والوسطى والسفلية. إن لم تكن على خطوط القص فاستخدم معايرة الطابعة.",
+  "tr": "Üst, orta ve alt etiketleri kontrol edin. Kesim çizgilerinden kaymışsa Yazıcı kalibrasyonu'nu kullanın.",
+  "fr": "Vérifiez les étiquettes du haut, du milieu et du bas. Si elles débordent des traits de coupe, utilisez l'étalonnage.",
+  "es": "Revisa las etiquetas de arriba, en medio y abajo. Si no coinciden con los cortes, usa la calibración.",
+  "de": "Prüfen Sie oberes, mittleres und unteres Etikett. Liegen sie neben den Schnittlinien, nutzen Sie die Kalibrierung."
+ },
+ "labelSettings.title": {
+  "en": "Label settings",
+  "ar": "إعدادات الملصقات",
+  "tr": "Etiket ayarları",
+  "fr": "Réglages des étiquettes",
+  "es": "Ajustes de etiquetas",
+  "de": "Etiketteneinstellungen"
+ },
+ "labelSettings.subtitle": {
+  "en": "Printed language, style and options",
+  "ar": "لغة الطباعة والنمط والخيارات",
+  "tr": "Baskı dili, stil ve seçenekler",
+  "fr": "Langue imprimée, style et options",
+  "es": "Idioma impreso, estilo y opciones",
+  "de": "Drucksprache, Stil und Optionen"
+ },
+ "labelSettings.languageTitle": {
+  "en": "Label language",
+  "ar": "لغة الملصقات",
+  "tr": "Etiket dili",
+  "fr": "Langue des étiquettes",
+  "es": "Idioma de las etiquetas",
+  "de": "Etikettensprache"
+ },
+ "labelSettings.languageBody": {
+  "en": "The words printed on labels. Independent of the app language and of the currency.",
+  "ar": "الكلمات المطبوعة على الملصقات. مستقلة عن لغة التطبيق وعن العملة.",
+  "tr": "Etiketlere basılan kelimeler. Uygulama dilinden ve para biriminden bağımsızdır.",
+  "fr": "Les mots imprimés sur les étiquettes. Indépendants de la langue de l'app et de la devise.",
+  "es": "Las palabras impresas en las etiquetas. Independientes del idioma de la app y de la moneda.",
+  "de": "Die Wörter auf den Etiketten. Unabhängig von App-Sprache und Währung."
+ },
+ "labelSettings.sameAsApp": {
+  "en": "Same as the app ({{language}})",
+  "ar": "مثل التطبيق ({{language}})",
+  "tr": "Uygulamayla aynı ({{language}})",
+  "fr": "Comme l'app ({{language}})",
+  "es": "Igual que la app ({{language}})",
+  "de": "Wie die App ({{language}})"
+ },
+ "labelSettings.defaultKind": {
+  "en": "Label type for new products",
+  "ar": "نوع الملصق للمنتجات الجديدة",
+  "tr": "Yeni ürünler için etiket türü",
+  "fr": "Type d'étiquette des nouveaux produits",
+  "es": "Tipo de etiqueta para productos nuevos",
+  "de": "Etikettenart für neue Produkte"
+ },
+ "labelSettings.offerStyle": {
+  "en": "Offer band",
+  "ar": "شريط العرض",
+  "tr": "Kampanya bandı",
+  "fr": "Bandeau d'offre",
+  "es": "Banda de oferta",
+  "de": "Angebotsband"
+ },
+ "labelSettings.styleYellow": {
+  "en": "Yellow",
+  "ar": "أصفر",
+  "tr": "Sarı",
+  "fr": "Jaune",
+  "es": "Amarillo",
+  "de": "Gelb"
+ },
+ "labelSettings.styleInk": {
+  "en": "Ink-saving",
+  "ar": "موفّر للحبر",
+  "tr": "Mürekkep tasarrufu",
+  "fr": "Économie d'encre",
+  "es": "Ahorro de tinta",
+  "de": "Tintensparend"
+ },
+ "labelSettings.offerStyleHint": {
+  "en": "Ink-saving prints only an outline — use it on yellow paper or labels. Standard labels are always white.",
+  "ar": "الموفّر للحبر يطبع إطارًا فقط — استخدمه على ورق أو ملصقات صفراء. الملصقات العادية بيضاء دائمًا.",
+  "tr": "Mürekkep tasarrufu yalnızca çerçeve basar — sarı kâğıt veya etiketlerde kullanın. Standart etiketler her zaman beyazdır.",
+  "fr": "L'économie d'encre n'imprime qu'un contour — pour papier ou étiquettes jaunes. Les étiquettes standard restent blanches.",
+  "es": "El ahorro de tinta imprime solo un contorno — úsalo con papel o etiquetas amarillas. Las etiquetas normales son siempre blancas.",
+  "de": "Tintensparend druckt nur einen Rahmen — für gelbes Papier oder gelbe Etiketten. Standardetiketten sind immer weiß."
+ },
+ "labelSettings.skuOnCards": {
+  "en": "SKU on offer cards",
+  "ar": "رمز المنتج على بطاقات العروض",
+  "tr": "Kampanya kartlarında stok kodu",
+  "fr": "Référence sur les cartes offre",
+  "es": "Referencia en carteles",
+  "de": "Artikelnummer auf Angebotskarten"
+ },
+ "labelSettings.skuOnCardsHint": {
+  "en": "Off by default: shoppers do not need it",
+  "ar": "متوقف افتراضيًا: لا يحتاجه المتسوقون",
+  "tr": "Varsayılan kapalı: müşterilerin ihtiyacı yok",
+  "fr": "Désactivé par défaut : inutile aux clients",
+  "es": "Desactivado por defecto: los clientes no lo necesitan",
+  "de": "Standardmäßig aus: Kunden brauchen sie nicht"
+ },
+ "labelSettings.promoBarcode": {
+  "en": "Barcode on offer labels",
+  "ar": "باركود على ملصقات العروض",
+  "tr": "Kampanya etiketlerinde barkod",
+  "fr": "Code-barres sur les offres",
+  "es": "Código en etiquetas de oferta",
+  "de": "Barcode auf Angebotsetiketten"
+ },
+ "labelSettings.promoBarcodeHint": {
+  "en": "Only on formats with room for it (offer cards); tickets keep the price large",
+  "ar": "فقط على المقاسات التي تتسع له (بطاقات العروض)؛ تبقى أسعار بطاقات الرف كبيرة",
+  "tr": "Yalnızca yeri olan formatlarda (kampanya kartları); raf etiketlerinde fiyat büyük kalır",
+  "fr": "Seulement sur les formats qui ont la place (cartes offre) ; les étiquettes gardent un grand prix",
+  "es": "Solo en formatos con espacio (carteles); las etiquetas mantienen el precio grande",
+  "de": "Nur auf Formaten mit Platz (Angebotskarten); Regaletiketten behalten den großen Preis"
+ },
+ "labelSettings.unitDecimals": {
+  "en": "Unit-price decimals",
+  "ar": "خانات سعر الوحدة العشرية",
+  "tr": "Birim fiyat ondalıkları",
+  "fr": "Décimales du prix unitaire",
+  "es": "Decimales del precio unitario",
+  "de": "Nachkommastellen Grundpreis"
+ },
+ "labelSettings.unitDecimalsHint": {
+  "en": "Some countries ask for more precise unit prices than selling prices. 0 = the currency's own decimals.",
+  "ar": "تطلب بعض الدول أسعار وحدة أدق من أسعار البيع. 0 = خانات العملة نفسها.",
+  "tr": "Bazı ülkeler satış fiyatından daha hassas birim fiyat ister. 0 = para biriminin kendi ondalığı.",
+  "fr": "Certains pays demandent des prix unitaires plus précis que les prix de vente. 0 = décimales de la devise.",
+  "es": "Algunos países piden precios unitarios más precisos que los de venta. 0 = decimales de la moneda.",
+  "de": "Manche Länder verlangen genauere Grundpreise als Verkaufspreise. 0 = Nachkommastellen der Währung."
+ },
+ "labelSettings.saveFailed": {
+  "en": "The setting could not be saved.",
+  "ar": "تعذّر حفظ الإعداد.",
+  "tr": "Ayar kaydedilemedi.",
+  "fr": "Le réglage n'a pas pu être enregistré.",
+  "es": "No se pudo guardar el ajuste.",
+  "de": "Die Einstellung konnte nicht gespeichert werden."
+ }
+}

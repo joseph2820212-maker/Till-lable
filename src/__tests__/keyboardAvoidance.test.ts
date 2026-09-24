@@ -14,7 +14,8 @@ const listScreens = (dir: string): string[] => fs.readdirSync(dir, { withFileTyp
 // Screens whose only inputs live in a bottom sheet (its own keyboard handling) or in a
 // header search bar above the fold, so the page scroll never has to lift a field.
 // Empty at G1: every future form screen must use AppKeyboardScrollView.
-const ALLOWED_PLAIN_SCROLL = new Set<string>([]);
+// ProductsScreen: its only input is the search bar above the list; the ScrollView is the horizontal filter chips.
+const ALLOWED_PLAIN_SCROLL = new Set<string>(['ProductsScreen.tsx']);
 
 describe('keyboard avoidance', () => {
   const screens = listScreens(SCREENS_DIR);

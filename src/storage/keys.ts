@@ -16,6 +16,9 @@ export const TL_KEYS = {
   importMappings: 'imports:mappings',
   importBatches: 'imports:batches',
   shop: 'settings:shop',
+  labelSettings: 'settings:labels',
+  /** Fingerprint of what was last printed per product label (changed-only queue). */
+  printed: 'queue:printed',
 } as const;
 
 /** Namespaces that belong in a backup. Drafts, billing cache, journals and device-only keys are excluded. */

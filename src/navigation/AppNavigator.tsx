@@ -23,6 +23,23 @@ export type TabStackParamList = {
   SettingsBackup: undefined;
   SettingsAbout: undefined;
   SettingsOfflinePrivate: undefined;
+  SettingsLabels: undefined;
+  // Catalogue
+  ProductDetail: { id?: string; barcode?: string; symbology?: string } | undefined;
+  Scan: { mode: 'find' | 'attach' };
+  QuickLabel: undefined;
+  Import: undefined;
+  // Offers and reductions
+  Offers: undefined;
+  OfferEditor: { promotionId?: string; productId?: string } | undefined;
+  ReducedLabel: { productId?: string } | undefined;
+  // Printing
+  PrintPreview: { jobId: string };
+  PrintSetup: undefined;
+  StationeryEditor: { profileId?: string; copyFrom?: string } | undefined;
+  LabelTest: undefined;
+  Calibration: { profileId?: string } | undefined;
+  PrintHistory: undefined;
 };
 
 /** The root navigator holds only the tab navigator; every screen name resolves inside the current tab's stack. */

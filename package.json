@@ -35,6 +35,7 @@
     "expo-sharing": "~14.0.8",
     "expo-status-bar": "~3.0.0",
     "expo-updates": "~29.0.19",
+    "fflate": "0.8.2",
     "i18next": "^26.2.0",
     "react": "19.1.0",
     "react-i18next": "^17.0.8",
@@ -87,7 +88,8 @@
       "^expo-camera$": "<rootDir>/__mocks__/expo-camera.tsx",
       "^expo-haptics$": "<rootDir>/__mocks__/expo-haptics.ts",
       "^expo-document-picker$": "<rootDir>/__mocks__/expo-document-picker.ts",
-      "^bwip-js/generic$": "<rootDir>/node_modules/bwip-js/dist/bwip-js-gen.mjs"
+      "^bwip-js/generic$": "<rootDir>/node_modules/bwip-js/dist/bwip-js-gen.mjs",
+      "^expo-asset$": "<rootDir>/__mocks__/expo-asset.ts"
     },
     "transformIgnorePatterns": [
       "/node_modules/(?!(.pnpm|react-native|@react-native|@react-native-community|expo|@expo|@expo-google-fonts|react-navigation|@react-navigation|@sentry/react-native|native-base|@noble|bwip-js))",

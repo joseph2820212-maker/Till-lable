@@ -1,0 +1,1314 @@
+{
+ "home.quickLabel": {
+  "en": "Quick label",
+  "ar": "ملصق سريع",
+  "tr": "Hızlı etiket",
+  "fr": "Étiquette rapide",
+  "es": "Etiqueta rápida",
+  "de": "Schnelletikett"
+ },
+ "home.scan": {
+  "en": "Scan",
+  "ar": "مسح",
+  "tr": "Tara",
+  "fr": "Scanner",
+  "es": "Escanear",
+  "de": "Scannen"
+ },
+ "home.offers": {
+  "en": "Offers",
+  "ar": "العروض",
+  "tr": "Kampanyalar",
+  "fr": "Offres",
+  "es": "Ofertas",
+  "de": "Angebote"
+ },
+ "home.reduced": {
+  "en": "Reduced to clear",
+  "ar": "تخفيض للتصفية",
+  "tr": "Tasfiye indirimi",
+  "fr": "Démarque",
+  "es": "Rebajas de liquidación",
+  "de": "Abverkauf"
+ },
+ "settings.openSettings": {
+  "en": "Open Settings",
+  "ar": "فتح الإعدادات",
+  "tr": "Ayarları aç",
+  "fr": "Ouvrir les réglages",
+  "es": "Abrir ajustes",
+  "de": "Einstellungen öffnen"
+ },
+ "settings.currencySaveFailed": {
+  "en": "The currency could not be saved. Please try again.",
+  "ar": "تعذّر حفظ العملة. حاول مرة أخرى.",
+  "tr": "Para birimi kaydedilemedi. Lütfen tekrar deneyin.",
+  "fr": "La devise n'a pas pu être enregistrée. Veuillez réessayer.",
+  "es": "No se pudo guardar la moneda. Inténtalo de nuevo.",
+  "de": "Die Währung konnte nicht gespeichert werden. Bitte erneut versuchen."
+ },
+ "products.count": {
+  "en": "Saved products: {{count}}",
+  "ar": "المنتجات المحفوظة: {{count}}",
+  "tr": "Kayıtlı ürün: {{count}}",
+  "fr": "Produits enregistrés : {{count}}",
+  "es": "Productos guardados: {{count}}",
+  "de": "Gespeicherte Produkte: {{count}}"
+ },
+ "products.add": {
+  "en": "Add",
+  "ar": "إضافة",
+  "tr": "Ekle",
+  "fr": "Ajouter",
+  "es": "Añadir",
+  "de": "Neu"
+ },
+ "products.scan": {
+  "en": "Scan",
+  "ar": "مسح",
+  "tr": "Tara",
+  "fr": "Scanner",
+  "es": "Escanear",
+  "de": "Scannen"
+ },
+ "products.import": {
+  "en": "Import",
+  "ar": "استيراد",
+  "tr": "İçe aktar",
+  "fr": "Importer",
+  "es": "Importar",
+  "de": "Import"
+ },
+ "products.searchPlaceholder": {
+  "en": "Search name, code or barcode",
+  "ar": "ابحث بالاسم أو الرمز أو الباركود",
+  "tr": "Ad, kod veya barkod ara",
+  "fr": "Rechercher nom, code ou code-barres",
+  "es": "Buscar nombre, código o código de barras",
+  "de": "Name, Code oder Barcode suchen"
+ },
+ "products.filter.all": {
+  "en": "All",
+  "ar": "الكل",
+  "tr": "Tümü",
+  "fr": "Tous",
+  "es": "Todos",
+  "de": "Alle"
+ },
+ "products.filter.waiting": {
+  "en": "Waiting to print",
+  "ar": "بانتظار الطباعة",
+  "tr": "Yazdırılmayı bekleyen",
+  "fr": "En attente",
+  "es": "Por imprimir",
+  "de": "Wartet auf Druck"
+ },
+ "products.filter.needsName": {
+  "en": "Needs label name",
+  "ar": "يحتاج اسم ملصق",
+  "tr": "Etiket adı gerekli",
+  "fr": "Nom d'étiquette requis",
+  "es": "Falta nombre de etiqueta",
+  "de": "Etikettenname fehlt"
+ },
+ "products.filter.archived": {
+  "en": "Archived",
+  "ar": "مؤرشفة",
+  "tr": "Arşivlenmiş",
+  "fr": "Archivés",
+  "es": "Archivados",
+  "de": "Archiviert"
+ },
+ "products.badgeWaiting": {
+  "en": "Waiting to print",
+  "ar": "بانتظار الطباعة",
+  "tr": "Yazdırılacak",
+  "fr": "À imprimer",
+  "es": "Por imprimir",
+  "de": "Wartet auf Druck"
+ },
+ "products.badgeNeedsName": {
+  "en": "Needs a label name",
+  "ar": "يحتاج اسم ملصق",
+  "tr": "Etiket adı gerekli",
+  "fr": "Nom d'étiquette requis",
+  "es": "Falta nombre de etiqueta",
+  "de": "Etikettenname nötig"
+ },
+ "products.badgeArchived": {
+  "en": "Archived",
+  "ar": "مؤرشف",
+  "tr": "Arşivde",
+  "fr": "Archivé",
+  "es": "Archivado",
+  "de": "Archiviert"
+ },
+ "products.noDetails": {
+  "en": "No size, code or barcode",
+  "ar": "لا حجم ولا رمز ولا باركود",
+  "tr": "Boyut, kod veya barkod yok",
+  "fr": "Ni format, ni code, ni code-barres",
+  "es": "Sin tamaño, código ni código de barras",
+  "de": "Ohne Größe, Code oder Barcode"
+ },
+ "products.noMatchTitle": {
+  "en": "No matching products",
+  "ar": "لا توجد منتجات مطابقة",
+  "tr": "Eşleşen ürün yok",
+  "fr": "Aucun produit correspondant",
+  "es": "No hay productos que coincidan",
+  "de": "Keine passenden Produkte"
+ },
+ "products.noMatchBody": {
+  "en": "Try another word, a code or a barcode, or change the filter.",
+  "ar": "جرّب كلمة أخرى أو رمزًا أو باركودًا، أو غيّر عامل التصفية.",
+  "tr": "Başka bir kelime, kod veya barkod deneyin ya da filtreyi değiştirin.",
+  "fr": "Essayez un autre mot, un code ou un code-barres, ou changez le filtre.",
+  "es": "Prueba otra palabra, un código o un código de barras, o cambia el filtro.",
+  "de": "Versuchen Sie ein anderes Wort, einen Code oder Barcode oder ändern Sie den Filter."
+ },
+ "products.loadErrorTitle": {
+  "en": "Products could not be read",
+  "ar": "تعذّرت قراءة المنتجات",
+  "tr": "Ürünler okunamadı",
+  "fr": "Impossible de lire les produits",
+  "es": "No se pudieron leer los productos",
+  "de": "Produkte konnten nicht gelesen werden"
+ },
+ "products.loadErrorBody": {
+  "en": "Nothing has been changed. Close and reopen the app; if it happens again, restore your latest backup.",
+  "ar": "لم يتغيّر شيء. أغلق التطبيق وافتحه مجددًا؛ وإذا تكرر ذلك فاستعد أحدث نسخة احتياطية.",
+  "tr": "Hiçbir şey değişmedi. Uygulamayı kapatıp yeniden açın; tekrar olursa son yedeğinizi geri yükleyin.",
+  "fr": "Rien n'a été modifié. Fermez puis rouvrez l'app ; si cela se reproduit, restaurez votre dernière sauvegarde.",
+  "es": "No se ha cambiado nada. Cierra y vuelve a abrir la app; si se repite, restaura tu última copia de seguridad.",
+  "de": "Es wurde nichts geändert. Schließen und öffnen Sie die App erneut; passiert es wieder, stellen Sie Ihre letzte Sicherung wieder her."
+ },
+ "productEdit.addTitle": {
+  "en": "New product",
+  "ar": "منتج جديد",
+  "tr": "Yeni ürün",
+  "fr": "Nouveau produit",
+  "es": "Nuevo producto",
+  "de": "Neues Produkt"
+ },
+ "productEdit.editTitle": {
+  "en": "Edit product",
+  "ar": "تعديل المنتج",
+  "tr": "Ürünü düzenle",
+  "fr": "Modifier le produit",
+  "es": "Editar producto",
+  "de": "Produkt bearbeiten"
+ },
+ "productEdit.subtitle": {
+  "en": "Your data is kept in full",
+  "ar": "تُحفظ بياناتك كاملة",
+  "tr": "Verileriniz eksiksiz saklanır",
+  "fr": "Vos données sont conservées en entier",
+  "es": "Tus datos se guardan completos",
+  "de": "Ihre Daten bleiben vollständig erhalten"
+ },
+ "productEdit.chooseCurrencyFirst": {
+  "en": "Choose your shop's currency first (tap here). Prices are saved in that currency.",
+  "ar": "اختر عملة متجرك أولًا (اضغط هنا). تُحفظ الأسعار بهذه العملة.",
+  "tr": "Önce mağazanızın para birimini seçin (buraya dokunun). Fiyatlar bu para biriminde kaydedilir.",
+  "fr": "Choisissez d'abord la devise de votre magasin (touchez ici). Les prix sont enregistrés dans cette devise.",
+  "es": "Elige primero la moneda de tu tienda (toca aquí). Los precios se guardan en esa moneda.",
+  "de": "Wählen Sie zuerst die Währung Ihres Geschäfts (hier tippen). Preise werden in dieser Währung gespeichert."
+ },
+ "productEdit.productName": {
+  "en": "Product name",
+  "ar": "اسم المنتج",
+  "tr": "Ürün adı",
+  "fr": "Nom du produit",
+  "es": "Nombre del producto",
+  "de": "Produktname"
+ },
+ "productEdit.keptInFull": {
+  "en": "kept in full",
+  "ar": "يُحفظ كاملًا",
+  "tr": "eksiksiz saklanır",
+  "fr": "conservé en entier",
+  "es": "se guarda completo",
+  "de": "vollständig gespeichert"
+ },
+ "productEdit.productNamePh": {
+  "en": "Full name, as in your till or supplier list",
+  "ar": "الاسم الكامل كما في نظام الكاشير أو قائمة المورّد",
+  "tr": "Kasanızdaki veya tedarikçi listesindeki tam ad",
+  "fr": "Nom complet, comme dans votre caisse ou liste fournisseur",
+  "es": "Nombre completo, como en tu caja o lista del proveedor",
+  "de": "Vollständiger Name wie in Kasse oder Lieferantenliste"
+ },
+ "productEdit.labelName": {
+  "en": "Label name",
+  "ar": "اسم الملصق",
+  "tr": "Etiket adı",
+  "fr": "Nom d'étiquette",
+  "es": "Nombre de etiqueta",
+  "de": "Etikettenname"
+ },
+ "productEdit.counter": {
+  "en": "{{used}} / {{max}}",
+  "ar": "{{used}} / {{max}}",
+  "tr": "{{used}} / {{max}}",
+  "fr": "{{used}} / {{max}}",
+  "es": "{{used}} / {{max}}",
+  "de": "{{used}} / {{max}}"
+ },
+ "productEdit.labelNamePh": {
+  "en": "Optional: a shorter name for the label",
+  "ar": "اختياري: اسم أقصر للملصق",
+  "tr": "İsteğe bağlı: etiket için daha kısa ad",
+  "fr": "Facultatif : un nom plus court pour l'étiquette",
+  "es": "Opcional: un nombre más corto para la etiqueta",
+  "de": "Optional: ein kürzerer Name fürs Etikett"
+ },
+ "productEdit.labelNameRequiredPh": {
+  "en": "Write a shorter name for the label",
+  "ar": "اكتب اسمًا أقصر للملصق",
+  "tr": "Etiket için daha kısa bir ad yazın",
+  "fr": "Écrivez un nom plus court pour l'étiquette",
+  "es": "Escribe un nombre más corto para la etiqueta",
+  "de": "Schreiben Sie einen kürzeren Namen fürs Etikett"
+ },
+ "productEdit.labelNameHint": {
+  "en": "Printed on labels. The product name above is never changed.",
+  "ar": "يُطبع على الملصقات. لا يتغيّر اسم المنتج أعلاه أبدًا.",
+  "tr": "Etiketlere basılır. Yukarıdaki ürün adı asla değişmez.",
+  "fr": "Imprimé sur les étiquettes. Le nom du produit ci-dessus n'est jamais modifié.",
+  "es": "Se imprime en las etiquetas. El nombre del producto de arriba nunca se cambia.",
+  "de": "Wird auf Etiketten gedruckt. Der Produktname oben wird nie geändert."
+ },
+ "productEdit.labelNameNeeded": {
+  "en": "The product name is longer than {{max}} characters. Write a label name to print this product.",
+  "ar": "اسم المنتج أطول من {{max}} حرفًا. اكتب اسم ملصق لطباعة هذا المنتج.",
+  "tr": "Ürün adı {{max}} karakterden uzun. Bu ürünü yazdırmak için bir etiket adı yazın.",
+  "fr": "Le nom du produit dépasse {{max}} caractères. Écrivez un nom d'étiquette pour imprimer ce produit.",
+  "es": "El nombre del producto supera los {{max}} caracteres. Escribe un nombre de etiqueta para imprimirlo.",
+  "de": "Der Produktname ist länger als {{max}} Zeichen. Schreiben Sie einen Etikettennamen, um das Produkt zu drucken."
+ },
+ "productEdit.nameTooWide": {
+  "en": "These letters are too wide for two lines on your default labels. Shorten the label name.",
+  "ar": "هذه الحروف أعرض من سطرين على ملصقاتك الافتراضية. اختصر اسم الملصق.",
+  "tr": "Bu harfler varsayılan etiketlerinizde iki satıra sığmayacak kadar geniş. Etiket adını kısaltın.",
+  "fr": "Ces lettres sont trop larges pour deux lignes sur vos étiquettes par défaut. Raccourcissez le nom d'étiquette.",
+  "es": "Estas letras son demasiado anchas para dos líneas en tus etiquetas predeterminadas. Acorta el nombre.",
+  "de": "Diese Buchstaben sind für zwei Zeilen auf Ihren Standardetiketten zu breit. Kürzen Sie den Etikettennamen."
+ },
+ "productEdit.secondLine": {
+  "en": "Pack size / second line",
+  "ar": "حجم العبوة / السطر الثاني",
+  "tr": "Ambalaj / ikinci satır",
+  "fr": "Format / deuxième ligne",
+  "es": "Tamaño / segunda línea",
+  "de": "Packungsgröße / zweite Zeile"
+ },
+ "productEdit.secondLinePh": {
+  "en": "e.g. 4 × 400 g",
+  "ar": "مثال: 4 × 400 غ",
+  "tr": "örn. 4 × 400 g",
+  "fr": "ex. 4 × 400 g",
+  "es": "p. ej. 4 × 400 g",
+  "de": "z. B. 4 × 400 g"
+ },
+ "productEdit.fitsTickets": {
+  "en": "fits your labels ✓",
+  "ar": "يناسب ملصقاتك ✓",
+  "tr": "etiketlerinize sığar ✓",
+  "fr": "tient sur vos étiquettes ✓",
+  "es": "cabe en tus etiquetas ✓",
+  "de": "passt auf Ihre Etiketten ✓"
+ },
+ "productEdit.tooWideTickets": {
+  "en": "too wide for your labels",
+  "ar": "أعرض من ملصقاتك",
+  "tr": "etiketleriniz için çok geniş",
+  "fr": "trop large pour vos étiquettes",
+  "es": "demasiado ancho para tus etiquetas",
+  "de": "zu breit für Ihre Etiketten"
+ },
+ "productEdit.price": {
+  "en": "Selling price",
+  "ar": "سعر البيع",
+  "tr": "Satış fiyatı",
+  "fr": "Prix de vente",
+  "es": "Precio de venta",
+  "de": "Verkaufspreis"
+ },
+ "productEdit.printsAs": {
+  "en": "Prints as {{price}}",
+  "ar": "يُطبع هكذا: {{price}}",
+  "tr": "Şöyle basılır: {{price}}",
+  "fr": "S'imprime ainsi : {{price}}",
+  "es": "Se imprime así: {{price}}",
+  "de": "Wird gedruckt als {{price}}"
+ },
+ "productEdit.soldAs": {
+  "en": "Sold as",
+  "ar": "يُباع",
+  "tr": "Satış şekli",
+  "fr": "Vendu à",
+  "es": "Se vende por",
+  "de": "Verkauft als"
+ },
+ "productEdit.unit.each": {
+  "en": "Each",
+  "ar": "بالقطعة",
+  "tr": "Adet",
+  "fr": "Pièce",
+  "es": "Unidad",
+  "de": "Stück"
+ },
+ "productEdit.unit.pack": {
+  "en": "Pack",
+  "ar": "عبوة",
+  "tr": "Paket",
+  "fr": "Lot",
+  "es": "Pack",
+  "de": "Packung"
+ },
+ "productEdit.unit.weight": {
+  "en": "Weight",
+  "ar": "وزن",
+  "tr": "Ağırlık",
+  "fr": "Poids",
+  "es": "Peso",
+  "de": "Gewicht"
+ },
+ "productEdit.unit.volume": {
+  "en": "Volume",
+  "ar": "حجم",
+  "tr": "Hacim",
+  "fr": "Volume",
+  "es": "Volumen",
+  "de": "Volumen"
+ },
+ "productEdit.unit.length": {
+  "en": "Length",
+  "ar": "طول",
+  "tr": "Uzunluk",
+  "fr": "Longueur",
+  "es": "Longitud",
+  "de": "Länge"
+ },
+ "productEdit.qty.pack": {
+  "en": "Items in the pack",
+  "ar": "عدد القطع في العبوة",
+  "tr": "Paketteki adet",
+  "fr": "Articles dans le lot",
+  "es": "Unidades en el pack",
+  "de": "Stück pro Packung"
+ },
+ "productEdit.qty.weight": {
+  "en": "Weight in grams",
+  "ar": "الوزن بالغرام",
+  "tr": "Gram cinsinden ağırlık",
+  "fr": "Poids en grammes",
+  "es": "Peso en gramos",
+  "de": "Gewicht in Gramm"
+ },
+ "productEdit.qty.volume": {
+  "en": "Volume in millilitres",
+  "ar": "الحجم بالمليلتر",
+  "tr": "Mililitre cinsinden hacim",
+  "fr": "Volume en millilitres",
+  "es": "Volumen en mililitros",
+  "de": "Volumen in Millilitern"
+ },
+ "productEdit.qty.length": {
+  "en": "Length in millimetres",
+  "ar": "الطول بالمليمتر",
+  "tr": "Milimetre cinsinden uzunluk",
+  "fr": "Longueur en millimètres",
+  "es": "Longitud en milímetros",
+  "de": "Länge in Millimetern"
+ },
+ "productEdit.unitPriceBase": {
+  "en": "Unit price",
+  "ar": "سعر الوحدة",
+  "tr": "Birim fiyat",
+  "fr": "Prix unitaire",
+  "es": "Precio por unidad",
+  "de": "Grundpreis"
+ },
+ "productEdit.noUnitPrice": {
+  "en": "None",
+  "ar": "بدون",
+  "tr": "Yok",
+  "fr": "Aucun",
+  "es": "Ninguno",
+  "de": "Keiner"
+ },
+ "productEdit.base.per_kg": {
+  "en": "per kg",
+  "ar": "للكيلو",
+  "tr": "kg",
+  "fr": "le kg",
+  "es": "el kg",
+  "de": "je kg"
+ },
+ "productEdit.base.per_100g": {
+  "en": "per 100 g",
+  "ar": "لكل 100 غ",
+  "tr": "100 g",
+  "fr": "les 100 g",
+  "es": "los 100 g",
+  "de": "je 100 g"
+ },
+ "productEdit.base.per_litre": {
+  "en": "per litre",
+  "ar": "للتر",
+  "tr": "litre",
+  "fr": "le litre",
+  "es": "el litro",
+  "de": "je Liter"
+ },
+ "productEdit.base.per_100ml": {
+  "en": "per 100 ml",
+  "ar": "لكل 100 مل",
+  "tr": "100 ml",
+  "fr": "les 100 ml",
+  "es": "los 100 ml",
+  "de": "je 100 ml"
+ },
+ "productEdit.base.per_metre": {
+  "en": "per metre",
+  "ar": "للمتر",
+  "tr": "metre",
+  "fr": "le mètre",
+  "es": "el metro",
+  "de": "je Meter"
+ },
+ "productEdit.base.per_item": {
+  "en": "each",
+  "ar": "للقطعة",
+  "tr": "adet",
+  "fr": "l'unité",
+  "es": "la unidad",
+  "de": "je Stück"
+ },
+ "productEdit.unitPricePreview": {
+  "en": "Unit price on the label: {{price}}",
+  "ar": "سعر الوحدة على الملصق: {{price}}",
+  "tr": "Etiketteki birim fiyat: {{price}}",
+  "fr": "Prix unitaire sur l'étiquette : {{price}}",
+  "es": "Precio por unidad en la etiqueta: {{price}}",
+  "de": "Grundpreis auf dem Etikett: {{price}}"
+ },
+ "productEdit.barcode": {
+  "en": "Barcode",
+  "ar": "الباركود",
+  "tr": "Barkod",
+  "fr": "Code-barres",
+  "es": "Código de barras",
+  "de": "Barcode"
+ },
+ "productEdit.barcodeOk": {
+  "en": "check digit OK",
+  "ar": "رقم التحقق صحيح",
+  "tr": "kontrol basamağı doğru",
+  "fr": "clé de contrôle OK",
+  "es": "dígito de control correcto",
+  "de": "Prüfziffer OK"
+ },
+ "productEdit.barcodeCheckFails": {
+  "en": "check digit wrong",
+  "ar": "رقم التحقق خاطئ",
+  "tr": "kontrol basamağı hatalı",
+  "fr": "clé de contrôle fausse",
+  "es": "dígito de control incorrecto",
+  "de": "Prüfziffer falsch"
+ },
+ "productEdit.scanBarcode": {
+  "en": "Scan barcode",
+  "ar": "مسح الباركود",
+  "tr": "Barkod tara",
+  "fr": "Scanner le code-barres",
+  "es": "Escanear código de barras",
+  "de": "Barcode scannen"
+ },
+ "productEdit.sku": {
+  "en": "SKU / code",
+  "ar": "رمز المنتج",
+  "tr": "Stok kodu",
+  "fr": "Référence",
+  "es": "Referencia",
+  "de": "Artikelnummer"
+ },
+ "productEdit.skuHint": {
+  "en": "kept in full; left off a label if too wide",
+  "ar": "يُحفظ كاملًا؛ ويُترك عن الملصق إن كان عريضًا",
+  "tr": "eksiksiz saklanır; çok genişse etikete basılmaz",
+  "fr": "conservé en entier ; omis sur l'étiquette si trop large",
+  "es": "se guarda completo; se omite si es demasiado ancho",
+  "de": "vollständig gespeichert; entfällt auf zu schmalen Etiketten"
+ },
+ "productEdit.shelf": {
+  "en": "Shelf location",
+  "ar": "موقع الرف",
+  "tr": "Raf konumu",
+  "fr": "Emplacement en rayon",
+  "es": "Ubicación en estante",
+  "de": "Regalplatz"
+ },
+ "productEdit.shelfPh": {
+  "en": "Optional, e.g. Aisle 3",
+  "ar": "اختياري، مثل: الممر 3",
+  "tr": "İsteğe bağlı, örn. Reyon 3",
+  "fr": "Facultatif, ex. Allée 3",
+  "es": "Opcional, p. ej. Pasillo 3",
+  "de": "Optional, z. B. Gang 3"
+ },
+ "productEdit.labelType": {
+  "en": "Label type",
+  "ar": "نوع الملصق",
+  "tr": "Etiket türü",
+  "fr": "Type d'étiquette",
+  "es": "Tipo de etiqueta",
+  "de": "Etikettenart"
+ },
+ "productEdit.moreActions": {
+  "en": "More",
+  "ar": "المزيد",
+  "tr": "Diğer",
+  "fr": "Plus",
+  "es": "Más",
+  "de": "Mehr"
+ },
+ "productEdit.addToQueue": {
+  "en": "Add label to To print",
+  "ar": "إضافة الملصق إلى قائمة الطباعة",
+  "tr": "Etiketi Yazdırılacak'a ekle",
+  "fr": "Ajouter l'étiquette à À imprimer",
+  "es": "Añadir etiqueta a Por imprimir",
+  "de": "Etikett zu „Zu drucken“ hinzufügen"
+ },
+ "productEdit.addedToQueue": {
+  "en": "Added to To print.",
+  "ar": "أُضيف إلى قائمة الطباعة.",
+  "tr": "Yazdırılacak'a eklendi.",
+  "fr": "Ajouté à À imprimer.",
+  "es": "Añadido a Por imprimir.",
+  "de": "Zu „Zu drucken“ hinzugefügt."
+ },
+ "productEdit.createOffer": {
+  "en": "Create an offer",
+  "ar": "إنشاء عرض",
+  "tr": "Kampanya oluştur",
+  "fr": "Créer une offre",
+  "es": "Crear una oferta",
+  "de": "Angebot erstellen"
+ },
+ "productEdit.reduce": {
+  "en": "Reduce to clear",
+  "ar": "تخفيض للتصفية",
+  "tr": "Tasfiye indirimi yap",
+  "fr": "Démarquer",
+  "es": "Rebajar para liquidar",
+  "de": "Abverkaufen"
+ },
+ "productEdit.duplicate": {
+  "en": "Duplicate",
+  "ar": "تكرار",
+  "tr": "Çoğalt",
+  "fr": "Dupliquer",
+  "es": "Duplicar",
+  "de": "Duplizieren"
+ },
+ "productEdit.copyName": {
+  "en": "{{name}} (copy)",
+  "ar": "{{name}} (نسخة)",
+  "tr": "{{name}} (kopya)",
+  "fr": "{{name}} (copie)",
+  "es": "{{name}} (copia)",
+  "de": "{{name}} (Kopie)"
+ },
+ "productEdit.archive": {
+  "en": "Archive",
+  "ar": "أرشفة",
+  "tr": "Arşivle",
+  "fr": "Archiver",
+  "es": "Archivar",
+  "de": "Archivieren"
+ },
+ "productEdit.restore": {
+  "en": "Restore from archive",
+  "ar": "استعادة من الأرشيف",
+  "tr": "Arşivden geri al",
+  "fr": "Restaurer",
+  "es": "Restaurar del archivo",
+  "de": "Aus dem Archiv holen"
+ },
+ "productEdit.archiveHint": {
+  "en": "Hidden from the list, never deleted",
+  "ar": "يُخفى من القائمة ولا يُحذف أبدًا",
+  "tr": "Listeden gizlenir, asla silinmez",
+  "fr": "Masqué de la liste, jamais supprimé",
+  "es": "Se oculta de la lista, nunca se borra",
+  "de": "Aus der Liste ausgeblendet, nie gelöscht"
+ },
+ "productEdit.saved": {
+  "en": "Saved.",
+  "ar": "تم الحفظ.",
+  "tr": "Kaydedildi.",
+  "fr": "Enregistré.",
+  "es": "Guardado.",
+  "de": "Gespeichert."
+ },
+ "productEdit.savedQueued": {
+  "en": "Saved. Its label is waiting in To print.",
+  "ar": "تم الحفظ. ملصقه بانتظار الطباعة.",
+  "tr": "Kaydedildi. Etiketi Yazdırılacak'ta bekliyor.",
+  "fr": "Enregistré. Son étiquette attend dans À imprimer.",
+  "es": "Guardado. Su etiqueta espera en Por imprimir.",
+  "de": "Gespeichert. Das Etikett wartet unter „Zu drucken“."
+ },
+ "productEdit.errors.nameRequired": {
+  "en": "Enter the product name.",
+  "ar": "أدخل اسم المنتج.",
+  "tr": "Ürün adını girin.",
+  "fr": "Saisissez le nom du produit.",
+  "es": "Introduce el nombre del producto.",
+  "de": "Geben Sie den Produktnamen ein."
+ },
+ "productEdit.errors.labelNameTooLong": {
+  "en": "A label name can be up to {{max}} characters.",
+  "ar": "يمكن أن يصل اسم الملصق إلى {{max}} حرفًا.",
+  "tr": "Etiket adı en fazla {{max}} karakter olabilir.",
+  "fr": "Un nom d'étiquette peut compter jusqu'à {{max}} caractères.",
+  "es": "El nombre de etiqueta admite hasta {{max}} caracteres.",
+  "de": "Ein Etikettenname darf höchstens {{max}} Zeichen haben."
+ },
+ "productEdit.errors.noCurrency": {
+  "en": "Choose your shop's currency first.",
+  "ar": "اختر عملة متجرك أولًا.",
+  "tr": "Önce mağazanızın para birimini seçin.",
+  "fr": "Choisissez d'abord la devise du magasin.",
+  "es": "Elige primero la moneda de tu tienda.",
+  "de": "Wählen Sie zuerst die Währung Ihres Geschäfts."
+ },
+ "productEdit.errors.price.empty": {
+  "en": "Enter the selling price.",
+  "ar": "أدخل سعر البيع.",
+  "tr": "Satış fiyatını girin.",
+  "fr": "Saisissez le prix de vente.",
+  "es": "Introduce el precio de venta.",
+  "de": "Geben Sie den Verkaufspreis ein."
+ },
+ "productEdit.errors.price.invalid": {
+  "en": "That is not a price. Use digits and one decimal mark.",
+  "ar": "هذا ليس سعرًا. استخدم أرقامًا وفاصلة عشرية واحدة.",
+  "tr": "Bu bir fiyat değil. Rakam ve tek bir ondalık işareti kullanın.",
+  "fr": "Ce n'est pas un prix. Utilisez des chiffres et un seul séparateur décimal.",
+  "es": "Eso no es un precio. Usa cifras y un solo separador decimal.",
+  "de": "Das ist kein Preis. Verwenden Sie Ziffern und ein Dezimalzeichen."
+ },
+ "productEdit.errors.price.ambiguous": {
+  "en": "\"1,234\" could mean two different prices. Type it without a thousands separator, e.g. 1234 or 1.23.",
+  "ar": "قد يعني \"1,234\" سعرين مختلفين. اكتبه دون فاصل الآلاف، مثل 1234 أو 1.23.",
+  "tr": "\"1,234\" iki farklı fiyat anlamına gelebilir. Binlik ayırıcı olmadan yazın, örn. 1234 veya 1,23.",
+  "fr": "« 1,234 » peut désigner deux prix. Tapez-le sans séparateur de milliers, ex. 1234 ou 1,23.",
+  "es": "«1,234» puede significar dos precios. Escríbelo sin separador de miles, p. ej. 1234 o 1,23.",
+  "de": "„1,234“ kann zwei Preise bedeuten. Ohne Tausendertrennzeichen eingeben, z. B. 1234 oder 1,23."
+ },
+ "productEdit.errors.price.tooManyDecimals": {
+  "en": "Too many decimals for this currency.",
+  "ar": "عدد كبير من الخانات العشرية لهذه العملة.",
+  "tr": "Bu para birimi için çok fazla ondalık.",
+  "fr": "Trop de décimales pour cette devise.",
+  "es": "Demasiados decimales para esta moneda.",
+  "de": "Zu viele Nachkommastellen für diese Währung."
+ },
+ "productEdit.errors.price.zero": {
+  "en": "The price must be more than zero.",
+  "ar": "يجب أن يكون السعر أكبر من صفر.",
+  "tr": "Fiyat sıfırdan büyük olmalı.",
+  "fr": "Le prix doit être supérieur à zéro.",
+  "es": "El precio debe ser mayor que cero.",
+  "de": "Der Preis muss über null liegen."
+ },
+ "productEdit.errors.price.noCurrency": {
+  "en": "Choose your shop's currency first.",
+  "ar": "اختر عملة متجرك أولًا.",
+  "tr": "Önce mağazanızın para birimini seçin.",
+  "fr": "Choisissez d'abord la devise du magasin.",
+  "es": "Elige primero la moneda de tu tienda.",
+  "de": "Wählen Sie zuerst die Währung Ihres Geschäfts."
+ },
+ "productEdit.errors.qty": {
+  "en": "Enter a whole number above zero.",
+  "ar": "أدخل عددًا صحيحًا أكبر من صفر.",
+  "tr": "Sıfırdan büyük bir tam sayı girin.",
+  "fr": "Saisissez un nombre entier supérieur à zéro.",
+  "es": "Introduce un número entero mayor que cero.",
+  "de": "Geben Sie eine ganze Zahl über null ein."
+ },
+ "productEdit.errors.barcode": {
+  "en": "This barcode's check digit is wrong. Check the number; it is never corrected automatically.",
+  "ar": "رقم التحقق في هذا الباركود خاطئ. تحقّق من الرقم؛ فهو لا يُصحَّح تلقائيًا.",
+  "tr": "Bu barkodun kontrol basamağı hatalı. Numarayı kontrol edin; otomatik düzeltilmez.",
+  "fr": "La clé de contrôle de ce code-barres est fausse. Vérifiez le numéro ; il n'est jamais corrigé automatiquement.",
+  "es": "El dígito de control es incorrecto. Revisa el número; nunca se corrige automáticamente.",
+  "de": "Die Prüfziffer dieses Barcodes ist falsch. Prüfen Sie die Nummer; sie wird nie automatisch korrigiert."
+ },
+ "productEdit.errors.barcodeNeeded": {
+  "en": "A barcode label needs a barcode.",
+  "ar": "ملصق الباركود يحتاج إلى باركود.",
+  "tr": "Barkodlu etiket için barkod gerekir.",
+  "fr": "Une étiquette code-barres nécessite un code-barres.",
+  "es": "Una etiqueta con código de barras necesita un código.",
+  "de": "Ein Barcode-Etikett braucht einen Barcode."
+ },
+ "productEdit.errors.baseNeeded": {
+  "en": "Choose the unit-price base (e.g. per kg).",
+  "ar": "اختر أساس سعر الوحدة (مثل: للكيلو).",
+  "tr": "Birim fiyat tabanını seçin (örn. kg).",
+  "fr": "Choisissez la base du prix unitaire (ex. le kg).",
+  "es": "Elige la base del precio por unidad (p. ej. el kg).",
+  "de": "Wählen Sie die Grundpreis-Basis (z. B. je kg)."
+ },
+ "productEdit.errors.saveFailed": {
+  "en": "The product could not be saved. Nothing was changed.",
+  "ar": "تعذّر حفظ المنتج. لم يتغيّر شيء.",
+  "tr": "Ürün kaydedilemedi. Hiçbir şey değişmedi.",
+  "fr": "Le produit n'a pas pu être enregistré. Rien n'a été modifié.",
+  "es": "No se pudo guardar el producto. No se ha cambiado nada.",
+  "de": "Das Produkt konnte nicht gespeichert werden. Es wurde nichts geändert."
+ },
+ "productEdit.errors.store.nameRequired": {
+  "en": "Enter the product name.",
+  "ar": "أدخل اسم المنتج.",
+  "tr": "Ürün adını girin.",
+  "fr": "Saisissez le nom du produit.",
+  "es": "Introduce el nombre del producto.",
+  "de": "Geben Sie den Produktnamen ein."
+ },
+ "productEdit.errors.store.nameTooLong": {
+  "en": "The product name is too long to store (over 250 characters).",
+  "ar": "اسم المنتج أطول من أن يُخزَّن (أكثر من 250 حرفًا).",
+  "tr": "Ürün adı saklanamayacak kadar uzun (250 karakterden fazla).",
+  "fr": "Le nom du produit est trop long (plus de 250 caractères).",
+  "es": "El nombre es demasiado largo (más de 250 caracteres).",
+  "de": "Der Produktname ist zu lang (über 250 Zeichen)."
+ },
+ "productEdit.errors.store.labelNameTooLong": {
+  "en": "A label name can be up to 40 characters.",
+  "ar": "يمكن أن يصل اسم الملصق إلى 40 حرفًا.",
+  "tr": "Etiket adı en fazla 40 karakter olabilir.",
+  "fr": "Un nom d'étiquette peut compter jusqu'à 40 caractères.",
+  "es": "El nombre de etiqueta admite hasta 40 caracteres.",
+  "de": "Ein Etikettenname darf höchstens 40 Zeichen haben."
+ },
+ "productEdit.errors.store.secondLineTooLong": {
+  "en": "The pack size text is too long to store.",
+  "ar": "نص حجم العبوة أطول من أن يُخزَّن.",
+  "tr": "Ambalaj metni saklanamayacak kadar uzun.",
+  "fr": "Le texte du format est trop long.",
+  "es": "El texto del tamaño es demasiado largo.",
+  "de": "Der Text zur Packungsgröße ist zu lang."
+ },
+ "productEdit.errors.store.skuTooLong": {
+  "en": "The SKU is too long to store (over 64 characters).",
+  "ar": "رمز المنتج أطول من أن يُخزَّن (أكثر من 64 حرفًا).",
+  "tr": "Stok kodu saklanamayacak kadar uzun (64 karakterden fazla).",
+  "fr": "La référence est trop longue (plus de 64 caractères).",
+  "es": "La referencia es demasiado larga (más de 64 caracteres).",
+  "de": "Die Artikelnummer ist zu lang (über 64 Zeichen)."
+ },
+ "productEdit.errors.store.priceRequired": {
+  "en": "Enter a selling price above zero.",
+  "ar": "أدخل سعر بيع أكبر من صفر.",
+  "tr": "Sıfırdan büyük bir satış fiyatı girin.",
+  "fr": "Saisissez un prix de vente supérieur à zéro.",
+  "es": "Introduce un precio de venta mayor que cero.",
+  "de": "Geben Sie einen Verkaufspreis über null ein."
+ },
+ "productEdit.errors.store.badCurrency": {
+  "en": "Choose your shop's currency first.",
+  "ar": "اختر عملة متجرك أولًا.",
+  "tr": "Önce mağazanızın para birimini seçin.",
+  "fr": "Choisissez d'abord la devise du magasin.",
+  "es": "Elige primero la moneda de tu tienda.",
+  "de": "Wählen Sie zuerst die Währung Ihres Geschäfts."
+ },
+ "productEdit.errors.store.unitBaseMismatch": {
+  "en": "That unit-price base does not match how the product is sold.",
+  "ar": "أساس سعر الوحدة لا يطابق طريقة بيع المنتج.",
+  "tr": "Bu birim fiyat tabanı ürünün satış şekline uymuyor.",
+  "fr": "Cette base de prix unitaire ne correspond pas au mode de vente.",
+  "es": "Esa base de precio no coincide con cómo se vende el producto.",
+  "de": "Diese Grundpreis-Basis passt nicht zur Verkaufsart."
+ },
+ "productEdit.errors.store.duplicateBarcode": {
+  "en": "Another product already has this barcode. Each barcode belongs to one product.",
+  "ar": "يملك منتج آخر هذا الباركود. كل باركود يخص منتجًا واحدًا.",
+  "tr": "Bu barkod başka bir üründe kayıtlı. Her barkod tek bir ürüne aittir.",
+  "fr": "Un autre produit a déjà ce code-barres. Chaque code-barres appartient à un seul produit.",
+  "es": "Otro producto ya tiene este código de barras. Cada código pertenece a un solo producto.",
+  "de": "Ein anderes Produkt hat diesen Barcode schon. Jeder Barcode gehört zu einem Produkt."
+ },
+ "productEdit.errors.store.notFound": {
+  "en": "This product no longer exists.",
+  "ar": "هذا المنتج لم يعد موجودًا.",
+  "tr": "Bu ürün artık yok.",
+  "fr": "Ce produit n'existe plus.",
+  "es": "Este producto ya no existe.",
+  "de": "Dieses Produkt gibt es nicht mehr."
+ },
+ "labelKind.standardPrice": {
+  "en": "Price",
+  "ar": "السعر",
+  "tr": "Fiyat",
+  "fr": "Prix",
+  "es": "Precio",
+  "de": "Preis"
+ },
+ "labelKind.priceUnitPrice": {
+  "en": "Unit price",
+  "ar": "سعر الوحدة",
+  "tr": "Birim fiyat",
+  "fr": "Prix unitaire",
+  "es": "Precio unidad",
+  "de": "Grundpreis"
+ },
+ "labelKind.priceBarcode": {
+  "en": "Barcode",
+  "ar": "باركود",
+  "tr": "Barkod",
+  "fr": "Code-barres",
+  "es": "Código barras",
+  "de": "Barcode"
+ },
+ "labelKind.wasNow": {
+  "en": "Was / now",
+  "ar": "كان / الآن",
+  "tr": "Eski / yeni",
+  "fr": "Avant / maintenant",
+  "es": "Antes / ahora",
+  "de": "Vorher / jetzt"
+ },
+ "labelKind.percentOff": {
+  "en": "% off",
+  "ar": "خصم %",
+  "tr": "% indirim",
+  "fr": "% de remise",
+  "es": "% de descuento",
+  "de": "% Rabatt"
+ },
+ "labelKind.moneyOff": {
+  "en": "Money off",
+  "ar": "خصم مبلغ",
+  "tr": "Tutar indirimi",
+  "fr": "Remise en montant",
+  "es": "Descuento en importe",
+  "de": "Betragsrabatt"
+ },
+ "labelKind.multibuy": {
+  "en": "Multibuy",
+  "ar": "عرض الكمية",
+  "tr": "Çoklu alım",
+  "fr": "Lot promo",
+  "es": "Multicompra",
+  "de": "Mehrfachkauf"
+ },
+ "labelKind.reducedToClear": {
+  "en": "Reduced",
+  "ar": "مخفّض",
+  "tr": "İndirimli",
+  "fr": "Démarqué",
+  "es": "Rebajado",
+  "de": "Reduziert"
+ },
+ "labelKind.memberPrice": {
+  "en": "Member price",
+  "ar": "سعر الأعضاء",
+  "tr": "Üye fiyatı",
+  "fr": "Prix adhérent",
+  "es": "Precio socio",
+  "de": "Mitgliederpreis"
+ },
+ "labelKind.offerCardA6": {
+  "en": "Offer card A6",
+  "ar": "بطاقة عرض A6",
+  "tr": "Kampanya kartı A6",
+  "fr": "Carte offre A6",
+  "es": "Cartel oferta A6",
+  "de": "Angebotskarte A6"
+ },
+ "labelKind.offerCardA5": {
+  "en": "Offer card A5",
+  "ar": "بطاقة عرض A5",
+  "tr": "Kampanya kartı A5",
+  "fr": "Carte offre A5",
+  "es": "Cartel oferta A5",
+  "de": "Angebotskarte A5"
+ },
+ "labelKind.offerCardA4": {
+  "en": "Offer card A4",
+  "ar": "بطاقة عرض A4",
+  "tr": "Kampanya kartı A4",
+  "fr": "Carte offre A4",
+  "es": "Cartel oferta A4",
+  "de": "Angebotskarte A4"
+ },
+ "labelLanguage.en": {
+  "en": "English",
+  "ar": "الإنجليزية",
+  "tr": "İngilizce",
+  "fr": "Anglais",
+  "es": "Inglés",
+  "de": "Englisch"
+ },
+ "labelLanguage.ar": {
+  "en": "Arabic",
+  "ar": "العربية",
+  "tr": "Arapça",
+  "fr": "Arabe",
+  "es": "Árabe",
+  "de": "Arabisch"
+ },
+ "labelLanguage.tr": {
+  "en": "Turkish",
+  "ar": "التركية",
+  "tr": "Türkçe",
+  "fr": "Turc",
+  "es": "Turco",
+  "de": "Türkisch"
+ },
+ "labelLanguage.fr": {
+  "en": "French",
+  "ar": "الفرنسية",
+  "tr": "Fransızca",
+  "fr": "Français",
+  "es": "Francés",
+  "de": "Französisch"
+ },
+ "labelLanguage.es": {
+  "en": "Spanish",
+  "ar": "الإسبانية",
+  "tr": "İspanyolca",
+  "fr": "Espagnol",
+  "es": "Español",
+  "de": "Spanisch"
+ },
+ "labelLanguage.de": {
+  "en": "German",
+  "ar": "الألمانية",
+  "tr": "Almanca",
+  "fr": "Allemand",
+  "es": "Alemán",
+  "de": "Deutsch"
+ },
+ "labelLanguage.sample.en": {
+  "en": "“Was”, “per kg”, “Until 31 Oct 2026”",
+  "ar": "“Was”, “per kg”, “Until 31 Oct 2026”",
+  "tr": "“Was”, “per kg”, “Until 31 Oct 2026”",
+  "fr": "« Was », « per kg », « Until 31 Oct 2026 »",
+  "es": "«Was», «per kg», «Until 31 Oct 2026»",
+  "de": "„Was“, „per kg“, „Until 31 Oct 2026“"
+ },
+ "labelLanguage.sample.ar": {
+  "en": "“كان”، “للكيلو”، “حتى 31 أكتوبر 2026”",
+  "ar": "“كان”، “للكيلو”، “حتى 31 أكتوبر 2026”",
+  "tr": "“كان”, “للكيلو”, “حتى 31 أكتوبر 2026”",
+  "fr": "« كان », « للكيلو », « حتى 31 أكتوبر 2026 »",
+  "es": "«كان», «للكيلو», «حتى 31 أكتوبر 2026»",
+  "de": "„كان“, „للكيلو“, „حتى 31 أكتوبر 2026“"
+ },
+ "labelLanguage.sample.tr": {
+  "en": "“Eski fiyat”, “kg fiyatı”, “31 Eki 2026 tarihine kadar”",
+  "ar": "“Eski fiyat”، “kg fiyatı”، “31 Eki 2026 tarihine kadar”",
+  "tr": "“Eski fiyat”, “kg fiyatı”, “31 Eki 2026 tarihine kadar”",
+  "fr": "« Eski fiyat », « kg fiyatı », « 31 Eki 2026 tarihine kadar »",
+  "es": "«Eski fiyat», «kg fiyatı», «31 Eki 2026 tarihine kadar»",
+  "de": "„Eski fiyat“, „kg fiyatı“, „31 Eki 2026 tarihine kadar“"
+ },
+ "labelLanguage.sample.fr": {
+  "en": "“Avant”, “le kg”, “Jusqu’au 31 oct. 2026”",
+  "ar": "“Avant”، “le kg”، “Jusqu’au 31 oct. 2026”",
+  "tr": "“Avant”, “le kg”, “Jusqu’au 31 oct. 2026”",
+  "fr": "« Avant », « le kg », « Jusqu’au 31 oct. 2026 »",
+  "es": "«Avant», «le kg», «Jusqu’au 31 oct. 2026»",
+  "de": "„Avant“, „le kg“, „Jusqu’au 31 oct. 2026“"
+ },
+ "labelLanguage.sample.es": {
+  "en": "“Antes”, “el kg”, “Hasta el 31 oct 2026”",
+  "ar": "“Antes”، “el kg”، “Hasta el 31 oct 2026”",
+  "tr": "“Antes”, “el kg”, “Hasta el 31 oct 2026”",
+  "fr": "« Antes », « el kg », « Hasta el 31 oct 2026 »",
+  "es": "«Antes», «el kg», «Hasta el 31 oct 2026»",
+  "de": "„Antes“, „el kg“, „Hasta el 31 oct 2026“"
+ },
+ "labelLanguage.sample.de": {
+  "en": "“Vorher”, “je kg”, “Gültig bis 31. Okt. 2026”",
+  "ar": "“Vorher”، “je kg”، “Gültig bis 31. Okt. 2026”",
+  "tr": "“Vorher”, “je kg”, “Gültig bis 31. Okt. 2026”",
+  "fr": "« Vorher », « je kg », « Gültig bis 31. Okt. 2026 »",
+  "es": "«Vorher», «je kg», «Gültig bis 31. Okt. 2026»",
+  "de": "„Vorher“, „je kg“, „Gültig bis 31. Okt. 2026“"
+ },
+ "scan.title.find": {
+  "en": "Scan a product",
+  "ar": "مسح منتج",
+  "tr": "Ürün tara",
+  "fr": "Scanner un produit",
+  "es": "Escanear un producto",
+  "de": "Produkt scannen"
+ },
+ "scan.title.attach": {
+  "en": "Scan the barcode",
+  "ar": "مسح الباركود",
+  "tr": "Barkodu tara",
+  "fr": "Scanner le code-barres",
+  "es": "Escanear el código",
+  "de": "Barcode scannen"
+ },
+ "scan.hint.find": {
+  "en": "Point the camera at a barcode to open its product.",
+  "ar": "وجّه الكاميرا إلى باركود لفتح منتجه.",
+  "tr": "Ürünü açmak için kamerayı bir barkoda tutun.",
+  "fr": "Visez un code-barres pour ouvrir son produit.",
+  "es": "Apunta la cámara a un código para abrir su producto.",
+  "de": "Richten Sie die Kamera auf einen Barcode, um das Produkt zu öffnen."
+ },
+ "scan.hint.attach": {
+  "en": "Point the camera at the product's barcode.",
+  "ar": "وجّه الكاميرا إلى باركود المنتج.",
+  "tr": "Kamerayı ürünün barkoduna tutun.",
+  "fr": "Visez le code-barres du produit.",
+  "es": "Apunta la cámara al código de barras del producto.",
+  "de": "Richten Sie die Kamera auf den Barcode des Produkts."
+ },
+ "scan.torch": {
+  "en": "Torch",
+  "ar": "الإضاءة",
+  "tr": "Fener",
+  "fr": "Lampe",
+  "es": "Linterna",
+  "de": "Licht"
+ },
+ "scan.explainTitle": {
+  "en": "TillLabel needs the camera to read barcodes",
+  "ar": "يحتاج TillLabel إلى الكاميرا لقراءة الباركود",
+  "tr": "TillLabel barkod okumak için kameraya ihtiyaç duyar",
+  "fr": "TillLabel a besoin de l'appareil photo pour lire les codes-barres",
+  "es": "TillLabel necesita la cámara para leer códigos",
+  "de": "TillLabel braucht die Kamera zum Lesen von Barcodes"
+ },
+ "scan.explainBody": {
+  "en": "Images are read on this phone only and never saved or sent. You can always type the code instead.",
+  "ar": "تُقرأ الصور على هذا الهاتف فقط ولا تُحفظ ولا تُرسل. يمكنك دائمًا كتابة الرمز بدلًا من ذلك.",
+  "tr": "Görüntüler yalnızca bu telefonda okunur, kaydedilmez veya gönderilmez. Kodu her zaman elle de yazabilirsiniz.",
+  "fr": "Les images sont lues sur ce téléphone uniquement, jamais enregistrées ni envoyées. Vous pouvez toujours taper le code.",
+  "es": "Las imágenes se leen solo en este teléfono y nunca se guardan ni se envían. Siempre puedes escribir el código.",
+  "de": "Bilder werden nur auf diesem Telefon gelesen, nie gespeichert oder gesendet. Sie können den Code immer auch eintippen."
+ },
+ "scan.explainContinue": {
+  "en": "Continue",
+  "ar": "متابعة",
+  "tr": "Devam",
+  "fr": "Continuer",
+  "es": "Continuar",
+  "de": "Weiter"
+ },
+ "scan.permissionDenied": {
+  "en": "Camera access is off for TillLabel. Turn it on in Settings, or type the code.",
+  "ar": "الوصول إلى الكاميرا متوقف لـ TillLabel. فعّله من الإعدادات، أو اكتب الرمز.",
+  "tr": "TillLabel için kamera erişimi kapalı. Ayarlar'dan açın veya kodu yazın.",
+  "fr": "L'accès à l'appareil photo est désactivé pour TillLabel. Activez-le dans les Réglages ou tapez le code.",
+  "es": "El acceso a la cámara está desactivado para TillLabel. Actívalo en Ajustes o escribe el código.",
+  "de": "Der Kamerazugriff ist für TillLabel aus. Schalten Sie ihn in den Einstellungen ein oder tippen Sie den Code ein."
+ },
+ "scan.permissionAsk": {
+  "en": "Waiting for camera permission…",
+  "ar": "بانتظار إذن الكاميرا…",
+  "tr": "Kamera izni bekleniyor…",
+  "fr": "En attente de l'autorisation…",
+  "es": "Esperando permiso de la cámara…",
+  "de": "Warte auf Kamerafreigabe …"
+ },
+ "scan.readyHint": {
+  "en": "Ready to scan. The same code read twice in a row is ignored.",
+  "ar": "جاهز للمسح. يُتجاهل الرمز نفسه إذا قُرئ مرتين متتاليتين.",
+  "tr": "Taramaya hazır. Art arda iki kez okunan aynı kod yok sayılır.",
+  "fr": "Prêt à scanner. Un même code lu deux fois de suite est ignoré.",
+  "es": "Listo para escanear. Un mismo código leído dos veces seguidas se ignora.",
+  "de": "Bereit. Derselbe Code zweimal hintereinander wird ignoriert."
+ },
+ "scan.lastScanned": {
+  "en": "Last scanned",
+  "ar": "آخر ما مُسح",
+  "tr": "Son taranan",
+  "fr": "Dernier scan",
+  "es": "Último escaneado",
+  "de": "Zuletzt gescannt"
+ },
+ "scan.notInCatalogue": {
+  "en": "Not in your products yet",
+  "ar": "ليس ضمن منتجاتك بعد",
+  "tr": "Henüz ürünlerinizde yok",
+  "fr": "Pas encore dans vos produits",
+  "es": "Aún no está en tus productos",
+  "de": "Noch nicht in Ihren Produkten"
+ },
+ "scan.notFoundTitle": {
+  "en": "New barcode",
+  "ar": "باركود جديد",
+  "tr": "Yeni barkod",
+  "fr": "Nouveau code-barres",
+  "es": "Código nuevo",
+  "de": "Neuer Barcode"
+ },
+ "scan.notFoundBody": {
+  "en": "{{code}} is not in your products. Add it as a new product?",
+  "ar": "{{code}} ليس ضمن منتجاتك. هل تضيفه كمنتج جديد؟",
+  "tr": "{{code}} ürünlerinizde yok. Yeni ürün olarak eklensin mi?",
+  "fr": "{{code}} n'est pas dans vos produits. L'ajouter comme nouveau produit ?",
+  "es": "{{code}} no está en tus productos. ¿Añadirlo como producto nuevo?",
+  "de": "{{code}} ist nicht in Ihren Produkten. Als neues Produkt anlegen?"
+ },
+ "scan.addNew": {
+  "en": "Add product",
+  "ar": "إضافة منتج",
+  "tr": "Ürün ekle",
+  "fr": "Ajouter le produit",
+  "es": "Añadir producto",
+  "de": "Produkt anlegen"
+ },
+ "scan.typeCode": {
+  "en": "Type the code",
+  "ar": "اكتب الرمز",
+  "tr": "Kodu yaz",
+  "fr": "Taper le code",
+  "es": "Escribir el código",
+  "de": "Code eintippen"
+ },
+ "quick.title": {
+  "en": "Quick label",
+  "ar": "ملصق سريع",
+  "tr": "Hızlı etiket",
+  "fr": "Étiquette rapide",
+  "es": "Etiqueta rápida",
+  "de": "Schnelletikett"
+ },
+ "quick.subtitle": {
+  "en": "A one-off label in seconds",
+  "ar": "ملصق لمرة واحدة في ثوانٍ",
+  "tr": "Saniyeler içinde tek seferlik etiket",
+  "fr": "Une étiquette ponctuelle en quelques secondes",
+  "es": "Una etiqueta puntual en segundos",
+  "de": "Ein Einzeletikett in Sekunden"
+ },
+ "quick.restored": {
+  "en": "Your unfinished label was kept.",
+  "ar": "احتُفظ بملصقك غير المكتمل.",
+  "tr": "Tamamlanmamış etiketiniz saklandı.",
+  "fr": "Votre étiquette inachevée a été conservée.",
+  "es": "Se ha conservado tu etiqueta sin terminar.",
+  "de": "Ihr unfertiges Etikett wurde aufbewahrt."
+ },
+ "quick.namePh": {
+  "en": "What the label says",
+  "ar": "ما يكتبه الملصق",
+  "tr": "Etikette ne yazacak",
+  "fr": "Ce qu'affiche l'étiquette",
+  "es": "Lo que dice la etiqueta",
+  "de": "Was auf dem Etikett steht"
+ },
+ "quick.copies": {
+  "en": "Copies",
+  "ar": "النسخ",
+  "tr": "Adet",
+  "fr": "Exemplaires",
+  "es": "Copias",
+  "de": "Anzahl"
+ },
+ "quick.fewer": {
+  "en": "One fewer",
+  "ar": "نسخة أقل",
+  "tr": "Bir eksik",
+  "fr": "Un de moins",
+  "es": "Una menos",
+  "de": "Eins weniger"
+ },
+ "quick.more": {
+  "en": "One more",
+  "ar": "نسخة أخرى",
+  "tr": "Bir fazla",
+  "fr": "Un de plus",
+  "es": "Una más",
+  "de": "Eins mehr"
+ },
+ "quick.saveAsProduct": {
+  "en": "Also save as a product",
+  "ar": "احفظه أيضًا كمنتج",
+  "tr": "Ürün olarak da kaydet",
+  "fr": "Enregistrer aussi comme produit",
+  "es": "Guardar también como producto",
+  "de": "Auch als Produkt speichern"
+ },
+ "quick.saveAsProductHint": {
+  "en": "So you can reprint it or change its price later",
+  "ar": "لتعيد طباعته أو تغيّر سعره لاحقًا",
+  "tr": "Daha sonra yeniden yazdırmak veya fiyatını değiştirmek için",
+  "fr": "Pour la réimprimer ou changer son prix plus tard",
+  "es": "Para reimprimirla o cambiar su precio más tarde",
+  "de": "Um es später nachzudrucken oder den Preis zu ändern"
+ },
+ "quick.languageNote": {
+  "en": "Printed in {{language}}. Change the label language in More → Label settings.",
+  "ar": "يُطبع بـ{{language}}. غيّر لغة الملصق من المزيد ← إعدادات الملصقات.",
+  "tr": "{{language}} olarak basılır. Etiket dilini Menü → Etiket ayarları'ndan değiştirin.",
+  "fr": "Imprimé en {{language}}. Changez la langue des étiquettes dans Menu → Réglages des étiquettes.",
+  "es": "Se imprime en {{language}}. Cambia el idioma en Menú → Ajustes de etiquetas.",
+  "de": "Gedruckt auf {{language}}. Die Etikettensprache ändern Sie unter Menü → Etiketteneinstellungen."
+ },
+ "quick.addToQueue": {
+  "en": "Add {{count}} to To print",
+  "ar": "أضف {{count}} إلى قائمة الطباعة",
+  "tr": "{{count}} etiketi ekle",
+  "fr": "Ajouter {{count}} à À imprimer",
+  "es": "Añadir {{count}} a Por imprimir",
+  "de": "{{count}} zu „Zu drucken“"
+ },
+ "quick.addedTitle": {
+  "en": "Added",
+  "ar": "تمت الإضافة",
+  "tr": "Eklendi",
+  "fr": "Ajouté",
+  "es": "Añadido",
+  "de": "Hinzugefügt"
+ },
+ "quick.addedBody": {
+  "en": "{{count}} label(s) are waiting in To print.",
+  "ar": "{{count}} ملصق بانتظار الطباعة.",
+  "tr": "{{count}} etiket Yazdırılacak'ta bekliyor.",
+  "fr": "{{count}} étiquette(s) attendent dans À imprimer.",
+  "es": "{{count}} etiqueta(s) esperan en Por imprimir.",
+  "de": "{{count}} Etikett(en) warten unter „Zu drucken“."
+ },
+ "quick.another": {
+  "en": "Make another",
+  "ar": "ملصق آخر",
+  "tr": "Bir tane daha",
+  "fr": "Une autre",
+  "es": "Otra",
+  "de": "Noch eins"
+ },
+ "quick.goToPrint": {
+  "en": "Go to To print",
+  "ar": "الذهاب إلى الطباعة",
+  "tr": "Yazdırılacak'a git",
+  "fr": "Aller à À imprimer",
+  "es": "Ir a Por imprimir",
+  "de": "Zu „Zu drucken“"
+ },
+ "quick.failed": {
+  "en": "The label could not be added. Nothing was changed.",
+  "ar": "تعذّرت إضافة الملصق. لم يتغيّر شيء.",
+  "tr": "Etiket eklenemedi. Hiçbir şey değişmedi.",
+  "fr": "L'étiquette n'a pas pu être ajoutée. Rien n'a été modifié.",
+  "es": "No se pudo añadir la etiqueta. No se ha cambiado nada.",
+  "de": "Das Etikett konnte nicht hinzugefügt werden. Es wurde nichts geändert."
+ }
+}

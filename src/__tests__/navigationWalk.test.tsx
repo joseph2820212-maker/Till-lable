@@ -75,8 +75,17 @@ const KEY_WITH_VARS = /^[a-z][a-zA-Z]+\.[a-zA-Z0-9_.]+\|/;
 
 async function seed() {
   (AsyncStorage as any).clear();
-  await AsyncStorage.setItem(TL_KEYS.products, JSON.stringify([{ id: 'P1', name: 'Semi-skimmed milk 2L' }]));
-  await AsyncStorage.setItem(TL_KEYS.queue, JSON.stringify([{ id: 'Q1', productId: 'P1', copies: 3, status: 'waiting' }]));
+  const price = { minor: 145, currency: 'GBP', exponent: 2 };
+  await AsyncStorage.setItem(TL_KEYS.products, JSON.stringify([
+    { schemaVersion: 1, id: 'P1', name: 'Semi-skimmed milk 2L', secondLine: '2 litre', price, sellingUnit: { kind: 'volume', millilitres: 2000 }, unitPriceBase: 'per_litre', barcodes: [{ raw: '5000157024671', normalized: '5000157024671', format: 'ean13' }], sku: 'MILK-2', revision: 'r1', status: 'active', isSample: false, createdAt: '2026-09-24T10:00:00Z', updatedAt: '2026-09-24T10:00:00Z' },
+    { schemaVersion: 1, id: 'P2', name: 'Fairy Platinum Plus All In One Dishwasher Tablets Lemon 42 Pack', price: { minor: 1100, currency: 'GBP', exponent: 2 }, sellingUnit: { kind: 'each' }, barcodes: [], revision: 'r1', status: 'active', isSample: false, createdAt: '2026-09-24T10:00:00Z', updatedAt: '2026-09-24T10:00:00Z' },
+  ]));
+  await AsyncStorage.setItem(TL_KEYS.queue, JSON.stringify([
+    { schemaVersion: 1, id: 'Q1', purpose: 'normal', productId: 'P1', contentFingerprint: 'x', layoutId: 'standardPrice', labelKind: 'standardPrice', labelLanguage: 'en', copies: 3, reason: 'priceChanged', status: 'waiting', createdAt: '2026-09-24T10:00:00Z', title: 'Semi-skimmed milk 2L' },
+    { schemaVersion: 1, id: 'Q2', purpose: 'normal', productId: 'P2', contentFingerprint: 'y', layoutId: 'standardPrice', labelKind: 'standardPrice', labelLanguage: 'en', copies: 1, reason: 'new', status: 'waiting', createdAt: '2026-09-24T10:00:00Z', title: 'Fairy' },
+  ]));
+  await AsyncStorage.setItem(TL_KEYS.jobs, JSON.stringify([{ schemaVersion: 1, id: 'J1', lines: [], stationeryProfileId: 'preset_shelf_70x38_a4', layoutId: 'sheet', rendererVersion: 'tl-labels-2', pdfUri: 'file:///mock/output.pdf', displayName: 'Labels (3)', pdfSha256: 'abc', startPosition: 1, status: 'generated', createdAt: '2026-09-24T10:00:00Z', labelCount: 3, pageCount: 1, kind: 'queue' }]));
+  await AsyncStorage.setItem(TL_KEYS.promotions, JSON.stringify([{ schemaVersion: 1, id: 'O1', name: 'Milk deal', productIds: ['P1'], type: { kind: 'percentOff', percentHundredths: 2500 }, endDate: '2026-10-31', status: 'active', createdAt: '2026-09-24T10:00:00Z', updatedAt: '2026-09-24T10:00:00Z' }]));
 }
 
 const S = {
@@ -91,11 +100,28 @@ const S = {
   SettingsBackup: () => require('../modules/backup/screens/BackupScreen').BackupScreen,
   SettingsAbout: () => require('../modules/more/screens/AboutScreen').AboutScreen,
   SettingsOfflinePrivate: () => require('../modules/more/screens/OfflinePrivateScreen').OfflinePrivateScreen,
+  SettingsLabels: () => require('../modules/settings/screens/LabelSettingsScreen').LabelSettingsScreen,
+  ProductDetail: () => require('../modules/products/screens/ProductDetailScreen').ProductDetailScreen,
+  Scan: () => require('../modules/products/screens/ScanScreen').ScanScreen,
+  QuickLabel: () => require('../modules/products/screens/QuickLabelScreen').QuickLabelScreen,
+  Import: () => require('../modules/import/screens/ImportScreen').ImportScreen,
+  Offers: () => require('../modules/promotions/screens/OffersScreen').OffersScreen,
+  OfferEditor: () => require('../modules/promotions/screens/OfferEditorScreen').OfferEditorScreen,
+  ReducedLabel: () => require('../modules/promotions/screens/ReducedLabelScreen').ReducedLabelScreen,
+  PrintPreview: () => require('../modules/print/screens/PrintPreviewScreen').PrintPreviewScreen,
+  PrintSetup: () => require('../modules/print/screens/PrintSetupScreen').PrintSetupScreen,
+  StationeryEditor: () => require('../modules/print/screens/StationeryEditorScreen').StationeryEditorScreen,
+  LabelTest: () => require('../modules/print/screens/LabelTestScreen').LabelTestScreen,
+  Calibration: () => require('../modules/print/screens/CalibrationScreen').CalibrationScreen,
+  PrintHistory: () => require('../modules/print/screens/PrintHistoryScreen').PrintHistoryScreen,
 };
 const PARAMS: () => Record<keyof typeof S, any> = () => ({
   Home: undefined, Products: undefined, ToPrint: undefined, More: undefined,
   SettingsCurrency: undefined, SettingsLanguage: undefined, SettingsHelp: { tab: 'faq', chapter: 'support' }, SettingsLegal: { doc: 'privacy' },
   SettingsBackup: undefined, SettingsAbout: undefined, SettingsOfflinePrivate: undefined,
+  SettingsLabels: undefined, ProductDetail: { id: 'P2' }, Scan: { mode: 'find' }, QuickLabel: undefined, Import: undefined,
+  Offers: undefined, OfferEditor: { promotionId: 'O1' }, ReducedLabel: { productId: 'P1' }, PrintPreview: { jobId: 'J1' },
+  PrintSetup: undefined, StationeryEditor: { profileId: 'preset_avery_l7160' }, LabelTest: undefined, Calibration: {}, PrintHistory: undefined,
 });
 
 const allTexts = (r: any): string[] => r.root.findAllByType('Text').flatMap((t: any) => {

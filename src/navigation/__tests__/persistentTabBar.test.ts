@@ -15,7 +15,7 @@ describe('persistent bottom tab bar', () => {
   it('every feature screen is registered once in the shared list and each of the four tabs mounts that list in its own stack', () => {
     const shared = read('sharedScreens.tsx');
     const names = [...shared.matchAll(/<Stack\.Screen name="([A-Za-z]+)"/g)].map(m => m[1]);
-    expect(names.length).toBe(7);
+    expect(names.length).toBe(21);
     expect(new Set(names).size).toBe(names.length);
     const tabs = read('TabNavigator.tsx');
     for (const root of ['Home', 'Products', 'ToPrint', 'More']) expect(tabs).toContain(`makeTabStack('${root}'`);

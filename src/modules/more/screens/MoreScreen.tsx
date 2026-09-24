@@ -52,6 +52,14 @@ export const MoreScreen: React.FC = () => {
           <SettingsRow iconNode={<Ionicons name="cloud-upload-outline" size={18} color={colors.primaryBlue} />} label={t('settings.backupRestore')} subtitle={t('settings.backupRow')} onPress={() => navigation.navigate('SettingsBackup')} isLast />
         </SettingsSection>
 
+        <SettingsSection title={t('printSetup.title')}>
+          <SettingsRow iconNode={<Ionicons name="text-outline" size={18} color={colors.primaryBlue} />} label={t('labelSettings.title')} subtitle={t('labelSettings.subtitle')} onPress={() => navigation.navigate('SettingsLabels')} />
+          <SettingsRow iconNode={<Ionicons name="grid-outline" size={18} color={colors.primaryBlue} />} label={t('printSetup.stationery')} subtitle={t('printSetup.stationerySub')} onPress={() => navigation.navigate('PrintSetup')} />
+          <SettingsRow iconNode={<Ionicons name="flask-outline" size={18} color={colors.primaryBlue} />} label={t('printSetup.labelTest')} subtitle={t('printSetup.labelTestSub')} onPress={() => navigation.navigate('LabelTest')} />
+          <SettingsRow iconNode={<Ionicons name="resize-outline" size={18} color={colors.primaryBlue} />} label={t('printSetup.calibration')} subtitle={t('printSetup.calibrationSub')} onPress={() => navigation.navigate('Calibration', {})} />
+          <SettingsRow iconNode={<Ionicons name="time-outline" size={18} color={colors.primaryBlue} />} label={t('printSetup.history')} subtitle={t('printSetup.historySub')} onPress={() => navigation.navigate('PrintHistory')} isLast />
+        </SettingsSection>
+
         <SettingsSection title={t('billing.settingsTitle')} footer={tier === 'pro' ? t('settings.proActiveFooter') : t('settings.proFreeFooter')}>
           <SettingsRow iconNode={<Ionicons name="diamond-outline" size={18} color={colors.primaryBlue} />} label={tier === 'pro' ? t('settings.proActive') : t('settings.proTitle')} subtitle={tier === 'pro' ? t('billing.statusLifetime') : billing.purchaseRecoveryPending ? t('billing.purchaseEntitlementMissing') : t('settings.proDesc')} onPress={tier === 'pro' ? undefined : () => setLimit('proFeature')} showChevron={tier !== 'pro'} />
           <SettingsRow iconNode={<Ionicons name="refresh-outline" size={18} color={colors.primaryBlue} />} label={t('billing.restorePurchases')} onPress={restore} isLast />

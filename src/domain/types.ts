@@ -62,6 +62,8 @@ export interface Product {
   price: Money;
   sellingUnit: SellingUnit;
   unitPriceBase?: UnitPriceBase;
+  /** Which shelf label this product normally prints (standard, with unit price, or with barcode). */
+  labelKind?: 'standardPrice' | 'priceUnitPrice' | 'priceBarcode';
   barcodes: ProductBarcode[];
   sku?: string;
   categoryId?: string;
@@ -131,6 +133,11 @@ export interface PrintIntent {
   reason: 'new' | 'priceChanged' | 'contentChanged' | 'manual' | 'import' | 'handoff';
   status: 'waiting' | 'printed' | 'removed';
   createdAt: IsoDateTime;
+  /** Frozen label content for one-off labels (Quick label, reductions without a product). */
+  snapshot?: import('../modules/labels/engine/renderLabel').LabelContent;
+  /** Short name shown in the queue list (never printed). */
+  title?: string;
+  updatedAt?: IsoDateTime;
 }
 
 export interface PrintJobLine {

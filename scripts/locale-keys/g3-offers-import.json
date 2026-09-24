@@ -1,0 +1,1242 @@
+{
+ "importer.title": {
+  "en": "Import products",
+  "ar": "استيراد المنتجات",
+  "tr": "Ürünleri içe aktar",
+  "fr": "Importer des produits",
+  "es": "Importar productos",
+  "de": "Produkte importieren"
+ },
+ "importer.subtitle": {
+  "en": "CSV, Excel or TillCalc",
+  "ar": "CSV أو Excel أو TillCalc",
+  "tr": "CSV, Excel veya TillCalc",
+  "fr": "CSV, Excel ou TillCalc",
+  "es": "CSV, Excel o TillCalc",
+  "de": "CSV, Excel oder TillCalc"
+ },
+ "importer.pickTitle": {
+  "en": "Choose a file",
+  "ar": "اختر ملفًا",
+  "tr": "Bir dosya seçin",
+  "fr": "Choisissez un fichier",
+  "es": "Elige un archivo",
+  "de": "Datei wählen"
+ },
+ "importer.pickBody": {
+  "en": "A CSV or Excel (.xlsx) file with at least a name and a price column. You will match the columns and see every row before anything is saved.",
+  "ar": "ملف CSV أو Excel (.xlsx) يحوي على الأقل عمودَي الاسم والسعر. ستطابق الأعمدة وترى كل صف قبل حفظ أي شيء.",
+  "tr": "En az ad ve fiyat sütunu olan bir CSV veya Excel (.xlsx) dosyası. Hiçbir şey kaydedilmeden önce sütunları eşleştirip her satırı görürsünüz.",
+  "fr": "Un fichier CSV ou Excel (.xlsx) avec au moins une colonne nom et une colonne prix. Vous associez les colonnes et voyez chaque ligne avant tout enregistrement.",
+  "es": "Un archivo CSV o Excel (.xlsx) con al menos una columna de nombre y otra de precio. Asignarás las columnas y verás cada fila antes de guardar nada.",
+  "de": "Eine CSV- oder Excel-Datei (.xlsx) mit mindestens Name und Preis. Sie ordnen die Spalten zu und sehen jede Zeile, bevor etwas gespeichert wird."
+ },
+ "importer.tillcalcBody": {
+  "en": "A TillCalc price-change file brings in approved selling prices only — never costs.",
+  "ar": "ملف تغيير الأسعار من TillCalc يجلب أسعار البيع المعتمدة فقط — ولا يجلب التكاليف أبدًا.",
+  "tr": "TillCalc fiyat değişikliği dosyası yalnızca onaylı satış fiyatlarını getirir — maliyetleri asla.",
+  "fr": "Un fichier de changement de prix TillCalc n'apporte que les prix de vente validés — jamais les coûts.",
+  "es": "Un archivo de cambio de precios de TillCalc solo trae precios de venta aprobados — nunca costes.",
+  "de": "Eine TillCalc-Preisänderungsdatei bringt nur freigegebene Verkaufspreise — nie Kosten."
+ },
+ "importer.pick": {
+  "en": "Choose file",
+  "ar": "اختيار ملف",
+  "tr": "Dosya seç",
+  "fr": "Choisir un fichier",
+  "es": "Elegir archivo",
+  "de": "Datei wählen"
+ },
+ "importer.safetyNote": {
+  "en": "Formulas are never run and files over 10 MB are refused. Nothing is saved until you tap Import.",
+  "ar": "لا تُشغَّل الصيغ أبدًا وتُرفض الملفات الأكبر من 10 ميغابايت. لا يُحفظ شيء حتى تضغط استيراد.",
+  "tr": "Formüller asla çalıştırılmaz ve 10 MB'tan büyük dosyalar reddedilir. İçe aktar'a dokunana kadar hiçbir şey kaydedilmez.",
+  "fr": "Les formules ne sont jamais exécutées et les fichiers de plus de 10 Mo sont refusés. Rien n'est enregistré avant « Importer ».",
+  "es": "Las fórmulas nunca se ejecutan y los archivos de más de 10 MB se rechazan. No se guarda nada hasta que pulses Importar.",
+  "de": "Formeln werden nie ausgeführt, Dateien über 10 MB abgelehnt. Nichts wird gespeichert, bevor Sie „Importieren“ tippen."
+ },
+ "importer.sheet": {
+  "en": "Sheet",
+  "ar": "الورقة",
+  "tr": "Sayfa",
+  "fr": "Feuille",
+  "es": "Hoja",
+  "de": "Blatt"
+ },
+ "importer.firstRowHeaders": {
+  "en": "First row is column names",
+  "ar": "الصف الأول أسماء الأعمدة",
+  "tr": "İlk satır sütun adları",
+  "fr": "La première ligne contient les en-têtes",
+  "es": "La primera fila son los encabezados",
+  "de": "Erste Zeile sind Spaltennamen"
+ },
+ "importer.mapTitle": {
+  "en": "Match the columns",
+  "ar": "طابِق الأعمدة",
+  "tr": "Sütunları eşleştirin",
+  "fr": "Associez les colonnes",
+  "es": "Asigna las columnas",
+  "de": "Spalten zuordnen"
+ },
+ "importer.column": {
+  "en": "Column {{n}}",
+  "ar": "العمود {{n}}",
+  "tr": "Sütun {{n}}",
+  "fr": "Colonne {{n}}",
+  "es": "Columna {{n}}",
+  "de": "Spalte {{n}}"
+ },
+ "importer.field.name": {
+  "en": "Product name",
+  "ar": "اسم المنتج",
+  "tr": "Ürün adı",
+  "fr": "Nom du produit",
+  "es": "Nombre del producto",
+  "de": "Produktname"
+ },
+ "importer.field.labelName": {
+  "en": "Label name",
+  "ar": "اسم الملصق",
+  "tr": "Etiket adı",
+  "fr": "Nom d'étiquette",
+  "es": "Nombre de etiqueta",
+  "de": "Etikettenname"
+ },
+ "importer.field.secondLine": {
+  "en": "Pack size",
+  "ar": "حجم العبوة",
+  "tr": "Ambalaj",
+  "fr": "Format",
+  "es": "Tamaño",
+  "de": "Packungsgröße"
+ },
+ "importer.field.price": {
+  "en": "Selling price",
+  "ar": "سعر البيع",
+  "tr": "Satış fiyatı",
+  "fr": "Prix de vente",
+  "es": "Precio de venta",
+  "de": "Verkaufspreis"
+ },
+ "importer.field.barcode": {
+  "en": "Barcode",
+  "ar": "الباركود",
+  "tr": "Barkod",
+  "fr": "Code-barres",
+  "es": "Código de barras",
+  "de": "Barcode"
+ },
+ "importer.field.sku": {
+  "en": "SKU / code",
+  "ar": "رمز المنتج",
+  "tr": "Stok kodu",
+  "fr": "Référence",
+  "es": "Referencia",
+  "de": "Artikelnummer"
+ },
+ "importer.field.shelfLocation": {
+  "en": "Shelf location",
+  "ar": "موقع الرف",
+  "tr": "Raf konumu",
+  "fr": "Emplacement",
+  "es": "Ubicación",
+  "de": "Regalplatz"
+ },
+ "importer.field.ignore": {
+  "en": "Don't import",
+  "ar": "لا تستورد",
+  "tr": "İçe aktarma",
+  "fr": "Ne pas importer",
+  "es": "No importar",
+  "de": "Nicht importieren"
+ },
+ "importer.needNameAndPrice": {
+  "en": "Choose a column for the product name and one for the price.",
+  "ar": "اختر عمودًا لاسم المنتج وآخر للسعر.",
+  "tr": "Ürün adı ve fiyat için birer sütun seçin.",
+  "fr": "Choisissez une colonne pour le nom et une pour le prix.",
+  "es": "Elige una columna para el nombre y otra para el precio.",
+  "de": "Wählen Sie eine Spalte für den Namen und eine für den Preis."
+ },
+ "importer.numberFormat": {
+  "en": "How are prices written?",
+  "ar": "كيف تُكتب الأسعار؟",
+  "tr": "Fiyatlar nasıl yazılmış?",
+  "fr": "Comment les prix sont-ils écrits ?",
+  "es": "¿Cómo se escriben los precios?",
+  "de": "Wie sind Preise geschrieben?"
+ },
+ "importer.formatDot": {
+  "en": "1,234.56",
+  "ar": "1,234.56",
+  "tr": "1,234.56",
+  "fr": "1,234.56",
+  "es": "1,234.56",
+  "de": "1,234.56"
+ },
+ "importer.formatComma": {
+  "en": "1.234,56",
+  "ar": "1.234,56",
+  "tr": "1.234,56",
+  "fr": "1.234,56",
+  "es": "1.234,56",
+  "de": "1.234,56"
+ },
+ "importer.ambiguous": {
+  "en": "{{count}} price(s) like \"1,234\" could be read two ways. Check the format before continuing.",
+  "ar": "{{count}} سعر مثل \"1,234\" يمكن قراءته بطريقتين. تحقّق من التنسيق قبل المتابعة.",
+  "tr": "\"1,234\" gibi {{count}} fiyat iki şekilde okunabilir. Devam etmeden önce biçimi kontrol edin.",
+  "fr": "{{count}} prix comme « 1,234 » peuvent se lire de deux façons. Vérifiez le format avant de continuer.",
+  "es": "{{count}} precio(s) como «1,234» pueden leerse de dos formas. Revisa el formato antes de seguir.",
+  "de": "{{count}} Preis(e) wie „1,234“ sind zweideutig. Prüfen Sie das Format, bevor Sie fortfahren."
+ },
+ "importer.confirmFormat": {
+  "en": "Yes, prices look like {{format}}",
+  "ar": "نعم، الأسعار مثل {{format}}",
+  "tr": "Evet, fiyatlar {{format}} biçiminde",
+  "fr": "Oui, les prix sont comme {{format}}",
+  "es": "Sí, los precios son como {{format}}",
+  "de": "Ja, Preise sehen aus wie {{format}}"
+ },
+ "importer.formatConfirmed": {
+  "en": "Format confirmed.",
+  "ar": "تم تأكيد التنسيق.",
+  "tr": "Biçim onaylandı.",
+  "fr": "Format confirmé.",
+  "es": "Formato confirmado.",
+  "de": "Format bestätigt."
+ },
+ "importer.currencyNote": {
+  "en": "Prices are read as {{currency}} (your shop currency).",
+  "ar": "تُقرأ الأسعار بـ{{currency}} (عملة متجرك).",
+  "tr": "Fiyatlar {{currency}} olarak okunur (mağaza para biriminiz).",
+  "fr": "Les prix sont lus en {{currency}} (devise du magasin).",
+  "es": "Los precios se leen en {{currency}} (moneda de tu tienda).",
+  "de": "Preise werden als {{currency}} gelesen (Ihre Währung)."
+ },
+ "importer.preview": {
+  "en": "Preview",
+  "ar": "معاينة",
+  "tr": "Önizle",
+  "fr": "Aperçu",
+  "es": "Vista previa",
+  "de": "Vorschau"
+ },
+ "importer.status.new": {
+  "en": "New",
+  "ar": "جديد",
+  "tr": "Yeni",
+  "fr": "Nouveaux",
+  "es": "Nuevos",
+  "de": "Neu"
+ },
+ "importer.status.changed": {
+  "en": "Changed",
+  "ar": "متغيّر",
+  "tr": "Değişen",
+  "fr": "Modifiés",
+  "es": "Cambiados",
+  "de": "Geändert"
+ },
+ "importer.status.unchanged": {
+  "en": "Same",
+  "ar": "مطابق",
+  "tr": "Aynı",
+  "fr": "Identiques",
+  "es": "Iguales",
+  "de": "Gleich"
+ },
+ "importer.status.conflict": {
+  "en": "Conflict",
+  "ar": "تعارض",
+  "tr": "Çakışma",
+  "fr": "Conflits",
+  "es": "Conflictos",
+  "de": "Konflikt"
+ },
+ "importer.status.invalid": {
+  "en": "Invalid",
+  "ar": "غير صالح",
+  "tr": "Geçersiz",
+  "fr": "Invalides",
+  "es": "No válidos",
+  "de": "Ungültig"
+ },
+ "importer.statusHelp.new": {
+  "en": "No new products in this file.",
+  "ar": "لا منتجات جديدة في هذا الملف.",
+  "tr": "Bu dosyada yeni ürün yok.",
+  "fr": "Aucun nouveau produit dans ce fichier.",
+  "es": "No hay productos nuevos en este archivo.",
+  "de": "Keine neuen Produkte in dieser Datei."
+ },
+ "importer.statusHelp.changed": {
+  "en": "No existing product changes.",
+  "ar": "لا تغييرات على المنتجات الحالية.",
+  "tr": "Mevcut ürünlerde değişiklik yok.",
+  "fr": "Aucun produit existant modifié.",
+  "es": "No cambia ningún producto existente.",
+  "de": "Keine bestehenden Produkte geändert."
+ },
+ "importer.statusHelp.unchanged": {
+  "en": "No rows match your products exactly.",
+  "ar": "لا صفوف تطابق منتجاتك تمامًا.",
+  "tr": "Ürünlerinizle birebir eşleşen satır yok.",
+  "fr": "Aucune ligne identique à vos produits.",
+  "es": "Ninguna fila coincide exactamente con tus productos.",
+  "de": "Keine Zeile entspricht genau Ihren Produkten."
+ },
+ "importer.statusHelp.conflict": {
+  "en": "No conflicts.",
+  "ar": "لا تعارضات.",
+  "tr": "Çakışma yok.",
+  "fr": "Aucun conflit.",
+  "es": "Sin conflictos.",
+  "de": "Keine Konflikte."
+ },
+ "importer.statusHelp.invalid": {
+  "en": "Every row is readable.",
+  "ar": "كل الصفوف مقروءة.",
+  "tr": "Tüm satırlar okunabilir.",
+  "fr": "Toutes les lignes sont lisibles.",
+  "es": "Todas las filas se pueden leer.",
+  "de": "Alle Zeilen sind lesbar."
+ },
+ "importer.noRows": {
+  "en": "Nothing here",
+  "ar": "لا شيء هنا",
+  "tr": "Burada bir şey yok",
+  "fr": "Rien ici",
+  "es": "Nada aquí",
+  "de": "Nichts hier"
+ },
+ "importer.rowN": {
+  "en": "Row {{n}}",
+  "ar": "الصف {{n}}",
+  "tr": "Satır {{n}}",
+  "fr": "Ligne {{n}}",
+  "es": "Fila {{n}}",
+  "de": "Zeile {{n}}"
+ },
+ "importer.reason.missingName": {
+  "en": "Row {{row}}: no product name",
+  "ar": "الصف {{row}}: لا اسم منتج",
+  "tr": "Satır {{row}}: ürün adı yok",
+  "fr": "Ligne {{row}} : pas de nom",
+  "es": "Fila {{row}}: sin nombre",
+  "de": "Zeile {{row}}: kein Produktname"
+ },
+ "importer.reason.missingPrice": {
+  "en": "Row {{row}}: no price",
+  "ar": "الصف {{row}}: لا سعر",
+  "tr": "Satır {{row}}: fiyat yok",
+  "fr": "Ligne {{row}} : pas de prix",
+  "es": "Fila {{row}}: sin precio",
+  "de": "Zeile {{row}}: kein Preis"
+ },
+ "importer.reason.badPrice": {
+  "en": "Row {{row}}: price not readable in this format",
+  "ar": "الصف {{row}}: السعر غير مقروء بهذا التنسيق",
+  "tr": "Satır {{row}}: fiyat bu biçimde okunamıyor",
+  "fr": "Ligne {{row}} : prix illisible dans ce format",
+  "es": "Fila {{row}}: precio ilegible en este formato",
+  "de": "Zeile {{row}}: Preis in diesem Format unlesbar"
+ },
+ "importer.reason.nameTooLong": {
+  "en": "Row {{row}}: name over 250 characters",
+  "ar": "الصف {{row}}: الاسم أطول من 250 حرفًا",
+  "tr": "Satır {{row}}: ad 250 karakterden uzun",
+  "fr": "Ligne {{row}} : nom de plus de 250 caractères",
+  "es": "Fila {{row}}: nombre de más de 250 caracteres",
+  "de": "Zeile {{row}}: Name über 250 Zeichen"
+ },
+ "importer.reason.labelNameTooLong": {
+  "en": "Row {{row}}: label name over 40 characters",
+  "ar": "الصف {{row}}: اسم الملصق أطول من 40 حرفًا",
+  "tr": "Satır {{row}}: etiket adı 40 karakterden uzun",
+  "fr": "Ligne {{row}} : nom d'étiquette de plus de 40 caractères",
+  "es": "Fila {{row}}: nombre de etiqueta de más de 40 caracteres",
+  "de": "Zeile {{row}}: Etikettenname über 40 Zeichen"
+ },
+ "importer.reason.fieldTooLong": {
+  "en": "Row {{row}}: a value is too long to store",
+  "ar": "الصف {{row}}: قيمة أطول من أن تُخزَّن",
+  "tr": "Satır {{row}}: bir değer saklanamayacak kadar uzun",
+  "fr": "Ligne {{row}} : une valeur est trop longue",
+  "es": "Fila {{row}}: un valor es demasiado largo",
+  "de": "Zeile {{row}}: ein Wert ist zu lang"
+ },
+ "importer.reason.duplicateInFile": {
+  "en": "Row {{row}}: the same barcode appears more than once in the file",
+  "ar": "الصف {{row}}: الباركود نفسه يتكرر في الملف",
+  "tr": "Satır {{row}}: aynı barkod dosyada birden fazla var",
+  "fr": "Ligne {{row}} : le même code-barres apparaît plusieurs fois",
+  "es": "Fila {{row}}: el mismo código aparece más de una vez",
+  "de": "Zeile {{row}}: derselbe Barcode kommt mehrfach vor"
+ },
+ "importer.reason.matchesTwoProducts": {
+  "en": "Row {{row}}: matches two different products",
+  "ar": "الصف {{row}}: يطابق منتجين مختلفين",
+  "tr": "Satır {{row}}: iki farklı ürünle eşleşiyor",
+  "fr": "Ligne {{row}} : correspond à deux produits différents",
+  "es": "Fila {{row}}: coincide con dos productos distintos",
+  "de": "Zeile {{row}}: passt zu zwei verschiedenen Produkten"
+ },
+ "importer.reason.barcodeBelongsToOther": {
+  "en": "Row {{row}}: the barcode belongs to another product",
+  "ar": "الصف {{row}}: الباركود يخص منتجًا آخر",
+  "tr": "Satır {{row}}: barkod başka bir ürüne ait",
+  "fr": "Ligne {{row}} : le code-barres appartient à un autre produit",
+  "es": "Fila {{row}}: el código pertenece a otro producto",
+  "de": "Zeile {{row}}: der Barcode gehört zu einem anderen Produkt"
+ },
+ "importer.moreRows": {
+  "en": "…and {{count}} more",
+  "ar": "…و{{count}} أخرى",
+  "tr": "…ve {{count}} tane daha",
+  "fr": "…et {{count}} de plus",
+  "es": "…y {{count}} más",
+  "de": "… und {{count}} weitere"
+ },
+ "importer.queueOnImport": {
+  "en": "Add changed labels to To print",
+  "ar": "أضف الملصقات المتغيّرة إلى قائمة الطباعة",
+  "tr": "Değişen etiketleri Yazdırılacak'a ekle",
+  "fr": "Ajouter les étiquettes modifiées à À imprimer",
+  "es": "Añadir etiquetas cambiadas a Por imprimir",
+  "de": "Geänderte Etiketten zu „Zu drucken“"
+ },
+ "importer.queueOnImportHint": {
+  "en": "New products and changed prices get a label waiting",
+  "ar": "تحصل المنتجات الجديدة والأسعار المتغيّرة على ملصق بالانتظار",
+  "tr": "Yeni ürünler ve değişen fiyatlar için etiket bekler",
+  "fr": "Les nouveaux produits et prix modifiés auront une étiquette en attente",
+  "es": "Los productos nuevos y precios cambiados tendrán una etiqueta en espera",
+  "de": "Neue Produkte und geänderte Preise bekommen ein wartendes Etikett"
+ },
+ "importer.importN": {
+  "en": "Import {{count}} products",
+  "ar": "استيراد {{count}} منتج",
+  "tr": "{{count}} ürünü içe aktar",
+  "fr": "Importer {{count}} produits",
+  "es": "Importar {{count}} productos",
+  "de": "{{count}} Produkte importieren"
+ },
+ "importer.skipNote": {
+  "en": "Same, conflict and invalid rows are skipped. Fix them in the file and import again.",
+  "ar": "تُتخطى الصفوف المطابقة والمتعارضة وغير الصالحة. أصلحها في الملف واستورد مجددًا.",
+  "tr": "Aynı, çakışan ve geçersiz satırlar atlanır. Dosyada düzeltip yeniden içe aktarın.",
+  "fr": "Les lignes identiques, en conflit ou invalides sont ignorées. Corrigez le fichier et réimportez.",
+  "es": "Las filas iguales, en conflicto o no válidas se omiten. Corrígelas en el archivo e importa de nuevo.",
+  "de": "Gleiche, widersprüchliche und ungültige Zeilen werden übersprungen. In der Datei korrigieren und neu importieren."
+ },
+ "importer.alreadyImported": {
+  "en": "This exact file was imported before. Rows that did not change will show as Same.",
+  "ar": "استُورد هذا الملف نفسه من قبل. ستظهر الصفوف التي لم تتغيّر كمطابقة.",
+  "tr": "Bu dosya daha önce içe aktarıldı. Değişmeyen satırlar Aynı olarak görünür.",
+  "fr": "Ce fichier a déjà été importé. Les lignes inchangées apparaîtront comme Identiques.",
+  "es": "Este archivo ya se importó. Las filas sin cambios aparecerán como Iguales.",
+  "de": "Genau diese Datei wurde schon importiert. Unveränderte Zeilen erscheinen als Gleich."
+ },
+ "importer.doneTitle": {
+  "en": "Import finished",
+  "ar": "اكتمل الاستيراد",
+  "tr": "İçe aktarma tamamlandı",
+  "fr": "Import terminé",
+  "es": "Importación terminada",
+  "de": "Import abgeschlossen"
+ },
+ "importer.doneBody": {
+  "en": "New: {{created}} · Updated: {{updated}} · Labels waiting: {{queued}}",
+  "ar": "جديد: {{created}} · محدَّث: {{updated}} · ملصقات بالانتظار: {{queued}}",
+  "tr": "Yeni: {{created}} · Güncellenen: {{updated}} · Bekleyen etiket: {{queued}}",
+  "fr": "Nouveaux : {{created}} · Mis à jour : {{updated}} · Étiquettes en attente : {{queued}}",
+  "es": "Nuevos: {{created}} · Actualizados: {{updated}} · Etiquetas en espera: {{queued}}",
+  "de": "Neu: {{created}} · Aktualisiert: {{updated}} · Wartende Etiketten: {{queued}}"
+ },
+ "importer.errors.tooLarge": {
+  "en": "The file is larger than 10 MB. Split it into smaller files.",
+  "ar": "الملف أكبر من 10 ميغابايت. قسّمه إلى ملفات أصغر.",
+  "tr": "Dosya 10 MB'tan büyük. Daha küçük dosyalara bölün.",
+  "fr": "Le fichier dépasse 10 Mo. Découpez-le en fichiers plus petits.",
+  "es": "El archivo supera los 10 MB. Divídelo en archivos más pequeños.",
+  "de": "Die Datei ist größer als 10 MB. Teilen Sie sie auf."
+ },
+ "importer.errors.empty": {
+  "en": "The file has no rows.",
+  "ar": "لا يحوي الملف أي صفوف.",
+  "tr": "Dosyada satır yok.",
+  "fr": "Le fichier ne contient aucune ligne.",
+  "es": "El archivo no tiene filas.",
+  "de": "Die Datei hat keine Zeilen."
+ },
+ "importer.errors.read": {
+  "en": "The file could not be read. Save it as CSV (UTF-8) or .xlsx and try again.",
+  "ar": "تعذّرت قراءة الملف. احفظه بصيغة CSV (UTF-8) أو ‎.xlsx وحاول مجددًا.",
+  "tr": "Dosya okunamadı. CSV (UTF-8) veya .xlsx olarak kaydedip tekrar deneyin.",
+  "fr": "Impossible de lire le fichier. Enregistrez-le en CSV (UTF-8) ou .xlsx et réessayez.",
+  "es": "No se pudo leer el archivo. Guárdalo como CSV (UTF-8) o .xlsx e inténtalo de nuevo.",
+  "de": "Die Datei konnte nicht gelesen werden. Als CSV (UTF-8) oder .xlsx speichern und erneut versuchen."
+ },
+ "importer.errors.currencyMismatch": {
+  "en": "This file is in {{file}} but your shop currency is {{shop}}. Nothing was imported.",
+  "ar": "هذا الملف بعملة {{file}} لكن عملة متجرك {{shop}}. لم يُستورد شيء.",
+  "tr": "Bu dosya {{file}} cinsinden, mağaza para biriminiz {{shop}}. Hiçbir şey içe aktarılmadı.",
+  "fr": "Ce fichier est en {{file}} mais la devise du magasin est {{shop}}. Rien n'a été importé.",
+  "es": "Este archivo está en {{file}} pero tu moneda es {{shop}}. No se importó nada.",
+  "de": "Diese Datei ist in {{file}}, Ihre Währung ist {{shop}}. Nichts wurde importiert."
+ },
+ "importer.errors.commit": {
+  "en": "The import could not be saved. Nothing was changed.",
+  "ar": "تعذّر حفظ الاستيراد. لم يتغيّر شيء.",
+  "tr": "İçe aktarma kaydedilemedi. Hiçbir şey değişmedi.",
+  "fr": "L'import n'a pas pu être enregistré. Rien n'a été modifié.",
+  "es": "No se pudo guardar la importación. No se ha cambiado nada.",
+  "de": "Der Import konnte nicht gespeichert werden. Nichts wurde geändert."
+ },
+ "importer.errors.changedSincePreview": {
+  "en": "Your products changed since the preview. Nothing was imported — preview again.",
+  "ar": "تغيّرت منتجاتك منذ المعاينة. لم يُستورد شيء — عاين مجددًا.",
+  "tr": "Önizlemeden bu yana ürünleriniz değişti. Hiçbir şey içe aktarılmadı — tekrar önizleyin.",
+  "fr": "Vos produits ont changé depuis l'aperçu. Rien n'a été importé — refaites l'aperçu.",
+  "es": "Tus productos cambiaron desde la vista previa. No se importó nada — vuelve a previsualizar.",
+  "de": "Ihre Produkte haben sich seit der Vorschau geändert. Nichts importiert — erneut prüfen."
+ },
+ "importer.errors.overLimit": {
+  "en": "The Free plan keeps up to {{limit}} products; this file would add more than the {{count}} still free. Nothing was imported. Your existing products are never locked.",
+  "ar": "تتيح الخطة المجانية حتى {{limit}} منتج؛ وهذا الملف يضيف أكثر من {{count}} المتبقية. لم يُستورد شيء. منتجاتك الحالية لا تُقفل أبدًا.",
+  "tr": "Ücretsiz plan en fazla {{limit}} ürün tutar; bu dosya kalan {{count}} yerden fazlasını ekler. Hiçbir şey içe aktarılmadı. Mevcut ürünleriniz asla kilitlenmez.",
+  "fr": "Le forfait gratuit garde jusqu'à {{limit}} produits ; ce fichier ajouterait plus que les {{count}} places restantes. Rien n'a été importé. Vos produits existants ne sont jamais bloqués.",
+  "es": "El plan gratuito guarda hasta {{limit}} productos; este archivo añadiría más que los {{count}} libres. No se importó nada. Tus productos existentes nunca se bloquean.",
+  "de": "Der Gratis-Plan speichert bis zu {{limit}} Produkte; diese Datei fügt mehr als die {{count}} freien hinzu. Nichts importiert. Bestehende Produkte werden nie gesperrt."
+ },
+ "importer.errors.nothingToImport": {
+  "en": "Nothing new or changed to import.",
+  "ar": "لا جديد ولا متغيّر للاستيراد.",
+  "tr": "İçe aktarılacak yeni veya değişen bir şey yok.",
+  "fr": "Rien de nouveau ou de modifié à importer.",
+  "es": "Nada nuevo ni cambiado para importar.",
+  "de": "Nichts Neues oder Geändertes zu importieren."
+ },
+ "importer.errors.xlsx.tooLarge": {
+  "en": "The spreadsheet is too large to read safely.",
+  "ar": "جدول البيانات أكبر من أن يُقرأ بأمان.",
+  "tr": "Tablo güvenle okunamayacak kadar büyük.",
+  "fr": "Le classeur est trop volumineux pour être lu en sécurité.",
+  "es": "La hoja de cálculo es demasiado grande para leerla con seguridad.",
+  "de": "Die Tabelle ist zu groß zum sicheren Lesen."
+ },
+ "importer.errors.xlsx.notXlsx": {
+  "en": "This is not an .xlsx spreadsheet.",
+  "ar": "هذا ليس جدول بيانات ‎.xlsx.",
+  "tr": "Bu bir .xlsx tablosu değil.",
+  "fr": "Ce n'est pas un classeur .xlsx.",
+  "es": "No es una hoja de cálculo .xlsx.",
+  "de": "Das ist keine .xlsx-Tabelle."
+ },
+ "importer.errors.xlsx.noSheet": {
+  "en": "The spreadsheet has no readable sheet.",
+  "ar": "لا يحوي جدول البيانات ورقة مقروءة.",
+  "tr": "Tabloda okunabilir sayfa yok.",
+  "fr": "Le classeur n'a pas de feuille lisible.",
+  "es": "La hoja de cálculo no tiene ninguna hoja legible.",
+  "de": "Die Tabelle hat kein lesbares Blatt."
+ },
+ "importer.errors.xlsx.tooManyRows": {
+  "en": "More than 20,000 rows. Split the file.",
+  "ar": "أكثر من 20,000 صف. قسّم الملف.",
+  "tr": "20.000'den fazla satır. Dosyayı bölün.",
+  "fr": "Plus de 20 000 lignes. Découpez le fichier.",
+  "es": "Más de 20.000 filas. Divide el archivo.",
+  "de": "Über 20.000 Zeilen. Datei aufteilen."
+ },
+ "importer.errors.xlsx.tooManyColumns": {
+  "en": "More than 60 columns. Remove the ones you do not need.",
+  "ar": "أكثر من 60 عمودًا. احذف ما لا تحتاجه.",
+  "tr": "60'tan fazla sütun. Gerekmeyenleri kaldırın.",
+  "fr": "Plus de 60 colonnes. Supprimez celles inutiles.",
+  "es": "Más de 60 columnas. Quita las que no necesites.",
+  "de": "Über 60 Spalten. Unnötige entfernen."
+ },
+ "importer.errors.xlsx.corrupt": {
+  "en": "The spreadsheet is damaged.",
+  "ar": "جدول البيانات تالف.",
+  "tr": "Tablo bozuk.",
+  "fr": "Le classeur est endommagé.",
+  "es": "La hoja de cálculo está dañada.",
+  "de": "Die Tabelle ist beschädigt."
+ },
+ "importer.priceChange.notJson": {
+  "en": "This is not a TillCalc price-change file.",
+  "ar": "هذا ليس ملف تغيير أسعار من TillCalc.",
+  "tr": "Bu bir TillCalc fiyat değişikliği dosyası değil.",
+  "fr": "Ce n'est pas un fichier de changement de prix TillCalc.",
+  "es": "No es un archivo de cambio de precios de TillCalc.",
+  "de": "Das ist keine TillCalc-Preisänderungsdatei."
+ },
+ "importer.priceChange.wrongFormat": {
+  "en": "This is not a TillCalc price-change file.",
+  "ar": "هذا ليس ملف تغيير أسعار من TillCalc.",
+  "tr": "Bu bir TillCalc fiyat değişikliği dosyası değil.",
+  "fr": "Ce n'est pas un fichier de changement de prix TillCalc.",
+  "es": "No es un archivo de cambio de precios de TillCalc.",
+  "de": "Das ist keine TillCalc-Preisänderungsdatei."
+ },
+ "importer.priceChange.unsupportedVersion": {
+  "en": "This file is from a newer TillCalc. Update TillLabel and try again.",
+  "ar": "هذا الملف من إصدار أحدث من TillCalc. حدّث TillLabel وحاول مجددًا.",
+  "tr": "Bu dosya daha yeni bir TillCalc'ten. TillLabel'ı güncelleyip tekrar deneyin.",
+  "fr": "Ce fichier vient d'un TillCalc plus récent. Mettez TillLabel à jour et réessayez.",
+  "es": "Este archivo es de un TillCalc más reciente. Actualiza TillLabel e inténtalo de nuevo.",
+  "de": "Die Datei stammt aus einem neueren TillCalc. TillLabel aktualisieren und erneut versuchen."
+ },
+ "importer.priceChange.badCurrency": {
+  "en": "The file has no valid currency.",
+  "ar": "لا يحوي الملف عملة صالحة.",
+  "tr": "Dosyada geçerli bir para birimi yok.",
+  "fr": "Le fichier n'a pas de devise valide.",
+  "es": "El archivo no tiene una moneda válida.",
+  "de": "Die Datei hat keine gültige Währung."
+ },
+ "importer.priceChange.tooManyItems": {
+  "en": "The file has too many products (over 20,000).",
+  "ar": "يحوي الملف منتجات كثيرة جدًا (أكثر من 20,000).",
+  "tr": "Dosyada çok fazla ürün var (20.000'den fazla).",
+  "fr": "Le fichier contient trop de produits (plus de 20 000).",
+  "es": "El archivo tiene demasiados productos (más de 20.000).",
+  "de": "Die Datei hat zu viele Produkte (über 20.000)."
+ },
+ "importer.priceChange.badItem": {
+  "en": "A product in the file is incomplete. Nothing was imported.",
+  "ar": "منتج في الملف غير مكتمل. لم يُستورد شيء.",
+  "tr": "Dosyadaki bir ürün eksik. Hiçbir şey içe aktarılmadı.",
+  "fr": "Un produit du fichier est incomplet. Rien n'a été importé.",
+  "es": "Un producto del archivo está incompleto. No se importó nada.",
+  "de": "Ein Produkt in der Datei ist unvollständig. Nichts importiert."
+ },
+ "importer.priceChange.checksumMismatch": {
+  "en": "The file was changed or damaged after TillCalc created it. Nothing was imported.",
+  "ar": "عُدِّل الملف أو تلف بعد أن أنشأه TillCalc. لم يُستورد شيء.",
+  "tr": "Dosya TillCalc oluşturduktan sonra değiştirilmiş veya bozulmuş. Hiçbir şey içe aktarılmadı.",
+  "fr": "Le fichier a été modifié ou endommagé après sa création par TillCalc. Rien n'a été importé.",
+  "es": "El archivo se modificó o dañó después de que TillCalc lo creara. No se importó nada.",
+  "de": "Die Datei wurde nach dem Erstellen in TillCalc geändert oder beschädigt. Nichts importiert."
+ },
+ "importer.priceChange.containsCosts": {
+  "en": "The file contains cost data, which TillLabel never imports. Nothing was imported.",
+  "ar": "يحوي الملف بيانات تكلفة، ولا يستوردها TillLabel أبدًا. لم يُستورد شيء.",
+  "tr": "Dosya maliyet verisi içeriyor; TillLabel bunu asla içe aktarmaz. Hiçbir şey içe aktarılmadı.",
+  "fr": "Le fichier contient des coûts, que TillLabel n'importe jamais. Rien n'a été importé.",
+  "es": "El archivo contiene costes, que TillLabel nunca importa. No se importó nada.",
+  "de": "Die Datei enthält Kosten, die TillLabel nie importiert. Nichts importiert."
+ },
+ "offers.title": {
+  "en": "Offers",
+  "ar": "العروض",
+  "tr": "Kampanyalar",
+  "fr": "Offres",
+  "es": "Ofertas",
+  "de": "Angebote"
+ },
+ "offers.listSubtitle": {
+  "en": "Running, scheduled and ended",
+  "ar": "الجارية والمجدولة والمنتهية",
+  "tr": "Süren, planlanan ve biten",
+  "fr": "En cours, programmées et terminées",
+  "es": "Activas, programadas y terminadas",
+  "de": "Laufend, geplant und beendet"
+ },
+ "offers.newTitle": {
+  "en": "New offer",
+  "ar": "عرض جديد",
+  "tr": "Yeni kampanya",
+  "fr": "Nouvelle offre",
+  "es": "Nueva oferta",
+  "de": "Neues Angebot"
+ },
+ "offers.editTitle": {
+  "en": "Edit offer",
+  "ar": "تعديل العرض",
+  "tr": "Kampanyayı düzenle",
+  "fr": "Modifier l'offre",
+  "es": "Editar oferta",
+  "de": "Angebot bearbeiten"
+ },
+ "offers.subtitle": {
+  "en": "The normal price is never changed",
+  "ar": "لا يتغيّر السعر العادي أبدًا",
+  "tr": "Normal fiyat asla değişmez",
+  "fr": "Le prix normal n'est jamais modifié",
+  "es": "El precio normal nunca cambia",
+  "de": "Der Normalpreis bleibt unverändert"
+ },
+ "offers.proSubtitle": {
+  "en": "TillLabel Pro",
+  "ar": "TillLabel Pro",
+  "tr": "TillLabel Pro",
+  "fr": "TillLabel Pro",
+  "es": "TillLabel Pro",
+  "de": "TillLabel Pro"
+ },
+ "offers.emptyTitle": {
+  "en": "No offers yet",
+  "ar": "لا عروض بعد",
+  "tr": "Henüz kampanya yok",
+  "fr": "Aucune offre pour l'instant",
+  "es": "Aún no hay ofertas",
+  "de": "Noch keine Angebote"
+ },
+ "offers.emptyBody": {
+  "en": "Create was/now, % off, money off, multibuy or member-price offers and print them as tickets or cards.",
+  "ar": "أنشئ عروض كان/الآن أو الخصم % أو خصم مبلغ أو الكمية أو سعر الأعضاء واطبعها كبطاقات رف أو بطاقات عرض.",
+  "tr": "Eski/yeni, % indirim, tutar indirimi, çoklu alım veya üye fiyatı kampanyaları oluşturup raf etiketi ya da kart olarak yazdırın.",
+  "fr": "Créez des offres avant/maintenant, % de remise, remise en montant, lot ou prix adhérent et imprimez-les en étiquettes ou cartes.",
+  "es": "Crea ofertas antes/ahora, % de descuento, descuento en importe, multicompra o precio socio e imprímelas como etiquetas o carteles.",
+  "de": "Erstellen Sie Vorher/Jetzt-, %-, Betrags-, Mehrfachkauf- oder Mitgliederpreis-Angebote und drucken Sie sie als Etiketten oder Karten."
+ },
+ "offers.type": {
+  "en": "Offer type",
+  "ar": "نوع العرض",
+  "tr": "Kampanya türü",
+  "fr": "Type d'offre",
+  "es": "Tipo de oferta",
+  "de": "Angebotsart"
+ },
+ "offers.kind.wasNow": {
+  "en": "Was/now",
+  "ar": "كان/الآن",
+  "tr": "Eski/yeni",
+  "fr": "Avant/maint.",
+  "es": "Antes/ahora",
+  "de": "Vorher/jetzt"
+ },
+ "offers.kind.percentOff": {
+  "en": "% off",
+  "ar": "خصم %",
+  "tr": "% ind.",
+  "fr": "% remise",
+  "es": "% dto.",
+  "de": "% Rabatt"
+ },
+ "offers.kind.moneyOff": {
+  "en": "Money off",
+  "ar": "خصم مبلغ",
+  "tr": "Tutar",
+  "fr": "Montant",
+  "es": "Importe",
+  "de": "Betrag"
+ },
+ "offers.kind.multibuy": {
+  "en": "Multibuy",
+  "ar": "كمية",
+  "tr": "Çoklu",
+  "fr": "Lot",
+  "es": "Multi",
+  "de": "Mehrfach"
+ },
+ "offers.kind.conditional": {
+  "en": "Member",
+  "ar": "أعضاء",
+  "tr": "Üye",
+  "fr": "Adhérent",
+  "es": "Socio",
+  "de": "Mitglied"
+ },
+ "offers.products": {
+  "en": "Products: {{count}}",
+  "ar": "المنتجات: {{count}}",
+  "tr": "Ürün: {{count}}",
+  "fr": "Produits : {{count}}",
+  "es": "Productos: {{count}}",
+  "de": "Produkte: {{count}}"
+ },
+ "offers.chooseProducts": {
+  "en": "Tap to choose products",
+  "ar": "اضغط لاختيار المنتجات",
+  "tr": "Ürün seçmek için dokunun",
+  "fr": "Touchez pour choisir les produits",
+  "es": "Toca para elegir productos",
+  "de": "Tippen, um Produkte zu wählen"
+ },
+ "offers.pickProducts": {
+  "en": "Choose products",
+  "ar": "اختيار المنتجات",
+  "tr": "Ürün seçin",
+  "fr": "Choisir les produits",
+  "es": "Elegir productos",
+  "de": "Produkte wählen"
+ },
+ "offers.percent": {
+  "en": "Percentage off",
+  "ar": "نسبة الخصم",
+  "tr": "İndirim yüzdesi",
+  "fr": "Pourcentage de remise",
+  "es": "Porcentaje de descuento",
+  "de": "Rabatt in Prozent"
+ },
+ "offers.amountOff": {
+  "en": "Amount off",
+  "ar": "مبلغ الخصم",
+  "tr": "İndirim tutarı",
+  "fr": "Montant de la remise",
+  "es": "Importe del descuento",
+  "de": "Rabattbetrag"
+ },
+ "offers.wasPrice": {
+  "en": "Was price (the earlier selling price)",
+  "ar": "السعر السابق (سعر البيع الأقدم)",
+  "tr": "Eski fiyat (önceki satış fiyatı)",
+  "fr": "Prix avant (ancien prix de vente)",
+  "es": "Precio antes (precio de venta anterior)",
+  "de": "Vorher-Preis (früherer Verkaufspreis)"
+ },
+ "offers.multibuyTotal": {
+  "en": "Price for the whole multibuy",
+  "ar": "سعر عرض الكمية كاملًا",
+  "tr": "Çoklu alımın toplam fiyatı",
+  "fr": "Prix du lot complet",
+  "es": "Precio de toda la multicompra",
+  "de": "Preis für den ganzen Mehrfachkauf"
+ },
+ "offers.memberPrice": {
+  "en": "Member price",
+  "ar": "سعر الأعضاء",
+  "tr": "Üye fiyatı",
+  "fr": "Prix adhérent",
+  "es": "Precio socio",
+  "de": "Mitgliederpreis"
+ },
+ "offers.quantity": {
+  "en": "How many",
+  "ar": "الكمية",
+  "tr": "Kaç adet",
+  "fr": "Combien",
+  "es": "Cuántos",
+  "de": "Wie viele"
+ },
+ "offers.condition": {
+  "en": "Condition (printed)",
+  "ar": "الشرط (يُطبع)",
+  "tr": "Koşul (basılır)",
+  "fr": "Condition (imprimée)",
+  "es": "Condición (se imprime)",
+  "de": "Bedingung (wird gedruckt)"
+ },
+ "offers.conditionPh": {
+  "en": "e.g. With loyalty card",
+  "ar": "مثال: مع بطاقة الولاء",
+  "tr": "örn. Sadakat kartıyla",
+  "fr": "ex. Avec la carte fidélité",
+  "es": "p. ej. Con tarjeta de cliente",
+  "de": "z. B. Mit Kundenkarte"
+ },
+ "offers.prints": {
+  "en": "Prints as {{text}}",
+  "ar": "يُطبع هكذا: {{text}}",
+  "tr": "Şöyle basılır: {{text}}",
+  "fr": "S'imprime ainsi : {{text}}",
+  "es": "Se imprime así: {{text}}",
+  "de": "Wird gedruckt als {{text}}"
+ },
+ "offers.name": {
+  "en": "Offer name (not printed)",
+  "ar": "اسم العرض (لا يُطبع)",
+  "tr": "Kampanya adı (basılmaz)",
+  "fr": "Nom de l'offre (non imprimé)",
+  "es": "Nombre de la oferta (no se imprime)",
+  "de": "Angebotsname (wird nicht gedruckt)"
+ },
+ "offers.namePh": {
+  "en": "e.g. Summer drinks",
+  "ar": "مثال: مشروبات الصيف",
+  "tr": "örn. Yaz içecekleri",
+  "fr": "ex. Boissons d'été",
+  "es": "p. ej. Bebidas de verano",
+  "de": "z. B. Sommergetränke"
+ },
+ "offers.defaultName": {
+  "en": "Offer: {{product}}",
+  "ar": "عرض: {{product}}",
+  "tr": "Kampanya: {{product}}",
+  "fr": "Offre : {{product}}",
+  "es": "Oferta: {{product}}",
+  "de": "Angebot: {{product}}"
+ },
+ "offers.conditions": {
+  "en": "Extra condition (optional, printed)",
+  "ar": "شرط إضافي (اختياري، يُطبع)",
+  "tr": "Ek koşul (isteğe bağlı, basılır)",
+  "fr": "Condition supplémentaire (facultative, imprimée)",
+  "es": "Condición extra (opcional, se imprime)",
+  "de": "Zusatzbedingung (optional, wird gedruckt)"
+ },
+ "offers.conditionsPh": {
+  "en": "e.g. Mix and match",
+  "ar": "مثال: امزج واختر",
+  "tr": "örn. Karışık seçilebilir",
+  "fr": "ex. Panachage possible",
+  "es": "p. ej. Combina como quieras",
+  "de": "z. B. Beliebig kombinierbar"
+ },
+ "offers.start": {
+  "en": "Starts",
+  "ar": "يبدأ",
+  "tr": "Başlangıç",
+  "fr": "Début",
+  "es": "Empieza",
+  "de": "Beginn"
+ },
+ "offers.end": {
+  "en": "End offer now",
+  "ar": "إنهاء العرض الآن",
+  "tr": "Kampanyayı şimdi bitir",
+  "fr": "Terminer l'offre",
+  "es": "Terminar la oferta",
+  "de": "Angebot jetzt beenden"
+ },
+ "offers.noDate": {
+  "en": "No date",
+  "ar": "بلا تاريخ",
+  "tr": "Tarih yok",
+  "fr": "Sans date",
+  "es": "Sin fecha",
+  "de": "Ohne Datum"
+ },
+ "offers.datesNote": {
+  "en": "The end date is printed on the label (“Until …”).",
+  "ar": "يُطبع تاريخ الانتهاء على الملصق (“حتى …”).",
+  "tr": "Bitiş tarihi etikete basılır (“… tarihine kadar”).",
+  "fr": "La date de fin est imprimée (« Jusqu'au … »).",
+  "es": "La fecha de fin se imprime («Hasta el …»).",
+  "de": "Das Enddatum wird gedruckt („Gültig bis …“)."
+ },
+ "offers.preview": {
+  "en": "Prices on the labels",
+  "ar": "الأسعار على الملصقات",
+  "tr": "Etiketlerdeki fiyatlar",
+  "fr": "Prix sur les étiquettes",
+  "es": "Precios en las etiquetas",
+  "de": "Preise auf den Etiketten"
+ },
+ "offers.normalKept": {
+  "en": "Each product keeps its normal price; only the offer labels show the offer.",
+  "ar": "يحتفظ كل منتج بسعره العادي؛ ولا يظهر العرض إلا على ملصقات العرض.",
+  "tr": "Her ürün normal fiyatını korur; kampanya yalnızca kampanya etiketlerinde görünür.",
+  "fr": "Chaque produit garde son prix normal ; seule l'étiquette d'offre montre l'offre.",
+  "es": "Cada producto mantiene su precio normal; solo las etiquetas de oferta la muestran.",
+  "de": "Jedes Produkt behält seinen Normalpreis; nur die Angebotsetiketten zeigen das Angebot."
+ },
+ "offers.problem.noLabelName": {
+  "en": "needs a label name",
+  "ar": "يحتاج اسم ملصق",
+  "tr": "etiket adı gerekli",
+  "fr": "nom d'étiquette requis",
+  "es": "falta nombre de etiqueta",
+  "de": "Etikettenname fehlt"
+ },
+ "offers.problem.badPromotion": {
+  "en": "offer is not below the price",
+  "ar": "العرض ليس أقل من السعر",
+  "tr": "kampanya fiyatın altında değil",
+  "fr": "offre non inférieure au prix",
+  "es": "la oferta no es menor que el precio",
+  "de": "Angebot nicht unter dem Preis"
+ },
+ "offers.problem.noBarcode": {
+  "en": "no barcode",
+  "ar": "لا باركود",
+  "tr": "barkod yok",
+  "fr": "pas de code-barres",
+  "es": "sin código",
+  "de": "kein Barcode"
+ },
+ "offers.problem.noUnitPrice": {
+  "en": "no unit price",
+  "ar": "لا سعر وحدة",
+  "tr": "birim fiyat yok",
+  "fr": "pas de prix unitaire",
+  "es": "sin precio unitario",
+  "de": "kein Grundpreis"
+ },
+ "offers.saveAndQueue": {
+  "en": "Save and add labels to To print",
+  "ar": "حفظ وإضافة الملصقات إلى قائمة الطباعة",
+  "tr": "Kaydet ve etiketleri Yazdırılacak'a ekle",
+  "fr": "Enregistrer et ajouter à À imprimer",
+  "es": "Guardar y añadir a Por imprimir",
+  "de": "Speichern und zu „Zu drucken“"
+ },
+ "offers.saveOnly": {
+  "en": "Save without labels",
+  "ar": "حفظ دون ملصقات",
+  "tr": "Etiketsiz kaydet",
+  "fr": "Enregistrer sans étiquettes",
+  "es": "Guardar sin etiquetas",
+  "de": "Ohne Etiketten speichern"
+ },
+ "offers.saved": {
+  "en": "Offer saved.",
+  "ar": "حُفظ العرض.",
+  "tr": "Kampanya kaydedildi.",
+  "fr": "Offre enregistrée.",
+  "es": "Oferta guardada.",
+  "de": "Angebot gespeichert."
+ },
+ "offers.queuedTitle": {
+  "en": "Offer labels added",
+  "ar": "أُضيفت ملصقات العرض",
+  "tr": "Kampanya etiketleri eklendi",
+  "fr": "Étiquettes d'offre ajoutées",
+  "es": "Etiquetas de oferta añadidas",
+  "de": "Angebotsetiketten hinzugefügt"
+ },
+ "offers.queuedBody": {
+  "en": "{{count}} offer label(s) are waiting in To print. Choose a ticket or card format there.",
+  "ar": "{{count}} ملصق عرض بانتظار الطباعة. اختر هناك مقاس بطاقة الرف أو بطاقة العرض.",
+  "tr": "{{count}} kampanya etiketi Yazdırılacak'ta bekliyor. Orada etiket veya kart formatı seçin.",
+  "fr": "{{count}} étiquette(s) d'offre attendent dans À imprimer. Choisissez-y le format étiquette ou carte.",
+  "es": "{{count}} etiqueta(s) de oferta esperan en Por imprimir. Elige allí el formato de etiqueta o cartel.",
+  "de": "{{count}} Angebotsetikett(en) warten unter „Zu drucken“. Dort Etikett- oder Kartenformat wählen."
+ },
+ "offers.until": {
+  "en": "until {{date}}",
+  "ar": "حتى {{date}}",
+  "tr": "{{date}} tarihine kadar",
+  "fr": "jusqu'au {{date}}",
+  "es": "hasta el {{date}}",
+  "de": "bis {{date}}"
+ },
+ "offers.state.live": {
+  "en": "Running",
+  "ar": "جارٍ",
+  "tr": "Sürüyor",
+  "fr": "En cours",
+  "es": "Activa",
+  "de": "Läuft"
+ },
+ "offers.state.scheduled": {
+  "en": "Scheduled",
+  "ar": "مجدول",
+  "tr": "Planlandı",
+  "fr": "Programmée",
+  "es": "Programada",
+  "de": "Geplant"
+ },
+ "offers.state.ended": {
+  "en": "Ended",
+  "ar": "منتهٍ",
+  "tr": "Bitti",
+  "fr": "Terminée",
+  "es": "Terminada",
+  "de": "Beendet"
+ },
+ "offers.errors.nameRequired": {
+  "en": "Give the offer a name.",
+  "ar": "أعطِ العرض اسمًا.",
+  "tr": "Kampanyaya bir ad verin.",
+  "fr": "Donnez un nom à l'offre.",
+  "es": "Pon un nombre a la oferta.",
+  "de": "Geben Sie dem Angebot einen Namen."
+ },
+ "offers.errors.noProducts": {
+  "en": "Choose at least one product.",
+  "ar": "اختر منتجًا واحدًا على الأقل.",
+  "tr": "En az bir ürün seçin.",
+  "fr": "Choisissez au moins un produit.",
+  "es": "Elige al menos un producto.",
+  "de": "Wählen Sie mindestens ein Produkt."
+ },
+ "offers.errors.badPercent": {
+  "en": "Enter a percentage between 0.01 and 99.99.",
+  "ar": "أدخل نسبة بين 0.01 و99.99.",
+  "tr": "0,01 ile 99,99 arasında bir yüzde girin.",
+  "fr": "Saisissez un pourcentage entre 0,01 et 99,99.",
+  "es": "Introduce un porcentaje entre 0,01 y 99,99.",
+  "de": "Geben Sie 0,01 bis 99,99 % ein."
+ },
+ "offers.errors.badAmount": {
+  "en": "Enter an amount above zero.",
+  "ar": "أدخل مبلغًا أكبر من صفر.",
+  "tr": "Sıfırdan büyük bir tutar girin.",
+  "fr": "Saisissez un montant supérieur à zéro.",
+  "es": "Introduce un importe mayor que cero.",
+  "de": "Geben Sie einen Betrag über null ein."
+ },
+ "offers.errors.badQuantity": {
+  "en": "A multibuy needs 2 to 99 items.",
+  "ar": "عرض الكمية يحتاج من 2 إلى 99 قطعة.",
+  "tr": "Çoklu alım için 2–99 adet gerekir.",
+  "fr": "Un lot nécessite de 2 à 99 articles.",
+  "es": "Una multicompra necesita de 2 a 99 unidades.",
+  "de": "Ein Mehrfachkauf braucht 2 bis 99 Stück."
+ },
+ "offers.errors.conditionRequired": {
+  "en": "Write the condition, e.g. With loyalty card.",
+  "ar": "اكتب الشرط، مثل: مع بطاقة الولاء.",
+  "tr": "Koşulu yazın, örn. Sadakat kartıyla.",
+  "fr": "Écrivez la condition, ex. Avec la carte fidélité.",
+  "es": "Escribe la condición, p. ej. Con tarjeta de cliente.",
+  "de": "Schreiben Sie die Bedingung, z. B. Mit Kundenkarte."
+ },
+ "offers.errors.badDates": {
+  "en": "The end date is before the start date.",
+  "ar": "تاريخ الانتهاء قبل تاريخ البدء.",
+  "tr": "Bitiş tarihi başlangıçtan önce.",
+  "fr": "La date de fin précède la date de début.",
+  "es": "La fecha de fin es anterior a la de inicio.",
+  "de": "Das Enddatum liegt vor dem Beginn."
+ },
+ "offers.errors.mixedCurrency": {
+  "en": "All products in one offer must use the same currency.",
+  "ar": "يجب أن تستخدم منتجات العرض الواحد العملة نفسها.",
+  "tr": "Bir kampanyadaki tüm ürünler aynı para birimini kullanmalı.",
+  "fr": "Tous les produits d'une offre doivent avoir la même devise.",
+  "es": "Todos los productos de una oferta deben usar la misma moneda.",
+  "de": "Alle Produkte eines Angebots brauchen dieselbe Währung."
+ },
+ "offers.errors.saveFailed": {
+  "en": "The offer could not be saved. Nothing was changed.",
+  "ar": "تعذّر حفظ العرض. لم يتغيّر شيء.",
+  "tr": "Kampanya kaydedilemedi. Hiçbir şey değişmedi.",
+  "fr": "L'offre n'a pas pu être enregistrée. Rien n'a été modifié.",
+  "es": "No se pudo guardar la oferta. No se ha cambiado nada.",
+  "de": "Das Angebot konnte nicht gespeichert werden. Nichts wurde geändert."
+ },
+ "reduce.title": {
+  "en": "Reduced to clear",
+  "ar": "تخفيض للتصفية",
+  "tr": "Tasfiye indirimi",
+  "fr": "Démarque",
+  "es": "Rebaja de liquidación",
+  "de": "Abverkauf"
+ },
+ "reduce.subtitle": {
+  "en": "The normal price is never changed",
+  "ar": "لا يتغيّر السعر العادي أبدًا",
+  "tr": "Normal fiyat asla değişmez",
+  "fr": "Le prix normal n'est jamais modifié",
+  "es": "El precio normal nunca cambia",
+  "de": "Der Normalpreis bleibt unverändert"
+ },
+ "reduce.product": {
+  "en": "Product",
+  "ar": "المنتج",
+  "tr": "Ürün",
+  "fr": "Produit",
+  "es": "Producto",
+  "de": "Produkt"
+ },
+ "reduce.chooseOrType": {
+  "en": "Choose a product, or just type below",
+  "ar": "اختر منتجًا أو اكتب أدناه",
+  "tr": "Bir ürün seçin veya aşağıya yazın",
+  "fr": "Choisissez un produit ou tapez ci-dessous",
+  "es": "Elige un producto o escribe abajo",
+  "de": "Produkt wählen oder unten eintippen"
+ },
+ "reduce.normalPrice": {
+  "en": "Normal price",
+  "ar": "السعر العادي",
+  "tr": "Normal fiyat",
+  "fr": "Prix normal",
+  "es": "Precio normal",
+  "de": "Normalpreis"
+ },
+ "reduce.reducedPrice": {
+  "en": "Reduced price",
+  "ar": "السعر المخفّض",
+  "tr": "İndirimli fiyat",
+  "fr": "Prix démarqué",
+  "es": "Precio rebajado",
+  "de": "Reduzierter Preis"
+ },
+ "reduce.percentOff": {
+  "en": "{{percent}}% off",
+  "ar": "خصم {{percent}}%",
+  "tr": "%{{percent}} indirim",
+  "fr": "-{{percent}} %",
+  "es": "-{{percent}} %",
+  "de": "-{{percent}} %"
+ },
+ "reduce.prints": {
+  "en": "Prints: was {{was}}, now {{now}}",
+  "ar": "يُطبع: كان {{was}}، الآن {{now}}",
+  "tr": "Basılır: eski {{was}}, yeni {{now}}",
+  "fr": "Imprimé : avant {{was}}, maintenant {{now}}",
+  "es": "Se imprime: antes {{was}}, ahora {{now}}",
+  "de": "Gedruckt: vorher {{was}}, jetzt {{now}}"
+ },
+ "reduce.mustBeLower": {
+  "en": "The reduced price must be below the normal price.",
+  "ar": "يجب أن يكون السعر المخفّض أقل من السعر العادي.",
+  "tr": "İndirimli fiyat normal fiyatın altında olmalı.",
+  "fr": "Le prix démarqué doit être inférieur au prix normal.",
+  "es": "El precio rebajado debe ser menor que el normal.",
+  "de": "Der reduzierte Preis muss unter dem Normalpreis liegen."
+ },
+ "reduce.reason": {
+  "en": "Reason (not printed)",
+  "ar": "السبب (لا يُطبع)",
+  "tr": "Neden (basılmaz)",
+  "fr": "Raison (non imprimée)",
+  "es": "Motivo (no se imprime)",
+  "de": "Grund (wird nicht gedruckt)"
+ },
+ "reduce.reasonPh": {
+  "en": "e.g. Short date",
+  "ar": "مثال: قرب انتهاء الصلاحية",
+  "tr": "örn. Son kullanma yakın",
+  "fr": "ex. Date courte",
+  "es": "p. ej. Fecha corta",
+  "de": "z. B. Kurzes MHD"
+ },
+ "reduce.normalKept": {
+  "en": "The product keeps its normal price. Reduced labels are printed from To print.",
+  "ar": "يحتفظ المنتج بسعره العادي. تُطبع الملصقات المخفّضة من قائمة الطباعة.",
+  "tr": "Ürün normal fiyatını korur. İndirimli etiketler Yazdırılacak'tan basılır.",
+  "fr": "Le produit garde son prix normal. Les étiquettes démarquées s'impriment depuis À imprimer.",
+  "es": "El producto mantiene su precio normal. Las etiquetas rebajadas se imprimen desde Por imprimir.",
+  "de": "Das Produkt behält seinen Normalpreis. Reduzierte Etiketten druckt man unter „Zu drucken“."
+ },
+ "reduce.addedTitle": {
+  "en": "Reduced labels added",
+  "ar": "أُضيفت الملصقات المخفّضة",
+  "tr": "İndirimli etiketler eklendi",
+  "fr": "Étiquettes démarquées ajoutées",
+  "es": "Etiquetas rebajadas añadidas",
+  "de": "Reduzierte Etiketten hinzugefügt"
+ },
+ "reduce.addedBody": {
+  "en": "{{count}} label(s) are waiting in To print.",
+  "ar": "{{count}} ملصق بانتظار الطباعة.",
+  "tr": "{{count}} etiket Yazdırılacak'ta bekliyor.",
+  "fr": "{{count}} étiquette(s) attendent dans À imprimer.",
+  "es": "{{count}} etiqueta(s) esperan en Por imprimir.",
+  "de": "{{count}} Etikett(en) warten unter „Zu drucken“."
+ },
+ "reduce.failed": {
+  "en": "The reduction could not be saved. Nothing was changed.",
+  "ar": "تعذّر حفظ التخفيض. لم يتغيّر شيء.",
+  "tr": "İndirim kaydedilemedi. Hiçbir şey değişmedi.",
+  "fr": "La démarque n'a pas pu être enregistrée. Rien n'a été modifié.",
+  "es": "No se pudo guardar la rebaja. No se ha cambiado nada.",
+  "de": "Die Reduzierung konnte nicht gespeichert werden. Nichts wurde geändert."
+ },
+ "reduce.recent": {
+  "en": "Recent reductions",
+  "ar": "التخفيضات الأخيرة",
+  "tr": "Son indirimler",
+  "fr": "Démarques récentes",
+  "es": "Rebajas recientes",
+  "de": "Letzte Reduzierungen"
+ },
+ "reduce.summary": {
+  "en": "{{was}} → {{now}} · {{count}} labels",
+  "ar": "{{was}} ← {{now}} · {{count}} ملصق",
+  "tr": "{{was}} → {{now}} · {{count}} etiket",
+  "fr": "{{was}} → {{now}} · {{count}} étiquettes",
+  "es": "{{was}} → {{now}} · {{count}} etiquetas",
+  "de": "{{was}} → {{now}} · {{count}} Etiketten"
+ }
+}
